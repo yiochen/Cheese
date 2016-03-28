@@ -2,7 +2,8 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
-
+#define WORLD_HEIGHT 768
+#define WORLD_WIDTH 1024
 /**
 @brief    The cocos2d Application.
 
