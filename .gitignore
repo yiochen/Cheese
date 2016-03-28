@@ -162,3 +162,4 @@ tests/cpp-tests/Resources/audio
 /tests/lua-empty-test/src/cocos/
 /tests/lua-game-controller-test/src/cocos/
 /tests/lua-tests/src/cocos/
+proj.win32/Cheese.VC.opendb
