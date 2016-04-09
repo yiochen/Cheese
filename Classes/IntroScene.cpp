@@ -88,13 +88,13 @@ bool IntroScene::init()
 	auto rootNode = CSLoader::createNode("IntroScene.csb");
 
 	addChild(rootNode);
-	this->schedule(schedule_selector(IntroScene::transit), 1.0f);
+	this->scheduleOnce(schedule_selector(IntroScene::transit), 1.0f);
 	
 	return true;
 }
 
 void IntroScene::transit(float dt) {
 	auto menuScene = MenuScene::createScene();
-	Director::getInstance()->replaceScene(TransitionCrossFade::create(1.0, (Scene*)menuScene));
+	Director::getInstance()->replaceScene(TransitionFade::create(1.0f, (Scene*)menuScene, Color3B::BLACK));
 	
 }

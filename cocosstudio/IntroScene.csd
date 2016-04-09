@@ -2,23 +2,7 @@
   <PropertyGroup Name="IntroScene" Type="Scene" ID="f367eea9-f631-4f71-b807-7e544ddb7c42" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="0" Speed="1.0000">
-        <Timeline ActionTag="51410388" Property="Position">
-          <PointFrame FrameIndex="0" X="512.0000" Y="384.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-        </Timeline>
-        <Timeline ActionTag="51410388" Property="Scale">
-          <ScaleFrame FrameIndex="0" X="1.0000" Y="1.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-        </Timeline>
-        <Timeline ActionTag="51410388" Property="RotationSkew">
-          <ScaleFrame FrameIndex="0" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-        </Timeline>
-      </Animation>
+      <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="sc_intro" Tag="9" ctype="GameNodeObjectData">
         <Size X="1024.0000" Y="768.0000" />
         <Children>
