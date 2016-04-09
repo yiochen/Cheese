@@ -28,5 +28,16 @@
         <LastRunType Value="Windows" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="MenuScene.csd" />
+          <FilePathData Path="IntroScene.csd" />
+          <FilePathData Path="GameScene.csd" />
+          <FilePathData Path="TileLayer.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="TileLayer.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>

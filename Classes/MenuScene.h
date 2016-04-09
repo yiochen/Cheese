@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
 class MenuScene : public cocos2d::Layer
 {
@@ -14,6 +15,8 @@ public:
 
     // implement the "static create()" method manually
     CREATE_FUNC(MenuScene);
+private:
+	void startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

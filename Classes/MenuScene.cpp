@@ -1,6 +1,7 @@
 #include "MenuScene.h"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
+
+#include "GameScene.h"
 
 USING_NS_CC;
 
@@ -85,8 +86,17 @@ bool MenuScene::init()
     }
     
     auto rootNode = CSLoader::createNode("MenuScene.csb");
-
+	cocos2d::ui::Button* startBtn =(cocos2d::ui::Button*) rootNode->getChildByName("btn_start");
+	startBtn->addTouchEventListener(CC_CALLBACK_2(MenuScene::startBtnTouchEvent, this));
     addChild(rootNode);
 
     return true;
+}
+
+void MenuScene::startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		//time to transit to the game scene;
+		auto gameScene = GameScene::createScene();
+		Director::getInstance()->replaceScene((Scene*)gameScene);
+	}
 }
