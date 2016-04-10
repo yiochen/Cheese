@@ -136,7 +136,9 @@
         <Project Name="GameScene.csd" Type="Scene" />
         <Project Name="IntroScene.csd" Type="Scene" />
         <Project Name="MenuScene.csd" Type="Scene" />
-        <Project Name="TileLayer.csd" Type="Layer" />
+        <Project Name="ArmyTab.csd" Type="Scene" />
+        <Project Name="MapLayer.csd" Type="Node" />
+        <Project Name="HudLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>
