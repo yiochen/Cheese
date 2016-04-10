@@ -6,7 +6,7 @@
       <ObjectData Name="Scene" Tag="10" ctype="GameNodeObjectData">
         <Size X="1024.0000" Y="768.0000" />
         <Children>
-          <AbstractNodeData Name="FileNode_3" ActionTag="356772323" Tag="63" IconVisible="True" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="1024.0000" TopMargin="768.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="MapLayer" ActionTag="356772323" Tag="63" IconVisible="True" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="1024.0000" TopMargin="768.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position />
@@ -16,7 +16,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="MapLayer.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="FileNode_4" ActionTag="410657711" Tag="66" IconVisible="True" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="HudLayer" ActionTag="410657711" Tag="66" IconVisible="True" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
             <Size X="1024.0000" Y="768.0000" />
             <AnchorPoint />
             <Position />
