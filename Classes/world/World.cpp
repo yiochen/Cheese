@@ -20,6 +20,7 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	return this;
 }
 World* World::initSpriteCache() {
+	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Assets/spritesheet/swiss/SwissSheet.plist", "Assets/spritesheet/swiss/SwissSheet.png");
 	return this;
 }
 
