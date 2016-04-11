@@ -150,6 +150,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp" />
     <ClCompile Include="..\Classes\component\Component.cpp" />
     <ClCompile Include="..\Classes\component\PooledComponent.cpp" />
+    <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
     <ClCompile Include="..\Classes\entity\Entity.cpp" />
     <ClCompile Include="..\Classes\entity\Item\Item.cpp" />
     <ClCompile Include="..\Classes\entity\Player\Player.cpp" />
@@ -171,6 +172,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\Component.h" />
     <ClInclude Include="..\Classes\component\ComponentCatalog.h" />
     <ClInclude Include="..\Classes\component\PooledComponent.h" />
+    <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
     <ClInclude Include="..\Classes\Debug.h" />
     <ClInclude Include="..\Classes\entity\Entity.h" />
     <ClInclude Include="..\Classes\entity\Item\Item.h" />

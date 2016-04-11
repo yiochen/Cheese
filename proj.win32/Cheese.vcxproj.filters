@@ -102,6 +102,9 @@
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\ComponentCatalog.h">
       <Filter>src\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\KineticComp.h">
+      <Filter>src\component\pooled</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
