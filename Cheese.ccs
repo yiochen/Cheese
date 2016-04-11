@@ -132,6 +132,7 @@
               <Image Name="TopDownDesert99.png" />
               <Image Name="TopDownDesertBackup.png" />
             </Folder>
+            <TmxFile Name="Test.tmx" />
           </Folder>
         </Folder>
         <Project Name="ArmyTab.csd" Type="Scene" />
