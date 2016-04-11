@@ -11,5 +11,8 @@ enum GameKey {
 	DOWN,
 	LEFT,
 	RIGHT,
+	H,
+	U,
+	ESCAPE,
 	END//this is used as a marker for ending
 };

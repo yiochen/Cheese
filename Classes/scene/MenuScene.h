@@ -4,6 +4,8 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 
+USING_NS_CC;
+
 class MenuScene : public cocos2d::Layer
 {
 public:
@@ -17,6 +19,7 @@ public:
     CREATE_FUNC(MenuScene);
 private:
 	void startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

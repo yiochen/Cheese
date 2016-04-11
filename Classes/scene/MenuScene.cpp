@@ -35,6 +35,10 @@ bool MenuScene::init()
 	startBtn->addTouchEventListener(CC_CALLBACK_2(MenuScene::startBtnTouchEvent, this));
     addChild(rootNode);
 
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyPressed = CC_CALLBACK_2(MenuScene::onKeyReleased, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
     return true;
 }
 
@@ -43,5 +47,21 @@ void MenuScene::startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventT
 		//time to transit to the game scene;
 		auto gameScene = GameScene::createScene();
 		Director::getInstance()->pushScene((Scene*)gameScene);
+		
+	}
+}
+
+void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
+	switch (keyCode) {
+
+	case EventKeyboard::KeyCode::KEY_ESCAPE: {
+		exit;
+		break;
+	}
+	case EventKeyboard::KeyCode::KEY_ENTER: {
+		auto gameScene = GameScene::createScene();
+		Director::getInstance()->pushScene((Scene*)gameScene);
+		break;
+	}
 	}
 }
