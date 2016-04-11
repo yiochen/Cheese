@@ -3,3 +3,7 @@
 Zombie::Zombie() {
     
 }
+
+void Zombie::init() {
+
+}

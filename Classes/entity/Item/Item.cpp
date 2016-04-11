@@ -3,3 +3,7 @@
 Item::Item() {
     
 }
+
+void Item::init() {
+
+}

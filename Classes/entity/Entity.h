@@ -4,5 +4,6 @@
 */
 class Entity {
 public:
+	virtual void init() {};//the default entity init function doesn't do anything
     Entity();
 };

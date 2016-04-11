@@ -1,6 +1,7 @@
 #pragma once
-
-class Item {
+#include "entity/Entity.h"
+class Item:public Entity {
 public:
+	void init() override;
     Item();
 };

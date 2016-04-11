@@ -2,9 +2,9 @@
 
 #include "cocos2d.h"
 
-using namespace cocos2d;
+USING_NS_CC;
 
-class GameScene : public cocos2d::Layer {
+class GameScene : public Layer {
 public:
 	static cocos2d::Scene* createScene();
 
