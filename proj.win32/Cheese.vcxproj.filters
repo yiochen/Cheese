@@ -81,6 +81,9 @@
     <ClCompile Include="..\Classes\component\PooledComponent.cpp">
       <Filter>src\component</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\ArmyTabScene.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -124,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Debug.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\ArmyTabScene.h">
+      <Filter>src\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

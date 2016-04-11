@@ -154,6 +154,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\entity\Player\Player.cpp" />
     <ClCompile Include="..\Classes\entity\zombie\Zombie.cpp" />
     <ClCompile Include="..\Classes\runner\EntityRunner.cpp" />
+    <ClCompile Include="..\Classes\scene\ArmyTabScene.cpp" />
     <ClCompile Include="..\Classes\scene\GameScene.cpp" />
     <ClCompile Include="..\Classes\scene\IntroScene.cpp" />
     <ClCompile Include="..\Classes\scene\MenuScene.cpp" />
@@ -170,6 +171,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\entity\Player\Player.h" />
     <ClInclude Include="..\Classes\entity\zombie\Zombie.h" />
     <ClInclude Include="..\Classes\runner\EntityRunner.h" />
+    <ClInclude Include="..\Classes\scene\ArmyTabScene.h" />
     <ClInclude Include="..\Classes\scene\GameScene.h" />
     <ClInclude Include="..\Classes\scene\IntroScene.h" />
     <ClInclude Include="..\Classes\scene\MenuScene.h" />
