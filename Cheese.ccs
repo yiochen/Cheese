@@ -8,14 +8,18 @@
             <Image Name="EXAMPLE.png" />
             <Image Name="Exit.png" />
             <Image Name="Exit_pressed.png" />
+            <Image Name="Help.png" />
             <Image Name="Logo.png" />
             <Image Name="Start.png" />
             <Image Name="Start_pressed.png" />
             <Image Name="Team.png" />
             <Image Name="Title.png" />
-            <Image Name="Help.png" />
           </Folder>
           <Folder Name="map">
+            <Folder Name="FactoryLevel">
+              <TmxFile Name="Test.tmx" />
+              <Image Name="Tiles.png" />
+            </Folder>
             <Folder Name="TopDownDesert">
               <Image Name="GridCellSelector.png" />
               <Image Name="GridCellSelector0.png" />
@@ -131,10 +135,6 @@
               <Image Name="TopDownDesert98.png" />
               <Image Name="TopDownDesert99.png" />
               <Image Name="TopDownDesertBackup.png" />
-            </Folder>
-            <Folder Name="FactoryLevel">
-              <TmxFile Name="Test.tmx" />
-              <Image Name="Tiles.png" />
             </Folder>
           </Folder>
         </Folder>
