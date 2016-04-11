@@ -14,7 +14,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="Assets/map/Test.tmx" Plist="" />
+            <FileData Type="Normal" Path="Assets/map/FactoryLevel/Test.tmx" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
