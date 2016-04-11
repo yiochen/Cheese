@@ -32,8 +32,8 @@ bool GameScene::init()
 
 
 
-	Node* backgroundLayer=(Node*)rootNode->getChildByName("desert_layer");
-	Node* actionLayer = (Node*)rootNode->getChildByName("action_layer");
+	Node* backgroundLayer=(Node*)rootNode->getChildByName("MapLayer");
+	Node* actionLayer = (Node*)rootNode->getChildByName("ActionLayer");
 	EventListenerKeyboard *keyListener = EventListenerKeyboard::create();
 	keyListener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
 	keyListener->onKeyReleased = CC_CALLBACK_2(GameScene::onKeyReleased, this);
@@ -42,6 +42,7 @@ bool GameScene::init()
 	//create world and initialize world
 	World * world = World::instance();
 	world->initWorld(backgroundLayer,actionLayer);
+	world->initSpriteCache();
 	this->resume();
 	return true;
 }

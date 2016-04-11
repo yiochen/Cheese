@@ -8,7 +8,7 @@ USING_NS_CC;
 
 class Player:public Entity {
 private:
-	//Some of the function to be 
+	//TODO: for now, thoses fields are here, later on, they will be moved to component
 	Sprite* sprite;
 public:
 	std::list<Zombie*> zombies;

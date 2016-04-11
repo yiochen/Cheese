@@ -140,6 +140,7 @@
         <Project Name="IntroScene.csd" Type="Scene" />
         <Project Name="MapLayer.csd" Type="Node" />
         <Project Name="MenuScene.csd" Type="Scene" />
+        <Project Name="ActionLayer.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

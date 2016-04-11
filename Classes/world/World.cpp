@@ -13,14 +13,18 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	this->actionNode = actionLayer;
 	CCLOG("Created the world");
 	//initialize the Pools
-	
+	initSpriteCache();
 	//initialize all the game objects/entities
-
+	initPools();
+	initPlayers();
 	//initialize all the entity runners
 	return this;
 }
 World* World::initSpriteCache() {
-	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Assets/spritesheet/swiss/SwissSheet.plist", "Assets/spritesheet/swiss/SwissSheet.png");
+	//this will be move to lua
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Assets/spritesheet/basic_zombie/BasicZombieSheet.plist", "Assets/spritesheet/basic_zombie/BasicZombieSheet.png");
+	
+	
 	return this;
 }
 

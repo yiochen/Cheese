@@ -22,7 +22,7 @@ private:
 	ObjectPool<Player> *playerPool;
 	ObjectPool<Zombie> *zombiePool;
 	ObjectPool<Item> *itemPool;
-
+	Sprite* testSprite;
 	World();
 	World* initPools();
 	World* initPlayers();
@@ -42,6 +42,8 @@ public:
 	*/
 	World* initWorld(Node* backgroundLayer, Node* actionLayer);
 	World* initSpriteCache();
+	Node* getBackgroundNode() { return backgroundNode; }
+	Node* getActionNode() { return actionNode; }
 	void update(float delta);
 	void destroy();
 };
