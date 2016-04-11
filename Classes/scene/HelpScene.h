@@ -2,6 +2,8 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 
+USING_NS_CC;
+
 class HelpScene : public cocos2d::Layer
 {
 public:
@@ -15,4 +17,5 @@ public:
 	CREATE_FUNC(HelpScene);
 private:
 	void ExitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event);
 };

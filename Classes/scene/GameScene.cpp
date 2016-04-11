@@ -34,7 +34,9 @@ bool GameScene::init()
 	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("ExitButton");
 	exitBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::exitBtnTouchEvent, this));
 	
-	
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyReleased, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 
 
@@ -53,10 +55,44 @@ bool GameScene::init()
 }
 
 void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event) {
-	CCLOG("Key with keycode %d pressed", keyCode);
+	
 }
 void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
-	CCLOG("Key with keycode %d released", keyCode);
+	switch (keyCode) {
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+	case EventKeyboard::KeyCode::KEY_A:
+		//event->getCurrentTarget()->setPosition(--loc.x, loc.y);
+		break;
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+	case EventKeyboard::KeyCode::KEY_D:
+		//event->getCurrentTarget()->setPosition(++loc.x, loc.y);
+		break;
+	case EventKeyboard::KeyCode::KEY_UP_ARROW:
+	case EventKeyboard::KeyCode::KEY_W:
+		//event->getCurrentTarget()->setPosition(loc.x, ++loc.y);
+		break;
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+	case EventKeyboard::KeyCode::KEY_S:
+		//event->getCurrentTarget()->setPosition(loc.x, --loc.y);
+		break;
+	case EventKeyboard::KeyCode::KEY_H: {
+		CCLOG("PRESSED H");
+		auto helpTab = HelpScene::createScene();
+		Director::getInstance()->pushScene((Scene*)helpTab);
+		break;
+	}
+	case EventKeyboard::KeyCode::KEY_U: {
+		CCLOG("PRESSED U");
+		auto armyTab = ArmyTabScene::createScene();
+		Director::getInstance()->pushScene((Scene*)armyTab);
+		break;
+	}
+	case EventKeyboard::KeyCode::KEY_ESCAPE: {
+		CCLOG("PRESSED ESCAPE");
+		Director::getInstance()->popScene();
+		break;
+	}
+	}
 }
 
 void GameScene::armyBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {

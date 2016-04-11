@@ -32,6 +32,10 @@ bool HelpScene::init()
 
 	auto rootNode = CSLoader::createNode("HelpScene.csb");
 
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyPressed = CC_CALLBACK_2(HelpScene::onKeyReleased, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
 	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("ExitBtn");
 	exitBtn->addTouchEventListener(CC_CALLBACK_2(HelpScene::ExitBtnTouchEvent, this));
 
@@ -45,5 +49,17 @@ void HelpScene::ExitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED) {
 		//time to transit to the game scene;
 		Director::getInstance()->popScene();
+	}
+}
+
+void HelpScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
+	switch (keyCode) {
+	
+	case EventKeyboard::KeyCode::KEY_ESCAPE: {
+		CCLOG("PRESSED ESCAPE");
+	//	Director::getInstance()->
+		Director::getInstance()->popScene();
+		break;
+	}
 	}
 }

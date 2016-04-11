@@ -35,6 +35,10 @@ bool ArmyTabScene::init()
 	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("ExitBtn");
 	exitBtn->addTouchEventListener(CC_CALLBACK_2(ArmyTabScene::ExitBtnTouchEvent, this));
 
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyPressed = CC_CALLBACK_2(ArmyTabScene::onKeyReleased, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
 	cocos2d::ui::Button* stinkiesTabBtn = (cocos2d::ui::Button*) rootNode->getChildByName("ArmyCount")->getChildByName("TheStinkies");
 	stinkiesTabBtn->addTouchEventListener(CC_CALLBACK_2(ArmyTabScene::StinkiesBtnTouchEvent, this, rootNode));
 	cocos2d::ui::Button* HolyBonesTabBtn = (cocos2d::ui::Button*) rootNode->getChildByName("ArmyCount")->getChildByName("HolyBones");
@@ -81,5 +85,15 @@ void ArmyTabScene::ChuckersBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::Touch
 		root->getChildByName("StatStinkies")->setVisible(false);
 		root->getChildByName("StatHolyBones")->setVisible(false);
 		root->getChildByName("StatChuckers")->setVisible(true);
+	}
+}
+void ArmyTabScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
+	switch (keyCode) {
+
+	case EventKeyboard::KeyCode::KEY_ESCAPE: {
+		CCLOG("PRESSED ESCAPE");
+		Director::getInstance()->popScene();
+		break;
+	}
 	}
 }

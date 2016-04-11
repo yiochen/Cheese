@@ -2,6 +2,8 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 
+USING_NS_CC;
+
 class ArmyTabScene : public cocos2d::Layer
 {
 public:
@@ -18,4 +20,5 @@ private:
 	void ArmyTabScene::StinkiesBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type, cocos2d::Node* root);
 	void ArmyTabScene::HolyBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type, cocos2d::Node* root);
 	void ArmyTabScene::ChuckersBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type, cocos2d::Node* root);
+	void ArmyTabScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event);
 };
