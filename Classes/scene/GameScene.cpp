@@ -48,7 +48,6 @@ bool GameScene::init()
 	//create world and initialize world
 	World * world = World::instance();
 	world->initWorld(backgroundLayer,actionLayer);
-	world->initSpriteCache();
 	this->resume();
 	return true;
 }

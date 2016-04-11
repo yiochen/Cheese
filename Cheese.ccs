@@ -13,7 +13,6 @@
             <Image Name="Start_pressed.png" />
             <Image Name="Team.png" />
             <Image Name="Title.png" />
-            <Image Name="Help.png" />
           </Folder>
           <Folder Name="map">
             <Folder Name="TopDownDesert">
@@ -134,6 +133,7 @@
             </Folder>
           </Folder>
         </Folder>
+        <Project Name="ActionLayer.csd" Type="Node" />
         <Project Name="ArmyTab.csd" Type="Scene" />
         <Project Name="GameScene.csd" Type="Scene" />
         <Project Name="HelpScene.csd" Type="Scene" />
@@ -141,7 +141,6 @@
         <Project Name="IntroScene.csd" Type="Scene" />
         <Project Name="MapLayer.csd" Type="Node" />
         <Project Name="MenuScene.csd" Type="Scene" />
-        <Project Name="ActionLayer.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

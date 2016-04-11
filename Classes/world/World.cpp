@@ -48,6 +48,7 @@ World* World::initPlayers() {
 	//create Main character
 	swiss = playerPool->New();
 	swiss->init();
+	this->playerList.push_back(swiss);
 	//create other players
 	return this;
 }
