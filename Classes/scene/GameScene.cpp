@@ -48,15 +48,49 @@ bool GameScene::init()
 	//create world and initialize world
 	World * world = World::instance();
 	world->initWorld(backgroundLayer,actionLayer);
-	this->resume();
+	this->scheduleUpdate();
+	//this->resume();
 	return true;
 }
 
 void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event) {
 	CCLOG("Key with keycode %d pressed", keyCode);
+	
+	auto world = World::instance();
+	switch (keyCode) {
+	case EventKeyboard::KeyCode::KEY_UP_ARROW: 
+		CCLOG("pressed up key");
+		world->keyStatus[GameKey::UP] = true;
+		break;
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW: 
+		world->keyStatus[GameKey::DOWN] = true;
+		break;
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW: 
+		world->keyStatus[GameKey::LEFT] = true;
+		break;
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW: 
+		world->keyStatus[GameKey::RIGHT] = true;
+		break;
+	}
+	
 }
 void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 	CCLOG("Key with keycode %d released", keyCode);
+	auto world = World::instance();
+	switch (keyCode) {
+	case EventKeyboard::KeyCode::KEY_UP_ARROW:
+		world->keyStatus[GameKey::UP] = false;
+		break;
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW: 
+		world->keyStatus[GameKey::DOWN] = false;
+		break;
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW: 
+		world->keyStatus[GameKey::LEFT] = false;
+		break;
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW: 
+		world->keyStatus[GameKey::RIGHT] = false;
+		break;
+	}
 }
 
 void GameScene::armyBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
@@ -83,6 +117,7 @@ void GameScene::exitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 
 
 void GameScene::update(float delta) {
+	//TODO: for some reason, this is not called
 	World* world = World::instance();
 	if (world) {
 		world->update(delta);

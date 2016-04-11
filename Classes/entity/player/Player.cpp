@@ -2,6 +2,7 @@
 #include "Debug.h"
 #include "cocos2d.h"
 #include "world/World.h"
+#include "graphics/TextureManager.h"
 USING_NS_CC;
 
 Player::Player() {
@@ -10,8 +11,14 @@ Player::Player() {
 }
 void Player::init() {
 	//TODO, for now, it will just create the sprite here, but later, move it to a component
-	this->sprite = Sprite::createWithSpriteFrameName("WALK_LEFT/0001.png");
-	//testSprite->initWithSpriteFrameName("Assets/spritesheet/swiss/WALK_BACK/0001.png");
+	TextureManager* textureManager = World::instance()->getTextureManager();
+	auto frames = textureManager->getAnimation("swiss", "WALK_FORTH");
+	this->sprite = Sprite::createWithSpriteFrame(frames.front());
 	World::instance()->getActionNode()->addChild(sprite);
+	auto animation = Animation::createWithSpriteFrames(frames, 1.0f / 8);
 	this->sprite->setPosition(Point(0, 0));
+	this->sprite->runAction(RepeatForever::create(Animate::create(animation)));
+
+	//add components
+	
 }

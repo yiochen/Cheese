@@ -40,6 +40,12 @@
     <Filter Include="src\entity\player">
       <UniqueIdentifier>{6f9999c3-c06b-4096-b84d-697d68355ea2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\graphics">
+      <UniqueIdentifier>{4cc110df-6d40-4046-9105-fcece33fe572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{9b32dece-ded3-4072-be09-4bd5fce12c9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -86,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\scene\HelpScene.cpp">
       <Filter>src\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\graphics\TextureManager.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp">
+      <Filter>src\component\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp">
+      <Filter>src\runner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +151,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\scene\HelpScene.h">
       <Filter>src\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\graphics\TextureManager.h">
+      <Filter>src\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\KeyboardComp.h">
+      <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\GameKey.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\KeyboardRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\ComponentCatalog.h">
+      <Filter>src\component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

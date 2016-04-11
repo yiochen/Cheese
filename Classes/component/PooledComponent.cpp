@@ -1,5 +1,5 @@
 #include "PooledComponent.h"
 
-PooledComponent::PooledComponent() {
+PooledComp::PooledComp() {
     
 }

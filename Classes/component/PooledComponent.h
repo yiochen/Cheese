@@ -1,6 +1,6 @@
 #pragma once
-
-class PooledComponent {
+#include "component/Component.h"
+class PooledComp:Comp {
 public:
-    PooledComponent();
+    PooledComp();
 };
