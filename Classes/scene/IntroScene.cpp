@@ -1,5 +1,5 @@
-#include "IntroScene.h"
-#include "MenuScene.h"
+#include "scene/IntroScene.h"
+#include "scene/MenuScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -90,6 +90,7 @@ bool IntroScene::init()
 	addChild(rootNode);
 	this->scheduleOnce(schedule_selector(IntroScene::transit), 1.0f);
 	
+	//
 	return true;
 }
 

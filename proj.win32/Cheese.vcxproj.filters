@@ -10,6 +10,36 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\scene">
+      <UniqueIdentifier>{7bd8ac6b-85db-41f2-9d83-2e3c287a6e20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity">
+      <UniqueIdentifier>{b6357a1c-336d-4d25-8fc4-f0ffc0eb1b96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\component">
+      <UniqueIdentifier>{1fb970e3-0368-4c52-bddf-954e7e04b235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\world">
+      <UniqueIdentifier>{18d6bde5-a62e-4ecd-b0cc-537daa63f830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\runner">
+      <UniqueIdentifier>{8f45f279-2ad4-457b-bd15-be1d94eef66c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity\zombie">
+      <UniqueIdentifier>{aaf0bd8f-743c-4d9d-a288-7f4f2b556c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity\Item">
+      <UniqueIdentifier>{71e928d0-4e53-496f-b2ae-89ddfc700a09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\component\pooled">
+      <UniqueIdentifier>{728451d6-c985-45be-ad30-6ba127199ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\component\basic">
+      <UniqueIdentifier>{92fc0fc9-eef1-4fe5-989d-99ac89e162e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity\player">
+      <UniqueIdentifier>{6f9999c3-c06b-4096-b84d-697d68355ea2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,14 +48,38 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MenuScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\scene\MenuScene.cpp">
+      <Filter>src\scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\IntroScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\scene\IntroScene.cpp">
+      <Filter>src\scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\scene\GameScene.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entity\Entity.cpp">
+      <Filter>src\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\Component.cpp">
+      <Filter>src\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\world\World.cpp">
+      <Filter>src\world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\EntityRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entity\zombie\Zombie.cpp">
+      <Filter>src\entity\zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entity\Player\Player.cpp">
+      <Filter>src\entity\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entity\Item\Item.cpp">
+      <Filter>src\entity\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\PooledComponent.cpp">
+      <Filter>src\component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,13 +89,40 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MenuScene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\scene\MenuScene.h">
+      <Filter>src\scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\IntroScene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\scene\IntroScene.h">
+      <Filter>src\scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameScene.h">
+    <ClInclude Include="..\Classes\scene\GameScene.h">
+      <Filter>src\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\Entity.h">
+      <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\Component.h">
+      <Filter>src\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\world\World.h">
+      <Filter>src\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\EntityRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\zombie\Zombie.h">
+      <Filter>src\entity\zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\Player\Player.h">
+      <Filter>src\entity\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\Item\Item.h">
+      <Filter>src\entity\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\PooledComponent.h">
+      <Filter>src\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Debug.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

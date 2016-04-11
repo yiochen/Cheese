@@ -25,6 +25,33 @@ This is a group project for CSE 380 in Stony Brook University. So we do not acce
 
 ## Where to Learn Cocos2d -x
 Cocos2d-x provides very good documentation. Please go to [get started page](http://www.cocos2d-x.org/learn) to learn more about Cocos2d-x.
+
+## Class Overview
+This project adopt a way similar to an Entity Component Framework to prevent over abstraction. Basically each object in the game is an Entity. Each 
+entity can hold some components. There is no difference between a meelee zombie object and a range zombie object. The only difference is that they hold 
+different components. Think about components as both attribute and behavior. To read more about Entity Component Framework, visit this [page][ECS]. 
+Following are some of the important classes.
+
+### World
+World is the most important class. It contains all the game objects in the game. It will also update all the objects every frame. 
+### Entity
+Entity is the super class of all possible game objects in the game (such as zombie, swiss, bullet, items).
+### Zombie
+Zombie extends Entity. All zombie has a leader.
+### Player
+Player extends Entity. Player is the leader of a zombie horde. The strayed zombie also has an invisible player leader.
+### Item
+Item extends Entity. Every non living thing is the game is a item, for example, bullet, medicine, rewards.
+### Component
+Components are attribute or behavior of an entity
+### PooledComponent
+Extends Component. It will be recycled when removed from game.
+### EntityRunner
+EntityRunner will be called by world on each frame. It will gather all the entities that has the components it interested in, and perform some operation.
+
+
+
 [logo]: https://github.com/yiochen/Cheese/blob/master/Resources/res/Assets/Images/Logo.png?raw=true
 [team]:https://github.com/yiochen/Cheese/blob/master/Resources/res/Assets/Images/Team.png?raw=true
 [cocos]:http://www.cocos2d-x.org/download
+[ECS]:http://www.gamedev.net/page/resources/_/technical/game-programming/understanding-component-entity-systems-r3013

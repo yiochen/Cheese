@@ -1,4 +1,4 @@
-#include "MenuScene.h"
+#include "scene/MenuScene.h"
 #include "cocostudio/CocoStudio.h"
 
 #include "GameScene.h"
