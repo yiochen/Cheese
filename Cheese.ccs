@@ -138,6 +138,7 @@
             </Folder>
           </Folder>
         </Folder>
+        <Project Name="ActionLayer.csd" Type="Node" />
         <Project Name="ArmyTab.csd" Type="Scene" />
         <Project Name="GameScene.csd" Type="Scene" />
         <Project Name="HelpScene.csd" Type="Scene" />

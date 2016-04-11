@@ -1,6 +1,7 @@
 #pragma once
 
 #include <list>
+#include <vector>
 #include "entity/player/Player.h"
 #include "entity/zombie/Zombie.h"
 #include "entity/Item/Item.h"
@@ -9,8 +10,8 @@
 #include "cocos2d.h"
 
 #include "ObjectPool/ObjectPool.h"
-
-
+#include "graphics/TextureManager.h"
+#include "util/GameKey.h"
 USING_NS_CC;
 //World is a singleton class
 
@@ -22,10 +23,12 @@ private:
 	ObjectPool<Player> *playerPool;
 	ObjectPool<Zombie> *zombiePool;
 	ObjectPool<Item> *itemPool;
-
+	Sprite* testSprite;
+	TextureManager* textureManager;
 	World();
 	World* initPools();
 	World* initPlayers();
+	World* initRunners();
 public:
 	static World *instance() {
 		if (!s_instance) {
@@ -35,6 +38,7 @@ public:
 	}
 	std::list<Player*> playerList;
 	std::list<EntityRunner*> runnerList;
+	std::vector<bool> keyStatus;
 
 	Player* swiss;
     /**
@@ -42,6 +46,9 @@ public:
 	*/
 	World* initWorld(Node* backgroundLayer, Node* actionLayer);
 	World* initSpriteCache();
+	Node* getBackgroundNode() { return backgroundNode; }
+	Node* getActionNode() { return actionNode; }
+	TextureManager* getTextureManager() { return textureManager; }
 	void update(float delta);
 	void destroy();
 };

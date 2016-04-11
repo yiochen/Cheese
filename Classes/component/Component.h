@@ -1,6 +1,6 @@
 #pragma once
 
-class Component {
+class Comp {
 public:
-    Component();
+    Comp();
 };

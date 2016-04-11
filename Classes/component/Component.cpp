@@ -1,5 +1,6 @@
 #include "Component.h"
 
-Component::Component() {
+
+Comp::Comp() {
     
 }
