@@ -135,6 +135,7 @@
         </Folder>
         <Project Name="ArmyTab.csd" Type="Scene" />
         <Project Name="GameScene.csd" Type="Scene" />
+        <Project Name="HelpScene.csd" Type="Scene" />
         <Project Name="HudLayer.csd" Type="Layer" />
         <Project Name="IntroScene.csd" Type="Scene" />
         <Project Name="MapLayer.csd" Type="Node" />

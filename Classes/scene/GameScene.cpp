@@ -3,6 +3,7 @@
 #include "ui/CocosGUI.h"
 #include "world/World.h"
 #include "Debug.h"
+#include "scene/ArmyTabScene.h"
 USING_NS_CC;
 
 
@@ -24,8 +25,13 @@ bool GameScene::init()
 
 	auto rootNode = CSLoader::createNode("GameScene.csb");
 
+	cocos2d::ui::Button* armyBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("ArmyButton");
+	armyBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::armyBtnTouchEvent, this));
 	addChild(rootNode);
 	
+
+
+
 	Node* backgroundLayer=(Node*)rootNode->getChildByName("desert_layer");
 	Node* actionLayer = (Node*)rootNode->getChildByName("action_layer");
 	EventListenerKeyboard *keyListener = EventListenerKeyboard::create();
@@ -46,6 +52,15 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event) {
 void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 	CCLOG("Key with keycode %d released", keyCode);
 }
+
+void GameScene::armyBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		//time to transit to the game scene;
+		auto armyTab = ArmyTabScene::createScene();
+		Director::getInstance()->pushScene((Scene*)armyTab);
+	}
+}
+
 
 void GameScene::update(float delta) {
 	World* world = World::instance();
