@@ -14,5 +14,8 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(ArmyTabScene);
 private:
-	void startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void ExitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void ArmyTabScene::StinkiesBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type, cocos2d::Node* root);
+	void ArmyTabScene::HolyBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type, cocos2d::Node* root);
+	void ArmyTabScene::ChuckersBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type, cocos2d::Node* root);
 };
