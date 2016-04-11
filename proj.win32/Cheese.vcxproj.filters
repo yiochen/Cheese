@@ -84,6 +84,9 @@
     <ClCompile Include="..\Classes\scene\ArmyTabScene.cpp">
       <Filter>src\scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\HelpScene.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -129,6 +132,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\scene\ArmyTabScene.h">
+      <Filter>src\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\HelpScene.h">
       <Filter>src\scene</Filter>
     </ClInclude>
   </ItemGroup>

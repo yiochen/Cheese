@@ -4,6 +4,7 @@
 #include "world/World.h"
 #include "Debug.h"
 #include "scene/ArmyTabScene.h"
+#include "scene/HelpScene.h"
 USING_NS_CC;
 
 
@@ -24,10 +25,15 @@ bool GameScene::init()
 	}
 
 	auto rootNode = CSLoader::createNode("GameScene.csb");
+	addChild(rootNode);
 
 	cocos2d::ui::Button* armyBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("ArmyButton");
 	armyBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::armyBtnTouchEvent, this));
-	addChild(rootNode);
+	cocos2d::ui::Button* helpBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("HelpButton");
+	helpBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::helpBtnTouchEvent, this));
+	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("ExitButton");
+	exitBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::exitBtnTouchEvent, this));
+	
 	
 
 
@@ -58,6 +64,20 @@ void GameScene::armyBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 		//time to transit to the game scene;
 		auto armyTab = ArmyTabScene::createScene();
 		Director::getInstance()->pushScene((Scene*)armyTab);
+	}
+}
+void GameScene::helpBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		//time to transit to the game scene;
+		auto helpTab = HelpScene::createScene();
+		Director::getInstance()->pushScene((Scene*)helpTab);
+	}
+}
+void GameScene::exitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED) {
+		//time to transit to the game scene;
+		// NEED TO DO MORE HANDLE DESTRUCTORS HERE, END GAME AND LEVEL
+		Director::getInstance()->popScene();
 	}
 }
 

@@ -13,6 +13,7 @@
             <Image Name="Start_pressed.png" />
             <Image Name="Team.png" />
             <Image Name="Title.png" />
+            <Image Name="Help.png" />
           </Folder>
           <Folder Name="map">
             <Folder Name="TopDownDesert">

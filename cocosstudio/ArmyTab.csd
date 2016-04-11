@@ -101,7 +101,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="StatStinkies" ActionTag="-565086876" Tag="22" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="307.2000" TopMargin="38.4000" BottomMargin="115.2000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="StatStinkies" Visible="False" ActionTag="-565086876" Tag="22" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="307.2000" TopMargin="38.4000" BottomMargin="115.2000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="716.8000" Y="614.4000" />
             <Children>
               <AbstractNodeData Name="StatPanel" ActionTag="497445789" Tag="32" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="277.0432" RightMargin="9.6768" TopMargin="92.1600" BottomMargin="92.1600" TouchEnable="True" ClipAble="False" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -488,7 +488,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="MonsterTypeLabel" ActionTag="-2088699549" Tag="71" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="250.8800" RightMargin="250.8800" TopMargin="30.7200" BottomMargin="522.2400" TouchEnable="True" FontSize="20" IsCustomSize="True" LabelText="" PlaceHolderText="Chuckers" MaxLengthText="10" ctype="TextFieldObjectData">
+              <AbstractNodeData Name="MonsterTypeLabel" ActionTag="-2088699549" Tag="71" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="250.8800" RightMargin="250.8800" TopMargin="30.7200" BottomMargin="522.2400" TouchEnable="True" FontSize="20" IsCustomSize="True" LabelText="" PlaceHolderText="Holy Bones" MaxLengthText="10" ctype="TextFieldObjectData">
                 <Size X="215.0400" Y="61.4400" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="358.4000" Y="552.9600" />
@@ -519,7 +519,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="StatChuckers" ActionTag="-1276142083" Tag="73" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="307.2000" TopMargin="38.4000" BottomMargin="115.2000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="StatChuckers" Visible="False" ActionTag="-1276142083" Tag="73" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="307.2000" TopMargin="38.4000" BottomMargin="115.2000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="716.8000" Y="614.4000" />
             <Children>
               <AbstractNodeData Name="StatPanel" ActionTag="864181567" Tag="74" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="277.0432" RightMargin="9.6768" TopMargin="92.1600" BottomMargin="92.1600" TouchEnable="True" ClipAble="False" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -740,7 +740,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="MonsterTypeLabel" ActionTag="643075818" Tag="90" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="250.8800" RightMargin="250.8800" TopMargin="30.7200" BottomMargin="522.2400" TouchEnable="True" FontSize="20" IsCustomSize="True" LabelText="" PlaceHolderText="The Stinkies" MaxLengthText="10" ctype="TextFieldObjectData">
+              <AbstractNodeData Name="MonsterTypeLabel" ActionTag="643075818" Tag="90" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="250.8800" RightMargin="250.8800" TopMargin="30.7200" BottomMargin="522.2400" TouchEnable="True" FontSize="20" IsCustomSize="True" LabelText="" PlaceHolderText="Chuckers" MaxLengthText="10" ctype="TextFieldObjectData">
                 <Size X="215.0400" Y="61.4400" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="358.4000" Y="552.9600" />
