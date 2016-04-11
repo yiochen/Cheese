@@ -6,7 +6,7 @@
       <ObjectData Name="Scene" Tag="48" ctype="GameNodeObjectData">
         <Size X="1024.0000" Y="768.0000" />
         <Children>
-          <AbstractNodeData Name="HelpImage" ActionTag="-1134198751" Tag="49" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="HelpImage" ActionTag="-1134198751" Tag="49" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftEage="337" RightEage="337" TopEage="253" BottomEage="253" Scale9OriginX="337" Scale9OriginY="253" Scale9Width="350" Scale9Height="262" ctype="ImageViewObjectData">
             <Size X="1024.0000" Y="768.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="512.0000" Y="384.0000" />
@@ -14,9 +14,9 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="1.0000" Y="1.0000" />
-            <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+            <FileData Type="Normal" Path="Assets/Images/Help.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Exit" ActionTag="1213009295" Tag="53" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="870.4000" BottomMargin="691.2000" TouchEnable="True" FontSize="14" ButtonText="Exit" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="231" Scale9Height="146" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ExitBtn" ActionTag="1213009295" Tag="53" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="870.4000" BottomMargin="691.2000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="231" Scale9Height="146" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="153.6000" Y="76.8000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="947.2000" Y="729.6000" />
