@@ -39,7 +39,6 @@ public:
 	std::list<Player*> playerList;
 	std::list<EntityRunner*> runnerList;
 	std::vector<bool> keyStatus;
-
 	Player* swiss;
     /**
 	*	get called at the start of each level to initialize the world
