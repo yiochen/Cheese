@@ -33,6 +33,7 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	//initialize all the game objects/entities
 	initPools();
 	initPlayers();
+	initStrayZombie();
 	//initialize all the entity runners
 	initRunners();
 	return this;
@@ -76,7 +77,37 @@ World* World::initPlayers() {
 	return this;
 }
 
+World* World::initStrayZombie() {
+	//create the owner of stray zombies
+	strayZombie = playerPool->New();
+	strayZombie->initStrayZombie();
+	
+
+	Zombie* zombie1 = zombiePool->New();
+	zombie1->init();
+	zombie1->components[COMP_CA::KINETIC_COMP] = new KineticComp();
+	KineticComp* kineticComp = (KineticComp*)(zombie1->components[COMP_CA::KINETIC_COMP]);
+	kineticComp->maxSpeed = 1.0;
+	kineticComp->setPos(400, 100);
+	strayZombie->zombies.push_back(zombie1);
+	
+	Zombie* zombie2 = zombiePool->New();
+	zombie2->init();
+	zombie2->components[COMP_CA::KINETIC_COMP] = new KineticComp();
+	KineticComp* kineticComp2 = (KineticComp*)(zombie2->components[COMP_CA::KINETIC_COMP]);
+	kineticComp2->maxSpeed = 1.0;
+	kineticComp2->setPos(0, 300);
+	strayZombie->zombies.push_back(zombie2);
+
+
+	return this;
+
+
+}
+
+
 World* World::initRunners() {
+	
 	//init keyboardRunner
 	EntityRunner* runner;
 	this->runnerList.push_back(runner=new KeyboardRunner());

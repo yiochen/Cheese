@@ -22,3 +22,6 @@ void Player::init() {
 	//add components
 	
 }
+void Player::initStrayZombie() {
+
+}

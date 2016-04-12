@@ -14,4 +14,7 @@ public:
 	bool resting;
     KineticComp();
 	void step(Entity* ent);
+	void stepZ(Entity* ent);
+	void setPos(float, float);
+	void setSpritePos(Entity* entity);
 };

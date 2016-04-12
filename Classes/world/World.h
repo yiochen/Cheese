@@ -29,6 +29,7 @@ private:
 	World* initPools();
 	World* initPlayers();
 	World* initRunners();
+	World* initStrayZombie();
 public:
 	static World *instance() {
 		if (!s_instance) {
@@ -40,6 +41,7 @@ public:
 	std::list<EntityRunner*> runnerList;
 	std::vector<bool> keyStatus;
 	Player* swiss;
+	Player* strayZombie;
     /**
 	*	get called at the start of each level to initialize the world
 	*/

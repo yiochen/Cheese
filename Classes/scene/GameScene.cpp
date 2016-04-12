@@ -56,12 +56,10 @@ bool GameScene::init()
 }
 
 void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event) {
-	CCLOG("Key with keycode %d pressed", keyCode);
 
 	auto world = World::instance();
 	switch (keyCode) {
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-		CCLOG("pressed up key");
 		world->keyStatus[GameKey::UP] = true;
 		break;
 	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
@@ -76,7 +74,6 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event) {
 	}
 }
 void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
-	CCLOG("Key with keycode %d released", keyCode);
 	auto world = World::instance();
 	switch (keyCode) {
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
@@ -92,13 +89,11 @@ void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 		world->keyStatus[GameKey::RIGHT] = false;
 		break;
 	case EventKeyboard::KeyCode::KEY_H: {
-		CCLOG("PRESSED H");
 		auto helpTab = HelpScene::createScene();
 		Director::getInstance()->pushScene((Scene*)helpTab);
 		break;
 	}
 	case EventKeyboard::KeyCode::KEY_U: {
-		CCLOG("PRESSED U");
 		auto armyTab = ArmyTabScene::createScene();
 		Director::getInstance()->pushScene((Scene*)armyTab);
 		break;
