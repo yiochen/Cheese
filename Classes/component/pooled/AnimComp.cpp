@@ -39,6 +39,7 @@ void AnimComp::updateAnim(Entity* entity) {
 	KineticComp* kin = static_cast<KineticComp*>(entity->components[COMP_CA::KINETIC_COMP]);
 	if (kin) {
 		//update the position of the sprite 
+		//TODO: convert world location to screen location 
 		entity->sprite->setPosition(Vec2(kin->pos));
 		//check the velocity angle, change the animation state
 		float speed = kin->vel.getLength();

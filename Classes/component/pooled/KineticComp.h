@@ -5,6 +5,9 @@
 
 USING_NS_CC;
 
+/*Kinetic component store the information about entity's velocity and speed. 
+It provides a helper function to update the position of base on the current velocity.
+*/
 class KineticComp :public PooledComp{	
 public:
 	//pos is the world position

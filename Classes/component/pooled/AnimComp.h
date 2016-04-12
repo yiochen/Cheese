@@ -8,6 +8,7 @@ USING_NS_CC;
 
 //This component store the display information
 //including sprite, animation state
+//it provides helper function to change the animation and also update the sprites location on the screen
 class AnimComp :public PooledComp{
 public:
 	std::string name;
