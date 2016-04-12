@@ -13,6 +13,8 @@ private:
 public:
 	std::list<Zombie*> zombies;
 	void init() override;
+	void initStrayZombie();
+
     Player();
 	Sprite* sprite;
 };
