@@ -3,6 +3,7 @@
 #include "component/ComponentCatalog.h"
 #include "entity/Entity.h"
 #include "component/basic/KeyboardComp.h"
+#include "component/pooled/KineticComp.h"
 #include <vector>
 KeyboardRunner::KeyboardRunner() {
     
@@ -15,6 +16,7 @@ void KeyboardRunner::update(float delta) {
 	auto swiss=World::instance()->swiss;
 	
 	KeyboardComp* keyboardComp =(KeyboardComp*)(swiss->components[COMP_CA::KEYBOARD_COMP]);
+	KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
 	if (keyboardComp != NULL) {
 		auto keyIt = keyStatus.begin();
 		while (keyIt != keyStatus.end() && !(bool)(*keyIt)) {
@@ -22,6 +24,11 @@ void KeyboardRunner::update(float delta) {
 		}
 		
 		if (keyIt != keyStatus.end() && (bool)(*keyIt)) keyboardComp->changeVel(swiss);
+		else if (!kineticComp->resting) {
+			keyboardComp->resetVel(swiss);
+			CCLOG("velocity is reset, Swiss is resting");
+		}
+			
 	}
 	else {
 		CCLOG("keyboardComp doesn't exist, cannot control the player");

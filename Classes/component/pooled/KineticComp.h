@@ -1,6 +1,7 @@
 #pragma once
 #include "component/PooledComponent.h"
 #include "cocos2d.h"
+#include "entity/Entity.h"
 
 USING_NS_CC;
 
@@ -10,5 +11,7 @@ public:
 	Vec2 vel;
 	Vec2 acc;
 	float maxSpeed;
+	bool resting;
     KineticComp();
+	void step(Entity* ent);
 };

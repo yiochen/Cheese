@@ -6,4 +6,5 @@ public:
     KeyboardComp();
 	//change the velocity of the entity
 	void changeVel(Entity* entity);
+	void resetVel(Entity* entity);
 };

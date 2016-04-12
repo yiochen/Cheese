@@ -105,6 +105,9 @@
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\runner\KineticRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h">
       <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\KineticRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

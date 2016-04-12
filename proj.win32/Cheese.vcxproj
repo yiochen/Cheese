@@ -158,6 +158,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\graphics\TextureManager.cpp" />
     <ClCompile Include="..\Classes\runner\EntityRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\KineticRunner.cpp" />
     <ClCompile Include="..\Classes\scene\ArmyTabScene.cpp" />
     <ClCompile Include="..\Classes\scene\GameScene.cpp" />
     <ClCompile Include="..\Classes\scene\HelpScene.cpp" />
@@ -181,6 +182,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\graphics\TextureManager.h" />
     <ClInclude Include="..\Classes\runner\EntityRunner.h" />
     <ClInclude Include="..\Classes\runner\KeyboardRunner.h" />
+    <ClInclude Include="..\Classes\runner\KineticRunner.h" />
     <ClInclude Include="..\Classes\scene\ArmyTabScene.h" />
     <ClInclude Include="..\Classes\scene\GameScene.h" />
     <ClInclude Include="..\Classes\scene\HelpScene.h" />
