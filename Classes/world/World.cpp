@@ -3,7 +3,9 @@
 
 #include "component/ComponentCatalog.h"
 #include "component/basic/KeyboardComp.h"
+#include "component/pooled/KineticComp.h"
 #include "runner/KeyboardRunner.h"
+#include "runner/KineticRunner.h"
 
 //Initialize the pointer to be null;
 World * World::s_instance = NULL;
@@ -66,6 +68,7 @@ World* World::initPlayers() {
 	swiss = playerPool->New();
 	swiss->init();
 	swiss->components[COMP_CA::KEYBOARD_COMP] = new KeyboardComp();
+	swiss->components[COMP_CA::KINETIC_COMP] = new KineticComp();
 	this->playerList.push_back(swiss);
 	//create other players
 	return this;
@@ -75,6 +78,7 @@ World* World::initRunners() {
 	//init keyboardRunner
 	EntityRunner* runner;
 	this->runnerList.push_back(runner=new KeyboardRunner());
+	this->runnerList.push_back(runner = new KineticRunner());
 	return this;
 }
 void World::destroy() {

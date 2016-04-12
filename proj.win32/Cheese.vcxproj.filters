@@ -110,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\box\BoxHelper.cpp">
       <Filter>src\box</Filter>
+	</ClCompile>
+    <ClCompile Include="..\Classes\runner\KineticRunner.cpp">
+      <Filter>src\runner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\box\BoxHelper.h">
       <Filter>src\box</Filter>
+	</ClInclude>
+    <ClInclude Include="..\Classes\runner\KineticRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
