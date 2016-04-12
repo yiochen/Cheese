@@ -87,8 +87,8 @@ World* World::initStrayZombie() {
 	zombie1->init();
 	zombie1->components[COMP_CA::KINETIC_COMP] = new KineticComp();
 	KineticComp* kineticComp = (KineticComp*)(zombie1->components[COMP_CA::KINETIC_COMP]);
-	kineticComp->maxSpeed = 1.0;
-	kineticComp->setPos(400, 100);
+	kineticComp->maxSpeed = 0.25;
+	kineticComp->setPos(100, 100);
 	strayZombie->zombies.push_back(zombie1);
 	
 	Zombie* zombie2 = zombiePool->New();

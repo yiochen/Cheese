@@ -30,8 +30,9 @@ void KineticRunner::update(float delta) {
 		}
 		else {
 			float angle = kineticCompZ->pos.getAngle(Vec2(kineticComp->pos));
-			CCLOG("angle is %f", angle*180);
-			kineticCompZ->vel.set(kineticCompZ->maxSpeed*-sin(angle), kineticCompZ->maxSpeed*-cos(angle));
+		//	float angle = kineticComp->pos.getAngle(Vec2(kineticCompZ->pos));
+			CCLOG("angle is %f or %f", angle*180/3.1415, angle);
+			kineticCompZ->vel.set(kineticCompZ->maxSpeed*sin(angle+(5*3.1415/4)), kineticCompZ->maxSpeed*cos((angle + 5 * 3.1415 / 4)));
 		}
 		swissZombieIt++;
 	}
