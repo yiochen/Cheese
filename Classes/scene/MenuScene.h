@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
-
+#include "box/BoxHelper.h"
 USING_NS_CC;
 
 class MenuScene : public cocos2d::Layer
@@ -14,10 +14,11 @@ public:
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
-
+	void MenuScene::update(float delta);
     // implement the "static create()" method manually
     CREATE_FUNC(MenuScene);
 private:
+	BoxHelper boxHelper;
 	void startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event);
 };

@@ -46,6 +46,9 @@
     <Filter Include="src\util">
       <UniqueIdentifier>{9b32dece-ded3-4072-be09-4bd5fce12c9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\box">
+      <UniqueIdentifier>{0bb00f26-baff-4cad-bfca-424ee5a069d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -105,6 +108,9 @@
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\box\BoxHelper.cpp">
+      <Filter>src\box</Filter>
+	</ClCompile>
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
@@ -176,6 +182,9 @@
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\box\BoxHelper.h">
+      <Filter>src\box</Filter>
+	</ClInclude>
     <ClInclude Include="..\Classes\runner\KineticRunner.h">
       <Filter>src\runner</Filter>
     </ClInclude>

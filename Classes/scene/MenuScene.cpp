@@ -2,7 +2,7 @@
 #include "cocostudio/CocoStudio.h"
 
 #include "GameScene.h"
-
+#include "box/BoxHelper.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -38,6 +38,8 @@ bool MenuScene::init()
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = CC_CALLBACK_2(MenuScene::onKeyReleased, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+	this->scheduleUpdate();
+	boxHelper.initBox2d();
 
     return true;
 }
@@ -64,4 +66,8 @@ void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 		break;
 	}
 	}
+}
+
+void MenuScene::update(float delta) {
+
 }
