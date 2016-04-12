@@ -12,6 +12,7 @@
 #include "ObjectPool/ObjectPool.h"
 #include "graphics/TextureManager.h"
 #include "util/GameKey.h"
+#include <unordered_map>
 USING_NS_CC;
 //World is a singleton class
 
@@ -23,6 +24,7 @@ private:
 	ObjectPool<Player> *playerPool;
 	ObjectPool<Zombie> *zombiePool;
 	ObjectPool<Item> *itemPool;
+	
 	Sprite* testSprite;
 	TextureManager* textureManager;
 	World();
@@ -40,6 +42,8 @@ public:
 	std::list<Player*> playerList;
 	std::list<EntityRunner*> runnerList;
 	std::vector<bool> keyStatus;
+	//compPools contains all the component pool for managing PooledComponets.
+	std::unordered_map<COMP_CA, void *> compPools;
 	Player* swiss;
 	Player* strayZombie;
     /**

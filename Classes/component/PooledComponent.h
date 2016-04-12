@@ -3,4 +3,5 @@
 class PooledComp:public Comp {
 public:
     PooledComp();
+	virtual void init() {};
 };

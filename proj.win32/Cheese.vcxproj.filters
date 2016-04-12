@@ -110,9 +110,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\box\BoxHelper.cpp">
       <Filter>src\box</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp">
       <Filter>src\runner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\AnimComp.cpp">
+      <Filter>src\component\pooled</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,9 +187,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\box\BoxHelper.h">
       <Filter>src\box</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="..\Classes\runner\KineticRunner.h">
       <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\world\world_include.h">
+      <Filter>src\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\AnimComp.h">
+      <Filter>src\component\pooled</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

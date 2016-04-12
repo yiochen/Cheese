@@ -2,10 +2,9 @@
 #include "Debug.h"
 
 #include "component/ComponentCatalog.h"
-#include "component/basic/KeyboardComp.h"
-#include "component/pooled/KineticComp.h"
-#include "runner/KeyboardRunner.h"
-#include "runner/KineticRunner.h"
+#include "world_include.h"
+
+#define COMP_POOL(type, typeEnum) ((ObjectPool<type>*)(this->compPools[typeEnum]))
 
 //Initialize the pointer to be null;
 World * World::s_instance = NULL;
@@ -60,7 +59,8 @@ World* World::initPools() {
 	if (NULL==zombiePool) zombiePool = new ObjectPool<Zombie>();
 	if (NULL==itemPool) itemPool = new ObjectPool<Item>();
 	//init all component pools
-
+	//register PooledComp to compPools. Otherwise, they cannot be retrieved. 
+	this->compPools[COMP_CA::KINETIC_COMP] = new ObjectPool<KineticComp>();
 	return this;
 }
 World* World::initPlayers() {
@@ -69,7 +69,7 @@ World* World::initPlayers() {
 	swiss = playerPool->New();
 	swiss->init();
 	swiss->components[COMP_CA::KEYBOARD_COMP] = new KeyboardComp();
-	swiss->components[COMP_CA::KINETIC_COMP] = new KineticComp();
+	swiss->components[COMP_CA::KINETIC_COMP] = COMP_POOL(KineticComp,COMP_CA::KINETIC_COMP)->New();
 	KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
 	kineticComp->maxSpeed = 4.0;
 	this->playerList.push_back(swiss);
@@ -85,7 +85,7 @@ World* World::initStrayZombie() {
 
 	Zombie* zombie1 = zombiePool->New();
 	zombie1->init();
-	zombie1->components[COMP_CA::KINETIC_COMP] = new KineticComp();
+	zombie1->components[COMP_CA::KINETIC_COMP] = COMP_POOL(KineticComp,COMP_CA::KINETIC_COMP)->New();;
 	KineticComp* kineticComp = (KineticComp*)(zombie1->components[COMP_CA::KINETIC_COMP]);
 	kineticComp->maxSpeed = 1.0;
 	kineticComp->setPos(400, 100);
@@ -93,7 +93,7 @@ World* World::initStrayZombie() {
 	
 	Zombie* zombie2 = zombiePool->New();
 	zombie2->init();
-	zombie2->components[COMP_CA::KINETIC_COMP] = new KineticComp();
+	zombie2->components[COMP_CA::KINETIC_COMP] = COMP_POOL(KineticComp,COMP_CA::KINETIC_COMP)->New();;
 	KineticComp* kineticComp2 = (KineticComp*)(zombie2->components[COMP_CA::KINETIC_COMP]);
 	kineticComp2->maxSpeed = 1.0;
 	kineticComp2->setPos(0, 300);

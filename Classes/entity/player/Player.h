@@ -16,5 +16,5 @@ public:
 	void initStrayZombie();
 
     Player();
-	Sprite* sprite;
+	
 };
