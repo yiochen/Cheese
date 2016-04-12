@@ -147,6 +147,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\box\BoxHelper.cpp" />
     <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp" />
     <ClCompile Include="..\Classes\component\Component.cpp" />
     <ClCompile Include="..\Classes\component\PooledComponent.cpp" />
@@ -168,6 +169,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\box\BoxHelper.h" />
     <ClInclude Include="..\Classes\component\basic\KeyboardComp.h" />
     <ClInclude Include="..\Classes\component\Component.h" />
     <ClInclude Include="..\Classes\component\ComponentCatalog.h" />
@@ -194,9 +196,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ResourceCompile Include="game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Box2D\Build\vs2013\Box2D.vcxproj">
-      <Project>{98400d17-43a5-1a40-95be-c53ac78e7694}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\ObjectPool\AllocationDeallocationTest.vcxproj">
       <Project>{9cf56d00-69d7-4c74-b53c-dd211163e49d}</Project>
     </ProjectReference>
