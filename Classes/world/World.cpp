@@ -69,6 +69,8 @@ World* World::initPlayers() {
 	swiss->init();
 	swiss->components[COMP_CA::KEYBOARD_COMP] = new KeyboardComp();
 	swiss->components[COMP_CA::KINETIC_COMP] = new KineticComp();
+	KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
+	kineticComp->maxSpeed = 4.0;
 	this->playerList.push_back(swiss);
 	//create other players
 	return this;
