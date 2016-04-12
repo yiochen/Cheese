@@ -16,15 +16,14 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="MapLayer.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ActionLayer" ActionTag="-278331615" Tag="17" IconVisible="True" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="512.0000" RightMargin="512.0000" TopMargin="384.0000" BottomMargin="384.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="ActionLayer" ActionTag="1466400070" Tag="23" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="512.0000" RightMargin="512.0000" TopMargin="718.0000" BottomMargin="50.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="512.0000" Y="384.0000" />
+            <Position X="512.0000" Y="50.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.5000" />
+            <PrePosition X="0.5000" Y="0.0651" />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="ActionLayer.csd" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="HudLayer" ActionTag="410657711" Tag="66" IconVisible="True" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
             <Size X="1024.0000" Y="768.0000" />
