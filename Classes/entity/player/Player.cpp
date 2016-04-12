@@ -10,7 +10,12 @@ Player::Player() {
 	
 }
 void Player::init() {
+	Entity::init();
 	//TODO, for now, it will just create the sprite here, but later, move it to a component
+	this->sprite = Sprite::create();
+	//add the empty sprite to game 
+	World::instance()->getActionNode()->addChild(this->sprite);
+	/*
 	TextureManager* textureManager = World::instance()->getTextureManager();
 	auto frames = textureManager->getAnimation("swiss", "WALK_FORTH");
 	this->sprite = Sprite::createWithSpriteFrame(frames.front());
@@ -18,7 +23,7 @@ void Player::init() {
 	auto animation = Animation::createWithSpriteFrames(frames, 1.0f / 8);
 	this->sprite->setPosition(Point(0, 0));
 	this->sprite->runAction(RepeatForever::create(Animate::create(animation)));
-
+	*/
 	//add components
 	
 }

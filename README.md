@@ -26,6 +26,25 @@ This is a group project for CSE 380 in Stony Brook University. So we do not acce
 ## Where to Learn Cocos2d -x
 Cocos2d-x provides very good documentation. Please go to [get started page](http://www.cocos2d-x.org/learn) to learn more about Cocos2d-x.
 
+## about box2d angle
+
+	Vec2 a.angle(c,d) 
+	
+This will get the smaller angle between c, and d in radian. The result has nothing to do with a
+
+	Vec2 a.getAngle()
+	
+This will get the angle between a and x-positive axis. counter clockwise (a rotates from x-positive and up) is positive, clockwise is negative. 180 degree is positive (pi)  
+Following are some examples
+
+	Vec2 a = Vec2(10.0f, 0.0f); //horizontal left vector, angle=0
+	Vec2 b = Vec2(0.0f, 10.0f);//vertical up vector angle=pi/4
+	Vec2 c = Vec2(-10.0f, 10.0f);//angle =3pi/4
+	Vec2 d = Vec2(0.0f, -10.0f);//angle=-pi/4
+	Vec2 f = Vec2(-10.0f, -10.0f);//angle=-3pi/4
+	Vec2 g = Vec2(-10.0f, 0.0f);//angle=pi
+	
+	
 ## Class Overview
 This project adopt a way similar to an Entity Component Framework to prevent over abstraction. Basically each object in the game is an Entity. Each 
 entity can hold some components. There is no difference between a meelee zombie object and a range zombie object. The only difference is that they hold 
@@ -35,13 +54,16 @@ Following are some of the important classes.
 ### World
 World is the most important class. It contains all the game objects in the game. It will also update all the objects every frame. 
 ### Entity
-Entity is the super class of all possible game objects in the game (such as zombie, swiss, bullet, items).
+Entity is the super class of all possible game objects in the game (such as zombie, swiss, bullet, items). Every entity has a sprite, even the invisible entity has an empty sprite. The sprite will be created and 
 ### Zombie
 Zombie extends Entity. All zombie has a leader.
 ### Player
 Player extends Entity. Player is the leader of a zombie horde. The strayed zombie also has an invisible player leader.
 ### Item
 Item extends Entity. Every non living thing is the game is a item, for example, bullet, medicine, rewards.
+
+**important** Zombie, Player, and Item cannot be extend anymore, to make different game object, add components to them.  
+
 ### Component
 Components are attribute or behavior of an entity
 ### PooledComponent

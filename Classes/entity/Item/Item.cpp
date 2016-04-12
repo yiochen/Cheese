@@ -5,5 +5,5 @@ Item::Item() {
 }
 
 void Item::init() {
-
+	Entity::init();
 }

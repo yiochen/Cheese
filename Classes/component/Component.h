@@ -3,4 +3,5 @@
 class Comp {
 public:
     Comp();
+	virtual ~Comp() {}
 };

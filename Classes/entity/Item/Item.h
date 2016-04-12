@@ -4,4 +4,5 @@ class Item:public Entity {
 public:
 	void init() override;
     Item();
+	~Item() {}
 };

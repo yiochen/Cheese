@@ -1,7 +1,8 @@
 #pragma once
 #include "component/Component.h"
-class PooledComp:public Comp {
+class PooledComp :public Comp {
 public:
-    PooledComp();
-	virtual void init() {};
+	PooledComp();
+	virtual void init() {}
+	virtual ~PooledComp() {}
 };

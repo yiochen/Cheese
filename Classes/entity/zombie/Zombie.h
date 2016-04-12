@@ -7,5 +7,5 @@ class Zombie:public Entity {
 public:
 	void init() override;
     Zombie();
-	
+	~Zombie() {}
 };

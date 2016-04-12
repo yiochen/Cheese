@@ -80,7 +80,7 @@ void MenuScene::update(float delta) {
 	while (it != bodyList.end()) {
 		b2Body* body = (b2Body*)(*it);
 		Sprite* sp = (Sprite*)(body->GetUserData());
-		CCLOG("the box's position is %f, %f", body->GetPosition().x*boxHelper.S2W, body->GetPosition().y*boxHelper.S2W);
+		//CCLOG("the box's position is %f, %f", body->GetPosition().x*boxHelper.S2W, body->GetPosition().y*boxHelper.S2W);
 		sp->setPosition(body->GetPosition().x*boxHelper.W2S, body->GetPosition().y*boxHelper.W2S);
 		float R2D = 180.0f / 3.14159f;
 		sp->setRotation(-body->GetAngle()*R2D);

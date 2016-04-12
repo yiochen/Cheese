@@ -117,6 +117,9 @@
     <ClCompile Include="..\Classes\component\pooled\AnimComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\runner\AnimRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -196,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\AnimComp.h">
       <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\AnimRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\common_include.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

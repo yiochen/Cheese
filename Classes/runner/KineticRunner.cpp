@@ -10,15 +10,34 @@ KineticRunner::KineticRunner() {
 }
 
 void KineticRunner::update(float delta) {
+	//get all the players, update their pos
+	//get all the zombies, update their pos
+	//get all the items, update their pos
 
+	World* world = World::instance();
+	auto playerIt = world->playerList.begin();
+	while (playerIt != world->playerList.end()) {
+		Player* player = (Player*)(*playerIt);
+		updateEntity(player, delta);
+		auto zombieIt = player->zombies.begin();
+		while (zombieIt != player->zombies.end()) {
+			updateEntity(*zombieIt, delta);
+			zombieIt++;
+		}
+		playerIt++;
+	}
 
-	//I know that only Swiss will be affected by keyboard input directly, so I just get Swiss
-	auto keyStatus = World::instance()->keyStatus;
-	auto swiss = World::instance()->swiss;
-	KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
-	kineticComp->step(swiss);
-
+	auto itemIt = world->itemList.begin();
+	while (itemIt != world->itemList.end()) {
+		updateEntity(*itemIt, delta);
+		itemIt++;
+	}
+	//auto swiss = World::instance()->swiss;
+	//KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
+	//kineticComp->step(swiss, delta);
+	
 	//Swiss zombie moves
+	/*
 	auto swissZombieIt = swiss->zombies.begin();
 	while (swissZombieIt != swiss->zombies.end()) {
 		Zombie* z = (*swissZombieIt);
@@ -60,7 +79,16 @@ void KineticRunner::update(float delta) {
 		}
 		zombieIt++;
 	}
+	*/
+}
 
-
+//update a single entity
+void KineticRunner::updateEntity(Entity* entity, float delta) {
+	//check if the entity has kinetic component
+	KineticComp* kinComp = static_cast<KineticComp*>(entity->components[COMP_CA::KINETIC_COMP]);
+	if (kinComp) {
+		kinComp->step(entity, delta);
+	}
 
 }
+

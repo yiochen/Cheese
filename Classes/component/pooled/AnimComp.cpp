@@ -1,6 +1,8 @@
 #include "AnimComp.h"
+#include "common_include.h"
 #include "world/World.h"
 #include "KineticComp.h"
+
 AnimComp::AnimComp() {
     
 }
@@ -22,13 +24,7 @@ Animation* AnimComp::getAnimation(Entity* entity) {
 		auto frames = textureManager->getAnimation(name, newAnimState);
 		//makesure the sprite is added to the display list 
 		if (frames.size() >0) {
-			//entity->sprite = Sprite::createWithSpriteFrame(frames.front());
-			//World::instance()->getActionNode()->addChild(entity->sprite);
-
 			auto animation = Animation::createWithSpriteFrames(frames, 1.0f / 8);
-			//this->sprite->setPosition(Point(0, 0));
-			//this->sprite->runAction(RepeatForever::create(Animate::create(animation)));
-
 			//successfully created the animation
 			return animation;
 		}
@@ -44,6 +40,32 @@ void AnimComp::updateAnim(Entity* entity) {
 	if (kin) {
 		//update the position of the sprite 
 		entity->sprite->setPosition(Vec2(kin->pos));
+		//check the velocity angle, change the animation state
+		float speed = kin->vel.getLength();
+		if (speed <= EPSILON) {
+			//if the player is not moving, dont change the animation
+		}
+		else {
+			float angle = kin->vel.getAngle();
+			if (angle < PI / 4 && angle > -PI / 4) {
+				//moving right 
+				this->newAnimState = A_WALK_RIGHT;
+			}
+			else if (angle >= PI / 4 && angle < 3 * PI / 4) {
+				this->newAnimState = A_WALK_BACK;
+				//moving up
+			}
+			else if (angle >= 3 * PI / 4 || angle < -3 * PI / 4) {
+				this->newAnimState = A_WALK_LEFT;
+				//moving left
+			}
+			else {
+				this->newAnimState = A_WALK_FORTH;
+				//moving forward
+			}
+
+		}
+		
 	}
 	if (kin && newAnimState != animState && newAnimState.length()>0) {
 		Animation* ani = getAnimation(entity);
@@ -51,6 +73,7 @@ void AnimComp::updateAnim(Entity* entity) {
 			//set 15 as the animation action tag
 			entity->sprite->stopActionByTag(15);
 			Action* aniAction=entity->sprite->runAction(RepeatForever::create(Animate::create(ani)));
+			this->animState = newAnimState;
 			aniAction->setTag(15);
 		}
 	}

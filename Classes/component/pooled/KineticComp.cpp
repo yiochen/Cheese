@@ -5,19 +5,21 @@
 KineticComp::KineticComp() {
     
 }
-void KineticComp::step(Entity* entity) {
-	pos.add(vel);
+void KineticComp::step(Entity* entity, float delta) {
+	Vec2 increment(vel);
+	increment.scale(delta);
+	pos.add(increment);
 	//CCLOG("Swiss position %f", pos.length());
-	dynamic_cast<Player*>(entity)->sprite->setPosition(pos);
+	entity->sprite->setPosition(pos);
 	//CCLOG("Swiss sprite position %f %f", dynamic_cast<Player*>(entity)->sprite->getPositionX(), dynamic_cast<Player*>(entity)->sprite->getPositionY());
 	
 }
-
+/*
 void KineticComp::stepZ(Entity* entity) {
 	pos.add(vel);
 	dynamic_cast<Zombie*>(entity)->sprite->setPosition(pos);
 
-}
+}*/
 //will delete later, for now use to render non moving zombies
 void KineticComp::setSpritePos(Entity* entity) {
 	dynamic_cast<Zombie*>(entity)->sprite->setPosition(pos);

@@ -1,8 +1,10 @@
 #include "World.h"
 #include "Debug.h"
-
+#include "cocos2d.h"
 #include "component/ComponentCatalog.h"
 #include "world_include.h"
+#include "common_include.h"
+USING_NS_CC;
 
 #define COMP_POOL(type, typeEnum) ((ObjectPool<type>*)(this->compPools[typeEnum]))
 
@@ -32,9 +34,10 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	//initialize all the game objects/entities
 	initPools();
 	initPlayers();
-	initStrayZombie();
+	//initStrayZombie();
 	//initialize all the entity runners
 	initRunners();
+
 	return this;
 }
 World* World::initSpriteCache() {
@@ -61,6 +64,7 @@ World* World::initPools() {
 	//init all component pools
 	//register PooledComp to compPools. Otherwise, they cannot be retrieved. 
 	this->compPools[COMP_CA::KINETIC_COMP] = new ObjectPool<KineticComp>();
+	this->compPools[COMP_CA::ANIM_COMP] = new ObjectPool<AnimComp>();
 	return this;
 }
 World* World::initPlayers() {
@@ -68,10 +72,25 @@ World* World::initPlayers() {
 	//create Main character
 	swiss = playerPool->New();
 	swiss->init();
+
+	//keyboard Component
 	swiss->components[COMP_CA::KEYBOARD_COMP] = new KeyboardComp();
-	swiss->components[COMP_CA::KINETIC_COMP] = COMP_POOL(KineticComp,COMP_CA::KINETIC_COMP)->New();
-	KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
-	kineticComp->maxSpeed = 4.0;
+
+	//kinetic Component
+	KineticComp* kineticComp=COMP_POOL(KineticComp,COMP_CA::KINETIC_COMP)->New();
+	swiss->components[COMP_CA::KINETIC_COMP] = kineticComp;
+	kineticComp->maxSpeed = 100.0f;
+	//TODO kinetic position should be relative to the world;
+	kineticComp->pos.set(100, 100);
+	kineticComp->vel.set(0, 0);
+	//animation Component
+	AnimComp* animComp= COMP_POOL(AnimComp, COMP_CA::ANIM_COMP)->New();
+	//following is to be read from a file
+	animComp->name = "swiss";
+	animComp->newAnimState = A_WALK_FORTH;
+	swiss->components[COMP_CA::ANIM_COMP] = animComp;
+
+	
 	this->playerList.push_back(swiss);
 	//create other players
 	return this;
@@ -112,9 +131,11 @@ World* World::initRunners() {
 	EntityRunner* runner;
 	this->runnerList.push_back(runner=new KeyboardRunner());
 	this->runnerList.push_back(runner = new KineticRunner());
+	this->runnerList.push_back(runner = new AnimRunner());
 	return this;
 }
 void World::destroy() {
 	//delete all object
 	//if an object is from a pool, use pool.Delete(object);
+	this->getActionNode()->removeAllChildren();
 }

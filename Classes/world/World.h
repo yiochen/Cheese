@@ -40,6 +40,7 @@ public:
 		return s_instance;
 	}
 	std::list<Player*> playerList;
+	std::list<Item*> itemList;
 	std::list<EntityRunner*> runnerList;
 	std::vector<bool> keyStatus;
 	//compPools contains all the component pool for managing PooledComponets.

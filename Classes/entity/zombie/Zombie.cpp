@@ -7,6 +7,9 @@ Zombie::Zombie() {
 }
 
 void Zombie::init() {
+	//calling parent class init method
+	Entity::init();
+
 	TextureManager* textureManager = World::instance()->getTextureManager();
 	auto frames = textureManager->getAnimation("basic_zombie", "WALK_FORTH");
 	sprite = Sprite::createWithSpriteFrame(frames.front());
