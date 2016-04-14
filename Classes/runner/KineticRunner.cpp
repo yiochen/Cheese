@@ -19,14 +19,14 @@ void KineticRunner::update(float delta) {
 	while (playerIt != world->playerList.end()) {
 		Player* player = (Player*)(*playerIt);
 		updateEntity(player, delta);
-		auto zombieIt = player->zombies.begin();
-		while (zombieIt != player->zombies.end()) {
-			updateEntity(*zombieIt, delta);
-			zombieIt++;
-		}
+		
 		playerIt++;
 	}
-
+	auto zombieIt = world->zombieList.begin();
+	while (zombieIt != world->zombieList.end()) {
+		updateEntity(*zombieIt, delta);
+		zombieIt++;
+	}
 	auto itemIt = world->itemList.begin();
 	while (itemIt != world->itemList.end()) {
 		updateEntity(*itemIt, delta);

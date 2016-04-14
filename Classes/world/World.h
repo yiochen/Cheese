@@ -30,8 +30,9 @@ private:
 	World();
 	World* initPools();
 	World* initPlayers();
+	World* initZombies(Player* player);
 	World* initRunners();
-	World* initStrayZombie();
+	//World* initStrayZombie();
 public:
 	static World *instance() {
 		if (!s_instance) {
@@ -40,6 +41,7 @@ public:
 		return s_instance;
 	}
 	std::list<Player*> playerList;
+	std::list<Zombie*> zombieList;
 	std::list<Item*> itemList;
 	std::list<EntityRunner*> runnerList;
 	std::vector<bool> keyStatus;

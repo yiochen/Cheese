@@ -9,7 +9,6 @@ USING_NS_CC;
 class Player:public Entity {
 
 public:
-	std::list<Zombie*> zombies;
 	void init() override;
 	void initStrayZombie();
 

@@ -34,6 +34,7 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	//initialize all the game objects/entities
 	initPools();
 	initPlayers();
+	initZombies(swiss);
 	//initStrayZombie();
 	//initialize all the entity runners
 	initRunners();
@@ -72,7 +73,6 @@ World* World::initPlayers() {
 	//create Main character
 	swiss = playerPool->New();
 	swiss->init();
-
 	//keyboard Component
 	swiss->components[COMP_CA::KEYBOARD_COMP] = new KeyboardComp();
 
@@ -89,12 +89,33 @@ World* World::initPlayers() {
 	animComp->name = "swiss";
 	animComp->newAnimState = A_WALK_FORTH;
 	swiss->components[COMP_CA::ANIM_COMP] = animComp;
-
-	
 	this->playerList.push_back(swiss);
 	//create other players
+
 	return this;
 }
+
+World* World::initZombies(Player* player) {
+	Zombie* zombie = zombiePool->New();
+	zombie->init();
+	zombie->player = player;
+	//kinetic Component
+	KineticComp* kineticComp = COMP_POOL(KineticComp, COMP_CA::KINETIC_COMP)->New();
+	zombie->components[COMP_CA::KINETIC_COMP] = kineticComp;
+	kineticComp->maxSpeed = 100.0f;
+	//TODO kinetic position should be relative to the world;
+	kineticComp->pos.set(100, 100);
+	kineticComp->vel.set(0, 0);
+	//animation Component
+	AnimComp* animComp = COMP_POOL(AnimComp, COMP_CA::ANIM_COMP)->New();
+	//following is to be read from a file
+	animComp->name = "basic_zombie";
+	animComp->newAnimState = A_WALK_FORTH;
+	zombie->components[COMP_CA::ANIM_COMP] = animComp;
+	this->zombieList.push_back(zombie);
+	return this;
+}
+/*
 
 World* World::initStrayZombie() {
 	//create the owner of stray zombies
@@ -123,7 +144,7 @@ World* World::initStrayZombie() {
 
 
 }
-
+*/
 
 World* World::initRunners() {
 	

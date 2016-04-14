@@ -19,15 +19,15 @@ void AnimRunner::update(float delta) {
 		//update player's animation
 		Player* player = (Player*)(*playerIt);
 		runAnimRunner(player);
-		//update all the zombies in the player 
-		auto zombieIt = player->zombies.begin();
-		while (zombieIt != player->zombies.end()) {
-			runAnimRunner(*zombieIt);
-			zombieIt++;
-		}
+		
 		playerIt++;
 	}
-
+	//update all the zombies in the player 
+	auto zombieIt =world->zombieList.begin();
+	while (zombieIt != world->zombieList.end()) {
+		runAnimRunner(*zombieIt);
+		zombieIt++;
+	}
 	auto itemIt = world->itemList.begin();
 	while (itemIt != world->itemList.end()) {
 
