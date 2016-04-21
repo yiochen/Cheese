@@ -120,6 +120,15 @@
     <ClCompile Include="..\Classes\runner\AnimRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\ChasingComp.cpp">
+      <Filter>src\component\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\DomainComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\ZombieFollowRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -205,6 +214,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\common_include.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\ChasingComp.h">
+      <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\DomainComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\CompHeader.h">
+      <Filter>src\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\ZombieFollowRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

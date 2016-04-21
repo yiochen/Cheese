@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
-#include "cocos2d.h"
-#include "component/PooledComponent.h"
-#include "entity/Entity.h"
+#include "component/CompHeader.h"
 
 USING_NS_CC;
 

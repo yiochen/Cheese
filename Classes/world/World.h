@@ -32,6 +32,7 @@ private:
 	World* initPlayers();
 	World* initZombies(Player* player);
 	World* initRunners();
+	World* initCommonComps();
 	//World* initStrayZombie();
 public:
 	static World *instance() {
@@ -44,6 +45,7 @@ public:
 	std::list<Zombie*> zombieList;
 	std::list<Item*> itemList;
 	std::list<EntityRunner*> runnerList;
+	std::unordered_map<COMP_CA, Comp*> commonComps;
 	std::vector<bool> keyStatus;
 	//compPools contains all the component pool for managing PooledComponets.
 	std::unordered_map<COMP_CA, void *> compPools;
