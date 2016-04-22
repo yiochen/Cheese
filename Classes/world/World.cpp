@@ -17,7 +17,6 @@ World::World() {
 	zombiePool = NULL;
 	itemPool = NULL;
 	textureManager = NULL;
-	CCLOG("start is %d", GameKey::KEY_START);
 	for (int i = GameKey::KEY_START; i <= GameKey::KEY_END; i++) {
 		keyStatus.push_back(false);
 	}
@@ -78,6 +77,7 @@ World* World::initCommonComps() {
 	this->commonComps[COMP_CA::KEYBOARD_COMP] = new KeyboardComp();
 	this->commonComps[COMP_CA::CHASING_COMP] = new ChasingComp();
 	this->commonComps[COMP_CA::SEPERATION_COMP] = new SeperationComp();
+	this->commonComps[COMP_CA::FOLLOWING_COMP] = new FollowingComp();
 	return this;
 }
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
@@ -104,7 +104,7 @@ World* World::initPlayers() {
 	swiss->components[COMP_CA::ANIM_COMP] = animComp;
 	DomainComp* domainComp = COMP_POOL(DomainComp, COMP_CA::DOMAIN_COMP)->New();
 	swiss->components[COMP_CA::DOMAIN_COMP] = domainComp;
-	domainComp->radius = 100;//set the radius of domain to 50 for now. TODO: to be changed to read from lua
+	domainComp->radius = 50;//set the radius of domain to 50 for now. TODO: to be changed to read from lua
 	HordeStatusComp* hordeStatus = COMP_POOL(HordeStatusComp, COMP_CA::HORDE_STATUS_COMP)->New();
 	hordeStatus->init();
 	swiss->components[COMP_CA::HORDE_STATUS_COMP] = hordeStatus;
@@ -148,9 +148,9 @@ World* World::initZombies(Player* player) {
 		//add chasingComp
 		zombie->components[COMP_CA::CHASING_COMP] = this->commonComps[COMP_CA::CHASING_COMP];
 		zombie->components[COMP_CA::SEPERATION_COMP] = this->commonComps[COMP_CA::SEPERATION_COMP];
+		zombie->components[COMP_CA::FOLLOWING_COMP] = this->commonComps[COMP_CA::FOLLOWING_COMP];
 		//add to zombielist when all required components added. 
 		this->zombieList.push_back(zombie);
-		CCLOG("created %d zombies", i);
 	}
 	
 	return this;

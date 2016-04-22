@@ -138,6 +138,9 @@
     <ClCompile Include="..\Classes\component\basic\SeperationComp.cpp">
       <Filter>src\component\basic</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\FollowingComp.cpp">
+      <Filter>src\component\basic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -246,6 +249,9 @@
       <Filter>src\runner</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\component\basic\SeperationComp.h">
+      <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\FollowingComp.h">
       <Filter>src\component\basic</Filter>
     </ClInclude>
   </ItemGroup>

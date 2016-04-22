@@ -25,8 +25,6 @@ void TextureManager::load() {
 
 //this is an expensive function, try retain the result as mush as possible
 cocos2d::Vector<SpriteFrame*> TextureManager::getAnimation(const string name,const string action) {
-
-	CCLOG("name is %s and action is %s", name.c_str(), action.c_str());
 	cocos2d::Vector<SpriteFrame*> animFrames;
 	char st[100];
 	int i = 1;

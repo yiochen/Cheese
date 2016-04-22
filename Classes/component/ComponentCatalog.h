@@ -6,6 +6,7 @@ enum COMP_CA {
 	KEYBOARD_COMP,
 	CHASING_COMP,
 	SEPERATION_COMP,
+	FOLLOWING_COMP,
 
 
 	//pooled component

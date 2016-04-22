@@ -9,6 +9,7 @@
 #include "component/pooled/DomainComp.h"
 #include "component/pooled/HordeStatusComp.h"
 #include "component/basic/SeperationComp.h"
+#include "component/basic/FollowingComp.h"
 
 //runners
 #include "runner/KeyboardRunner.h"
