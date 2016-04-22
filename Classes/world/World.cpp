@@ -125,7 +125,7 @@ World* World::initZombies(Player* player) {
 		//kinetic Component
 		KineticComp* kineticComp = COMP_POOL(KineticComp, COMP_CA::KINETIC_COMP)->New();
 		zombie->components[COMP_CA::KINETIC_COMP] = kineticComp;
-		kineticComp->maxSpeed = 100.0f;
+		kineticComp->maxSpeed = 100.0f+RandomHelper::random_real<float>(-20.0f,20.0f);
 		//TODO kinetic position should be relative to the world;
 		kineticComp->pos.set(100, 100);
 		kineticComp->vel.set(0, 0);
