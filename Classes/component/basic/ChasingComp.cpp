@@ -5,7 +5,7 @@ ChasingComp::ChasingComp() {
     
 }
 
-bool ChasingComp::chase(Entity* self, Entity* target) {
+bool ChasingComp::chase(Entity* self, Entity* target,float delta) {
 	//get kineticComp of both self and target. Without either of them, exit the function
 	KineticComp* selfKin = (KineticComp*)self->components[COMP_CA::KINETIC_COMP];
 	KineticComp* targetKin = (KineticComp*)target->components[COMP_CA::KINETIC_COMP];
@@ -20,6 +20,7 @@ bool ChasingComp::chase(Entity* self, Entity* target) {
 		return true;
 	}
 	//if haven't reach, modify the speed.
+	dis.scale(delta);
 	selfKin->vel.add(dis);
 	if (selfKin->vel.getLength() > selfKin->maxSpeed && selfKin->maxSpeed>0) {
 		selfKin->vel.normalize();

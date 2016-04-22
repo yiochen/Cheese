@@ -15,8 +15,9 @@ void TextureManager::load() {
 	CCLOG("loading sprite cache");
 	//TODO: this will use Lua later
 	//load all the spritesheets
-	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/basic_zombie/BasicZombieSheet.plist", "Assets/spritesheet/basic_zombie/BasicZombieSheet.png");
-	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/swiss/SwissSheet.plist", "Assets/spritesheet/swiss/SwissSheet.png");
+	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/basic_zombie/basic_zombie_sprites.plist", "Assets/spritesheet/basic_zombie/basic_zombie_sprites.png");
+	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/swiss/swiss_sprites.plist", "Assets/spritesheet/swiss/swiss_sprites.png");
+	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/chucker/chucker_sprites.plist", "Assets/spritesheet/chucker/chucker_sprites.png");
 	
 }
 
@@ -29,12 +30,12 @@ cocos2d::Vector<SpriteFrame*> TextureManager::getAnimation(const string name,con
 	cocos2d::Vector<SpriteFrame*> animFrames;
 	char st[100];
 	int i = 1;
-	sprintf(st, "%s/%s/%04d.png", name.c_str(), action.c_str(), i);
+	sprintf(st, "%s_%s/%04d.png", name.c_str(), action.c_str(), i);
 	SpriteFrame *frame;
 	while ((frame=this->spriteCache->getSpriteFrameByName(st)) != NULL) {
 		animFrames.pushBack(frame);
 		i++;
-		sprintf(st, "%s/%s/%04d.png", name.c_str(), action.c_str(), i);
+		sprintf(st, "%s_%s/%04d.png", name.c_str(), action.c_str(), i);
 	}
 	return animFrames;
 

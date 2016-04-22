@@ -6,4 +6,5 @@
 #include "cocos2d.h"
 #include "entity/Entity.h"
 #include "component/ComponentCatalog.h"
+#include "entity/zombie/ZombieCatelog.h"
 #include "common_include.h"

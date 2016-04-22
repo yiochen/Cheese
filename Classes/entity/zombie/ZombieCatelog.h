@@ -1,0 +1,9 @@
+#pragma once
+
+enum ZOMBIE_CA {
+	ZOMBIE_START,
+	STINKIE,
+	HOLY_BONE,
+	CHUCKER,
+	ZOMBIE_END
+};

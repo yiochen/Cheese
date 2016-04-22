@@ -41,7 +41,7 @@ void AnimComp::updateAnim(Entity* entity) {
 		//update the position of the sprite 
 		//TODO: convert world location to screen location 
 		entity->sprite->setPosition(Vec2(kin->pos));
-		entity->sprite->setZOrder(-entity->sprite->getPosition().y);
+		entity->sprite->setLocalZOrder(-entity->sprite->getPosition().y);
 		//check the velocity angle, change the animation state
 		float speed = kin->vel.getLength();
 		if (speed <= EPSILON) {

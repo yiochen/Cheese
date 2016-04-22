@@ -129,6 +129,15 @@
     <ClCompile Include="..\Classes\runner\ZombieFollowRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\ZombieTallyRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\SeperationComp.cpp">
+      <Filter>src\component\basic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -226,6 +235,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\runner\ZombieFollowRunner.h">
       <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\zombie\ZombieCatelog.h">
+      <Filter>src\entity\zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\ZombieTallyRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\SeperationComp.h">
+      <Filter>src\component\basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

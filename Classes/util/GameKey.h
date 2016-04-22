@@ -6,7 +6,7 @@ public:
 };
 */
 enum GameKey {
-	START,//this is used as a marker for begining
+	KEY_START,//this is used as a marker for begining
 	UP,
 	DOWN,
 	LEFT,
@@ -14,5 +14,5 @@ enum GameKey {
 	H,
 	U,
 	ESCAPE,
-	END//this is used as a marker for ending
+	KEY_END//this is used as a marker for ending
 };

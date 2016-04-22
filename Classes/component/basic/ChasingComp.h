@@ -9,5 +9,5 @@ public:
     ChasingComp();
 	/*Helper function to update the self's velocity based on the self and target's relative position,
 	return true when reached destination, return false when it cannot chase or havent reach*/
-	bool chase(Entity* self, Entity* target);
+	bool chase(Entity* self, Entity* target,float delta);
 };

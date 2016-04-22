@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>basic_zombie/WALK_BACK/0001.png</key>
+            <key>chucker_ATTACK_LEFT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -19,7 +19,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_BACK/0002.png</key>
+            <key>chucker_ATTACK_LEFT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -34,7 +34,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_BACK/0003.png</key>
+            <key>chucker_ATTACK_LEFT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -49,7 +49,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_BACK/0004.png</key>
+            <key>chucker_ATTACK_LEFT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -64,7 +64,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_BACK/0005.png</key>
+            <key>chucker_ATTACK_LEFT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -79,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_BACK/0006.png</key>
+            <key>chucker_ATTACK_LEFT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,7 +94,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_BACK/0007.png</key>
+            <key>chucker_ATTACK_RIGHT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -109,7 +109,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_BACK/0008.png</key>
+            <key>chucker_ATTACK_RIGHT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +124,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_FORTH/0001.png</key>
+            <key>chucker_ATTACK_RIGHT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_FORTH/0002.png</key>
+            <key>chucker_ATTACK_RIGHT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,7 +154,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_FORTH/0003.png</key>
+            <key>chucker_ATTACK_RIGHT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -169,82 +169,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_FORTH/0004.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{128,128}</string>
-                <key>spriteSourceSize</key>
-                <string>{128,128}</string>
-                <key>textureRect</key>
-                <string>{{1408,0},{128,128}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>basic_zombie/WALK_FORTH/0005.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{128,128}</string>
-                <key>spriteSourceSize</key>
-                <string>{128,128}</string>
-                <key>textureRect</key>
-                <string>{{1536,0},{128,128}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>basic_zombie/WALK_FORTH/0006.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{128,128}</string>
-                <key>spriteSourceSize</key>
-                <string>{128,128}</string>
-                <key>textureRect</key>
-                <string>{{1664,0},{128,128}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>basic_zombie/WALK_FORTH/0007.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{128,128}</string>
-                <key>spriteSourceSize</key>
-                <string>{128,128}</string>
-                <key>textureRect</key>
-                <string>{{1792,0},{128,128}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>basic_zombie/WALK_FORTH/0008.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{128,128}</string>
-                <key>spriteSourceSize</key>
-                <string>{128,128}</string>
-                <key>textureRect</key>
-                <string>{{1920,0},{128,128}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>basic_zombie/WALK_LEFT/0001.png</key>
+            <key>chucker_ATTACK_RIGHT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -259,7 +184,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_LEFT/0002.png</key>
+            <key>chucker_WALK_BACK/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -274,7 +199,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_LEFT/0003.png</key>
+            <key>chucker_WALK_BACK/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -289,7 +214,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_LEFT/0004.png</key>
+            <key>chucker_WALK_BACK/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -304,7 +229,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_LEFT/0005.png</key>
+            <key>chucker_WALK_BACK/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -319,7 +244,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_LEFT/0006.png</key>
+            <key>chucker_WALK_BACK/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -334,7 +259,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_LEFT/0007.png</key>
+            <key>chucker_WALK_BACK/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -349,7 +274,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_LEFT/0008.png</key>
+            <key>chucker_WALK_BACK/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -364,7 +289,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0001.png</key>
+            <key>chucker_WALK_BACK/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -379,7 +304,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0002.png</key>
+            <key>chucker_WALK_FORTH/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -394,7 +319,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0003.png</key>
+            <key>chucker_WALK_FORTH/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -409,7 +334,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0004.png</key>
+            <key>chucker_WALK_FORTH/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -420,11 +345,11 @@
                 <key>spriteSourceSize</key>
                 <string>{128,128}</string>
                 <key>textureRect</key>
-                <string>{{1408,128},{128,128}}</string>
+                <string>{{0,256},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0005.png</key>
+            <key>chucker_WALK_FORTH/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -435,11 +360,11 @@
                 <key>spriteSourceSize</key>
                 <string>{128,128}</string>
                 <key>textureRect</key>
-                <string>{{1536,128},{128,128}}</string>
+                <string>{{128,256},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0006.png</key>
+            <key>chucker_WALK_FORTH/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -450,11 +375,11 @@
                 <key>spriteSourceSize</key>
                 <string>{128,128}</string>
                 <key>textureRect</key>
-                <string>{{1664,128},{128,128}}</string>
+                <string>{{256,256},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0007.png</key>
+            <key>chucker_WALK_FORTH/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -465,11 +390,11 @@
                 <key>spriteSourceSize</key>
                 <string>{128,128}</string>
                 <key>textureRect</key>
-                <string>{{1792,128},{128,128}}</string>
+                <string>{{384,256},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>basic_zombie/WALK_RIGHT/0008.png</key>
+            <key>chucker_WALK_FORTH/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -480,7 +405,262 @@
                 <key>spriteSourceSize</key>
                 <string>{128,128}</string>
                 <key>textureRect</key>
-                <string>{{1920,128},{128,128}}</string>
+                <string>{{512,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_FORTH/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{640,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{768,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{896,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1024,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1152,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1280,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{0,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{128,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_LEFT/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{256,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{384,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{512,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{640,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{768,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{896,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1024,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1152,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>chucker_WALK_RIGHT/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1280,384},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -494,13 +674,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>BasicZombieSheet.png</string>
+            <string>chucker_sprites.png</string>
             <key>size</key>
-            <string>{2048,256}</string>
+            <string>{1408,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:80806ce0e274fc24e49bd7e47adb9cb0:358e0a07f13f6c88fa51ce0faf6bad43:9f0b73b0ed8c849131b6250c96055854$</string>
+            <string>$TexturePacker:SmartUpdate:34bc030d844747dbe2057db5a2fc7806:ed251b5b91440b7ac84e82287849cd67:7fe93b2cce51e0ee8f863c14a7a1db4a$</string>
             <key>textureFileName</key>
-            <string>BasicZombieSheet.png</string>
+            <string>chucker_sprites.png</string>
         </dict>
     </dict>
 </plist>

@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>swiss/WALK_BACK/0001.png</key>
+            <key>swiss_WALK_BACK/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -19,7 +19,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_BACK/0002.png</key>
+            <key>swiss_WALK_BACK/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -34,7 +34,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_BACK/0003.png</key>
+            <key>swiss_WALK_BACK/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -49,7 +49,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_BACK/0004.png</key>
+            <key>swiss_WALK_BACK/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -64,7 +64,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_BACK/0005.png</key>
+            <key>swiss_WALK_BACK/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -79,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_BACK/0006.png</key>
+            <key>swiss_WALK_BACK/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,7 +94,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_BACK/0007.png</key>
+            <key>swiss_WALK_BACK/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -109,7 +109,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_BACK/0008.png</key>
+            <key>swiss_WALK_BACK/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +124,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0001.png</key>
+            <key>swiss_WALK_FORTH/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0002.png</key>
+            <key>swiss_WALK_FORTH/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,7 +154,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0003.png</key>
+            <key>swiss_WALK_FORTH/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -169,7 +169,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0004.png</key>
+            <key>swiss_WALK_FORTH/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -184,7 +184,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0005.png</key>
+            <key>swiss_WALK_FORTH/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -199,7 +199,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0006.png</key>
+            <key>swiss_WALK_FORTH/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -214,7 +214,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0007.png</key>
+            <key>swiss_WALK_FORTH/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -229,7 +229,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_FORTH/0008.png</key>
+            <key>swiss_WALK_FORTH/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -244,7 +244,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0001.png</key>
+            <key>swiss_WALK_LEFT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -259,7 +259,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0002.png</key>
+            <key>swiss_WALK_LEFT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -274,7 +274,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0003.png</key>
+            <key>swiss_WALK_LEFT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -289,7 +289,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0004.png</key>
+            <key>swiss_WALK_LEFT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -304,7 +304,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0005.png</key>
+            <key>swiss_WALK_LEFT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -319,7 +319,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0006.png</key>
+            <key>swiss_WALK_LEFT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -334,7 +334,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0007.png</key>
+            <key>swiss_WALK_LEFT/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -349,7 +349,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_LEFT/0008.png</key>
+            <key>swiss_WALK_LEFT/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -364,7 +364,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0001.png</key>
+            <key>swiss_WALK_RIGHT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -379,7 +379,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0002.png</key>
+            <key>swiss_WALK_RIGHT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -394,7 +394,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0003.png</key>
+            <key>swiss_WALK_RIGHT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -409,7 +409,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0004.png</key>
+            <key>swiss_WALK_RIGHT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -424,7 +424,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0005.png</key>
+            <key>swiss_WALK_RIGHT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -439,7 +439,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0006.png</key>
+            <key>swiss_WALK_RIGHT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -454,7 +454,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0007.png</key>
+            <key>swiss_WALK_RIGHT/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -469,7 +469,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>swiss/WALK_RIGHT/0008.png</key>
+            <key>swiss_WALK_RIGHT/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
