@@ -2,11 +2,38 @@
 #include "scene/MenuScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-
+#include "luacppinterface/LuaCppInterface/luacppinterface.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
+void IntroScene::testLua() {
+	Lua lua;
+	lua.LoadStandardLibraries();
+	
+	std::string path = CCFileUtils::sharedFileUtils()->fullPathForFilename("config.lua");
+	CCLOG("the path is %s", path);
+	std::ifstream file(path);
+	if (!file.fail()) {
+		std::string script((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+		lua.RunScript(script);
+		auto global = lua.GetGlobalEnvironment();
+		std::string st = global.Get<std::string>("windowTitle");
+		CCLOG("copying string");
+		std::stringstream ss;
+		ss << "the string is " << st << " oo" << std::endl;
+		CCLOG("the reading is %s", ss.str().c_str());
+		CCLOG("finished");
+	}
+	else {
+		CCLOG("open file failed");
+	}
+	
+}
 Scene* IntroScene::createScene()
 {
 	// 'scene' is an autorelease object
@@ -80,6 +107,8 @@ bool IntroScene::init()
 
 	//////////////////////////////
 	// 1. super init first
+	//test out lua
+	testLua();
 	if (!Layer::init())
 	{
 		return false;

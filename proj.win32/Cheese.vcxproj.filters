@@ -260,4 +260,9 @@
       <Filter>resource</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="config.lua">
+      <Filter>resource</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
