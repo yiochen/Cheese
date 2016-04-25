@@ -150,6 +150,9 @@
     <ClCompile Include="..\Classes\device\LuaDevice.cpp">
       <Filter>src\device</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\world\Config.cpp">
+      <Filter>src\world</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -268,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\device\LuaDevice.h">
       <Filter>src\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\world\Config.h">
+      <Filter>src\world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
