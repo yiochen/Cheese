@@ -1,4 +1,5 @@
 #include "graphics/TextureManager.h"
+#include "device/LuaDevice.h"
 
 TextureManager::TextureManager() {
     
@@ -13,12 +14,14 @@ void TextureManager::init() {
 //The prototype will change to take a parameter specifying the level file.
 void TextureManager::load() {
 	CCLOG("loading sprite cache");
-	//TODO: this will use Lua later
 	//load all the spritesheets
-	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/basic_zombie/basic_zombie_sprites.plist", "Assets/spritesheet/basic_zombie/basic_zombie_sprites.png");
-	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/swiss/swiss_sprites.plist", "Assets/spritesheet/swiss/swiss_sprites.png");
-	this->spriteCache->addSpriteFramesWithFile("Assets/spritesheet/chucker/chucker_sprites.plist", "Assets/spritesheet/chucker/chucker_sprites.png");
-	
+	//loading from lua file
+	auto lua_sprite_config = LuaDevice::instance()->global().Get<LuaTable>("sprite_config");
+	auto next_file_func = lua_sprite_config.Get<LuaFunction<LuaTable(int)>>("next_file");
+	for (int i = 0; i < lua_sprite_config.Get<int>("total"); i++) {
+		auto file_pair = next_file_func.Invoke(i);
+		this->spriteCache->addSpriteFramesWithFile(file_pair.Get<std::string>(1), file_pair.Get<std::string>(2));
+	}
 }
 
 
