@@ -8,8 +8,10 @@ public:
 	float attackSpeed;
 	int hp;
 	int damage;
+	int range;
 	CombatComp();
 	void setHP(int);
+	void setRange(int);
 	void setDamage(int);
 	void setAttackSpeed(float);
 };

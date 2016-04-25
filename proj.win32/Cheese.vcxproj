@@ -155,7 +155,9 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\Component.cpp" />
     <ClCompile Include="..\Classes\component\PooledComponent.cpp" />
     <ClCompile Include="..\Classes\component\pooled\AnimComp.cpp" />
+    <ClCompile Include="..\Classes\component\pooled\CombatComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\DomainComp.cpp" />
+    <ClCompile Include="..\Classes\component\pooled\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
     <ClCompile Include="..\Classes\device\LuaDevice.cpp" />
@@ -193,7 +195,9 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\ComponentCatalog.h" />
     <ClInclude Include="..\Classes\component\PooledComponent.h" />
     <ClInclude Include="..\Classes\component\pooled\AnimComp.h" />
+    <ClInclude Include="..\Classes\component\pooled\CombatComp.h" />
     <ClInclude Include="..\Classes\component\pooled\DomainComp.h" />
+    <ClInclude Include="..\Classes\component\pooled\HealComp.h" />
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
     <ClInclude Include="..\Classes\Debug.h" />

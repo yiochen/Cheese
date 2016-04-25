@@ -70,6 +70,8 @@ World* World::initPools() {
 	this->compPools[COMP_CA::ANIM_COMP] = new ObjectPool<AnimComp>();
 	this->compPools[COMP_CA::DOMAIN_COMP] = new ObjectPool<DomainComp>();
 	this->compPools[COMP_CA::HORDE_STATUS_COMP] = new ObjectPool<HordeStatusComp>();
+	this->compPools[COMP_CA::COMBAT_COMP] = new ObjectPool<CombatComp>();
+	this->compPools[COMP_CA::HEAL_COMP] = new ObjectPool<HealComp>();
 	return this;
 }
 /*Create and initialize all basic components, they can be linked to any entities so we don't have to create multiple of them*/
@@ -78,6 +80,7 @@ World* World::initCommonComps() {
 	this->commonComps[COMP_CA::CHASING_COMP] = new ChasingComp();
 	this->commonComps[COMP_CA::SEPERATION_COMP] = new SeperationComp();
 	this->commonComps[COMP_CA::FOLLOWING_COMP] = new FollowingComp();
+
 	return this;
 }
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/

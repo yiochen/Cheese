@@ -153,6 +153,12 @@
     <ClCompile Include="..\Classes\world\Config.cpp">
       <Filter>src\world</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\CombatComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\HealComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -274,6 +280,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\world\Config.h">
       <Filter>src\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\CombatComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\HealComp.h">
+      <Filter>src\component\pooled</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
