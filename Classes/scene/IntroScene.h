@@ -1,8 +1,6 @@
 #pragma once
 #include "cocos2d.h"
 class IntroScene : public cocos2d::Layer {
-private:
-	void testLua();
 public:
 	// there's no 'id' in cpp, so we recommend returning the class instance pointer
 	static cocos2d::Scene* createScene();

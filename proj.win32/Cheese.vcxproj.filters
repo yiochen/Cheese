@@ -49,6 +49,9 @@
     <Filter Include="src\box">
       <UniqueIdentifier>{0bb00f26-baff-4cad-bfca-424ee5a069d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\device">
+      <UniqueIdentifier>{e673fb4c-6885-46ca-aa5e-9d3e23146d26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -140,6 +143,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\component\basic\FollowingComp.cpp">
       <Filter>src\component\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\device\TextReader.cpp">
+      <Filter>src\device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\device\LuaDevice.cpp">
+      <Filter>src\device</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +262,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\basic\FollowingComp.h">
       <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\device\TextReader.h">
+      <Filter>src\device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\device\LuaDevice.h">
+      <Filter>src\device</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

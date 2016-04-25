@@ -5,9 +5,11 @@
 #include "Debug.h"
 #include "scene/ArmyTabScene.h"
 #include "scene/HelpScene.h"
+
+#include "device/LuaDevice.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
-
-
+using namespace CocosDenshion;
 
 Scene* GameScene::createScene()
 {
@@ -48,8 +50,24 @@ bool GameScene::init()
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyListener, this);
 
 	//create world and initialize world
+	//To be moved to a loading scene
+	CCLOG("start creating lua device");
+	LuaDevice* lua = LuaDevice::instance();
+	CCLOG("initializing lua device");
+	lua->init();
+	CCLOG("loading all the lua file");
+	lua->loadAll();
 	World * world = World::instance();
 	world->initWorld(backgroundLayer,actionLayer);
+	//test lua
+	//TODO:to be deleted
+	CCLOG("trying out some lua ");
+	CCLOG("the title is %s",lua->getString(lua->global().Get<std::string>("windowTitle")).c_str());
+	CCLOG("the number is %d", lua->global().Get<int>("test"));
+
+	//load sound
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic("Assets/audio/test_background.wav", true);
 	this->scheduleUpdate();
 	//this->resume();
 	return true;

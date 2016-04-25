@@ -158,6 +158,8 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\DomainComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
+    <ClCompile Include="..\Classes\device\LuaDevice.cpp" />
+    <ClCompile Include="..\Classes\device\TextReader.cpp" />
     <ClCompile Include="..\Classes\entity\Entity.cpp" />
     <ClCompile Include="..\Classes\entity\Item\Item.cpp" />
     <ClCompile Include="..\Classes\entity\Player\Player.cpp" />
@@ -194,6 +196,8 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
     <ClInclude Include="..\Classes\Debug.h" />
+    <ClInclude Include="..\Classes\device\LuaDevice.h" />
+    <ClInclude Include="..\Classes\device\TextReader.h" />
     <ClInclude Include="..\Classes\entity\Entity.h" />
     <ClInclude Include="..\Classes\entity\Item\Item.h" />
     <ClInclude Include="..\Classes\entity\Player\Player.h" />
