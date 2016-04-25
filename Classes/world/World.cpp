@@ -94,7 +94,7 @@ World* World::initPlayers() {
 	swiss->components[COMP_CA::KINETIC_COMP] = kineticComp;
 	kineticComp->maxSpeed = 100.0f;
 	//TODO kinetic position should be relative to the world;
-	kineticComp->pos.set(100, 100);
+	kineticComp->pos.set(0, 0);
 	kineticComp->vel.set(0, 0);
 	//animation Component
 	AnimComp* animComp= COMP_POOL(AnimComp, COMP_CA::ANIM_COMP)->New();

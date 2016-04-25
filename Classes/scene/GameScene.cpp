@@ -7,6 +7,7 @@
 #include "scene/HelpScene.h"
 
 #include "device/LuaDevice.h"
+#include "world/Config.h"
 #include "SimpleAudioEngine.h"
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -57,6 +58,10 @@ bool GameScene::init()
 	lua->init();
 	CCLOG("loading all the lua file");
 	lua->loadAll();
+	Config* config = Config::instance();
+	config->WORLD_HEIGHT = this->getContentSize().height;
+	config->WORLD_WIDTH = this->getContentSize().width;
+	CCLOG("the size of the world is %f,%f", config->WORLD_WIDTH, config->WORLD_HEIGHT);
 	World * world = World::instance();
 	world->initWorld(backgroundLayer,actionLayer);
 	//test lua
