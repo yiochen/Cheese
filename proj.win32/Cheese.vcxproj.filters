@@ -159,6 +159,12 @@
     <ClCompile Include="..\Classes\component\pooled\HealComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\MeleeAttackComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\ActionFlagComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -288,6 +294,12 @@
       <Filter>src\component\pooled</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\HealComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\MeleeAttackComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\ActionFlagComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
   </ItemGroup>
