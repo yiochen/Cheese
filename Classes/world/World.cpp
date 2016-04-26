@@ -25,7 +25,6 @@ World::World() {
 
 //init world init game for a certain level
 World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
-	
 	this->backgroundNode = backgroundLayer;
 	this->actionNode = actionLayer;
 	CCLOG("Created the world");
@@ -73,6 +72,7 @@ World* World::initPools() {
 	this->compPools[COMP_CA::HORDE_STATUS_COMP] = new ObjectPool<HordeStatusComp>();
 	this->compPools[COMP_CA::COMBAT_COMP] = new ObjectPool<CombatComp>();
 	this->compPools[COMP_CA::HEAL_COMP] = new ObjectPool<HealComp>();
+	this->compPools[COMP_CA::ACTION_FLAG_COMP] = new ObjectPool<ActionFlagComp>();
 	return this;
 }
 /*Create and initialize all basic components, they can be linked to any entities so we don't have to create multiple of them*/
@@ -113,6 +113,7 @@ World* World::initRunners() {
 	
 	//init keyboardRunner
 	EntityRunner* runner;
+	this->runnerList.push_back(new ActionFlagRunner());
 	this->runnerList.push_back(new KeyboardRunner());
 	this->runnerList.push_back(new ZombieTallyRunner());
 	this->runnerList.push_back(new ZombieFollowRunner());

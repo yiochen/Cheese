@@ -159,11 +159,14 @@
     <ClCompile Include="..\Classes\component\pooled\HealComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\component\pooled\MeleeAttackComp.cpp">
-      <Filter>src\component\pooled</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\component\pooled\ActionFlagComp.cpp">
       <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\MeleeAttackComp.cpp">
+      <Filter>src\component\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\ActionFlagRunner.cpp">
+      <Filter>src\runner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -296,11 +299,14 @@
     <ClInclude Include="..\Classes\component\pooled\HealComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\component\pooled\MeleeAttackComp.h">
-      <Filter>src\component\pooled</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\ActionFlagComp.h">
       <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\MeleeAttackComp.h">
+      <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\ActionFlagRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
