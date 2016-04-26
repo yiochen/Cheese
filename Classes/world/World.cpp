@@ -81,7 +81,7 @@ World* World::initCommonComps() {
 	this->commonComps[COMP_CA::CHASING_COMP] = new ChasingComp();
 	this->commonComps[COMP_CA::SEPERATION_COMP] = new SeperationComp();
 	this->commonComps[COMP_CA::FOLLOWING_COMP] = new FollowingComp();
-
+	this->commonComps[COMP_CA::MELEE_ATTACK_COMP] = new MeleeAttackComp();
 	return this;
 }
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
@@ -92,7 +92,7 @@ World* World::initPlayers() {
 
 	auto player2 = EntityFactory::createPlayer(false);
 	this->playerList.push_back(player2);
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 2; i++) {
 		this->zombieList.push_back(EntityFactory::createZombie(player2));
 	}
 	return this;
@@ -100,7 +100,7 @@ World* World::initPlayers() {
 /*TODO: to be refactored*/
 World* World::initZombies(Player* player) {
 	//create 5 zombies
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < 2; i++) {
 		
 		this->zombieList.push_back(EntityFactory::createZombie(swiss));
 	}
@@ -118,6 +118,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new ZombieTallyRunner());
 	this->runnerList.push_back(new ZombieFollowRunner());
 	this->runnerList.push_back(new KineticRunner());
+	this->runnerList.push_back(new MeleeAttackRunner());
 	this->runnerList.push_back(new AnimRunner());
 	return this;
 }

@@ -15,8 +15,7 @@
 #include <unordered_map>
 USING_NS_CC;
 //World is a singleton class
-
-
+#define GET_WORLD World::instance()
 class World {
 private:
 	static World * s_instance;

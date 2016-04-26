@@ -13,6 +13,7 @@
 #include "component/basic/SeperationComp.h"
 #include "component/basic/FollowingComp.h"
 #include "component/pooled/ActionFlagComp.h"
+#include "component/basic/MeleeAttackComp.h"
 
 //runners
 #include "runner/KeyboardRunner.h"
@@ -21,3 +22,4 @@
 #include "runner/ZombieFollowRunner.h"
 #include "runner/ZombieTallyRunner.h"
 #include "runner/ActionFlagRunner.h"
+#include "runner/MeleeAttackRunner.h"

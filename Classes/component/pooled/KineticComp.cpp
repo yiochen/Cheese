@@ -5,6 +5,11 @@
 KineticComp::KineticComp() {
     
 }
+void KineticComp::init() {
+	this->vel.set(0.0f, 0.0f);
+	this->pos.set(0.0f, 0.0f);
+	this->acc.set(0.0f, 0.0f);
+}
 void KineticComp::step(Entity* entity, float delta) {
 	Vec2 increment(vel);
 	increment.scale(delta);

@@ -11,12 +11,13 @@ ActionFlagComp::ActionFlagComp() {
 }
 
 void ActionFlagComp::init() {
-	isReady = false;
+	isReady = true;
 	isWaiting = false;
 	interval = 0;
 	time = 0;
 }
 void ActionFlagComp::schedule() {
+	this->isReady = false;
 	this->isWaiting = true;
 	this->time = interval;
 }

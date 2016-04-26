@@ -7,7 +7,7 @@
 Note that the entity created is not added to to world or renderlist yet.*/
 namespace EntityFactory {
 
-	
+	//TODO: createZombie and createPlayer should be combined when the lua function is ready
 	Zombie* createZombie(Player* player) {
 		LuaDevice* lua = LuaDevice::instance();
 
@@ -47,6 +47,28 @@ namespace EntityFactory {
 		zombie->components[COMP_CA::CHASING_COMP] = world->commonComps[COMP_CA::CHASING_COMP];
 		zombie->components[COMP_CA::SEPERATION_COMP] = world->commonComps[COMP_CA::SEPERATION_COMP];
 		zombie->components[COMP_CA::FOLLOWING_COMP] = world->commonComps[COMP_CA::FOLLOWING_COMP];
+		zombie->components[COMP_CA::MELEE_ATTACK_COMP] = world->commonComps[COMP_CA::MELEE_ATTACK_COMP];
+		CombatComp* combatComp = world->getCompPool<CombatComp>(COMP_CA::COMBAT_COMP)->New();
+		combatComp->setHP(100);
+		combatComp->setDamage(10);
+		//Don't do the following way. right now it is just testing
+		if (player == world->swiss) {//should not compare with swiss. Should be two seperated function for AI player and human player.
+			combatComp->alliance = 1;
+		}
+		else {
+			combatComp->alliance = 2;
+		}
+		zombie->components[COMP_CA::COMBAT_COMP] = combatComp;
+		DomainComp* domainComp = world->getCompPool<DomainComp>(COMP_CA::DOMAIN_COMP)->New();
+		domainComp->init();
+		domainComp->radius = 10.0f;
+		zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
+		ActionFlagComp* actionComp = world->getCompPool<ActionFlagComp>(COMP_CA::ACTION_FLAG_COMP)->New();
+		actionComp->init();
+		//testing actionComp
+		actionComp->interval = 3.0f;//3 second
+		zombie->components[COMP_CA::ACTION_FLAG_COMP] = actionComp;
+
 		return zombie;
 	}
 	Player * createPlayer(bool isHuman) {
@@ -67,12 +89,13 @@ namespace EntityFactory {
 		//TODO kinetic position should be relative to the world;
 		if (isHuman) {
 			player->components[COMP_CA::KEYBOARD_COMP] = world->commonComps[COMP_CA::KEYBOARD_COMP];
-			kineticComp->pos.set(0, 0);
+			kineticComp->pos.set(500, 100);
 			kineticComp->vel.set(0, 0);
 		}
 
 		if (!isHuman) {
 			kineticComp->pos.set(500, 500);
+
 		}
 
 		//animation Component
@@ -88,12 +111,8 @@ namespace EntityFactory {
 		hordeStatus->init();
 		player->components[COMP_CA::HORDE_STATUS_COMP] = hordeStatus;
 
-		ActionFlagComp* actionComp = world->getCompPool<ActionFlagComp>(COMP_CA::ACTION_FLAG_COMP)->New();
-		actionComp->init();
-		//testing actionComp
-		actionComp->interval = 3.0f;//3 second
-		player->components[COMP_CA::ACTION_FLAG_COMP] = actionComp;
-
+		
+		
 		return player;
 	}
 }

@@ -16,6 +16,7 @@ public:
 	float maxSpeed;
 	bool resting;
     KineticComp();
+	void init() override;
 	void step(Entity* ent, float delta);
 	//void stepZ(Entity* ent);
 	void setPos(float, float);

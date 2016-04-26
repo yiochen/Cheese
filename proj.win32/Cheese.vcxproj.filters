@@ -168,6 +168,9 @@
     <ClCompile Include="..\Classes\runner\ActionFlagRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\runner\MeleeAttackRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -306,6 +309,9 @@
       <Filter>src\component\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\runner\ActionFlagRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\MeleeAttackRunner.h">
       <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>

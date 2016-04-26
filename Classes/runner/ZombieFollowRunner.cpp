@@ -46,7 +46,7 @@ void ZombieFollowRunner::update(Zombie* zombie, float delta) {
 			//seperate from the average point
 			//if the target is really close to the entity's position. Just choose a random direction for speration. 
 			Vec2 center(hordeStatus->sumPos);
-			center.scale(1.0f / (float)hordeStatus->total);
+			center.scale(1.0f / (float)(hordeStatus->total));
 			seperationComp->seperate(zombie, center, delta);
 		}
 		
