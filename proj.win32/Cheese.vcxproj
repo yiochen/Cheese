@@ -151,6 +151,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\basic\ChasingComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\FollowingComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp" />
+    <ClCompile Include="..\Classes\component\basic\MeleeAttackComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\SeperationComp.cpp" />
     <ClCompile Include="..\Classes\component\Component.cpp" />
     <ClCompile Include="..\Classes\component\PooledComponent.cpp" />
@@ -161,7 +162,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
-    <ClCompile Include="..\Classes\component\pooled\MeleeAttackComp.cpp" />
     <ClCompile Include="..\Classes\device\LuaDevice.cpp" />
     <ClCompile Include="..\Classes\device\TextReader.cpp" />
     <ClCompile Include="..\Classes\entity\Entity.cpp" />
@@ -169,6 +169,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\entity\Player\Player.cpp" />
     <ClCompile Include="..\Classes\entity\zombie\Zombie.cpp" />
     <ClCompile Include="..\Classes\graphics\TextureManager.cpp" />
+    <ClCompile Include="..\Classes\runner\ActionFlagRunner.cpp" />
     <ClCompile Include="..\Classes\runner\AnimRunner.cpp" />
     <ClCompile Include="..\Classes\runner\EntityRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp" />
@@ -191,6 +192,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\basic\ChasingComp.h" />
     <ClInclude Include="..\Classes\component\basic\FollowingComp.h" />
     <ClInclude Include="..\Classes\component\basic\KeyboardComp.h" />
+    <ClInclude Include="..\Classes\component\basic\MeleeAttackComp.h" />
     <ClInclude Include="..\Classes\component\basic\SeperationComp.h" />
     <ClInclude Include="..\Classes\component\CompHeader.h" />
     <ClInclude Include="..\Classes\component\Component.h" />
@@ -203,7 +205,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\HealComp.h" />
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
-    <ClInclude Include="..\Classes\component\pooled\MeleeAttackComp.h" />
     <ClInclude Include="..\Classes\Debug.h" />
     <ClInclude Include="..\Classes\device\LuaDevice.h" />
     <ClInclude Include="..\Classes\device\TextReader.h" />
@@ -213,6 +214,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\entity\zombie\Zombie.h" />
     <ClInclude Include="..\Classes\entity\zombie\ZombieCatelog.h" />
     <ClInclude Include="..\Classes\graphics\TextureManager.h" />
+    <ClInclude Include="..\Classes\runner\ActionFlagRunner.h" />
     <ClInclude Include="..\Classes\runner\AnimRunner.h" />
     <ClInclude Include="..\Classes\runner\EntityRunner.h" />
     <ClInclude Include="..\Classes\runner\KeyboardRunner.h" />

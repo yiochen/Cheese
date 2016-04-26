@@ -76,7 +76,11 @@ namespace EntityFactory {
 		HordeStatusComp* hordeStatus = world->getCompPool<HordeStatusComp>(COMP_CA::HORDE_STATUS_COMP)->New();
 		hordeStatus->init();
 		player->components[COMP_CA::HORDE_STATUS_COMP] = hordeStatus;
-		
+		ActionFlagComp* actionComp = world->getCompPool<ActionFlagComp>(COMP_CA::ACTION_FLAG_COMP)->New();
+		actionComp->init();
+		//testing actionComp
+		actionComp->interval = 3.0f;//3 second
+		player->components[COMP_CA::ACTION_FLAG_COMP] = actionComp;
 		return player;
 	}
 }

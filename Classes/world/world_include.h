@@ -12,6 +12,7 @@
 #include "component/pooled/HealComp.h"
 #include "component/basic/SeperationComp.h"
 #include "component/basic/FollowingComp.h"
+#include "component/pooled/ActionFlagComp.h"
 
 //runners
 #include "runner/KeyboardRunner.h"
@@ -19,3 +20,4 @@
 #include "runner/AnimRunner.h"
 #include "runner/ZombieFollowRunner.h"
 #include "runner/ZombieTallyRunner.h"
+#include "runner/ActionFlagRunner.h"
