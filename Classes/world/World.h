@@ -16,6 +16,7 @@
 USING_NS_CC;
 //World is a singleton class
 
+
 class World {
 private:
 	static World * s_instance;
@@ -59,6 +60,11 @@ public:
 	Node* getBackgroundNode() { return backgroundNode; }
 	Node* getActionNode() { return actionNode; }
 	TextureManager* getTextureManager() { return textureManager; }
+	ObjectPool<Player> *getPlayerPool(){ return playerPool; }
+	ObjectPool<Zombie> *getZombiePool(){ return zombiePool; }
+	ObjectPool<Item> *getItemPool(){ return itemPool; }
+	template <typename T> 
+	ObjectPool<T> *getCompPool(COMP_CA typeEnum) {return (ObjectPool<T>*)this->compPools[typeEnum];}
 	void update(float delta);
 	void destroy();
 };

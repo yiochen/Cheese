@@ -153,9 +153,6 @@
     <ClCompile Include="..\Classes\world\Config.cpp">
       <Filter>src\world</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\util\EntityFactory.cpp">
-      <Filter>src\util</Filter>
-	</ClCompile>
     <ClCompile Include="..\Classes\component\pooled\CombatComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
@@ -286,7 +283,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\EntityFactory.h">
       <Filter>src\util</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\CombatComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
