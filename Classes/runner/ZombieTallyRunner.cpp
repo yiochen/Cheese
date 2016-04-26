@@ -1,7 +1,9 @@
 #include "ZombieTallyRunner.h"
 #include "world/World.h"
+
 #include "component/pooled/HordeStatusComp.h"
 #include "component/pooled/KineticComp.h"
+#include "component/pooled/ZombieSensorComp.h"
 
 ZombieTallyRunner::ZombieTallyRunner() {
     
@@ -29,14 +31,12 @@ void ZombieTallyRunner::update(float delta) {
 }
 void ZombieTallyRunner::countZombie(Zombie* zombie) {
 	Player* player = zombie->player;
-	if (NULL == player) {
-		//or save the count of strayed zombie in the world?
-		return;
-	}
-	else {
+	if (player) {
 		HordeStatusComp* hordeStatus = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
 		KineticComp* kinetic = (KineticComp*)zombie->components[COMP_CA::KINETIC_COMP];
 		if (NULL == hordeStatus || NULL == kinetic) return;
 		hordeStatus->sumPos.add(kinetic->pos);
 	}
+	//
+	
 }

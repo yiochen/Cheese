@@ -4,6 +4,7 @@
 
 
 #define EPSILON 0.01f
+#define LARGE_NUM 2147483647
 #define A_WALK_FORTH  "WALK_FORTH"
 #define A_WALK_BACK  "WALK_BACK"
 #define A_WALK_RIGHT  "WALK_RIGHT"

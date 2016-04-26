@@ -162,6 +162,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
+    <ClCompile Include="..\Classes\component\pooled\ZombieSensorComp.cpp" />
     <ClCompile Include="..\Classes\device\LuaDevice.cpp" />
     <ClCompile Include="..\Classes\device\TextReader.cpp" />
     <ClCompile Include="..\Classes\entity\Entity.cpp" />
@@ -206,6 +207,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\HealComp.h" />
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
+    <ClInclude Include="..\Classes\component\pooled\ZombieSensorComp.h" />
     <ClInclude Include="..\Classes\Debug.h" />
     <ClInclude Include="..\Classes\device\LuaDevice.h" />
     <ClInclude Include="..\Classes\device\TextReader.h" />
