@@ -72,7 +72,7 @@ bool GameScene::init()
 
 	//load sound
 	auto audio = SimpleAudioEngine::getInstance();
-	audio->playBackgroundMusic("Assets/audio/test_background.wav", true);
+	audio->playBackgroundMusic("Assets/audio/test_background.mp3", true);
 	this->scheduleUpdate();
 	//this->resume();
 	return true;

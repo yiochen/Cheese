@@ -153,6 +153,9 @@
     <ClCompile Include="..\Classes\world\Config.cpp">
       <Filter>src\world</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\EntityFactory.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -274,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\world\Config.h">
       <Filter>src\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\EntityFactory.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
