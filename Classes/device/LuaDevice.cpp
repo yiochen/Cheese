@@ -45,4 +45,5 @@ void LuaDevice::loadAll() {
 	load("lua/sprite_config.lua");
 	load("lua/config.lua");
 	load("lua/config2.lua");
+	load("lua/zombie_config.lua");
 }

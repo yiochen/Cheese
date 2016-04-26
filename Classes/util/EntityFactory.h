@@ -1,6 +1,7 @@
 #pragma once
 #include"world/world_include.h"
 #include "world/World.h"
+#include "device/LuaDevice.h"
 
 /*this class contain some helper static methods for creating entities in the game. 
 Note that the entity created is not added to to world or renderlist yet.*/
@@ -8,6 +9,9 @@ namespace EntityFactory {
 
 	
 	Zombie* createZombie(Player* player) {
+		LuaDevice* lua = LuaDevice::instance();
+
+
 		World* world = World::instance();
 		auto zombiePool = world->getZombiePool();
 		Zombie* zombie = zombiePool->New();
@@ -20,7 +24,8 @@ namespace EntityFactory {
 		zombie->components[COMP_CA::KINETIC_COMP] = kineticComp;
 		kineticComp->maxSpeed = 100.0f + RandomHelper::random_real<float>(-20.0f, 20.0f);
 		//TODO kinetic position should be relative to the world;
-		kineticComp->pos.set(100, 100);
+		kineticComp->pos.set(((KineticComp*)player->components[COMP_CA::KINETIC_COMP])->pos);
+		//kineticComp->pos.set(100, 100);
 		kineticComp->vel.set(0, 0);
 		//animation Component
 		AnimComp* animComp = world->getCompPool<AnimComp>(COMP_CA::ANIM_COMP)->New();
@@ -53,17 +58,23 @@ namespace EntityFactory {
 
 		player->init();
 		//keyboard Component
-		if (isHuman) {
-			player->components[COMP_CA::KEYBOARD_COMP] = world->commonComps[COMP_CA::KEYBOARD_COMP];
-		}
+	
 		
 		//kinetic Component
 		KineticComp* kineticComp = world->getCompPool<KineticComp>(COMP_CA::KINETIC_COMP)->New();
 		player->components[COMP_CA::KINETIC_COMP] = kineticComp;
 		kineticComp->maxSpeed = 100.0f;
 		//TODO kinetic position should be relative to the world;
-		kineticComp->pos.set(0, 0);
-		kineticComp->vel.set(0, 0);
+		if (isHuman) {
+			player->components[COMP_CA::KEYBOARD_COMP] = world->commonComps[COMP_CA::KEYBOARD_COMP];
+			kineticComp->pos.set(0, 0);
+			kineticComp->vel.set(0, 0);
+		}
+
+		if (!isHuman) {
+			kineticComp->pos.set(500, 500);
+		}
+
 		//animation Component
 		AnimComp* animComp = world->getCompPool<AnimComp>(COMP_CA::ANIM_COMP)->New();
 		//following is to be read from a file
@@ -77,6 +88,8 @@ namespace EntityFactory {
 		hordeStatus->init();
 		player->components[COMP_CA::HORDE_STATUS_COMP] = hordeStatus;
 		
+		
+
 		return player;
 	}
 }
