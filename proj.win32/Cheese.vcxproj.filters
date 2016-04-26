@@ -155,6 +155,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\util\EntityFactory.cpp">
       <Filter>src\util</Filter>
+	</ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\CombatComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\HealComp.cpp">
+      <Filter>src\component\pooled</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +286,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\EntityFactory.h">
       <Filter>src\util</Filter>
+	</ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\CombatComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\HealComp.h">
+      <Filter>src\component\pooled</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
