@@ -5,7 +5,10 @@
 #include "component/pooled/CombatComp.h"
 #include "component/pooled/KineticComp.h"
 #include "component/pooled/DomainComp.h"
-
+#include "component/pooled/AnimComp.h"
+#include "util/AnimNameHelper.h"
+#include "cocos2d.h"
+USING_NS_CC;
 MeleeAttackRunner::MeleeAttackRunner() {
     
 }
@@ -58,10 +61,17 @@ void MeleeAttackRunner::updateEntity(Entity* entity, float delta) {
 			zombieIt++;
 		}//while
 		//found the opponent zombie, check if it's within the attack range
-		if (domainComp->contains(kineticComp->pos, ((KineticComp*)(opponent->components[COMP_CA::KINETIC_COMP]))->pos)) {
+		KineticComp* oppKin = (KineticComp*)opponent->components[COMP_CA::KINETIC_COMP];
+		if (oppKin && domainComp->contains(kineticComp->pos, oppKin->pos)) {
 			//can finally attack.
 			//TODO:play animation once.
-
+			auto animComp=(AnimComp*)entity->components[COMP_CA::ANIM_COMP];
+			Vec2 dir;
+			dir.setPoint(oppKin->pos.x, oppKin->pos.y);
+			dir.subtract(kineticComp->pos);
+			if (animComp) {
+				animComp->forcePlay(entity, anim_name::directionalString(A_ATTACK,dir), 1);
+			}
 			//reset the timer for next attack
 			((CombatComp*)opponent->components[COMP_CA::COMBAT_COMP])->pendingDmg += combatComp->damage;
 			actionFlag->schedule();

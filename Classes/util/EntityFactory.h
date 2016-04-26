@@ -31,7 +31,18 @@ namespace EntityFactory {
 		AnimComp* animComp = world->getCompPool<AnimComp>(COMP_CA::ANIM_COMP)->New();
 		//following is to be read from a file
 		
-		animComp->name = "basic_zombie";
+		switch (RandomHelper::random_int(0, 2)) {
+		case 0:
+			animComp->name = "basic_zombie";
+			break;
+		case 1:
+			animComp->name = "chucker";
+			break;
+		case 2:
+			animComp->name = "healer";
+			break;
+		}
+		
 		zombie->catagory = ZOMBIE_CA::STINKIE;
 		hordeStatus->zombieCounts[ZOMBIE_CA::STINKIE]++;
 		/*}
