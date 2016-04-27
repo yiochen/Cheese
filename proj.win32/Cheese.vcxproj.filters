@@ -177,6 +177,9 @@
     <ClCompile Include="..\Classes\util\AnimNameHelper.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\runner\StatRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -325,6 +328,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\AnimNameHelper.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\StatRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

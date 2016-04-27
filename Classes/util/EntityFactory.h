@@ -60,6 +60,7 @@ namespace EntityFactory {
 		zombie->components[COMP_CA::FOLLOWING_COMP] = world->commonComps[COMP_CA::FOLLOWING_COMP];
 		zombie->components[COMP_CA::MELEE_ATTACK_COMP] = world->commonComps[COMP_CA::MELEE_ATTACK_COMP];
 		CombatComp* combatComp = world->getCompPool<CombatComp>(COMP_CA::COMBAT_COMP)->New();
+		combatComp->init();
 		combatComp->setHP(100);
 		combatComp->setDamage(10);
 		//Don't do the following way. right now it is just testing
@@ -72,7 +73,7 @@ namespace EntityFactory {
 		zombie->components[COMP_CA::COMBAT_COMP] = combatComp;
 		DomainComp* domainComp = world->getCompPool<DomainComp>(COMP_CA::DOMAIN_COMP)->New();
 		domainComp->init();
-		domainComp->radius = 10.0f;
+		domainComp->radius = 50.0f;
 		zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
 		ActionFlagComp* actionComp = world->getCompPool<ActionFlagComp>(COMP_CA::ACTION_FLAG_COMP)->New();
 		actionComp->init();

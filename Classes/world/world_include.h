@@ -23,3 +23,4 @@
 #include "runner/ZombieTallyRunner.h"
 #include "runner/ActionFlagRunner.h"
 #include "runner/MeleeAttackRunner.h"
+#include "runner/StatRunner.h"
