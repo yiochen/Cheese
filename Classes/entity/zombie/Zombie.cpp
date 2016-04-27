@@ -27,5 +27,5 @@ void Zombie::init() {
 Zombie::~Zombie() {
 	CCLOG("zombie is recycled");
 	//remove from the world
-	World::instance()->zombieList.remove(this);
+	//World::instance()->zombieList.remove(this);
 }

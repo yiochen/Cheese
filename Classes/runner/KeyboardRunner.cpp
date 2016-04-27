@@ -14,7 +14,7 @@ void KeyboardRunner::update(float delta) {
 	//I know that only Swiss will be affected by keyboard input directly, so I just get Swiss
 	auto keyStatus = World::instance()->keyStatus;
 	auto swiss=World::instance()->swiss;
-	
+	if (!swiss) return;
 	KeyboardComp* keyboardComp =(KeyboardComp*)(swiss->components[COMP_CA::KEYBOARD_COMP]);
 	KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
 	if (keyboardComp != NULL) {

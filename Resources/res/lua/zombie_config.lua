@@ -85,7 +85,7 @@ function getTable()
   --functions
   generalTable.StinkieFunc = nil
   generalTable.ChuckerFunc = nil
-  generalTable.HolyFunc = nil
+  generalTable.HolyBoneFunc = nil
   
   
   return generalTable
@@ -198,6 +198,7 @@ function createPlayer(isHuman)
     player.x = gameTable.worldWidth / 2
     player.y = gameTable.worldHeight / 2
     player.AnimCompName = "swiss"
+    player.StinkieNum = 1
     player.StinkieFunc = function ()
       return createStinkie(gameTable.stinkieHP,gameTable.stinkieAttack, gameTable.stinkieAttackSpeed,gameTable.stinkieRange) 
     end
@@ -241,6 +242,12 @@ print(basicChucker.attack,scalingChucker.attack)
 print(basicChucker.attackSpeed,scalingChucker.attackSpeed)
 print(basicChucker.heal,scalingChucker.heal)
 print(basicChucker.DomainComp,scalingChucker.DomainCompRadius)
+print(player.AnimCompName)
+print(player.StinkieNum)
+testStinkie=player.StinkieFunc()
+print(testStinkie.AnimCompName)
+print(testStinkie.x, testStinkie.y)
+
 
 
 

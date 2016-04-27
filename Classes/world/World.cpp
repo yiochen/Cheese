@@ -27,6 +27,7 @@ World::World() {
 World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	this->backgroundNode = backgroundLayer;
 	this->actionNode = actionLayer;
+	swiss = NULL;
 	CCLOG("Created the world");
 	//initialize the Pools
 	initSpriteCache();
@@ -35,7 +36,10 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	initPools();
 	
 	initPlayers();
-	initZombies(swiss);
+	//initZombies(swiss);
+	//testing lua
+	//auto testPlayer=EntityFactory::createPlayer(true);
+	CCLOG("created Player");
 	//initStrayZombie();
 	//initialize all the entity runners
 	
@@ -86,7 +90,7 @@ World* World::initCommonComps() {
 }
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
 World* World::initPlayers() {
-	auto player = EntityFactory::createPlayer(true);
+	/*auto player = EntityFactory::createPlayer(true);
 	this->playerList.push_back(player);
 	this->swiss = player;
 
@@ -94,7 +98,8 @@ World* World::initPlayers() {
 	this->playerList.push_back(player2);
 	for (int i = 0; i <2; i++) {
 		this->zombieList.push_back(EntityFactory::createZombie(player2));
-	}
+	}*/
+	this->swiss = EntityFactory::createPlayer(true);
 	return this;
 }
 /*TODO: to be refactored*/
@@ -102,7 +107,7 @@ World* World::initZombies(Player* player) {
 	//create 5 zombies
 	for (int i = 0; i < 2; i++) {
 		
-		this->zombieList.push_back(EntityFactory::createZombie(swiss));
+		//this->zombieList.push_back(EntityFactory::createZombie(swiss));
 	}
 	
 	return this;

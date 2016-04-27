@@ -16,6 +16,7 @@ void Player::init() {
 	this->sprite->setAnchorPoint(Vec2(0.5, 0));
 	//add the empty sprite to game 
 	World::instance()->getActionNode()->addChild(this->sprite);
+	CCLOG("added player to world");
 	/*
 	TextureManager* textureManager = World::instance()->getTextureManager();
 	auto frames = textureManager->getAnimation("swiss", "WALK_FORTH");
@@ -28,10 +29,9 @@ void Player::init() {
 	//add components
 	
 }
-void Player::initStrayZombie() {
 
-}
+
 Player::~Player() {
 	CCLOG("player is recycled");
-	World::instance()->playerList.remove(this);
+	//World::instance()->playerList.remove(this);
 }

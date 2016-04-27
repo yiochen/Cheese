@@ -48,6 +48,7 @@ void AnimComp::updateAnim(Entity* entity) {
 		//TODO: convert world location to screen location 
 		entity->sprite->setPosition(Vec2(kin->pos));
 		entity->sprite->setLocalZOrder(-entity->sprite->getPosition().y);
+		//CCLOG("the pos is at %f,%f", entity->sprite->getPositionX(), entity->sprite->getPositionY());
 		//check the velocity angle, change the animation state
 		float speed = kin->vel.getLength();
 		if (speed <= EPSILON) {
@@ -77,14 +78,17 @@ void AnimComp::updateAnim(Entity* entity) {
 		
 	}
 	auto forcePlaying = entity->sprite->getActionByTag(16);
+	if (forcePlaying) CCLOG("it has forceplaying, so strange");
 	if (forcePlaying && forcePlaying->isDone()) {
 		forcePlaying->release();
 		isForced = false;
 		forcePlaying = NULL;
 	}
 	if (forcePlaying==NULL && kin && newAnimState != animState && newAnimState.length()>0) {
+		CCLOG("changing anim state, the animState is %s and the newAnimState is %s",animState.c_str(),newAnimState.c_str());
 		Animation* ani = getAnimation(entity);
 		if (ani) {
+			CCLOG("found animstate");
 			//set 15 as the animation action tag
 			entity->sprite->stopActionByTag(15);
 			Action* aniAction=entity->sprite->runAction(RepeatForever::create(Animate::create(ani)));

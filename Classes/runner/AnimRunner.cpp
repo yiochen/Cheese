@@ -18,26 +18,34 @@ void AnimRunner::update(float delta) {
 	auto playerIt = world->playerList.begin();
 	while (playerIt != world->playerList.end()) {
 		//update player's animation
-		Player* player = (Player*)(*playerIt);
-		runAnimRunner(player);
+		if (runAnimRunner(*playerIt)) {
+			world->playerList.erase(playerIt++);
+		}
+		else {
+			playerIt++;
+		}
 		
-		playerIt++;
+		
 	}
 	//update all the zombies in the player 
 	auto zombieIt =world->zombieList.begin();
 	while (zombieIt != world->zombieList.end()) {
-		runAnimRunner(*zombieIt);
-		zombieIt++;
+		if (runAnimRunner(*zombieIt)) {
+			world->zombieList.erase(zombieIt++);
+		}
+		else {
+			zombieIt++;
+		}
 	}
 	auto itemIt = world->itemList.begin();
 	while (itemIt != world->itemList.end()) {
-
+		
 		itemIt++;
 	}
 	
 }
-
-void AnimRunner::runAnimRunner(Entity* entity) {
+/*return true when the entity should be removed from the list*/
+bool AnimRunner::runAnimRunner(Entity* entity) {
 	CombatComp* combatComp = (CombatComp*)entity->components[COMP_CA::COMBAT_COMP];
 	if (combatComp && combatComp->isDead) {
 		//if the entity is dead, remove from the game. 
@@ -58,11 +66,12 @@ void AnimRunner::runAnimRunner(Entity* entity) {
 			CCLOG("deleting item");
 			world->getItemPool()->Delete((Item*)entity);
 		}
-		return;
+		return true;
 	}
 	//get the AnimComp
 	AnimComp* animComp = (AnimComp*)entity->components[COMP_CA::ANIM_COMP];
 	if (animComp) {
 		animComp->updateAnim(entity);
 	}
+	return false;
 }

@@ -10,7 +10,6 @@ class Player:public Entity {
 
 public:
 	void init() override;
-	void initStrayZombie();
 
     Player();
 	~Player();

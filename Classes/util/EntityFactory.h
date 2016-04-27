@@ -2,11 +2,16 @@
 #include"world/world_include.h"
 #include "world/World.h"
 #include "device/LuaDevice.h"
+#include "luacppinterface.h"
 
 /*this class contain some helper static methods for creating entities in the game. 
 Note that the entity created is not added to to world or renderlist yet.*/
 namespace EntityFactory {
 
+	void initEntity(Entity* entity, LuaTable& luaTable);
+	Zombie* createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc);
+	Player* createPlayer(bool isHuman);
+	/*
 	//TODO: createZombie and createPlayer should be combined when the lua function is ready
 	Zombie* createZombie(Player* player) {
 		LuaDevice* lua = LuaDevice::instance();
@@ -45,12 +50,7 @@ namespace EntityFactory {
 		
 		zombie->catagory = ZOMBIE_CA::STINKIE;
 		hordeStatus->zombieCounts[ZOMBIE_CA::STINKIE]++;
-		/*}
-		else {
-			animComp->name = "chucker";
-			zombie->catagory = ZOMBIE_CA::CHUCKER;
-			hordeStatus->zombieCounts[ZOMBIE_CA::CHUCKER]++;
-		}*/
+		
 
 		animComp->newAnimState = A_WALK_FORTH;
 		zombie->components[COMP_CA::ANIM_COMP] = animComp;
@@ -127,4 +127,5 @@ namespace EntityFactory {
 		
 		return player;
 	}
+	*/
 }

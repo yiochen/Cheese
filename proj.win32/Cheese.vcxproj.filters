@@ -180,6 +180,9 @@
     <ClCompile Include="..\Classes\runner\StatRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\EntityFactory.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

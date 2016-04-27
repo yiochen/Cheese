@@ -6,7 +6,7 @@
 //AnimRunner should be the last runner running, because it is also in charged of removing the entity from the gameworld;
 class AnimRunner:public EntityRunner {
 private:
-	void runAnimRunner(Entity* entity);
+	bool runAnimRunner(Entity* entity);
 public:
     AnimRunner();
 	void update(float delat) override;
