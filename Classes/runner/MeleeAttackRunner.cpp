@@ -75,7 +75,6 @@ void MeleeAttackRunner::updateEntity(Entity* entity, float delta) {
 			//reset the timer for next attack
 			((CombatComp*)opponent->components[COMP_CA::COMBAT_COMP])->pendingDmg += combatComp->damage;
 			actionFlag->schedule();
-			CCLOG("attack an enermy");
 		}
 	}
 }

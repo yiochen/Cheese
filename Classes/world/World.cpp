@@ -119,6 +119,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new ZombieFollowRunner());
 	this->runnerList.push_back(new KineticRunner());
 	this->runnerList.push_back(new MeleeAttackRunner());
+	this->runnerList.push_back(new StatRunner());
 	this->runnerList.push_back(new AnimRunner());
 	return this;
 }

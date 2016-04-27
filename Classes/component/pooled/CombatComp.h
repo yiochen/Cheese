@@ -12,6 +12,8 @@ public:
 	int alliance;
 	/*The damage pending to be inflicted on the entity. This is used so that there could be multiple damage source and the invisiblity effect could ignore all the pending damages*/
 	int pendingDmg;
+	bool isDying;
+	bool isDead;
 	CombatComp();
 	void init() override;
 	void setHP(int);
