@@ -14,6 +14,7 @@
 #include "component/basic/FollowingComp.h"
 #include "component/pooled/ActionFlagComp.h"
 #include "component/basic/MeleeAttackComp.h"
+#include "component/pooled/ZombieSensorComp.h"
 
 //runners
 #include "runner/KeyboardRunner.h"

@@ -27,6 +27,8 @@ void StatRunner::updateEntity(Entity* entity, float delta) {
 			combatComp->isDying = true;
 			//play dying anymation
 			CCLOG("a zombie is dying");
+			//for now, kill the zombie immediately
+			combatComp->isDead = true;
 		}
 	}
 }

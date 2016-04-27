@@ -14,5 +14,5 @@ public:
 	ZOMBIE_CA catagory;
 	void init() override;
     Zombie();
-	~Zombie() {}
+	~Zombie();
 };

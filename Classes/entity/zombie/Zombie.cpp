@@ -24,3 +24,8 @@ void Zombie::init() {
 	sprite->runAction(RepeatForever::create(Animate::create(animation)));
 	*/
 }
+Zombie::~Zombie() {
+	CCLOG("zombie is recycled");
+	//remove from the world
+	World::instance()->zombieList.remove(this);
+}

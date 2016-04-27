@@ -62,7 +62,7 @@ namespace EntityFactory {
 		CombatComp* combatComp = world->getCompPool<CombatComp>(COMP_CA::COMBAT_COMP)->New();
 		combatComp->init();
 		combatComp->setHP(100);
-		combatComp->setDamage(10);
+		combatComp->setDamage(50);
 		//Don't do the following way. right now it is just testing
 		if (player == world->swiss) {//should not compare with swiss. Should be two seperated function for AI player and human player.
 			combatComp->alliance = 1;

@@ -92,7 +92,7 @@ World* World::initPlayers() {
 
 	auto player2 = EntityFactory::createPlayer(false);
 	this->playerList.push_back(player2);
-	for (int i = 0; i <20; i++) {
+	for (int i = 0; i <2; i++) {
 		this->zombieList.push_back(EntityFactory::createZombie(player2));
 	}
 	return this;
@@ -100,7 +100,7 @@ World* World::initPlayers() {
 /*TODO: to be refactored*/
 World* World::initZombies(Player* player) {
 	//create 5 zombies
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < 2; i++) {
 		
 		this->zombieList.push_back(EntityFactory::createZombie(swiss));
 	}

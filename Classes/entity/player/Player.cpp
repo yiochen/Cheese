@@ -31,3 +31,7 @@ void Player::init() {
 void Player::initStrayZombie() {
 
 }
+Player::~Player() {
+	CCLOG("player is recycled");
+	World::instance()->playerList.remove(this);
+}

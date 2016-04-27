@@ -149,6 +149,8 @@ public:
 	}
 	void Delete(T *content)
 	{
+		//if content is NULL, don't do anything
+		if (NULL==content) return;
 		content->~T();
 
 		*((T **)content) = _firstDeleted;
@@ -156,6 +158,8 @@ public:
 	}
 	void DeleteWithoutDestroying(T *content)
 	{
+		//if content is NULL, don't do anything
+		if (NULL==content) return;
 		*((T **)content) = _firstDeleted;
 		_firstDeleted = content;
 	}

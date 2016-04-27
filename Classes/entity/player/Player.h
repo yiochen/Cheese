@@ -13,5 +13,5 @@ public:
 	void initStrayZombie();
 
     Player();
-	~Player() {}
+	~Player();
 };
