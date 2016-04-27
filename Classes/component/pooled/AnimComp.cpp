@@ -20,7 +20,7 @@ void AnimComp::init() {
 Animation* AnimComp::getAnimation(Entity* entity, std::string animState) {
 	//get texture manager
 	TextureManager* textureManager = World::instance()->getTextureManager();
-
+	CCLOG("%s getting %s", this->name.c_str(),animState.c_str());
 	//get animation frames from the texture Manager
 	if (name.length() > 0 && animState.length() > 0) {
 		auto frames = textureManager->getAnimation(name, animState);
@@ -85,10 +85,10 @@ void AnimComp::updateAnim(Entity* entity) {
 		forcePlaying = NULL;
 	}
 	if (forcePlaying==NULL && kin && newAnimState != animState && newAnimState.length()>0) {
-		CCLOG("changing anim state, the animState is %s and the newAnimState is %s",animState.c_str(),newAnimState.c_str());
+		//CCLOG("changing anim state, the animState is %s and the newAnimState is %s",animState.c_str(),newAnimState.c_str());
 		Animation* ani = getAnimation(entity);
 		if (ani) {
-			CCLOG("found animstate");
+			//CCLOG("found animstate");
 			//set 15 as the animation action tag
 			entity->sprite->stopActionByTag(15);
 			Action* aniAction=entity->sprite->runAction(RepeatForever::create(Animate::create(ani)));

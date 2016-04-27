@@ -53,6 +53,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		auto anim = newcomp(AnimComp, COMP_CA::ANIM_COMP);
 		anim->init();
 		anim->name=luastring("AnimCompName");
+		CCLOG("anim comp name is %s", anim->name.c_str());
 		anim->newAnimState = A_WALK_FORTH;
 		addcomp(COMP_CA::ANIM_COMP, anim);
 	}
@@ -98,6 +99,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		kinetic->maxSpeed = luafloat("KineticCompMaxSpeed");
 		auto x = luafloat("x");
 		auto y = luafloat("y");
+		CCLOG("the initial x and y is %f,%f", x, y);
 		kinetic->pos.set(x, y);//TODO: zombie's position seems not working
 		addcomp(COMP_CA::KINETIC_COMP, kinetic);
 	}
@@ -117,7 +119,6 @@ Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaF
 	
 	auto luaTable = luaFunc.Invoke();
 	initEntity(zombie,luaTable);
-	((AnimComp*)zombie->components[COMP_CA::ANIM_COMP])->name = luastring("ZombieCatagory");
 	zombie->catagory =(ZOMBIE_CA) luaint("ZombieCatagory");
 	world->zombieList.push_back(zombie);
 	return zombie;

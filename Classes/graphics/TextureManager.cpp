@@ -32,7 +32,7 @@ cocos2d::Vector<SpriteFrame*> TextureManager::getAnimation(const string name,con
 	char st[100];
 	int i = 1;
 	sprintf(st, "%s_%s/%04d.png", name.c_str(), action.c_str(), i);
-	CCLOG("the anim name is %s", st);
+	//CCLOG("the anim name is %s", st);
 	SpriteFrame *frame;
 	while ((frame=this->spriteCache->getSpriteFrameByName(st)) != NULL) {
 		animFrames.pushBack(frame);
