@@ -45,6 +45,9 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		auto actionFlag = newcomp(ActionFlagComp, COMP_CA::ACTION_FLAG_COMP);
 		actionFlag->init();
 		actionFlag->interval = luafloat("attackSpeed");
+		if (!luabool("belongToPlayer")) {
+			actionFlag->interval = luafloat("WanderingCompInterval");
+		}
 		addcomp(COMP_CA::ACTION_FLAG_COMP, actionFlag);
 
 	}
@@ -99,8 +102,16 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		auto kinetic = newcomp(KineticComp, COMP_CA::KINETIC_COMP);
 		kinetic->init();
 		kinetic->maxSpeed = luafloat("KineticCompMaxSpeed");
-		auto x = luafloat("x");
-		auto y = luafloat("y");
+		float x, y;
+		if (luabool("belongToPlayer")) {
+			KineticComp* playKin = (KineticComp*)(dynamic_cast<Zombie*>(entity))->player->components[COMP_CA::KINETIC_COMP];
+			x = playKin->pos.x;
+			y = playKin->pos.y;
+		}
+		else {
+			x = luafloat("x");
+			y = luafloat("y");
+		}
 		CCLOG("the initial x and y is %f,%f", x, y);
 		kinetic->pos.set(x, y);//TODO: zombie's position seems not working
 		addcomp(COMP_CA::KINETIC_COMP, kinetic);
@@ -109,6 +120,13 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		CCLOG("creating zombie sensor comp");
 		
 		
+	}
+	if (luabool("WanderingComp")) {
+		CCLOG("creating wanderingComp");
+		auto wanderingComp = newcomp(WanderingComp, COMP_CA::WANDERING_COMP);
+		wanderingComp->init();
+		addcomp(COMP_CA::WANDERING_COMP, wanderingComp);
+
 	}
 	CCLOG("finish entity initialization");
 }

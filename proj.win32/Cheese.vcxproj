@@ -162,6 +162,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
+    <ClCompile Include="..\Classes\component\pooled\WanderingComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\ZombieSensorComp.cpp" />
     <ClCompile Include="..\Classes\device\LuaDevice.cpp" />
     <ClCompile Include="..\Classes\device\TextReader.cpp" />
@@ -177,6 +178,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp" />
     <ClCompile Include="..\Classes\runner\MeleeAttackRunner.cpp" />
     <ClCompile Include="..\Classes\runner\StatRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\WandererRunner.cpp" />
     <ClCompile Include="..\Classes\runner\ZombieFollowRunner.cpp" />
     <ClCompile Include="..\Classes\runner\ZombieTallyRunner.cpp" />
     <ClCompile Include="..\Classes\scene\ArmyTabScene.cpp" />
@@ -210,6 +212,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\HealComp.h" />
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
+    <ClInclude Include="..\Classes\component\pooled\WanderingComp.h" />
     <ClInclude Include="..\Classes\component\pooled\ZombieSensorComp.h" />
     <ClInclude Include="..\Classes\Debug.h" />
     <ClInclude Include="..\Classes\device\LuaDevice.h" />
@@ -227,6 +230,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\runner\KineticRunner.h" />
     <ClInclude Include="..\Classes\runner\MeleeAttackRunner.h" />
     <ClInclude Include="..\Classes\runner\StatRunner.h" />
+    <ClInclude Include="..\Classes\runner\WandererRunner.h" />
     <ClInclude Include="..\Classes\runner\ZombieFollowRunner.h" />
     <ClInclude Include="..\Classes\runner\ZombieTallyRunner.h" />
     <ClInclude Include="..\Classes\scene\ArmyTabScene.h" />

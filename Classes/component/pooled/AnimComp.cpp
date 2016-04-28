@@ -20,7 +20,7 @@ void AnimComp::init() {
 Animation* AnimComp::getAnimation(Entity* entity, std::string animState) {
 	//get texture manager
 	TextureManager* textureManager = World::instance()->getTextureManager();
-	CCLOG("%s getting %s", this->name.c_str(),animState.c_str());
+//	CCLOG("%s getting %s", this->name.c_str(),animState.c_str());
 	//get animation frames from the texture Manager
 	if (name.length() > 0 && animState.length() > 0) {
 		auto frames = textureManager->getAnimation(name, animState);
@@ -78,7 +78,7 @@ void AnimComp::updateAnim(Entity* entity) {
 		
 	}
 	auto forcePlaying = entity->sprite->getActionByTag(16);
-	if (forcePlaying) CCLOG("it has forceplaying, so strange");
+	//if (forcePlaying) CCLOG("it has forceplaying, so strange");
 	if (forcePlaying && forcePlaying->isDone()) {
 		forcePlaying->release();
 		isForced = false;
