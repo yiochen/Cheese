@@ -8,6 +8,9 @@
 #include "component/pooled/AnimComp.h"
 #include "util/AnimNameHelper.h"
 #include "cocos2d.h"
+#include "SimpleAudioEngine.h"
+#include "util/AudioDir.h"
+using namespace CocosDenshion;
 USING_NS_CC;
 MeleeAttackRunner::MeleeAttackRunner() {
     
@@ -65,7 +68,9 @@ void MeleeAttackRunner::updateEntity(Entity* entity, float delta) {
 		KineticComp* oppKin = (KineticComp*)opponent->components[COMP_CA::KINETIC_COMP];
 		if (oppKin && domainComp->contains(kineticComp->pos, oppKin->pos)) {
 			//can finally attack.
-			//TODO:play animation once.
+
+			//play the animation sound
+			SimpleAudioEngine::getInstance()->playEffect(S_SLAPPER_ATTACK);
 			auto animComp=(AnimComp*)entity->components[COMP_CA::ANIM_COMP];
 			Vec2 dir;
 			dir.setPoint(oppKin->pos.x, oppKin->pos.y);

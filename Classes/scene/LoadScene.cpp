@@ -6,10 +6,11 @@
 
 #include "device/LuaDevice.h"
 #include "world/Config.h"
-#include "SimpleAudioEngine.h"
+
 #include "util/AudioDir.h"
 USING_NS_CC;
 using namespace cocostudio::timeline;
+#include "SimpleAudioEngine.h"
 using namespace CocosDenshion;
 
 Scene* LoadScene::createScene() {

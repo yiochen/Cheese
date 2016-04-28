@@ -6,6 +6,9 @@
 #include "component/pooled/KineticComp.h"
 #include "util/AnimNameHelper.h"
 #include "cocos2d.h"
+#include "SimpleAudioEngine.h"
+#include "util/AudioDir.h"
+using namespace CocosDenshion;
 USING_NS_CC;
 StatRunner::StatRunner() {
     
@@ -28,6 +31,7 @@ void StatRunner::updateEntity(Entity* entity, float delta) {
 		if (!combatComp->isDying && combatComp->hp <= 0) {
 			//the entity is dying.
 			combatComp->isDying = true;
+			SimpleAudioEngine::getInstance()->playEffect(S_ZOMBIE_DEATH);
 			//play dying anymation
 			CCLOG("a zombie is dying, playing the dying animation");
 			AnimComp* anim = (AnimComp*)entity->components[COMP_CA::ANIM_COMP];
