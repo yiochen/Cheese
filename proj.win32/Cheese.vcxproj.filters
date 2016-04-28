@@ -188,6 +188,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\component\pooled\WanderingComp.cpp">
       <Filter>src\component\pooled</Filter>
+	  </ClCompile>
+    <ClCompile Include="..\Classes\util\CheatSystem.cpp">
+      <Filter>src\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -346,6 +349,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\WanderingComp.h">
       <Filter>src\component\pooled</Filter>
+	</ClInclude>
+    <ClInclude Include="..\Classes\util\CheatSystem.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

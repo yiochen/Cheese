@@ -180,11 +180,71 @@
                 <key>spriteSourceSize</key>
                 <string>{128,128}</string>
                 <key>textureRect</key>
+                <string>{{1408,0},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_DEATH_LEFT/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1536,0},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_DEATH_LEFT/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1664,0},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_DEATH_LEFT/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1792,0},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_DEATH_LEFT/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
                 <string>{{0,128},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0001.png</key>
+            <key>healer_DEATH_LEFT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -199,7 +259,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0002.png</key>
+            <key>healer_DEATH_LEFT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -214,7 +274,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0003.png</key>
+            <key>healer_DEATH_LEFT/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -229,7 +289,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0004.png</key>
+            <key>healer_DEATH_LEFT/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -244,7 +304,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0005.png</key>
+            <key>healer_DEATH_RIGHT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -259,7 +319,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0006.png</key>
+            <key>healer_DEATH_RIGHT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -274,7 +334,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0007.png</key>
+            <key>healer_DEATH_RIGHT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -289,7 +349,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_BACK/0008.png</key>
+            <key>healer_DEATH_RIGHT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -304,7 +364,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0001.png</key>
+            <key>healer_DEATH_RIGHT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -319,7 +379,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0002.png</key>
+            <key>healer_DEATH_RIGHT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -334,7 +394,67 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0003.png</key>
+            <key>healer_DEATH_RIGHT/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1408,128},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_DEATH_RIGHT/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1536,128},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_BACK/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1664,128},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_BACK/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1792,128},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_BACK/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -349,7 +469,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0004.png</key>
+            <key>healer_WALK_BACK/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -364,7 +484,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0005.png</key>
+            <key>healer_WALK_BACK/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -379,7 +499,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0006.png</key>
+            <key>healer_WALK_BACK/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -394,7 +514,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0007.png</key>
+            <key>healer_WALK_BACK/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -409,7 +529,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_FORTH/0008.png</key>
+            <key>healer_WALK_BACK/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -424,7 +544,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0001.png</key>
+            <key>healer_WALK_FORTH/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -439,7 +559,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0002.png</key>
+            <key>healer_WALK_FORTH/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -454,7 +574,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0003.png</key>
+            <key>healer_WALK_FORTH/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -469,7 +589,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0004.png</key>
+            <key>healer_WALK_FORTH/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -484,7 +604,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0005.png</key>
+            <key>healer_WALK_FORTH/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -499,7 +619,67 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0006.png</key>
+            <key>healer_WALK_FORTH/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1408,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_FORTH/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1536,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_FORTH/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1664,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_LEFT/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1792,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_LEFT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -514,7 +694,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0007.png</key>
+            <key>healer_WALK_LEFT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -529,7 +709,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_LEFT/0008.png</key>
+            <key>healer_WALK_LEFT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -544,7 +724,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0001.png</key>
+            <key>healer_WALK_LEFT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -559,7 +739,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0002.png</key>
+            <key>healer_WALK_LEFT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -574,7 +754,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0003.png</key>
+            <key>healer_WALK_LEFT/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -589,7 +769,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0004.png</key>
+            <key>healer_WALK_LEFT/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -604,7 +784,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0005.png</key>
+            <key>healer_WALK_RIGHT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -619,7 +799,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0006.png</key>
+            <key>healer_WALK_RIGHT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -634,7 +814,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0007.png</key>
+            <key>healer_WALK_RIGHT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -649,7 +829,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>healer_WALK_RIGHT/0008.png</key>
+            <key>healer_WALK_RIGHT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -661,6 +841,66 @@
                 <string>{128,128}</string>
                 <key>textureRect</key>
                 <string>{{1280,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_RIGHT/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1408,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_RIGHT/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1536,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_RIGHT/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1664,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>healer_WALK_RIGHT/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1792,384},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -676,9 +916,9 @@
             <key>realTextureFileName</key>
             <string>healer_sprites.png</string>
             <key>size</key>
-            <string>{1408,512}</string>
+            <string>{1920,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:2cc26bf82c1180c5c41317e35b196259:f03b74be6c76594408a2e62d316bf489:728bfae901e4c56d6ddd233ad027dd51$</string>
+            <string>$TexturePacker:SmartUpdate:377356db71081e167d826f5837fd5e07:660225b82741d2d717e7d832282f9530:728bfae901e4c56d6ddd233ad027dd51$</string>
             <key>textureFileName</key>
             <string>healer_sprites.png</string>
         </dict>

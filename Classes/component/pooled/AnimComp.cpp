@@ -15,6 +15,7 @@ void AnimComp::init() {
 	animState = "";
 	newAnimState = "";
 	isForced = false;
+	pendingRemoval = 0;
 }
 
 Animation* AnimComp::getAnimation(Entity* entity, std::string animState) {
@@ -40,8 +41,17 @@ Animation* AnimComp::getAnimation(Entity* entity) {
 }
 
 void AnimComp::updateAnim(Entity* entity) {
+	if (entity->sprite == NULL) return;
 	//get kinetic component of the entity, if the entity doesn't event have a position, don't bother playing it's animtion
-
+	auto pendingRemovalAction = entity->sprite->getActionByTag(pendingRemoval);
+	if (pendingRemoval > 0 && (!pendingRemovalAction || pendingRemovalAction->isDone())) {
+		//remove the sprite
+		if (entity->sprite) {
+			entity->sprite->removeFromParentAndCleanup(true);
+		}
+		entity->sprite = NULL;
+		return;
+	}
 	KineticComp* kin = static_cast<KineticComp*>(entity->components[COMP_CA::KINETIC_COMP]);
 	if (kin) {
 		//update the position of the sprite 
@@ -57,23 +67,6 @@ void AnimComp::updateAnim(Entity* entity) {
 		else {
 			float angle = kin->vel.getAngle();
 			this->newAnimState = anim_name::directionalString(A_WALK, kin->vel);
-			//if (angle < PI / 4 && angle > -PI / 4) {
-			//	//moving right 
-			//	this->newAnimState = A_WALK_RIGHT;
-			//}
-			//else if (angle >= PI / 4 && angle < 3 * PI / 4) {
-			//	this->newAnimState = A_WALK_BACK;
-			//	//moving up
-			//}
-			//else if (angle >= 3 * PI / 4 || angle < -3 * PI / 4) {
-			//	this->newAnimState = A_WALK_LEFT;
-			//	//moving left
-			//}
-			//else {
-			//	this->newAnimState = A_WALK_FORTH;
-			//	//moving forward
-			//}
-
 		}
 		
 	}
@@ -97,16 +90,25 @@ void AnimComp::updateAnim(Entity* entity) {
 		}
 	}
 }
-void AnimComp::forcePlay(Entity* entity, std::string animation, int loop) {
+void AnimComp::forcePlay(Entity* entity, std::string animation, int loop, bool removeAfterPlay) {
+	if (!entity->sprite || this->pendingRemoval) return;//if already pending removal, don't change the animation 
+	CCLOG("forcePlaying %s animation", animation.c_str());
 	isForced = true;
 	Animation* ani = getAnimation(entity, animation);
 	if (ani) {
 		CCLOG("force playing");
 		entity->sprite->stopActionByTag(15);
 		entity->sprite->stopActionByTag(16);
-		Action* aniAction = entity->sprite->runAction(Repeat::create(Animate::create(ani),loop));
+		Action* aniAction = entity->sprite->runAction(Repeat::create(Animate::create(ani), loop));
+		
+		if (removeAfterPlay) {
+			pendingRemoval = 16;
+		}
 		aniAction->setTag(16);
 		isForced=true;
 		animState = "";
 	}
+}
+void AnimComp::forcePlay(Entity* entity, std::string animation, int loop) {
+	this->forcePlay(entity, animation, loop, false);
 }

@@ -9,6 +9,8 @@
 #include "device/LuaDevice.h"
 #include "world/Config.h"
 #include "SimpleAudioEngine.h"
+
+#include "util/CheatSystem.h"
 USING_NS_CC;
 using namespace CocosDenshion;
 
@@ -37,11 +39,6 @@ bool GameScene::init()
 	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("ExitButton");
 	exitBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::exitBtnTouchEvent, this));
 	
-	auto listener = EventListenerKeyboard::create();
-	listener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyReleased, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
-
 
 	Node* backgroundLayer=(Node*)rootNode->getChildByName("MapLayer");
 	Node* actionLayer = (Node*)rootNode->getChildByName("ActionLayer");
@@ -99,28 +96,32 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event) {
 void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 	auto world = World::instance();
 	switch (keyCode) {
-	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-		world->keyStatus[GameKey::UP] = false;
-		break;
-	case EventKeyboard::KeyCode::KEY_DOWN_ARROW: 
-		world->keyStatus[GameKey::DOWN] = false;
-		break;
-	case EventKeyboard::KeyCode::KEY_LEFT_ARROW: 
-		world->keyStatus[GameKey::LEFT] = false;
-		break;
-	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW: 
-		world->keyStatus[GameKey::RIGHT] = false;
-		break;
-	case EventKeyboard::KeyCode::KEY_H: {
-		auto helpTab = HelpScene::createScene();
-		Director::getInstance()->pushScene((Scene*)helpTab);
-		break;
-	}
-	case EventKeyboard::KeyCode::KEY_U: {
-		auto armyTab = ArmyTabScene::createScene();
-		Director::getInstance()->pushScene((Scene*)armyTab);
-		break;
-	}
+		case EventKeyboard::KeyCode::KEY_UP_ARROW:
+			world->keyStatus[GameKey::UP] = false;
+			break;
+		case EventKeyboard::KeyCode::KEY_DOWN_ARROW: 
+			world->keyStatus[GameKey::DOWN] = false;
+			break;
+		case EventKeyboard::KeyCode::KEY_LEFT_ARROW: 
+			world->keyStatus[GameKey::LEFT] = false;
+			break;
+		case EventKeyboard::KeyCode::KEY_RIGHT_ARROW: 
+			world->keyStatus[GameKey::RIGHT] = false;
+			break;
+		case EventKeyboard::KeyCode::KEY_H: {
+			auto helpTab = HelpScene::createScene();
+			Director::getInstance()->pushScene((Scene*)helpTab);
+			break;
+		}
+		case EventKeyboard::KeyCode::KEY_U: {
+			auto armyTab = ArmyTabScene::createScene();
+			Director::getInstance()->pushScene((Scene*)armyTab);
+			break;
+		}
+		case EventKeyboard::KeyCode::KEY_C: {
+			//cheat key, kill a zombe from the zombie list 
+			cheat_system::killOneZombie();
+		}
 	}
 }
 
