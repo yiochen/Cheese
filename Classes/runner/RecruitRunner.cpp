@@ -22,8 +22,10 @@ void RecruitRunner::updateEntity(Zombie* zombie, float delta) {
 		if (NULL == zombie->player) {
 			//the zombie is a stray zombie, find a player
 			auto kin = (KineticComp*)zombie->components[COMP_CA::KINETIC_COMP];
-			if (kin == NULL) return;
-
+			if (kin == NULL) {
+				CCLOG("zombie doesn't have kinetic comp");
+				return;
+			}
 			World* world = World::instance();
 			auto playerIt = world->playerList.begin();
 			while (playerIt != world->playerList.end()) {
@@ -32,6 +34,11 @@ void RecruitRunner::updateEntity(Zombie* zombie, float delta) {
 					RecruitComp* recruit = (RecruitComp*)player->components[COMP_CA::RECRUIT_COMP];
 					KineticComp* playerKin = (KineticComp*)player->components[COMP_CA::KINETIC_COMP];
 					DomainComp* domain = (DomainComp*)player->components[COMP_CA::DOMAIN_COMP];
+					if (recruit) {
+						if (!playerKin) CCLOG("dont have kin");
+						if (!domain) CCLOG("dont have domain");
+						CCLOG("domain is %f", domain->radius);
+					}
 					if (recruit && playerKin && domain && domain->contains(playerKin->pos, kin->pos)) {
 						//recruit
 						recruit->recruit(player, zombie);

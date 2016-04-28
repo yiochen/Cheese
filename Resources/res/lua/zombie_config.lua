@@ -272,6 +272,7 @@ print(player.StinkieNum)
 testStinkie=player.StinkieFunc()
 print(testStinkie.AnimCompName)
 print(testStinkie.x, testStinkie.y)
+print(player.DomainCompRadius)
 
 
 

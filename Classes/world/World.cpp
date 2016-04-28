@@ -102,6 +102,8 @@ World* World::initPlayers() {
 		this->zombieList.push_back(EntityFactory::createZombie(player2));
 	}*/
 	this->swiss = EntityFactory::createPlayer(true);
+	this->swiss->components[COMP_CA::RECRUIT_COMP] = this->commonComps[COMP_CA::RECRUIT_COMP];
+
 	auto player2 = EntityFactory::createPlayer(false);
 	for (int i = 0; i < 10; i++) {
 		auto zombie = EntityFactory::createStrayZombie(ZOMBIE_CA(i%3 + 1));

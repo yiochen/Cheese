@@ -82,8 +82,8 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		CCLOG("creating domain comp");
 		auto domain = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
 		domain->init();
-		domain->radius = luafloat("range");
-
+		domain->radius = luafloat("DomainCompRadius");
+		
 		addcomp(COMP_CA::DOMAIN_COMP, domain);
 	}
 	if (luabool("HealComp")) {
