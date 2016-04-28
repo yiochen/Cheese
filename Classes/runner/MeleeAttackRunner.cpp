@@ -67,9 +67,9 @@ void MeleeAttackRunner::updateEntity(Entity* entity, float delta) {
 		//found the opponent zombie, check if it's within the attack range
 		if (!opponent) return;
 		KineticComp* oppKin = (KineticComp*)opponent->components[COMP_CA::KINETIC_COMP];
+		
 		if (oppKin && domainComp->contains(kineticComp->pos, oppKin->pos)) {
 			//can finally attack.
-
 			//play the animation sound
 			SimpleAudioEngine::getInstance()->playEffect(S_SLAPPER_ATTACK);
 			auto animComp=(AnimComp*)entity->components[COMP_CA::ANIM_COMP];

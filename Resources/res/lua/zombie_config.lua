@@ -152,6 +152,7 @@ function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE, BELONG)
   table.attack = ATTACK
   table.attackSpeed = ATTACKSPEED
   table.range = RANGE  
+  table.DomainCompRadius=RANGE
   table.MeleeAttackComp = true
 
   --others
@@ -175,6 +176,7 @@ function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE,BELONG)
   table.attack = ATTACK
   table.attackSpeed = ATTACKSPEED
   table.range = RANGE  
+  table.DomainCompRadius=RANGE
   table.AnimCompName = "chucker"
   
   --others
@@ -317,6 +319,9 @@ testStinkie=player.StinkieFunc()
 print(testStinkie.AnimCompName)
 print(testStinkie.x, testStinkie.y)
 print(player.DomainCompRadius)
+print(testStinkie.DomainCompRadius)
+print(testStinkie.range)
+
 
 
 
