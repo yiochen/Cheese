@@ -18,6 +18,7 @@ World::World() {
 	zombiePool = NULL;
 	itemPool = NULL;
 	textureManager = NULL;
+	spawningPool = NULL;
 	for (int i = GameKey::KEY_START; i <= GameKey::KEY_END; i++) {
 		keyStatus.push_back(false);
 	}
@@ -46,7 +47,9 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	initRunners();
 
 	//TODO read this spawn tiem from lua file
+
 	spawningPool = new ZombieSpawningPool(15.0);
+
 	spawningPool->init();
 	return this;
 }
@@ -60,12 +63,16 @@ World* World::initSpriteCache() {
 }
 
 void World::update(float delta) {
+	CCLOG("the total number of zombies in the list is %d", zombieList.size());
 	std::list<EntityRunner*>::iterator runnerIt=runnerList.begin();
 	while (runnerIt != runnerList.end()) {
 		((EntityRunner*)(*runnerIt))->update(delta);
 		runnerIt++;
 	}
-	spawningPool->update(delta);
+	if (spawningPool) {
+		spawningPool->update(delta);
+	}
+	
 }
 
 World* World::initPools() {
