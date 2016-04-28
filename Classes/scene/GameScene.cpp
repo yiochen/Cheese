@@ -11,6 +11,7 @@
 #include "SimpleAudioEngine.h"
 
 #include "util/CheatSystem.h"
+#include "util/AudioDir.h"
 USING_NS_CC;
 using namespace CocosDenshion;
 
@@ -49,12 +50,9 @@ bool GameScene::init()
 
 	//create world and initialize world
 	//To be moved to a loading scene
-	CCLOG("start creating lua device");
+	
 	LuaDevice* lua = LuaDevice::instance();
-	CCLOG("initializing lua device");
-	lua->init();
-	CCLOG("loading all the lua file");
-	lua->loadAll();
+	
 	Config* config = Config::instance();
 	config->WORLD_HEIGHT = this->getContentSize().height;
 	config->WORLD_WIDTH = this->getContentSize().width;
@@ -63,13 +61,10 @@ bool GameScene::init()
 	world->initWorld(backgroundLayer,actionLayer);
 	//test lua
 	//TODO:to be deleted
-	CCLOG("trying out some lua ");
-	CCLOG("the title is %s",lua->getString(lua->global().Get<std::string>("windowTitle")).c_str());
-	CCLOG("the number is %d", lua->global().Get<int>("test"));
-
+	
 	//load sound
 	auto audio = SimpleAudioEngine::getInstance();
-	audio->playBackgroundMusic("Assets/audio/test_background.mp3", true);
+	audio->playBackgroundMusic(S_GAME, true);
 	this->scheduleUpdate();
 	//this->resume();
 	return true;

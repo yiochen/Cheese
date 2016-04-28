@@ -14,7 +14,9 @@ gameTable.chuckerAttackSpeed = 1.5
 gameTable.chuckerRange = 100
 
 gameTable.stinkieHP = 10
-gameTable.stinkieAttack = 20
+
+gameTable.stinkieAttack = 30
+
 gameTable.stinkieAttackSpeed = 2.0
 gameTable.stinkieRange = 50
 

@@ -5,8 +5,6 @@
 
 #include <iostream>
 
-
-#include "device/TextReader.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;

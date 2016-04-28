@@ -1,8 +1,11 @@
 #include "scene/MenuScene.h"
 #include "cocostudio/CocoStudio.h"
+#include "scene/LoadScene.h"
 
-#include "GameScene.h"
 #include "box/BoxHelper.h"
+#include "SimpleAudioEngine.h"
+#include "util/AudioDir.h"
+using namespace CocosDenshion;
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -46,15 +49,16 @@ bool MenuScene::init()
 	auto touchListener = EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan = CC_CALLBACK_2(MenuScene::onTouchBegan, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
-	
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic(S_MENU,true);
     return true;
 }
 
 void MenuScene::startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED) {
 		//time to transit to the game scene;
-		auto gameScene = GameScene::createScene();
-		Director::getInstance()->pushScene((Scene*)gameScene);
+		auto loadScene = LoadScene::createScene();
+		Director::getInstance()->pushScene((Scene*)loadScene);
 		
 	}
 }
@@ -66,8 +70,8 @@ void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 			break;
 		}
 		case EventKeyboard::KeyCode::KEY_ENTER: {
-			auto gameScene = GameScene::createScene();
-			Director::getInstance()->pushScene((Scene*)gameScene);
+			auto loadScene = LoadScene::createScene();
+			Director::getInstance()->pushScene((Scene*)loadScene);
 			break;
 		}
 	}
