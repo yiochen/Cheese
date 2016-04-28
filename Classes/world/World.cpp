@@ -47,7 +47,9 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	initRunners();
 
 	//TODO read this spawn tiem from lua file
-	spawningPool = new ZombieSpawningPool(10.0f);
+
+	spawningPool = new ZombieSpawningPool(15.0);
+
 	spawningPool->init();
 	return this;
 }
