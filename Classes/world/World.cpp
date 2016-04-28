@@ -100,6 +100,7 @@ World* World::initPlayers() {
 		this->zombieList.push_back(EntityFactory::createZombie(player2));
 	}*/
 	this->swiss = EntityFactory::createPlayer(true);
+	auto player2 = EntityFactory::createPlayer(false);
 	return this;
 }
 /*TODO: to be refactored*/

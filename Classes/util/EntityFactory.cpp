@@ -44,7 +44,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		CCLOG("creating actionflagComp");
 		auto actionFlag = newcomp(ActionFlagComp, COMP_CA::ACTION_FLAG_COMP);
 		actionFlag->init();
-		actionFlag->interval = 3.0f;//TODO:read from lua file;
+		actionFlag->interval = luafloat("attackSpeed");
 		addcomp(COMP_CA::ACTION_FLAG_COMP, actionFlag);
 
 	}
@@ -64,14 +64,16 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		combat->hp = luaint("hp");
 		combat->damage = luaint("attack");
 		//combat->attackSpeed = luafloat("attackSpeed");
-		combat->alliance = 1;//TODO: set alliance in lua file
+		combat->alliance = luaint("alliance");//TODO: set alliance in lua file
+		CCLOG("alliance is %d", combat->alliance);
 		addcomp(COMP_CA::COMBAT_COMP, combat);
 	//}
 	if (luabool("DomainComp")) {
 		CCLOG("creating domain comp");
 		auto domain = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
 		domain->init();
-		domain->radius = luafloat("DomainCompRadius");
+		domain->radius = luafloat("range");
+
 		addcomp(COMP_CA::DOMAIN_COMP, domain);
 	}
 	if (luabool("HealComp")) {
