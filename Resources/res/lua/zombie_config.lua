@@ -6,7 +6,7 @@ gameTable = {difficulty = 1, time = 45}
 gameTable.worldWidth = 700
 gameTable.worldHeight = 700
 gameTable.maxSpeed = 100.0
-gameTable.maxPlayerSpeed = 400.0
+gameTable.maxPlayerSpeed = 130.0
 --stats i need to know to create a zombie according to players current upgrade, to be updated before zombie creation
 gameTable.chuckerHP = 7
 gameTable.chuckerAttack = 1
