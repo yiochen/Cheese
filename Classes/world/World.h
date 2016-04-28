@@ -10,6 +10,7 @@
 #include "cocos2d.h"
 
 #include "ObjectPool/ObjectPool.h"
+#include "util/ZombieSpawningPool.h"
 #include "graphics/TextureManager.h"
 #include "util/GameKey.h"
 #include <unordered_map>
@@ -27,6 +28,7 @@ private:
 	
 	Sprite* testSprite;
 	TextureManager* textureManager;
+	ZombieSpawningPool* spawningPool;
 	World();
 	World* initPools();
 	World* initPlayers();
