@@ -183,6 +183,9 @@
     <ClCompile Include="..\Classes\util\EntityFactory.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\CheatSystem.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -334,6 +337,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\runner\StatRunner.h">
       <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\CheatSystem.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

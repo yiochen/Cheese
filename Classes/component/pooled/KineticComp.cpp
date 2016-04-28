@@ -15,7 +15,7 @@ void KineticComp::step(Entity* entity, float delta) {
 	increment.scale(delta);
 	pos.add(increment);
 	//CCLOG("Swiss position %f", pos.length());
-	entity->sprite->setPosition(pos);
+	if (entity->sprite) entity->sprite->setPosition(pos);
 	//CCLOG("Swiss sprite position %f %f", dynamic_cast<Player*>(entity)->sprite->getPositionX(), dynamic_cast<Player*>(entity)->sprite->getPositionY());
 	
 }

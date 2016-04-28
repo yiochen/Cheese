@@ -57,7 +57,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		anim->newAnimState = A_WALK_FORTH;
 		addcomp(COMP_CA::ANIM_COMP, anim);
 	}
-	if (luabool("CombatComp")) {
+	//if (luabool("CombatComp")) {
 		CCLOG("creating combat comp");
 		auto  combat = newcomp(CombatComp, COMP_CA::COMBAT_COMP);
 		combat->init();
@@ -66,7 +66,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		//combat->attackSpeed = luafloat("attackSpeed");
 		combat->alliance = 1;//TODO: set alliance in lua file
 		addcomp(COMP_CA::COMBAT_COMP, combat);
-	}
+	//}
 	if (luabool("DomainComp")) {
 		CCLOG("creating domain comp");
 		auto domain = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);

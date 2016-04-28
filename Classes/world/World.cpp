@@ -103,6 +103,7 @@ World* World::initPlayers() {
 	return this;
 }
 /*TODO: to be refactored*/
+/*This function is useless now. We could use it to produce stray zombies*/
 World* World::initZombies(Player* player) {
 	//create 5 zombies
 	for (int i = 0; i < 2; i++) {
