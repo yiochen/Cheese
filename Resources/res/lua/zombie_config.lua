@@ -1,11 +1,12 @@
 --dynamic zombie creating based on how much killed?
 --time is in seconds elapsed?
 --difficulty 1/2/3   easy/med/hard
-gameTable = {difficulty = 1, time = 60}
+gameTable = {difficulty = 1, time = 1}
 --time is to be updated whenever you create a scaling zombie, in seconds
 gameTable.worldWidth = 700
 gameTable.worldHeight = 700
 gameTable.maxSpeed = 100.0
+gameTable.maxPlayerSpeed = 130.0
 --stats i need to know to create a zombie according to players current upgrade, to be updated before zombie creation
 gameTable.chuckerHP = 7
 gameTable.chuckerAttack = 1
@@ -67,6 +68,8 @@ function getTable()
   generalTable.KineticComp = false
   generalTable.KineticCompMaxSpeed = nil
   generalTable.ZombieSensorComp = false
+  generalTable.WanderingComp = nil
+  generalTable.WanderingCompInterval = 15
   
   -- combat statistics
   generalTable.hp = nil
@@ -75,8 +78,8 @@ function getTable()
   generalTable.range = nil
   generalTable.heal = nil
   generalTable.alliance = 2
-  generalTable.x = math.random(0,gameTable.worldWidth)
-  generalTable.y = math.random(0,gameTable.worldHeight)
+  generalTable.x = nil
+  generalTable.y = nil
   
   --others
   generalTable.ZombieCatagory = nil
@@ -84,6 +87,7 @@ function getTable()
   generalTable.StinkieNum = 0
   generalTable.ChuckerNum = 0
   generalTable.HolyBoneNum = 0
+  generalTable.belongToPlayer = false
   
   --functions
   generalTable.StinkieFunc = nil
@@ -94,26 +98,34 @@ function getTable()
   return generalTable
 end
 
-function createZombie()
+function createZombie(BELONG )
   table = getTable()
   --basic components
   table.ChasingComp = true
   table.SeperationComp = true
   table.FollowingComp = true
   
+  table.belongToPlayer = BELONG
   --pooled components
   table.CombatComp = true
   table.AnimComp = true
   table.ActionFlagComp = true
   table.KineticComp = true
   table.KineticCompMaxSpeed = gameTable.maxSpeed + math.random(-30,30)
+  
+
   table.DomainComp = true
+  
+  if ( not BELONG) then
+  generalTable.x = math.random(0,gameTable.worldWidth)
+  generalTable.y = math.random(0,gameTable.worldHeight)
+  end
   
   return table
 end
 
-function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE)
-  table = createZombie()
+function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE, BELONG)
+  table = createZombie(BELONG)
   table.hp = HP
   table.attack = ATTACK
   table.attackSpeed = ATTACKSPEED
@@ -127,16 +139,16 @@ function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE)
   return table
 end
 
-function createBasicStinkie()
-	return createStinkie(gameTable.basicStinkieHP,gameTable.basicStinkieAttack,gameTable.basicStinkieAttackSpeed,gameTable.basicStinkieRange,2)
+function createBasicStinkie(BELONG)
+	return createStinkie(gameTable.basicStinkieHP,gameTable.basicStinkieAttack,gameTable.basicStinkieAttackSpeed,gameTable.basicStinkieRange,2,BELONG)
 end
 
-function createScalingStinkie()
-  return createStinkie(10+(gameTable.time / 30)*gameTable.difficulty,  2+(gameTable.time / 60)*gameTable.difficulty, 2.0-(.001*gameTable.time*gameTable.difficulty),10,2)
+function createScalingStinkie(BELONG)
+  return createStinkie(10+(gameTable.time / 30)*gameTable.difficulty,  2+(gameTable.time / 60)*gameTable.difficulty, 2.0-(.001*gameTable.time*gameTable.difficulty),10,2,BELONG)
 end
 
-function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE)
-  table = createZombie()
+function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE,BELONG)
+  table = createZombie(BELONG)
   table.hp = HP
   table.attack = ATTACK
   table.attackSpeed = ATTACKSPEED
@@ -149,18 +161,18 @@ function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE)
   return table
 end
 
-function createBasicChucker()
-	return createChucker(gameTable.basicChuckerHP,gameTable.basicChuckerAttack,gameTable.basicChuckerAttackSpeed,gameTable.basicChuckerRange,2)
+function createBasicChucker(BELONG)
+	return createChucker(gameTable.basicChuckerHP,gameTable.basicChuckerAttack,gameTable.basicChuckerAttackSpeed,gameTable.basicChuckerRange,2,BELONG)
 end
 
-function createScalingChucker( )
-  return createChucker(7+(gameTable.time / 30)*gameTable.difficulty, 1+(gameTable.time / 60)*gameTable.difficulty, 1.5-(.001*gameTable.time*gameTable.difficulty), 100,2)
+function createScalingChucker(BELONG )
+  return createChucker(7+(gameTable.time / 30)*gameTable.difficulty, 1+(gameTable.time / 60)*gameTable.difficulty, 1.5-(.001*gameTable.time*gameTable.difficulty), 100,2,BELONG)
 end
 
 
 
-function createHolyBone(HP, ATTACK, ATTACKSPEED, RANGE, HEAL,ALLIANCE)
-   table = createZombie()
+function createHolyBone(HP, ATTACK, ATTACKSPEED, RANGE, HEAL,ALLIANCE,BELONG)
+   table = createZombie(BELONG)
   table.hp = HP
   table.attack = ATTACK
   table.attackSpeed = ATTACKSPEED
@@ -175,12 +187,12 @@ function createHolyBone(HP, ATTACK, ATTACKSPEED, RANGE, HEAL,ALLIANCE)
   return table
 end
 
-function createBasicHolyBone()
-	return createHolyBone(gameTable.basicHolyBoneHP,gameTable.basicHolyBoneAttack,gameTable.basicHolyBoneAttackSpeed,gameTable.basicHolyBoneRange,gameTable.basicHolyBoneHeal,2)
+function createBasicHolyBone(BELONG)
+	return createHolyBone(gameTable.basicHolyBoneHP,gameTable.basicHolyBoneAttack,gameTable.basicHolyBoneAttackSpeed,gameTable.basicHolyBoneRange,gameTable.basicHolyBoneHeal,2,BELONG)
 end
 
-function createScalingHolyBone()
-  return createHolyBone(5+(gameTable.time / 30)*gameTable.difficulty,0,3-(.001*gameTable.time*gameTable.difficulty),100,1 +(gameTable.time / 120)*gameTable.difficulty,2)
+function createScalingHolyBone(BELONG)
+  return createHolyBone(5+(gameTable.time / 30)*gameTable.difficulty,0,3-(.001*gameTable.time*gameTable.difficulty),100,1 +(gameTable.time / 120)*gameTable.difficulty,2,BELONG)
 end
 
 
@@ -192,7 +204,7 @@ function createPlayer(isHuman)
   --pooled Components
   player.AnimComp = true
   player.KineticComp = true
-  player.KineticCompMaxSpeed = 2 * gameTable.maxSpeed
+  player.KineticCompMaxSpeed = gameTable.maxPlayerSpeed
   player.DomainComp = true
   player.DomainCompRadius = 50
   player.HordeStatusComp = true
@@ -204,13 +216,13 @@ function createPlayer(isHuman)
     player.AnimCompName = "swiss"
     player.StinkieNum = 1
     player.StinkieFunc = function ()
-      return createStinkie(gameTable.stinkieHP,gameTable.stinkieAttack, gameTable.stinkieAttackSpeed,gameTable.stinkieRange,1) 
+      return createStinkie(gameTable.stinkieHP,gameTable.stinkieAttack, gameTable.stinkieAttackSpeed,gameTable.stinkieRange,      1,true) 
     end
     player.ChuckerFunc = function()
-      return createChucker(gameTable.chuckerHP,gameTable.chuckerAttack,gameTable.chuckerAttackSpeed,gameTable.chuckerRange,1)
+      return createChucker(gameTable.chuckerHP,gameTable.chuckerAttack,gameTable.chuckerAttackSpeed,gameTable.chuckerRange,1,true)
     end
     player.HolyBoneFunc = function()
-      return createHolyBone(gameTable.holyBoneHP,gameTable.holyBoneAttack,gameTable.holyBoneAttackSpeed,gameTable.holyBoneRange,gameTable.holyBoneHeal,1)
+      return createHolyBone(gameTable.holyBoneHP,gameTable.holyBoneAttack,gameTable.holyBoneAttackSpeed, gameTable.holyBoneRange,gameTable.holyBoneHeal,1,true)
     end
     
 
@@ -219,18 +231,20 @@ function createPlayer(isHuman)
     player.y = math.random(0,gameTable.worldHeight)
     --to be changed to actual name for animation of other horde players
 --    player.AnimCompName = "otherSwiss"
-	player.AnimCompName = "swiss"
+    player.AnimCompName = "swiss"
+    player.WanderingComp = true
+    player.ActionFlagComp = true
     player.StinkieNum = 1+gameTable.difficulty*(gameTable.time/30)*1
     player.ChuckerNum = gameTable.difficulty*(gameTable.time/55)*1
     player.HolyBoneNum = gameTable.difficulty*(gameTable.time/80)*1
     player.StinkieFunc = function ()
-      return createStinkie(10+(gameTable.time / 30)*gameTable.difficulty,  2+(gameTable.time / 60)*gameTable.difficulty, 2.0    -(.001*gameTable.time*gameTable.difficulty),10,2) 
+      return createStinkie(10+(gameTable.time / 30)*gameTable.difficulty,  2+(gameTable.time / 60)*gameTable.difficulty, 2.0    -(.001*gameTable.time*gameTable.difficulty),10,2,true) 
     end
     player.ChuckerFunc = function()
-      return createChucker(7+(gameTable.time / 30)*gameTable.difficulty, 1+(gameTable.time / 60)*gameTable.difficulty, 1.5-(    .001*gameTable.time*gameTable.difficulty), 100,2)
+      return createChucker(7+(gameTable.time / 30)*gameTable.difficulty, 1+(gameTable.time / 60)*gameTable.difficulty, 1.5-(    .001*gameTable.time*gameTable.difficulty), 100,2,true)
     end
     player.HolyBoneFunc = function()
-      return createHolyBone(5+(gameTable.time / 30)*gameTable.difficulty,0,3-(.001*gameTable.time*gameTable.difficulty),100,    1 +(gameTable.time / 120)*gameTable.difficulty,2)
+      return createHolyBone(5+(gameTable.time / 30)*gameTable.difficulty,0,3-(.001*gameTable.time*gameTable.difficulty),100,    1 +(gameTable.time / 120)*gameTable.difficulty,2,true)
     end
     
     

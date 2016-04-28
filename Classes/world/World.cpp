@@ -77,6 +77,7 @@ World* World::initPools() {
 	this->compPools[COMP_CA::COMBAT_COMP] = new ObjectPool<CombatComp>();
 	this->compPools[COMP_CA::HEAL_COMP] = new ObjectPool<HealComp>();
 	this->compPools[COMP_CA::ACTION_FLAG_COMP] = new ObjectPool<ActionFlagComp>();
+	this->compPools[COMP_CA::WANDERING_COMP] = new ObjectPool<WanderingComp>();
 	return this;
 }
 /*Create and initialize all basic components, they can be linked to any entities so we don't have to create multiple of them*/
@@ -124,6 +125,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new KeyboardRunner());
 	this->runnerList.push_back(new ZombieTallyRunner());
 	this->runnerList.push_back(new ZombieFollowRunner());
+	this->runnerList.push_back(new WandererRunner());
 	this->runnerList.push_back(new KineticRunner());
 	this->runnerList.push_back(new MeleeAttackRunner());
 	this->runnerList.push_back(new StatRunner());

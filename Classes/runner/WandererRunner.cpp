@@ -3,6 +3,7 @@
 #include "world/World.h"
 #include "component/pooled/KineticComp.h"
 #include "component/pooled/WanderingComp.h"
+#include "component/pooled/ActionFlagComp.h"
 
 USING_NS_CC;
 WandererRunner::WandererRunner() {
@@ -27,12 +28,18 @@ void WandererRunner::update(float delta) {
 void WandererRunner::updateEntity(Entity* entity, float delta) {
 	KineticComp* kineticComp = (KineticComp*)entity->components[COMP_CA::KINETIC_COMP];
 	WanderingComp* wanderingComp = (WanderingComp*)entity->components[COMP_CA::WANDERING_COMP];
-	if (kineticComp && wanderingComp && wanderingComp->isChasing && wanderingComp->target.distance(kineticComp->pos) < 20.0) {
-		wanderingComp->newTarget();
+	ActionFlagComp* actionFlag = (ActionFlagComp*)entity->components[COMP_CA::ACTION_FLAG_COMP];
+//	CCLOG("i am this far away %f", wanderingComp->target.distance(kineticComp->pos));
+	if (kineticComp && wanderingComp && (wanderingComp->isChasing && (wanderingComp->target.distance(kineticComp->pos) < 100.0) || (actionFlag && actionFlag->isReady))) {
+		
+		wanderingComp->newTarget(entity);
+		actionFlag->schedule();
 	}
 	else {
 		if (kineticComp && wanderingComp && wanderingComp->isChasing) {
-			Vec2 change(wanderingComp->target);
+	//		CCLOG("i am this far away %f", wanderingComp->target.distance(kineticComp->pos));
+
+			Vec2 change(wanderingComp->target-kineticComp->pos);
 			change.scale(delta);
 			kineticComp->vel.add(change);
 			if (kineticComp->vel.getLength() > kineticComp->maxSpeed) {
