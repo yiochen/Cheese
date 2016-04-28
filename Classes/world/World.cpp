@@ -45,6 +45,9 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	
 	initRunners();
 
+	//TODO read this spawn tiem from lua file
+	spawningPool = new ZombieSpawningPool(1.5);
+	spawningPool->init();
 	return this;
 }
 World* World::initSpriteCache() {
@@ -62,6 +65,7 @@ void World::update(float delta) {
 		((EntityRunner*)(*runnerIt))->update(delta);
 		runnerIt++;
 	}
+	spawningPool->update(delta);
 }
 
 World* World::initPools() {
@@ -105,9 +109,9 @@ World* World::initPlayers() {
 	this->swiss->components[COMP_CA::RECRUIT_COMP] = this->commonComps[COMP_CA::RECRUIT_COMP];
 
 	auto player2 = EntityFactory::createPlayer(false);
-	for (int i = 0; i < 10; i++) {
-		auto zombie = EntityFactory::createStrayZombie(ZOMBIE_CA(i%3 + 1));
-	}
+//	for (int i = 0; i < 10; i++) {
+//		auto zombie = EntityFactory::createStrayZombie(ZOMBIE_CA(i%3 + 1));
+//	}
 	return this;
 }
 /*TODO: to be refactored*/

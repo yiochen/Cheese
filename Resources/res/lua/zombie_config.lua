@@ -57,6 +57,7 @@ function getTable()
   generalTable.FollowingComp = false
   generalTable.MeleeAttackComp = false
   generalTable.KeyboardComp = false
+  generalTable.RecruitComp = false
   
   --pooled components
   generalTable.ActionFlagComp = false
@@ -91,6 +92,23 @@ function getTable()
   generalTable.ChuckerNum = 0
   generalTable.HolyBoneNum = 0
   generalTable.belongToPlayer = false
+  
+  --basic zombie statistics
+  generalTable.chuckerHP = generalTable.basicChuckerHP
+  generalTable.chuckerAttack = generalTable.basicChuckerAttack
+  generalTable.chuckerAttackSpeed = generalTable.basicChuckerAttackSpeed
+  generalTable.chuckerRange = generalTable.basicChuckerRange
+
+  generalTable.stinkieHP = generalTable.basicStinkieHP
+  generalTable.stinkieAttack = generalTable.basicStinkieAttack
+  generalTable.stinkieAttackSpeed = generalTable.basicStinkieAttackSpeed
+  generalTable.stinkieRange = generalTable.basicStinkieRange
+
+  generalTable.holyBoneHP = generalTable.basicHolyBoneHP
+  generalTable.holyBoneAttack = generalTable.basicHolyBoneAttack
+  generalTable.holyBoneAttackSpeed = generalTable.basicHolyBoneAttackSpeed
+  generalTable.holyBoneRange = generalTable.basicHolyBoneRange
+  generalTable.holyBoneHeal = generalTable.basicHolyBoneHeal
   
   --functions
   generalTable.StinkieFunc = nil
@@ -134,9 +152,7 @@ function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE, BELONG)
   table.attack = ATTACK
   table.attackSpeed = ATTACKSPEED
   table.range = RANGE  
-  if (BELONG) then
   table.MeleeAttackComp = true
-  end
 
   --others
   table.AnimCompName = "basic_zombie"
@@ -217,19 +233,28 @@ function createPlayer(isHuman)
   
   if (isHuman) then 
     player.KeyboardComp = true
+    player.RecruitComp = true;
     player.x = gameTable.worldWidth / 2
     player.y = gameTable.worldHeight / 2
     player.AnimCompName = "swiss"
     player.StinkieNum = 1
-    player.StinkieFunc = function ()
-      return createStinkie(gameTable.stinkieHP,gameTable.stinkieAttack, gameTable.stinkieAttackSpeed,gameTable.stinkieRange,      1,true) 
-    end
-    player.ChuckerFunc = function()
-      return createChucker(gameTable.chuckerHP,gameTable.chuckerAttack,gameTable.chuckerAttackSpeed,gameTable.chuckerRange,1,true)
-    end
-    player.HolyBoneFunc = function()
-      return createHolyBone(gameTable.holyBoneHP,gameTable.holyBoneAttack,gameTable.holyBoneAttackSpeed, gameTable.holyBoneRange,gameTable.holyBoneHeal,1,true)
-    end
+    player.alliance = 1
+    --setting horde statistics
+    player.stinkieHP=gameTable.stinkieHP
+    player.stinkieAttack = gameTable.stinkieAttack
+    player.stinkieAttackSpeed = gameTable.stinkieAttackSpeed
+    player.stinkieRange = gameTable.stinkieRange
+    
+    player.chuckerHP = gameTable.chuckerHP
+    player.chuckerAttack = gameTable.chuckerAttack
+    player.chuckerAttackSpeed = gameTable.chuckerAttackSpeed
+    player.chuckerRange = gameTable.chuckerRange
+    
+    player.holyBoneHP = gameTable.holyBoneHP
+    player.holyBoneAttack = gameTable.holyBoneAttack
+    player.holyBoneAttackSpeed = gameTable.holyBoneAttackSpeed
+    player.holyBoneRange = gameTable.holyBoneRange
+    player.holyBoneHeal = gameTable.holyBoneHeal
     
 
   else 
@@ -240,21 +265,40 @@ function createPlayer(isHuman)
     player.AnimCompName = "swiss"
     player.WanderingComp = true
     player.ActionFlagComp = true
+    player.alliance = 2
     player.StinkieNum = 1+gameTable.difficulty*(gameTable.time/30)*1
     player.ChuckerNum = gameTable.difficulty*(gameTable.time/55)*1
     player.HolyBoneNum = gameTable.difficulty*(gameTable.time/80)*1
-    player.StinkieFunc = function ()
-      return createStinkie(10+(gameTable.time / 30)*gameTable.difficulty,  2+(gameTable.time / 60)*gameTable.difficulty, 2.0    -(.001*gameTable.time*gameTable.difficulty),10,2,true) 
+    
+        --setting horde statistics
+    player.stinkieHP=10+(gameTable.time / 30)*gameTable.difficulty
+    player.stinkieAttack = 2+(gameTable.time / 60)*gameTable.difficulty
+    player.stinkieAttackSpeed = 2.0 -(.001*gameTable.time*gameTable.difficulty)
+    player.stinkieRange = 10
+    
+    player.chuckerHP = 7+(gameTable.time / 30)*gameTable.difficulty
+    player.chuckerAttack = 1+(gameTable.time / 60)*gameTable.difficulty
+    player.chuckerAttackSpeed = 1.5-(    .001*gameTable.time*gameTable.difficulty)
+    player.chuckerRange = 100
+    
+    player.holyBoneHP = 5+(gameTable.time / 30)*gameTable.difficulty
+    player.holyBoneAttack = 0
+    player.holyBoneAttackSpeed = 3-(.001*gameTable.time*gameTable.difficulty)
+    player.holyBoneRange = 100
+    player.holyBoneHeal = 1 +(gameTable.time / 120)*gameTable.difficulty
+    
+    
+    
+  end
+  
+      player.StinkieFunc = function ()
+      return createStinkie(player.stinkieHP,player.stinkieAttack, player.stinkieAttackSpeed,player.stinkieRange,  player.alliance,true) 
     end
     player.ChuckerFunc = function()
-      return createChucker(7+(gameTable.time / 30)*gameTable.difficulty, 1+(gameTable.time / 60)*gameTable.difficulty, 1.5-(    .001*gameTable.time*gameTable.difficulty), 100,2,true)
+      return createChucker(player.stinkieHP,player.stinkieAttack, player.stinkieAttackSpeed,player.stinkieRange,player.alliance,true) 
     end
     player.HolyBoneFunc = function()
-      return createHolyBone(5+(gameTable.time / 30)*gameTable.difficulty,0,3-(.001*gameTable.time*gameTable.difficulty),100,    1 +(gameTable.time / 120)*gameTable.difficulty,2,true)
-    end
-    
-    
-    
+      return createHolyBone(player.stinkieHP,player.stinkieAttack, player.stinkieAttackSpeed,player.stinkieRange,player.holyBoneHeal, player.alliance,true) 
     end
   
   return player

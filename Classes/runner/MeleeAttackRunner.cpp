@@ -32,6 +32,7 @@ void MeleeAttackRunner::updateEntity(Entity* entity, float delta) {
 	auto kineticComp = (KineticComp*)entity->components[COMP_CA::KINETIC_COMP];
 	auto actionFlag = (ActionFlagComp*)entity->components[COMP_CA::ACTION_FLAG_COMP];
 	auto domainComp = (DomainComp*)entity->components[COMP_CA::DOMAIN_COMP];
+	if (combatComp && combatComp->alliance == 0) return;
 	if (combatComp && kineticComp && actionFlag && domainComp //check if all the component exist
 		&& actionFlag->isReady //ready to attack
 		&& combatComp->damage>EPSILON //it has attack power (not healer)
