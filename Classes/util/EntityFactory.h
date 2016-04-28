@@ -10,7 +10,9 @@ namespace EntityFactory {
 
 	void initEntity(Entity* entity, LuaTable& luaTable);
 	Zombie* createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc);
+	Zombie* createStrayZombie(ZOMBIE_CA);
 	Player* createPlayer(bool isHuman);
+
 	/*
 	//TODO: createZombie and createPlayer should be combined when the lua function is ready
 	Zombie* createZombie(Player* player) {

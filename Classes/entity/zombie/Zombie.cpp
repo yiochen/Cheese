@@ -9,6 +9,7 @@ Zombie::Zombie() {
 void Zombie::init() {
 	//calling parent class init method
 	Entity::init();
+	player = NULL;
 	this->sprite = Sprite::create();
 	this->sprite->setAnchorPoint(Vec2(0.5, 0));
 	//add the empty sprite to game 

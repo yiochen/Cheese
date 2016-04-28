@@ -102,6 +102,9 @@ World* World::initPlayers() {
 	}*/
 	this->swiss = EntityFactory::createPlayer(true);
 	auto player2 = EntityFactory::createPlayer(false);
+	for (int i = 0; i < 10; i++) {
+		auto zombie = EntityFactory::createStrayZombie(ZOMBIE_CA(i%3 + 1));
+	}
 	return this;
 }
 /*TODO: to be refactored*/

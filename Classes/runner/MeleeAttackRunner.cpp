@@ -44,7 +44,7 @@ void MeleeAttackRunner::updateEntity(Entity* entity, float delta) {
 			auto oppZombie = (Zombie*)(*zombieIt);
 			auto oppCombat = (CombatComp*)oppZombie->components[COMP_CA::COMBAT_COMP];
 			auto oppKinetic = (KineticComp*)oppZombie->components[COMP_CA::KINETIC_COMP];
-			if (oppCombat && oppKinetic && oppCombat->alliance!=alliance) {
+			if (oppCombat && oppKinetic && oppCombat->alliance!=alliance && oppCombat->alliance != 0) {
 				if (opponent == nullptr) {
 					opponent = oppZombie;
 					oppDis = kineticComp->pos.getDistance(oppKinetic->pos);
