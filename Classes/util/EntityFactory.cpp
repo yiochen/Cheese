@@ -17,6 +17,8 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 #define luazombfunc(st) luaTable.Get<LuaFunction<LuaTable()>>(st)
 #define newcomp(type, enum) world->getCompPool<type>(enum)->New()
 #define addcomp(enum, comp) entity->components[enum] = comp
+
+	entity->alliance = luaint("alliance");
 	if (luabool("ChasingComp")) {
 		//create chasing comp
 		CCLOG("creating chasing comp");
@@ -37,6 +39,10 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 	if (luabool("KeyboardComp")) {
 		CCLOG("creating keyboardComp");
 		entity->components[COMP_CA::KEYBOARD_COMP] = world->commonComps[COMP_CA::KEYBOARD_COMP];
+	}
+	if (luabool("RecruitComp")) {
+		CCLOG("creating recruitComp");
+		entity->components[COMP_CA::RECRUIT_COMP] = world->commonComps[COMP_CA::RECRUIT_COMP];
 	}
 
 	//pooled component
@@ -67,7 +73,8 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		combat->hp = luaint("hp");
 		combat->damage = luaint("attack");
 		//combat->attackSpeed = luafloat("attackSpeed");
-		combat->alliance = luaint("alliance");//TODO: set alliance in lua file
+		
+		combat->alliance = entity->alliance;//TODO: set alliance in lua file
 		CCLOG("alliance is %d", combat->alliance);
 		addcomp(COMP_CA::COMBAT_COMP, combat);
 	//}

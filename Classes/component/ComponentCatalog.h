@@ -8,6 +8,7 @@ enum COMP_CA {
 	SEPERATION_COMP,
 	FOLLOWING_COMP,
 	MELEE_ATTACK_COMP,
+	RECRUIT_COMP,
 
 	//pooled component
 	//to create, use "objectPool.New()" and then initialize the component, to remove use "pool.Delete(test)", this will call the destructor, but not deleting the object

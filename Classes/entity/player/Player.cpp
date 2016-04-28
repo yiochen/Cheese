@@ -17,6 +17,7 @@ void Player::init() {
 	//add the empty sprite to game 
 	World::instance()->getActionNode()->addChild(this->sprite);
 	CCLOG("added player to world");
+	alliance = 0;
 	/*
 	TextureManager* textureManager = World::instance()->getTextureManager();
 	auto frames = textureManager->getAnimation("swiss", "WALK_FORTH");

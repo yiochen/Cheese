@@ -188,12 +188,18 @@
     </ClCompile>
     <ClCompile Include="..\Classes\component\pooled\WanderingComp.cpp">
       <Filter>src\component\pooled</Filter>
-	  </ClCompile>
+    </ClCompile>
     <ClCompile Include="..\Classes\util\CheatSystem.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\scene\LoadScene.cpp">
       <Filter>src\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\RecruitRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\RecruitComp.cpp">
+      <Filter>src\component\basic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -352,7 +358,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\WanderingComp.h">
       <Filter>src\component\pooled</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="..\Classes\util\CheatSystem.h">
       <Filter>src\util</Filter>
     </ClInclude>
@@ -361,6 +367,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\AudioDir.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\RecruitRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\RecruitComp.h">
+      <Filter>src\component\basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

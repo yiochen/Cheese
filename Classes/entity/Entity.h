@@ -11,6 +11,7 @@ USING_NS_CC;
 */
 class Entity {
 public:
+	int alliance;
 	std::unordered_map<COMP_CA, Comp*> components;
 	//std::unordered_map<COMP_CA, PooledComp*> pooledComponents;
 	virtual void init() {};//the default entity init function doesn't do anything

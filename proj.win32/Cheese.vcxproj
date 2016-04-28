@@ -152,6 +152,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\basic\FollowingComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\MeleeAttackComp.cpp" />
+    <ClCompile Include="..\Classes\component\basic\RecruitComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\SeperationComp.cpp" />
     <ClCompile Include="..\Classes\component\Component.cpp" />
     <ClCompile Include="..\Classes\component\PooledComponent.cpp" />
@@ -177,6 +178,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp" />
     <ClCompile Include="..\Classes\runner\MeleeAttackRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\RecruitRunner.cpp" />
     <ClCompile Include="..\Classes\runner\StatRunner.cpp" />
     <ClCompile Include="..\Classes\runner\WandererRunner.cpp" />
     <ClCompile Include="..\Classes\runner\ZombieFollowRunner.cpp" />
@@ -202,6 +204,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\basic\FollowingComp.h" />
     <ClInclude Include="..\Classes\component\basic\KeyboardComp.h" />
     <ClInclude Include="..\Classes\component\basic\MeleeAttackComp.h" />
+    <ClInclude Include="..\Classes\component\basic\RecruitComp.h" />
     <ClInclude Include="..\Classes\component\basic\SeperationComp.h" />
     <ClInclude Include="..\Classes\component\CompHeader.h" />
     <ClInclude Include="..\Classes\component\Component.h" />
@@ -231,6 +234,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\runner\KeyboardRunner.h" />
     <ClInclude Include="..\Classes\runner\KineticRunner.h" />
     <ClInclude Include="..\Classes\runner\MeleeAttackRunner.h" />
+    <ClInclude Include="..\Classes\runner\RecruitRunner.h" />
     <ClInclude Include="..\Classes\runner\StatRunner.h" />
     <ClInclude Include="..\Classes\runner\WandererRunner.h" />
     <ClInclude Include="..\Classes\runner\ZombieFollowRunner.h" />

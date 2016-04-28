@@ -7,7 +7,7 @@
 USING_NS_CC;
 
 class Player:public Entity {
-
+	
 public:
 	void init() override;
 
