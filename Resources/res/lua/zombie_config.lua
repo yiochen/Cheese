@@ -6,7 +6,7 @@ gameTable = {difficulty = 1, time = 45}
 gameTable.worldWidth = 700
 gameTable.worldHeight = 700
 gameTable.maxSpeed = 100.0
-gameTable.maxPlayerSpeed = 130.0
+gameTable.maxPlayerSpeed = 400.0
 --stats i need to know to create a zombie according to players current upgrade, to be updated before zombie creation
 gameTable.chuckerHP = 7
 gameTable.chuckerAttack = 1
@@ -14,9 +14,7 @@ gameTable.chuckerAttackSpeed = 1.5
 gameTable.chuckerRange = 100
 
 gameTable.stinkieHP = 10
-
-gameTable.stinkieAttack = 30
-
+gameTable.stinkieAttack = 8
 gameTable.stinkieAttackSpeed = 2.0
 gameTable.stinkieRange = 50
 
@@ -35,7 +33,7 @@ gameTable.basicChuckerAttackSpeed = 1.5
 gameTable.basicChuckerRange = 100
 
 gameTable.basicStinkieHP = 10
-gameTable.basicStinkieAttack = 2
+gameTable.basicStinkieAttack = 8
 gameTable.basicStinkieAttackSpeed = 2.0
 gameTable.basicStinkieRange = 50
 
@@ -154,6 +152,7 @@ function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE, BELONG)
   table.range = RANGE  
   table.MeleeAttackComp = true
 
+  table.DomainCompRadius = RANGE
   --others
   table.AnimCompName = "basic_zombie"
   table.ZombieCatagory = 1
@@ -176,6 +175,7 @@ function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE,BELONG)
   table.attackSpeed = ATTACKSPEED
   table.range = RANGE  
   table.AnimCompName = "chucker"
+  table.DomainCompRadius = RANGE
   
   --others
   table.ZombieCatagory = 3
@@ -200,6 +200,7 @@ function createHolyBone(HP, ATTACK, ATTACKSPEED, RANGE, HEAL,ALLIANCE,BELONG)
   table.attackSpeed = ATTACKSPEED
   table.range = RANGE  
   table.heal = HEAL
+  table.DomainCompRadius = RANGE
   
   --others
   table.AnimCompName = "healer"
