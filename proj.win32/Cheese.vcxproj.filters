@@ -186,6 +186,9 @@
     <ClCompile Include="..\Classes\util\CheatSystem.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\LoadScene.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -339,6 +342,12 @@
       <Filter>src\runner</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\util\CheatSystem.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\LoadScene.h">
+      <Filter>src\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\AudioDir.h">
       <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>

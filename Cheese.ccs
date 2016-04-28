@@ -143,6 +143,7 @@
         <Project Name="HelpScene.csd" Type="Scene" />
         <Project Name="HudLayer.csd" Type="Layer" />
         <Project Name="IntroScene.csd" Type="Scene" />
+        <Project Name="LoadScene.csd" Type="Scene" />
         <Project Name="MapLayer.csd" Type="Node" />
         <Project Name="MenuScene.csd" Type="Scene" />
       </RootFolder>
