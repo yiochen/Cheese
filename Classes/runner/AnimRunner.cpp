@@ -1,6 +1,8 @@
 #include "AnimRunner.h"
 #include "world/World.h"
 
+#include "component/pooled/HordeStatusComp.h"
+
 #include "component/pooled/AnimComp.h"
 #include "component/ComponentCatalog.h"
 #include "entity/Entity.h"
@@ -19,12 +21,12 @@ void AnimRunner::update(float delta) {
 	while (playerIt != world->playerList.end()) {
 		//update player's animation
 		if (runAnimRunner(*playerIt)) {
-			world->playerList.erase(playerIt);
 			Player* entity = (Player*)(*playerIt);
-			CCLOG("deleting zombie");
+			CCLOG("deleting player");
+			playerIt = world->playerList.erase(playerIt);
 			world->getPlayerPool()->Delete((Player*)entity);
 		}
-		playerIt++;
+		else playerIt++;
 		
 		
 		
@@ -32,6 +34,7 @@ void AnimRunner::update(float delta) {
 	//update all the zombies in the player 
 	auto zombieIt =world->zombieList.begin();
 	while (zombieIt != world->zombieList.end()) {
+		/*
 		if (runAnimRunner(*zombieIt)) {
 			world->zombieList.erase(zombieIt);
 			Zombie* entity = (Zombie*)(*zombieIt);
@@ -39,8 +42,22 @@ void AnimRunner::update(float delta) {
 			world->getZombiePool()->Delete((Zombie*)entity);
 			
 		}
-		
-		zombieIt++;
+		*/
+		if (runAnimRunner(*zombieIt)) {
+			
+			Zombie* entity = (Zombie*)(*zombieIt);
+			if (entity->player) {
+				HordeStatusComp* hordeStatus = static_cast<HordeStatusComp*>(entity->player->components[COMP_CA::HORDE_STATUS_COMP]);
+				hordeStatus->total--;
+				hordeStatus->zombieCounts[entity->catagory]--;
+			}
+			CCLOG("deleting zombie");
+			zombieIt = world->zombieList.erase(zombieIt);
+			world->getZombiePool()->Delete((Zombie*)entity);
+			
+
+		}
+		else zombieIt++;
 		
 	}
 	auto itemIt = world->itemList.begin();
@@ -52,6 +69,7 @@ void AnimRunner::update(float delta) {
 }
 /*return true when the entity should be removed from the list*/
 bool AnimRunner::runAnimRunner(Entity* entity) {
+	if (!entity) return false;
 	if (entity->sprite == NULL) {
 		CCLOG("sprite is already deleted, proceed to deleting the entity");
 		return true;//if the entity's sprite is set to NULL, delete the entity

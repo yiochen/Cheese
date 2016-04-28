@@ -1,7 +1,7 @@
 --dynamic zombie creating based on how much killed?
 --time is in seconds elapsed?
 --difficulty 1/2/3   easy/med/hard
-gameTable = {difficulty = 1, time = 1}
+gameTable = {difficulty = 1, time = 45}
 --time is to be updated whenever you create a scaling zombie, in seconds
 gameTable.worldWidth = 700
 gameTable.worldHeight = 700
@@ -14,7 +14,9 @@ gameTable.chuckerAttackSpeed = 1.5
 gameTable.chuckerRange = 100
 
 gameTable.stinkieHP = 10
+
 gameTable.stinkieAttack = 30
+
 gameTable.stinkieAttackSpeed = 2.0
 gameTable.stinkieRange = 50
 
@@ -77,6 +79,7 @@ function getTable()
   generalTable.attackSpeed = nil
   generalTable.range = nil
   generalTable.heal = nil
+  -- 0/1/2    neutral/human/player
   generalTable.alliance = 2
   generalTable.x = nil
   generalTable.y = nil
@@ -117,8 +120,9 @@ function createZombie(BELONG )
   table.DomainComp = true
   
   if ( not BELONG) then
-  generalTable.x = math.random(0,gameTable.worldWidth)
-  generalTable.y = math.random(0,gameTable.worldHeight)
+  table.x = math.random(0,gameTable.worldWidth)
+  table.y = math.random(0,gameTable.worldHeight)
+  table.WanderingComp = true
   end
   
   return table
@@ -130,7 +134,9 @@ function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE, BELONG)
   table.attack = ATTACK
   table.attackSpeed = ATTACKSPEED
   table.range = RANGE  
+  if (BELONG) then
   table.MeleeAttackComp = true
+  end
 
   --others
   table.AnimCompName = "basic_zombie"
@@ -140,7 +146,7 @@ function createStinkie(HP, ATTACK, ATTACKSPEED, RANGE, ALLIANCE, BELONG)
 end
 
 function createBasicStinkie(BELONG)
-	return createStinkie(gameTable.basicStinkieHP,gameTable.basicStinkieAttack,gameTable.basicStinkieAttackSpeed,gameTable.basicStinkieRange,2,BELONG)
+	return createStinkie(gameTable.basicStinkieHP,gameTable.basicStinkieAttack,gameTable.basicStinkieAttackSpeed,gameTable.basicStinkieRange,0,BELONG)
 end
 
 function createScalingStinkie(BELONG)
@@ -162,7 +168,7 @@ function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE,BELONG)
 end
 
 function createBasicChucker(BELONG)
-	return createChucker(gameTable.basicChuckerHP,gameTable.basicChuckerAttack,gameTable.basicChuckerAttackSpeed,gameTable.basicChuckerRange,2,BELONG)
+	return createChucker(gameTable.basicChuckerHP,gameTable.basicChuckerAttack,gameTable.basicChuckerAttackSpeed,gameTable.basicChuckerRange,0,BELONG)
 end
 
 function createScalingChucker(BELONG )
@@ -188,7 +194,7 @@ function createHolyBone(HP, ATTACK, ATTACKSPEED, RANGE, HEAL,ALLIANCE,BELONG)
 end
 
 function createBasicHolyBone(BELONG)
-	return createHolyBone(gameTable.basicHolyBoneHP,gameTable.basicHolyBoneAttack,gameTable.basicHolyBoneAttackSpeed,gameTable.basicHolyBoneRange,gameTable.basicHolyBoneHeal,2,BELONG)
+	return createHolyBone(gameTable.basicHolyBoneHP,gameTable.basicHolyBoneAttack,gameTable.basicHolyBoneAttackSpeed,gameTable.basicHolyBoneRange,gameTable.basicHolyBoneHeal,0,BELONG)
 end
 
 function createScalingHolyBone(BELONG)

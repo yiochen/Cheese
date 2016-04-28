@@ -135,11 +135,29 @@ Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaF
 	World* world = World::instance();
 	Zombie* zombie = world->getZombiePool()->New();
 	zombie->init();
-	zombie->player = player;
 	
 	auto luaTable = luaFunc.Invoke();
-	initEntity(zombie,luaTable);
 	zombie->catagory =(ZOMBIE_CA) luaint("ZombieCatagory");
+	zombie->player = player;
+	initEntity(zombie,luaTable);
+	world->zombieList.push_back(zombie);
+	return zombie;
+}
+Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
+	World* world = World::instance();
+	Zombie* zombie = world->getZombiePool()->New();
+	zombie->init();
+	auto lua = LuaDevice::instance();
+	auto luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicStinkie");
+	if (number == 2) {
+		luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicHolyBone");
+	}
+	else if (number == 3) {
+		luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicChucker");
+	}
+	auto luaTable = luaFunc.Invoke(false);
+	initEntity(zombie, luaTable);
+	zombie->player = NULL;
 	world->zombieList.push_back(zombie);
 	return zombie;
 }
