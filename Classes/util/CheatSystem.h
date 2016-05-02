@@ -5,4 +5,5 @@
 USING_NS_CC;
 namespace cheat_system {
 	void killOneZombie();
+	void launchBullet();
 }

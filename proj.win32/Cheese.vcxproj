@@ -181,6 +181,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\runner\MeleeAttackRunner.cpp" />
     <ClCompile Include="..\Classes\runner\RecruitRunner.cpp" />
     <ClCompile Include="..\Classes\runner\StatRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\TrajectRunner.cpp" />
     <ClCompile Include="..\Classes\runner\WandererRunner.cpp" />
     <ClCompile Include="..\Classes\runner\ZombieFollowRunner.cpp" />
     <ClCompile Include="..\Classes\runner\ZombieTallyRunner.cpp" />
@@ -239,6 +240,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\runner\MeleeAttackRunner.h" />
     <ClInclude Include="..\Classes\runner\RecruitRunner.h" />
     <ClInclude Include="..\Classes\runner\StatRunner.h" />
+    <ClInclude Include="..\Classes\runner\TrajectRunner.h" />
     <ClInclude Include="..\Classes\runner\WandererRunner.h" />
     <ClInclude Include="..\Classes\runner\ZombieFollowRunner.h" />
     <ClInclude Include="..\Classes\runner\ZombieTallyRunner.h" />

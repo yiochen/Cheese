@@ -30,3 +30,4 @@
 #include "runner/MeleeAttackRunner.h"
 #include "runner/StatRunner.h"
 #include "runner/RecruitRunner.h"
+#include "runner/TrajectRunner.h"

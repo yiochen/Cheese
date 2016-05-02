@@ -223,8 +223,12 @@ Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {
 //3. alliance
 	entity->alliance = 1;
 	//TODO: change all the alliance calculation to entity instead of combat component
-//4. straightBulletComp: new comp, mark that this is a bullet. also record damage. Note that bullet doesn't have combat comp, so it wont be attacked. 
-	
+//4. TrajectComp: new comp, mark that this is a bullet. also record damage. Note that bullet doesn't have combat comp, so it wont be attacked. 
+	auto trajectComp = newcomp(TrajectComp, COMP_CA::TRAJECT_COMP);
+	trajectComp->init();
+	trajectComp->target.set(destination);
+	trajectComp->origin.set(kinComp->pos);
+	addcomp(COMP_CA::TRAJECT_COMP, trajectComp);
 //5. AnimComp
 	auto animComp = newcomp(AnimComp, COMP_CA::ANIM_COMP);
 	animComp->init();

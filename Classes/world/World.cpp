@@ -82,6 +82,7 @@ World* World::initPools() {
 	this->compPools[COMP_CA::HEAL_COMP] = new ObjectPool<HealComp>();
 	this->compPools[COMP_CA::ACTION_FLAG_COMP] = new ObjectPool<ActionFlagComp>();
 	this->compPools[COMP_CA::WANDERING_COMP] = new ObjectPool<WanderingComp>();
+	this->compPools[COMP_CA::TRAJECT_COMP] = new ObjectPool<TrajectComp>();
 	return this;
 }
 /*Create and initialize all basic components, they can be linked to any entities so we don't have to create multiple of them*/
@@ -98,7 +99,7 @@ World* World::initCommonComps() {
 World* World::initPlayers() {
 	
 	this->swiss = EntityFactory::createPlayer(true);
-	auto bullet = EntityFactory::createBullet(swiss, Vec2(10,10));
+	
 	//auto player2 = EntityFactory::createPlayer(false);
 
 	return this;
@@ -116,6 +117,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new ZombieFollowRunner());
 	this->runnerList.push_back(new WandererRunner());
 	this->runnerList.push_back(new KineticRunner());
+	this->runnerList.push_back(new TrajectRunner());
 	this->runnerList.push_back(new RecruitRunner());
 	this->runnerList.push_back(new MeleeAttackRunner());
 	this->runnerList.push_back(new StatRunner());
