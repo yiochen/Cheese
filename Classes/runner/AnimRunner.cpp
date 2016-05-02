@@ -62,7 +62,18 @@ void AnimRunner::update(float delta) {
 	}
 	auto itemIt = world->itemList.begin();
 	while (itemIt != world->itemList.end()) {
-		
+		Item* entity = (Item*)(*itemIt);
+		if (runAnimRunner(*itemIt)) {
+			CCLOG("removing item");
+		}
+
+		AnimComp* animComp = (AnimComp*)entity->components[COMP_CA::ANIM_COMP];
+		/*if (animComp) {
+			CCLOG("the animation currently playing is %s", animComp->animState.c_str());
+		}
+		else {
+			CCLOG("no animation playing for the item, animation state is %s, and the newanimState is %s", animComp->animState.c_str(), animComp->newAnimState.c_str());
+		}*/
 		itemIt++;
 	}
 	
@@ -102,6 +113,7 @@ bool AnimRunner::runAnimRunner(Entity* entity) {
 	//get the AnimComp
 	AnimComp* animComp = (AnimComp*)entity->components[COMP_CA::ANIM_COMP];
 	if (animComp) {
+		//CCLOG("updating anim");
 		animComp->updateAnim(entity);
 	}
 	return entity->marked;

@@ -15,3 +15,5 @@
 #define A_BACK "BACK"
 #define A_RIGHT "RIGHT"
 #define A_LEFT "LEFT"
+
+#define A_FLY "FLY_LEFT"

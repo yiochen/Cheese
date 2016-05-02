@@ -35,18 +35,15 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	//initialize all the game objects/entities
 	initCommonComps();
 	initPools();
-	
 	initPlayers();
-	
 	//initialize all the entity runners
 	
 	initRunners();
 
 	//TODO read this spawn tiem from lua file
 
-	spawningPool = new ZombieSpawningPool(15.0);
-
-	spawningPool->init();
+	//spawningPool = new ZombieSpawningPool(15.0);
+	if (spawningPool) spawningPool->init();
 	return this;
 }
 World* World::initSpriteCache() {
@@ -59,7 +56,7 @@ World* World::initSpriteCache() {
 }
 
 void World::update(float delta) {
-	CCLOG("the total number of zombies in the list is %d", zombieList.size());
+	//CCLOG("the total number of zombies in the list is %d", zombieList.size());
 	std::list<EntityRunner*>::iterator runnerIt=runnerList.begin();
 	while (runnerIt != runnerList.end()) {
 		((EntityRunner*)(*runnerIt))->update(delta);
@@ -101,7 +98,7 @@ World* World::initCommonComps() {
 World* World::initPlayers() {
 	
 	this->swiss = EntityFactory::createPlayer(true);
-
+	auto bullet = EntityFactory::createBullet(swiss, Vec2(10,10));
 	//auto player2 = EntityFactory::createPlayer(false);
 
 	return this;
