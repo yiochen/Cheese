@@ -204,6 +204,9 @@
     <ClCompile Include="..\Classes\component\basic\RecruitComp.cpp">
       <Filter>src\component\basic</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\TrajectComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -379,6 +382,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\ZombieSpawningPool.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\TrajectComp.h">
+      <Filter>src\component\pooled</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
