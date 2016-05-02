@@ -50,6 +50,7 @@ void AnimComp::updateAnim(Entity* entity) {
 			entity->sprite->removeFromParentAndCleanup(true);
 		}
 		entity->sprite = NULL;
+		entity->marked = true;
 		return;
 	}
 	KineticComp* kin = static_cast<KineticComp*>(entity->components[COMP_CA::KINETIC_COMP]);

@@ -5,9 +5,12 @@
 USING_NS_CC;
 #define DELETE_COMP(T, e) do{World::instance()->getCompPool<T>(e)->Delete((T*)this->components[e]); this->components[e]=NULL;}while(0)
 Entity::Entity() {
-    
+	init();
 }
-
+void Entity::init() {
+	marked = false;
+	sprite = NULL;
+}
 Entity::~Entity() {
 	//TODO
 	//free all resource

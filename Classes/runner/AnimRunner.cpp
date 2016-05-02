@@ -70,7 +70,9 @@ void AnimRunner::update(float delta) {
 /*return true when the entity should be removed from the list*/
 bool AnimRunner::runAnimRunner(Entity* entity) {
 	if (!entity) return false;
+	if (entity->marked) return true;
 	if (entity->sprite == NULL) {
+		entity->marked = true;
 		CCLOG("sprite is already deleted, proceed to deleting the entity");
 		return true;//if the entity's sprite is set to NULL, delete the entity
 	}
@@ -81,6 +83,7 @@ bool AnimRunner::runAnimRunner(Entity* entity) {
 		CCLOG("check if zombie is dying");
 		entity->sprite->removeFromParentAndCleanup(true);
 		entity->sprite = NULL;
+		entity->marked = true;
 		/*World* world = World::instance();
 		if (dynamic_cast<Zombie*>(entity)) {
 			CCLOG("deleting zombie");
@@ -101,5 +104,5 @@ bool AnimRunner::runAnimRunner(Entity* entity) {
 	if (animComp) {
 		animComp->updateAnim(entity);
 	}
-	return false;
+	return entity->marked;
 }
