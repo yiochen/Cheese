@@ -29,7 +29,7 @@ void cheat_system::launchBullet() {
 	if (player) {
 		//create a bullet
 		//create a bullet aiming at 10,10
-		auto bullet = EntityFactory::createBullet(player, Vec2(10, 10));
+		auto bullet = EntityFactory::createBullet(player, Vec2(100, 100));
 		CCLOG("launching bullet");
 		TrajectComp* traject = (TrajectComp*)bullet->components[COMP_CA::TRAJECT_COMP];
 		traject->launch(traject->origin, traject->target);

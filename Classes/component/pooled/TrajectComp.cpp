@@ -2,6 +2,7 @@
 #include "cocos2d.h"
 
 #include "component/pooled/KineticComp.h"
+#include "component/pooled/AnimComp.h"
 
 USING_NS_CC;
 TrajectComp::TrajectComp() {
@@ -27,6 +28,12 @@ void TrajectComp::update(Entity* entity, float delta) {
 		/*CCLOG("target is %f, %f, curpos is %f, %f, origin is %f,%f and the cross is %f, fu", target.x, target.y, curPos.x, curPos.y, origin.x, origin.y, cross(curDis,oriDis));*/
 		//Vec2(this->target - this->curPos).cross(Vec2(this->target - this->origin))
 		this->arrived = true; CCLOG("arrived");
+		//forceplaying explosion anymation
+		AnimComp* anim = (AnimComp*)entity->components[COMP_CA::ANIM_COMP];
+		if (anim) {
+			anim->forcePlay(entity, "EXPLODE",1, true);
+		}
+
 	}
 	if (kin && !arrived) {
 		Vec2 dis(this->target - this->origin);

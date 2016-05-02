@@ -16,6 +16,7 @@ void AnimComp::init() {
 	newAnimState = "";
 	isForced = false;
 	pendingRemoval = 0;
+	CCLOG("initing animComp");
 	//Default action is walk, and it has 4 animation 
 	defaultAction = A_WALK;
 	int directional = 4;
@@ -104,19 +105,24 @@ void AnimComp::updateAnim(Entity* entity) {
 	}
 }
 void AnimComp::forcePlay(Entity* entity, std::string animation, int loop, bool removeAfterPlay) {
-	if (!entity->sprite || this->pendingRemoval) return;//if already pending removal, don't change the animation 
-	CCLOG("forcePlaying %s animation", animation.c_str());
+	//CCLOG("pendingRemoval is %d and removeAfter play is %d", pendingRemoval, (int) removeAfterPlay);
+	if ((!entity->sprite) || (this->pendingRemoval>0)) return;//if already pending removal, don't change the animation 
+	//CCLOG("forcePlaying %s animation", animation.c_str());
 	isForced = true;
 	Animation* ani = getAnimation(entity, animation);
 	if (ani) {
-		CCLOG("force playing");
+		//CCLOG("force playing");
 		entity->sprite->stopActionByTag(15);
 		entity->sprite->stopActionByTag(16);
 		Action* aniAction = entity->sprite->runAction(Repeat::create(Animate::create(ani), loop));
-		
+		//CCLOG("removeAfterPlay is %d", (int)removeAfterPlay);
 		if (removeAfterPlay) {
 			pendingRemoval = 16;
+			//CCLOG("setting pendingRemoval to %d", this->pendingRemoval);
 		}
+		//else {
+		//	//CCLOG("remove after play is false");
+		//}
 		aniAction->setTag(16);
 		isForced=true;
 		animState = "";
