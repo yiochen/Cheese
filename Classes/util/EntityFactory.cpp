@@ -101,6 +101,11 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		hordeStatus->zombieCounts[ZOMBIE_CA::STINKIE] = luaint("StinkieNum");
 		hordeStatus->zombieCounts[ZOMBIE_CA::CHUCKER] = luaint("ChuckerNum");
 		hordeStatus->zombieCounts[ZOMBIE_CA::HOLY_BONE] = luaint("HolyBondNum");
+		int total = 0;
+		for (int i = ZOMBIE_CA::ZOMBIE_START; i < ZOMBIE_CA::ZOMBIE_END; i++) {
+			total += hordeStatus->zombieCounts[(ZOMBIE_CA)i];
+		}
+		hordeStatus->total = total;
 		addcomp(COMP_CA::HORDE_STATUS_COMP, hordeStatus);
 		
 	}
@@ -139,6 +144,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 }
 
 Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc) {
+	CCLOG("creating zombie---------------------------");
 	World* world = World::instance();
 	Zombie* zombie = world->getZombiePool()->New();
 	zombie->init();
@@ -148,6 +154,7 @@ Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaF
 	zombie->player = player;
 	initEntity(zombie,luaTable);
 	world->zombieList.push_back(zombie);
+	CCLOG("finish creating zombie---------------------");
 	return zombie;
 }
 Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
@@ -190,8 +197,18 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 	for (int i = 0; i < stinkieNum; i++) {
 		createZombie(player, stinkieFunc);
 	}
+	//chuckerNum = 1;//create on chucker mannually
 	for (int i = 0; i < chuckerNum; i++) {
-		createZombie(player, chuckerFunc);
+		auto zombie=createZombie(player, chuckerFunc);
+		//manually add a range attack comp, TODO: this is for testing only, should be handled by lua
+		auto rangeComp = world->commonComps[COMP_CA::RANGE_ATTACK_COMP];
+		zombie->components[COMP_CA::RANGE_ATTACK_COMP] = rangeComp;
+		auto domainComp = (DomainComp*)zombie->components[COMP_CA::DOMAIN_COMP];
+		if (!domainComp) {
+			domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
+			zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
+		}
+		domainComp->radius = 700.0f;//set a super large radius
 	}
 	for (int i = 0; i < holyNum; i++) {
 		createZombie(player, holyFunc);

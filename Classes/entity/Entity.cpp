@@ -21,7 +21,7 @@ Entity::~Entity() {
 }
 
 void Entity::cleanup() {
-	CCLOG("recycling entity");
+	//CCLOG("recycling entity");
 	//remove all component
 	World* world = World::instance();
 	//only need to clean up the pooled comp
