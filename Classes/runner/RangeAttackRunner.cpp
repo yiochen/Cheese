@@ -78,11 +78,20 @@ void RangeAttackRunner::updateEntity(Zombie* entity, float delta) {
 		if (opponent) {
 			//attack opponent
 			//CCLOG("find one oppoennt");
+			
+			
 			auto oppKin = (KineticComp*)opponent->components[COMP_CA::KINETIC_COMP];
+			
 			auto bullet=EntityFactory::createBullet(entity, oppKin->pos);
 			auto traject=(TrajectComp*)bullet->components[COMP_CA::TRAJECT_COMP];
 			traject->launch(kineticComp->pos, oppKin->pos);
 			actionFlag->schedule();//reschedule for next bullet.
+
+			//chucker playing attack animation
+			auto animComp = (AnimComp*)entity->components[COMP_CA::ANIM_COMP];
+			if (animComp) {
+				animComp->forcePlay(entity, anim_name::directionalString("ATTACK", oppKin->pos - kineticComp->pos), 1);
+			}
 		}
 		
 	}
