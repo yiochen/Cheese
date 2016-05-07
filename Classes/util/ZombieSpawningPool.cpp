@@ -40,6 +40,6 @@ void ZombieSpawningPool::acting() {
 }
 void ZombieSpawningPool::spawnStrayZombie() {
 	
-	EntityFactory::createStrayZombie((ZOMBIE_CA)RandomHelper::random_int(0, 2));
+	EntityFactory::createStrayZombie((ZOMBIE_CA)RandomHelper::random_int(0, 1));
 	schedule();
 }

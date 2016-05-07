@@ -1,12 +1,12 @@
 --dynamic zombie creating based on how much killed?
 --time is in seconds elapsed?
 --difficulty 1/2/3   easy/med/hard
-gameTable = {difficulty = 1, time = 45}
+gameTable = {difficulty = 1, time = 95}
 --time is to be updated whenever you create a scaling zombie, in seconds
 gameTable.worldWidth = 700
 gameTable.worldHeight = 700
 gameTable.maxSpeed = 100.0
-gameTable.maxPlayerSpeed = 130.0
+gameTable.maxPlayerSpeed = 200.0
 --stats i need to know to create a zombie according to players current upgrade, to be updated before zombie creation
 gameTable.chuckerHP = 7
 gameTable.chuckerAttack = 1
@@ -14,9 +14,9 @@ gameTable.chuckerAttackSpeed = 1.5
 gameTable.chuckerRange = 100
 
 gameTable.stinkieHP = 10
-gameTable.stinkieAttack = 8
+gameTable.stinkieAttack = 11
 gameTable.stinkieAttackSpeed = 2.0
-gameTable.stinkieRange = 50
+gameTable.stinkieRange = 150
 
 gameTable.holyBoneHP = 5
 gameTable.holyBoneAttack = 0
@@ -33,7 +33,7 @@ gameTable.basicChuckerAttackSpeed = 1.5
 gameTable.basicChuckerRange = 100
 
 gameTable.basicStinkieHP = 10
-gameTable.basicStinkieAttack = 8
+gameTable.basicStinkieAttack = 11
 gameTable.basicStinkieAttackSpeed = 2.0
 gameTable.basicStinkieRange = 50
 
@@ -266,6 +266,7 @@ function createPlayer(isHuman)
     --to be changed to actual name for animation of other horde players
 --    player.AnimCompName = "otherSwiss"
     player.AnimCompName = "swiss"
+    player.RecruitComp = true
     player.WanderingComp = true
     player.ActionFlagComp = true
     player.alliance = 2
