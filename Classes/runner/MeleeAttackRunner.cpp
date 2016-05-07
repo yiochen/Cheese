@@ -42,7 +42,7 @@ void MeleeAttackRunner::updateEntity(Entity* entity, float delta) {
 		//iterate through all the zombies
 		auto zombieIt = GET_WORLD->zombieList.begin();
 		Zombie* opponent = nullptr;
-		float oppDis = 100000.0f; //supper big number.
+		float oppDis = LARGE_NUM; //supper big number.
 		while (zombieIt != GET_WORLD->zombieList.end()) {
 			//find the opponent zombie closes to it self.
 			auto oppZombie = (Zombie*)(*zombieIt);

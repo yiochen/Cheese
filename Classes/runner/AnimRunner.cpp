@@ -62,15 +62,22 @@ void AnimRunner::update(float delta) {
 	}
 	auto itemIt = world->itemList.begin();
 	while (itemIt != world->itemList.end()) {
-		
-		itemIt++;
+		Item* entity = (Item*)(*itemIt);
+		if (runAnimRunner(*itemIt)) {
+			CCLOG("removing item");
+			Item* item = (Item*)(*itemIt);
+			itemIt = world->itemList.erase(itemIt);
+			world->getItemPool()->Delete(entity);
+		}else itemIt++;
 	}
 	
 }
 /*return true when the entity should be removed from the list*/
 bool AnimRunner::runAnimRunner(Entity* entity) {
 	if (!entity) return false;
+	if (entity->marked) return true;
 	if (entity->sprite == NULL) {
+		entity->marked = true;
 		CCLOG("sprite is already deleted, proceed to deleting the entity");
 		return true;//if the entity's sprite is set to NULL, delete the entity
 	}
@@ -81,6 +88,7 @@ bool AnimRunner::runAnimRunner(Entity* entity) {
 		CCLOG("check if zombie is dying");
 		entity->sprite->removeFromParentAndCleanup(true);
 		entity->sprite = NULL;
+		entity->marked = true;
 		/*World* world = World::instance();
 		if (dynamic_cast<Zombie*>(entity)) {
 			CCLOG("deleting zombie");
@@ -99,7 +107,8 @@ bool AnimRunner::runAnimRunner(Entity* entity) {
 	//get the AnimComp
 	AnimComp* animComp = (AnimComp*)entity->components[COMP_CA::ANIM_COMP];
 	if (animComp) {
+		//CCLOG("updating anim");
 		animComp->updateAnim(entity);
 	}
-	return false;
+	return entity->marked;
 }

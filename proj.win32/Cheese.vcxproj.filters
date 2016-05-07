@@ -204,6 +204,18 @@
     <ClCompile Include="..\Classes\component\basic\RecruitComp.cpp">
       <Filter>src\component\basic</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\TrajectComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\TrajectRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\RangeAttackComp.cpp">
+      <Filter>src\component\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\RangeAttackRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -379,6 +391,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\ZombieSpawningPool.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\TrajectComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\TrajectRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\RangeAttackComp.h">
+      <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\RangeAttackRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

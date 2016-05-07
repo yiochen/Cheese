@@ -116,6 +116,11 @@ void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 		case EventKeyboard::KeyCode::KEY_C: {
 			//cheat key, kill a zombe from the zombie list 
 			cheat_system::killOneZombie();
+			break;
+		}
+		case EventKeyboard::KeyCode::KEY_L: {
+			cheat_system::launchBullet();
+			break;
 		}
 	}
 }

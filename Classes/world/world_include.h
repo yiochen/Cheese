@@ -17,6 +17,8 @@
 #include "component/basic/MeleeAttackComp.h"
 #include "component/pooled/ZombieSensorComp.h"
 #include "component/basic/RecruitComp.h"
+#include "component/pooled/TrajectComp.h"
+#include "component/basic/RangeAttackComp.h"
 
 //runners
 #include "runner/KeyboardRunner.h"
@@ -29,3 +31,5 @@
 #include "runner/MeleeAttackRunner.h"
 #include "runner/StatRunner.h"
 #include "runner/RecruitRunner.h"
+#include "runner/TrajectRunner.h"
+#include "runner/RangeAttackRunner.h"

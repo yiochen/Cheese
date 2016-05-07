@@ -35,22 +35,16 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	//initialize all the game objects/entities
 	initCommonComps();
 	initPools();
-	
 	initPlayers();
-	//initZombies(swiss);
-	//testing lua
-	//auto testPlayer=EntityFactory::createPlayer(true);
-	CCLOG("created Player");
-	//initStrayZombie();
 	//initialize all the entity runners
 	
 	initRunners();
 
 	//TODO read this spawn tiem from lua file
 
-	spawningPool = new ZombieSpawningPool(1.0);
-
-	spawningPool->init();
+	spawningPool = new ZombieSpawningPool(15.0);
+	//spawningPool = new ZombieSpawningPool(15.0);
+	if (spawningPool) spawningPool->init();
 	return this;
 }
 World* World::initSpriteCache() {
@@ -63,7 +57,7 @@ World* World::initSpriteCache() {
 }
 
 void World::update(float delta) {
-	CCLOG("the total number of zombies in the list is %d", zombieList.size());
+	//CCLOG("the total number of zombies in the list is %d", zombieList.size());
 	std::list<EntityRunner*>::iterator runnerIt=runnerList.begin();
 	while (runnerIt != runnerList.end()) {
 		((EntityRunner*)(*runnerIt))->update(delta);
@@ -89,6 +83,7 @@ World* World::initPools() {
 	this->compPools[COMP_CA::HEAL_COMP] = new ObjectPool<HealComp>();
 	this->compPools[COMP_CA::ACTION_FLAG_COMP] = new ObjectPool<ActionFlagComp>();
 	this->compPools[COMP_CA::WANDERING_COMP] = new ObjectPool<WanderingComp>();
+	this->compPools[COMP_CA::TRAJECT_COMP] = new ObjectPool<TrajectComp>();
 	return this;
 }
 /*Create and initialize all basic components, they can be linked to any entities so we don't have to create multiple of them*/
@@ -99,39 +94,19 @@ World* World::initCommonComps() {
 	this->commonComps[COMP_CA::FOLLOWING_COMP] = new FollowingComp();
 	this->commonComps[COMP_CA::MELEE_ATTACK_COMP] = new MeleeAttackComp();
 	this->commonComps[COMP_CA::RECRUIT_COMP] = new RecruitComp();
+	this->commonComps[COMP_CA::RANGE_ATTACK_COMP] = new RangeAttackComp();
 	return this;
 }
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
 World* World::initPlayers() {
-	/*auto player = EntityFactory::createPlayer(true);
-	this->playerList.push_back(player);
-	this->swiss = player;
-
-	auto player2 = EntityFactory::createPlayer(false);
-	this->playerList.push_back(player2);
-	for (int i = 0; i <2; i++) {
-		this->zombieList.push_back(EntityFactory::createZombie(player2));
-	}*/
-	this->swiss = EntityFactory::createPlayer(true);
-	this->swiss->components[COMP_CA::RECRUIT_COMP] = this->commonComps[COMP_CA::RECRUIT_COMP];
-
-	auto player2 = EntityFactory::createPlayer(false);
-//	for (int i = 0; i < 10; i++) {
-//		auto zombie = EntityFactory::createStrayZombie(ZOMBIE_CA(i%3 + 1));
-//	}
-	return this;
-}
-/*TODO: to be refactored*/
-/*This function is useless now. We could use it to produce stray zombies*/
-World* World::initZombies(Player* player) {
-	//create 5 zombies
-	for (int i = 0; i < 2; i++) {
-		
-		//this->zombieList.push_back(EntityFactory::createZombie(swiss));
-	}
 	
+	this->swiss = EntityFactory::createPlayer(true);
+	
+	auto player2 = EntityFactory::createPlayer(false);
+
 	return this;
 }
+
 
 
 World* World::initRunners() {
@@ -144,8 +119,10 @@ World* World::initRunners() {
 	this->runnerList.push_back(new ZombieFollowRunner());
 	this->runnerList.push_back(new WandererRunner());
 	this->runnerList.push_back(new KineticRunner());
+	this->runnerList.push_back(new TrajectRunner());
 	this->runnerList.push_back(new RecruitRunner());
 	this->runnerList.push_back(new MeleeAttackRunner());
+	this->runnerList.push_back(new RangeAttackRunner());
 	this->runnerList.push_back(new StatRunner());
 	this->runnerList.push_back(new AnimRunner());
 	

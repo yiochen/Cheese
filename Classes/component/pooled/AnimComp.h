@@ -11,7 +11,8 @@ class AnimComp :public PooledComp{
 public:
 	std::string name;
 	std::string animState;
-
+	std::string defaultAction;
+	int directional;
 	//if you want to change the animation currently playing, change the newAnimState.
 	std::string newAnimState;
 	//forcely change the playing animation without changing the animState.
@@ -20,6 +21,8 @@ public:
 	bool isForced;
 	//the action tag to wait for, when the action is done, remove the entity
 	int pendingRemoval;
+
+	
     AnimComp();
 
 	//helper function to get the Animation

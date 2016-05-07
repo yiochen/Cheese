@@ -101,6 +101,11 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		hordeStatus->zombieCounts[ZOMBIE_CA::STINKIE] = luaint("StinkieNum");
 		hordeStatus->zombieCounts[ZOMBIE_CA::CHUCKER] = luaint("ChuckerNum");
 		hordeStatus->zombieCounts[ZOMBIE_CA::HOLY_BONE] = luaint("HolyBondNum");
+		int total = 0;
+		for (int i = ZOMBIE_CA::ZOMBIE_START; i < ZOMBIE_CA::ZOMBIE_END; i++) {
+			total += hordeStatus->zombieCounts[(ZOMBIE_CA)i];
+		}
+		hordeStatus->total = total;
 		addcomp(COMP_CA::HORDE_STATUS_COMP, hordeStatus);
 		
 	}
@@ -139,6 +144,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 }
 
 Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc) {
+	CCLOG("creating zombie---------------------------");
 	World* world = World::instance();
 	Zombie* zombie = world->getZombiePool()->New();
 	zombie->init();
@@ -148,6 +154,7 @@ Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaF
 	zombie->player = player;
 	initEntity(zombie,luaTable);
 	world->zombieList.push_back(zombie);
+	CCLOG("finish creating zombie---------------------");
 	return zombie;
 }
 Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
@@ -190,8 +197,18 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 	for (int i = 0; i < stinkieNum; i++) {
 		createZombie(player, stinkieFunc);
 	}
+	//chuckerNum = 1;//create on chucker mannually
 	for (int i = 0; i < chuckerNum; i++) {
-		createZombie(player, chuckerFunc);
+		auto zombie=createZombie(player, chuckerFunc);
+		//manually add a range attack comp, TODO: this is for testing only, should be handled by lua
+		auto rangeComp = world->commonComps[COMP_CA::RANGE_ATTACK_COMP];
+		zombie->components[COMP_CA::RANGE_ATTACK_COMP] = rangeComp;
+		auto domainComp = (DomainComp*)zombie->components[COMP_CA::DOMAIN_COMP];
+		if (!domainComp) {
+			domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
+			zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
+		}
+		domainComp->radius = 700.0f;//set a super large radius
 	}
 	for (int i = 0; i < holyNum; i++) {
 		createZombie(player, holyFunc);
@@ -200,125 +217,46 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 	world->playerList.push_back(player);
 	return player;
 }
+Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {
+	World* world = World::instance();
+	Item* entity = world->getItemPool()->New();
+	entity->init();
+	//TODO load data from lua file
+	//for now. manually create the components. 
+//1. kinetic comp
+	auto kinComp = newcomp(KineticComp, COMP_CA::KINETIC_COMP);
+	kinComp->init();
+	auto userKinComp =(KineticComp*)user->components[KINETIC_COMP];
+	if (userKinComp) {
+		kinComp->pos.set(userKinComp->pos);//set the original position as the zombie's postion
+		addcomp(COMP_CA::KINETIC_COMP, kinComp);
+		CCLOG("item created kinetic comp");
+	}
+	
+//2. domain comp
+	auto domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
+	domainComp->init();
+	domainComp->radius = 100.0f;//splash damage within 100 px radius
+//3. alliance
+	entity->alliance = 1;
+	//TODO: change all the alliance calculation to entity instead of combat component
+//4. TrajectComp: new comp, mark that this is a bullet. also record damage. Note that bullet doesn't have combat comp, so it wont be attacked. 
+	auto trajectComp = newcomp(TrajectComp, COMP_CA::TRAJECT_COMP);
+	trajectComp->init();
+	trajectComp->target.set(destination);
+	trajectComp->origin.set(kinComp->pos);
+	addcomp(COMP_CA::TRAJECT_COMP, trajectComp);
+//5. AnimComp
+	auto animComp = newcomp(AnimComp, COMP_CA::ANIM_COMP);
+	animComp->init();
+	animComp->name = "spit";
+	//animComp->animState = A_FLY;
+	animComp->newAnimState = A_FLY;
+	animComp->directional = 0;
+	animComp->defaultAction = A_FLY;
+	addcomp(COMP_CA::ANIM_COMP, animComp);
 
-//	//TODO: createZombie and createPlayer should be combined when the lua function is ready
-//	Zombie* createZombie(Player* player) {
-//	LuaDevice* lua = LuaDevice::instance();
-//
-//
-//	World* world = World::instance();
-//	auto zombiePool = world->getZombiePool();
-//	Zombie* zombie = zombiePool->New();
-//	zombie->init();
-//	zombie->player = player;
-//	HordeStatusComp* hordeStatus = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
-//	hordeStatus->total++;
-//	//kinetic Component
-//	KineticComp* kineticComp = world->getCompPool<KineticComp>(COMP_CA::KINETIC_COMP)->New();
-//	zombie->components[COMP_CA::KINETIC_COMP] = kineticComp;
-//	kineticComp->maxSpeed = 100.0f + RandomHelper::random_real<float>(-20.0f, 20.0f);
-//	//TODO kinetic position should be relative to the world;
-//	kineticComp->pos.set(((KineticComp*)player->components[COMP_CA::KINETIC_COMP])->pos);
-//	//kineticComp->pos.set(100, 100);
-//	kineticComp->vel.set(0, 0);
-//	//animation Component
-//	AnimComp* animComp = world->getCompPool<AnimComp>(COMP_CA::ANIM_COMP)->New();
-//	//following is to be read from a file
-//
-//	switch (RandomHelper::random_int(0, 2)) {
-//	case 0:
-//		animComp->name = "basic_zombie";
-//		break;
-//	case 1:
-//		animComp->name = "chucker";
-//		break;
-//	case 2:
-//		animComp->name = "healer";
-//		break;
-//	}
-//
-//	zombie->catagory = ZOMBIE_CA::STINKIE;
-//	hordeStatus->zombieCounts[ZOMBIE_CA::STINKIE]++;
-//	/*}
-//	else {
-//	animComp->name = "chucker";
-//	zombie->catagory = ZOMBIE_CA::CHUCKER;
-//	hordeStatus->zombieCounts[ZOMBIE_CA::CHUCKER]++;
-//	}*/
-//
-//	animComp->newAnimState = A_WALK_FORTH;
-//	zombie->components[COMP_CA::ANIM_COMP] = animComp;
-//	//add chasingComp
-//	zombie->components[COMP_CA::CHASING_COMP] = world->commonComps[COMP_CA::CHASING_COMP];
-//	zombie->components[COMP_CA::SEPERATION_COMP] = world->commonComps[COMP_CA::SEPERATION_COMP];
-//	zombie->components[COMP_CA::FOLLOWING_COMP] = world->commonComps[COMP_CA::FOLLOWING_COMP];
-//	zombie->components[COMP_CA::MELEE_ATTACK_COMP] = world->commonComps[COMP_CA::MELEE_ATTACK_COMP];
-//	CombatComp* combatComp = world->getCompPool<CombatComp>(COMP_CA::COMBAT_COMP)->New();
-//	combatComp->init();
-//	combatComp->setHP(100);
-//	combatComp->setDamage(50);
-//	//Don't do the following way. right now it is just testing
-//	if (player == world->swiss) {//should not compare with swiss. Should be two seperated function for AI player and human player.
-//		combatComp->alliance = 1;
-//	}
-//	else {
-//		combatComp->alliance = 2;
-//	}
-//	zombie->components[COMP_CA::COMBAT_COMP] = combatComp;
-//	DomainComp* domainComp = world->getCompPool<DomainComp>(COMP_CA::DOMAIN_COMP)->New();
-//	domainComp->init();
-//	domainComp->radius = 50.0f;
-//	zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
-//	ActionFlagComp* actionComp = world->getCompPool<ActionFlagComp>(COMP_CA::ACTION_FLAG_COMP)->New();
-//	actionComp->init();
-//	//testing actionComp
-//	actionComp->interval = 3.0f;//3 second
-//	zombie->components[COMP_CA::ACTION_FLAG_COMP] = actionComp;
-//
-//	return zombie;
-//}
-//Player * createPlayer(bool isHuman) {
-//	World* world = World::instance();
-//	auto pool = world->getPlayerPool();
-//	auto player = pool->New();
-//
-//	//read lua here
-//
-//	player->init();
-//	//keyboard Component
-//
-//
-//	//kinetic Component
-//	KineticComp* kineticComp = world->getCompPool<KineticComp>(COMP_CA::KINETIC_COMP)->New();
-//	player->components[COMP_CA::KINETIC_COMP] = kineticComp;
-//	kineticComp->maxSpeed = 100.0f;
-//	//TODO kinetic position should be relative to the world;
-//	if (isHuman) {
-//		player->components[COMP_CA::KEYBOARD_COMP] = world->commonComps[COMP_CA::KEYBOARD_COMP];
-//		kineticComp->pos.set(500, 100);
-//		kineticComp->vel.set(0, 0);
-//	}
-//
-//	if (!isHuman) {
-//		kineticComp->pos.set(500, 500);
-//
-//	}
-//
-//	//animation Component
-//	AnimComp* animComp = world->getCompPool<AnimComp>(COMP_CA::ANIM_COMP)->New();
-//	//following is to be read from a file
-//	animComp->name = "swiss";
-//	animComp->newAnimState = A_WALK_FORTH;
-//	player->components[COMP_CA::ANIM_COMP] = animComp;
-//	DomainComp* domainComp = world->getCompPool<DomainComp>(COMP_CA::DOMAIN_COMP)->New();
-//	player->components[COMP_CA::DOMAIN_COMP] = domainComp;
-//	domainComp->radius = 50;//set the radius of domain to 50 for now. TODO: to be changed to read from lua
-//	HordeStatusComp* hordeStatus = world->getCompPool<HordeStatusComp>(COMP_CA::HORDE_STATUS_COMP)->New();
-//	hordeStatus->init();
-//	player->components[COMP_CA::HORDE_STATUS_COMP] = hordeStatus;
-//
-//
-//
-//	return player;
-//}
-//
+
+	world->itemList.push_back(entity);
+	return entity;
+}

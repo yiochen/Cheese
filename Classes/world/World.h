@@ -32,7 +32,6 @@ private:
 	World();
 	World* initPools();
 	World* initPlayers();
-	World* initZombies(Player* player);
 	World* initRunners();
 	World* initCommonComps();
 	//World* initStrayZombie();
