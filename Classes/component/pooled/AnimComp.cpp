@@ -36,7 +36,8 @@ Animation* AnimComp::getAnimation(Entity* entity, std::string animState) {
 			return animation;
 		}
 		else {
-			CCLOG("the animation with name: %s and animState: %s doesn't have anyframe");
+			CCLOG("something is wrong");
+			CCLOG("the animation with name: %s and animState: %s doesn't have anyframe",this->name.c_str(), this->animState.c_str());
 		}
 	}
 

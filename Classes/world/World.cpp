@@ -101,7 +101,17 @@ World* World::initCommonComps() {
 World* World::initPlayers() {
 	
 	this->swiss = EntityFactory::createPlayer(true);
-	
+	/*CCLOG("creating attachment");
+	Attachment* attachment = new Attachment();
+	CCLOG("initializing attachment");
+	attachment->initAttachment();
+	CCLOG("adding attachment to sprite");
+	swiss->sprite->addChild(attachment);
+	CCLOG("setting the name of the attachment");
+	attachment->setAnim("HEAL");
+	CCLOG("Other setting");
+	attachment->loop = 10;
+	attachment->play();*/
 	auto player2 = EntityFactory::createPlayer(false);
 
 	return this;

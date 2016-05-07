@@ -33,3 +33,5 @@
 #include "runner/RecruitRunner.h"
 #include "runner/TrajectRunner.h"
 #include "runner/RangeAttackRunner.h"
+
+#include "entity/attachment/Attachment.h"

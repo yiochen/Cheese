@@ -7,7 +7,7 @@
 #define LARGE_NUM 2147483647
 #define ANIM_RATE 1.0f/8
 
-#define EFFECT_STR "effect"
+#define EFFECT_STR "effects"
 
 #define A_WALK_FORTH  "WALK_FORTH"
 #define A_WALK_BACK  "WALK_BACK"

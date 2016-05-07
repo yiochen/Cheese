@@ -198,6 +198,7 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 		createZombie(player, stinkieFunc);
 	}
 	//chuckerNum = 1;//create on chucker mannually
+	//chuckerNum = 0;
 	for (int i = 0; i < chuckerNum; i++) {
 		auto zombie=createZombie(player, chuckerFunc);
 		//manually add a range attack comp, TODO: this is for testing only, should be handled by lua
