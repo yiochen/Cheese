@@ -12,7 +12,9 @@ Attachment::~Attachment() {
 
 }
 
+
 void Attachment::initAttachment() {
+	this->init();
 	loop = 1;//by default, play the animation once
 	interruptable = false;
 	queueable = true;
@@ -27,7 +29,8 @@ void Attachment::initAttachment() {
 bool Attachment::setAnim(std::string name) {
 	/*If the attachment is already started, it cannot be replayed*/
 	if (isStarted) {
-		CCLOG("Attachment animation is already started with %s, cannot play %s", this->name, name);
+		CCLOG("something wrong");
+		CCLOG("Attachment animation is already started with %s, cannot play %s", this->name.c_str(), name.c_str());
 		return false;
 	}
 	/*If the animation has not started (it might be in the queue)*/
@@ -54,11 +57,17 @@ bool Attachment::play() {
 	}
 	//find the animation from the TextureManager
 	TextureManager* textureManager = GET_WORLD->getTextureManager();
+	CCLOG("getting animation for attachment");
 	auto frames = textureManager->getAnimation(EFFECT_STR, name);
 	if (frames.size() > 0) {
+		CCLOG("got %d frams of HEAL", frames.size());
 		auto animation = Animation::createWithSpriteFrames(frames, ANIM_RATE);
 		this->runAction(Repeat::create(Animate::create(animation), this->loop));
 		this->isStarted = true;
+	}
+	else {
+		CCLOG("attachment bug");
+		CCLOG("cannot find any frames for this attachment with name %s", name.c_str());
 	}
 	
 	

@@ -19,6 +19,7 @@ public:
 	/*If the attachment should be removed when it finished playing*/
 	bool autoremove;
     Attachment();
+	
 	std::string name;
 	int loop;
 	bool finished;

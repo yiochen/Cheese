@@ -19,7 +19,7 @@ void AnimComp::init() {
 	CCLOG("initing animComp");
 	//Default action is walk, and it has 4 animation 
 	defaultAction = A_WALK;
-	int directional = 4;
+	directional = 4;
 }
 
 Animation* AnimComp::getAnimation(Entity* entity, std::string animState) {
@@ -37,7 +37,7 @@ Animation* AnimComp::getAnimation(Entity* entity, std::string animState) {
 		}
 		else {
 			CCLOG("something is wrong");
-			CCLOG("the animation with name: %s and animState: %s doesn't have anyframe",this->name.c_str(), this->animState.c_str());
+			CCLOG("the animation with name: %s and animState: %s doesn't have any frame",this->name.c_str(), animState.c_str());
 		}
 	}
 
