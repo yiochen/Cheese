@@ -52,6 +52,9 @@
     <Filter Include="src\device">
       <UniqueIdentifier>{e673fb4c-6885-46ca-aa5e-9d3e23146d26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\entity\attachment">
+      <UniqueIdentifier>{bb74a44e-2321-418f-9e02-c1c0e6dc4629}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -215,6 +218,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\runner\RangeAttackRunner.cpp">
       <Filter>src\runner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entity\attachment\Attachment.cpp">
+      <Filter>src\entity\attachment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -403,6 +409,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\runner\RangeAttackRunner.h">
       <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\attachment\Attachment.h">
+      <Filter>src\entity\attachment</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

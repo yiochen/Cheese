@@ -31,9 +31,12 @@ Animation* AnimComp::getAnimation(Entity* entity, std::string animState) {
 		auto frames = textureManager->getAnimation(name, animState);
 		//makesure the sprite is added to the display list 
 		if (frames.size() >0) {
-			auto animation = Animation::createWithSpriteFrames(frames, 1.0f / 8);
+			auto animation = Animation::createWithSpriteFrames(frames, ANIM_RATE);
 			//successfully created the animation
 			return animation;
+		}
+		else {
+			CCLOG("the animation with name: %s and animState: %s doesn't have anyframe");
 		}
 	}
 
