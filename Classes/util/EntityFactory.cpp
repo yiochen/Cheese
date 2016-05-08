@@ -258,8 +258,9 @@ Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {
 	auto domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
 	domainComp->init();
 	domainComp->radius = 100.0f;//splash damage within 100 px radius
+	addcomp(COMP_CA::DOMAIN_COMP, domainComp);
 //3. alliance
-	entity->alliance = 1;
+	entity->alliance = user->alliance;
 	//TODO: change all the alliance calculation to entity instead of combat component
 //4. TrajectComp: new comp, mark that this is a bullet. also record damage. Note that bullet doesn't have combat comp, so it wont be attacked. 
 	auto trajectComp = newcomp(TrajectComp, COMP_CA::TRAJECT_COMP);

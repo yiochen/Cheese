@@ -84,7 +84,7 @@ void RangeAttackRunner::updateEntity(Zombie* entity, float delta) {
 			
 			auto bullet=EntityFactory::createBullet(entity, oppKin->pos);
 			auto traject=(TrajectComp*)bullet->components[COMP_CA::TRAJECT_COMP];
-			traject->launch(kineticComp->pos, oppKin->pos);
+			traject->launch(entity, oppKin->pos);
 			actionFlag->schedule();//reschedule for next bullet.
 
 			//chucker playing attack animation

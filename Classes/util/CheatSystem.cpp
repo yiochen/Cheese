@@ -32,6 +32,6 @@ void cheat_system::launchBullet() {
 		auto bullet = EntityFactory::createBullet(player, Vec2(100, 100));
 		CCLOG("launching bullet");
 		TrajectComp* traject = (TrajectComp*)bullet->components[COMP_CA::TRAJECT_COMP];
-		traject->launch(traject->origin, traject->target);
+		traject->launch(player, traject->target);
 	}
 }

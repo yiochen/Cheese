@@ -6,11 +6,12 @@ class TrajectComp:public PooledComp{
 public:
     TrajectComp();
 	void init() override;
-	void launch(Vec2 origin, Vec2 target);
+	void launch(Entity* launcher, Vec2 target);
 	void update(Entity* entity, float delta);
 	float speed;// the speed that it will move in the shortest distance
 	Vec2 curPos;//the current position of the entity if it follows the straight shotest path. 
 	Vec2 origin;
 	Vec2 target;
+	int damage;
 	bool arrived;
 };
