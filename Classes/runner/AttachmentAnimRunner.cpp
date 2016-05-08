@@ -51,6 +51,7 @@ void AttachmentAnimRunner::updateEntity(Entity* entity, float delta) {
 				entity->sprite->removeChild(att, true);
 				//recycle the attachment
 				attIt = entity->attachments.erase(attIt);
+				GET_WORLD->getAttPool()->Delete(att);
 			}
 			else {
 				if (att->isStarted && !att->concurrent) {

@@ -20,6 +20,7 @@ World::World() {
 	itemPool = NULL;
 	textureManager = NULL;
 	spawningPool = NULL;
+	attachmentPool = NULL;
 	for (int i = GameKey::KEY_START; i <= GameKey::KEY_END; i++) {
 		keyStatus.push_back(false);
 	}
@@ -74,6 +75,7 @@ World* World::initPools() {
 	if (NULL==playerPool) playerPool = new ObjectPool<Player>();
 	if (NULL==zombiePool) zombiePool = new ObjectPool<Zombie>();
 	if (NULL==itemPool) itemPool = new ObjectPool<Item>();
+	if (NULL == attachmentPool) attachmentPool = new ObjectPool<Attachment>();
 	//init all component pools
 	//register PooledComp to compPools. Otherwise, they cannot be retrieved. 
 	this->compPools[COMP_CA::KINETIC_COMP] = new ObjectPool<KineticComp>();
@@ -139,3 +141,4 @@ void World::destroy() {
 	//if an object is from a pool, use pool.Delete(object);
 	this->getActionNode()->removeAllChildren();
 }
+

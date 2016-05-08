@@ -1,8 +1,9 @@
 #include "AttachmentFactory.h"
-
+#include "common_include.h"
+#include "world/World.h"
 
 Attachment* createAttachment(Entity* entity) {
-	Attachment* attachment = new Attachment();//to be change to object pool
+	Attachment* attachment =GET_WORLD->getAttPool()->New();//to be change to object pool
 	attachment->initAttachment();
 	entity->addAttachment(attachment);
 	return attachment;

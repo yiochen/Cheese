@@ -14,6 +14,7 @@
 #include "graphics/TextureManager.h"
 #include "util/GameKey.h"
 #include <unordered_map>
+#include "entity/attachment/Attachment.h"
 USING_NS_CC;
 //World is a singleton class
 #define GET_WORLD World::instance()
@@ -25,6 +26,8 @@ private:
 	ObjectPool<Player> *playerPool;
 	ObjectPool<Zombie> *zombiePool;
 	ObjectPool<Item> *itemPool;
+
+	ObjectPool<Attachment> *attachmentPool;
 	
 	Sprite* testSprite;
 	TextureManager* textureManager;
@@ -63,6 +66,7 @@ public:
 	ObjectPool<Player> *getPlayerPool(){ return playerPool; }
 	ObjectPool<Zombie> *getZombiePool(){ return zombiePool; }
 	ObjectPool<Item> *getItemPool(){ return itemPool; }
+	ObjectPool<Attachment> *getAttPool() { return attachmentPool; }
 	template <typename T> 
 	ObjectPool<T> *getCompPool(COMP_CA typeEnum) {return (ObjectPool<T>*)this->compPools[typeEnum];}
 	void update(float delta);
