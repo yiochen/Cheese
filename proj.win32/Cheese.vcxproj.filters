@@ -228,6 +228,9 @@
     <ClCompile Include="..\Classes\component\basic\HealComp.cpp">
       <Filter>src\component\basic</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\runner\HealRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -424,6 +427,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\basic\HealComp.h">
       <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\HealRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

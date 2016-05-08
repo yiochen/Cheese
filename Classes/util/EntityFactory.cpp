@@ -209,7 +209,13 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 		domainComp->radius = 700.0f;//set a super large radius
 	}
 	for (int i = 0; i < holyNum; i++) {
-		createZombie(player, holyFunc);
+		auto zombie=createZombie(player, holyFunc);
+		auto domainComp = (DomainComp*)zombie->components[COMP_CA::DOMAIN_COMP];
+		if (!domainComp) {
+			domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
+			zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
+		}
+		domainComp->radius = 700.0f;//set a super large radius
 	}
 	//add player to the world
 	world->playerList.push_back(player);

@@ -131,6 +131,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new MeleeAttackRunner());
 	this->runnerList.push_back(new RangeAttackRunner());
 	this->runnerList.push_back(new StatRunner());
+	this->runnerList.push_back(new HealRunner());//yes, sometimes healer can prevent death, very powerful.
 	this->runnerList.push_back(new AttachmentAnimRunner());
 	this->runnerList.push_back(new AnimRunner());
 	

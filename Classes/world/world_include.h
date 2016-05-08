@@ -34,5 +34,6 @@
 #include "runner/TrajectRunner.h"
 #include "runner/RangeAttackRunner.h"
 #include "runner/AttachmentAnimRunner.h"
+#include "runner/HealRunner.h"
 
 #include "entity/attachment/Attachment.h"
