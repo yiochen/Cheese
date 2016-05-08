@@ -1,5 +1,6 @@
 #include "scene/ArmyTabScene.h"
 #include "cocostudio/CocoStudio.h"
+#include "component/pooled/HordeStatusComp.h"
 #include "GameScene.h"
 
 USING_NS_CC;

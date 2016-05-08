@@ -26,7 +26,7 @@ void HordeStatusComp::updateHorde() {
 	auto zombieIt = world->zombieList.begin();
 	auto playerIt = world->playerList.begin();
 	while (zombieIt != world->zombieList.end()) {
-
+		//TODO:: no need to update the stats every frame. Make a function that can be called when army tab closes (or gameScene resumes)
 		Zombie* z = ((Zombie*)*zombieIt);
 		CombatComp* combatComp = (CombatComp*)(z->components[COMP_CA::COMBAT_COMP]);
 		ActionFlagComp* actionFlagComp = (ActionFlagComp*)(z->components[COMP_CA::ACTION_FLAG_COMP]);
@@ -54,4 +54,17 @@ void HordeStatusComp::updateHorde() {
 
 		zombieIt++;
 	}
+}
+//TODO: this is temporary, if the structure of zombieStat changes, this could be removed.
+int HordeStatusComp::getMaxHP(ZOMBIE_CA type) {
+
+	switch (type) {
+	case ZOMBIE_CA::CHUCKER:
+		return zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP];
+	case ZOMBIE_CA::STINKIE:
+		return zombieStat[ZOMBIE_STAT_CA::STINKIE_HP];
+	case ZOMBIE_CA::HOLY_BONE:
+		return zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP];
+	}
+	return 0;
 }
