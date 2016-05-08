@@ -419,6 +419,9 @@
     <ClInclude Include="..\Classes\entity\attachment\Attachment.h">
       <Filter>src\entity\attachment</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\entity\zombie\ZombieStatCatalog.h">
+      <Filter>src\entity\zombie</Filter>
+	</ClInclude>
     <ClInclude Include="..\Classes\runner\AttachmentAnimRunner.h">
       <Filter>src\runner</Filter>
     </ClInclude>

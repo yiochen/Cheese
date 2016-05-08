@@ -5,13 +5,28 @@
       <RootFolder Name=".">
         <Folder Name="Assets">
           <Folder Name="Images">
+            <Image Name="army_ATTACK.png" />
+            <Image Name="army_ATTACKSPEED.png" />
+            <Image Name="army_chuckers.png" />
+            <Image Name="army_HEAL.png" />
+            <Image Name="army_HEALSPEED.png" />
+            <Image Name="army_HEALTH.png" />
+            <Image Name="army_holy.png" />
+            <Image Name="army_plus.png" />
+            <Image Name="army_POINTS.png" />
+            <Image Name="army_RANGE.png" />
+            <Image Name="army_SPEED.png" />
+            <Image Name="army_stinky.png" />
+            <Image Name="chuckerImage.png" />
             <Image Name="EXAMPLE.png" />
             <Image Name="Exit.png" />
             <Image Name="Exit_pressed.png" />
+            <Image Name="healerImage.png" />
             <Image Name="Help.png" />
             <Image Name="Logo.png" />
             <Image Name="Start.png" />
             <Image Name="Start_pressed.png" />
+            <Image Name="stinkieImage.png" />
             <Image Name="Team.png" />
             <Image Name="Title.png" />
           </Folder>
@@ -142,6 +157,7 @@
         <Project Name="GameScene.csd" Type="Scene" />
         <Project Name="HelpScene.csd" Type="Scene" />
         <Project Name="HudLayer.csd" Type="Layer" />
+        <Image Name="IMG_2012.JPG" />
         <Project Name="IntroScene.csd" Type="Scene" />
         <Project Name="LoadScene.csd" Type="Scene" />
         <Project Name="MapLayer.csd" Type="Node" />
