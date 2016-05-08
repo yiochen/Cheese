@@ -177,6 +177,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\graphics\TextureManager.cpp" />
     <ClCompile Include="..\Classes\runner\ActionFlagRunner.cpp" />
     <ClCompile Include="..\Classes\runner\AnimRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\AttachmentAnimRunner.cpp" />
     <ClCompile Include="..\Classes\runner\EntityRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp" />
@@ -195,6 +196,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\scene\LoadScene.cpp" />
     <ClCompile Include="..\Classes\scene\MenuScene.cpp" />
     <ClCompile Include="..\Classes\util\AnimNameHelper.cpp" />
+    <ClCompile Include="..\Classes\util\AttachmentFactory.cpp" />
     <ClCompile Include="..\Classes\util\CheatSystem.cpp" />
     <ClCompile Include="..\Classes\util\EntityFactory.cpp" />
     <ClCompile Include="..\Classes\util\ZombieSpawningPool.cpp" />
@@ -239,6 +241,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\graphics\TextureManager.h" />
     <ClInclude Include="..\Classes\runner\ActionFlagRunner.h" />
     <ClInclude Include="..\Classes\runner\AnimRunner.h" />
+    <ClInclude Include="..\Classes\runner\AttachmentAnimRunner.h" />
     <ClInclude Include="..\Classes\runner\EntityRunner.h" />
     <ClInclude Include="..\Classes\runner\KeyboardRunner.h" />
     <ClInclude Include="..\Classes\runner\KineticRunner.h" />
@@ -257,6 +260,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\scene\LoadScene.h" />
     <ClInclude Include="..\Classes\scene\MenuScene.h" />
     <ClInclude Include="..\Classes\util\AnimNameHelper.h" />
+    <ClInclude Include="..\Classes\util\AttachmentFactory.h" />
     <ClInclude Include="..\Classes\util\AudioDir.h" />
     <ClInclude Include="..\Classes\util\CheatSystem.h" />
     <ClInclude Include="..\Classes\util\EntityFactory.h" />

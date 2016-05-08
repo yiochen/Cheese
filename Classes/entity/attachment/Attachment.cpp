@@ -18,10 +18,11 @@ void Attachment::initAttachment() {
 	loop = 1;//by default, play the animation once
 	interruptable = false;
 	queueable = true;
-	autoremove = true;
+	concurrent = false;
 	finished = false;
 	isStarted = false;
 	this->setPosition(Vec2(0, 0));
+	this->setAnchorPoint(Vec2(0, 0));
 	this->name = "";//set empty string as the initial string.
 }
 
@@ -62,7 +63,16 @@ bool Attachment::play() {
 	if (frames.size() > 0) {
 		CCLOG("got %d frams of HEAL", frames.size());
 		auto animation = Animation::createWithSpriteFrames(frames, ANIM_RATE);
-		this->runAction(Repeat::create(Animate::create(animation), this->loop));
+		auto callback = CallFuncN::create([&](Node* sender) {
+			this->finished = true;
+			CCLOG("attachment finished");
+		});
+
+		this->runAction(Sequence::create(
+			Repeat::create(Animate::create(animation), this->loop),
+			callback,
+			nullptr
+			));
 		this->isStarted = true;
 	}
 	else {

@@ -222,6 +222,12 @@
     <ClCompile Include="..\Classes\entity\attachment\Attachment.cpp">
       <Filter>src\entity\attachment</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\runner\AttachmentAnimRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\AttachmentFactory.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -412,6 +418,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\entity\attachment\Attachment.h">
       <Filter>src\entity\attachment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\AttachmentAnimRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\AttachmentFactory.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

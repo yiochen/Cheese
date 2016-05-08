@@ -38,3 +38,25 @@ void Entity::cleanup() {
 	//clean up the component array
 	this->components.clear();
 }
+
+void Entity::addAttachment(Attachment* attachment) {
+	//iterate over attachment, see if any attachment is unfinished, 
+	//if there is unfinished attachment, cannot add not queueable attachment
+	if (!attachment) {
+		CCLOG("ERROR::attachment is NULL");
+		return;
+	}
+	if (!attachment->queueable) {
+		auto attIt = attachments.begin();
+		while (attIt != attachments.end()) {
+			Attachment* att = (Attachment*)(*attIt);
+			if (att && !att->finished)
+				attIt++;
+		}
+		CCLOG("attachment not queueable, but the queue is busy");
+		return;
+	}
+	else {
+		attachments.push_back(attachment);
+	}
+}

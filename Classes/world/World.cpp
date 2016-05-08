@@ -5,6 +5,7 @@
 #include "world_include.h"
 #include "common_include.h"
 #include "util/EntityFactory.h"
+#include "util/AttachmentFactory.h"
 USING_NS_CC;
 
 
@@ -101,21 +102,11 @@ World* World::initCommonComps() {
 World* World::initPlayers() {
 	
 	this->swiss = EntityFactory::createPlayer(true);
-	CCLOG("creating attachment");
-	Attachment::create();
-	Attachment* attachment = new Attachment();
-	CCLOG("initializing attachment");
-	attachment->initAttachment();
-	CCLOG("adding attachment to sprite");
-	swiss->sprite->addChild(attachment);
-	attachment->setAnchorPoint(Vec2(0.0f, 0.0f));
-	CCLOG("setting the name of the attachment");
-	attachment->setAnim("HEAL");
-	CCLOG("Other setting");
-	attachment->loop = 10;
-	CCLOG("start playing attachment");
-	attachment->play();
-	CCLOG("finished attachment setting");
+	//create attachment example below
+	//AttachmentFactory::createHealAtt(swiss);
+	//AttachmentFactory::createExplodeAtt(swiss);
+	//AttachmentFactory::createExplodeAtt(swiss);
+	//AttachmentFactory::createTargetAtt(swiss);
 	auto player2 = EntityFactory::createPlayer(false);
 
 	return this;
@@ -138,6 +129,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new MeleeAttackRunner());
 	this->runnerList.push_back(new RangeAttackRunner());
 	this->runnerList.push_back(new StatRunner());
+	this->runnerList.push_back(new AttachmentAnimRunner());
 	this->runnerList.push_back(new AnimRunner());
 	
 	return this;
