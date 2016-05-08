@@ -124,7 +124,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_EXPLODE/0001.png</key>
+            <key>effects_PICKUP_ATTACK.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_EXPLODE/0002.png</key>
+            <key>effects_PICKUP_HEALTH.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,7 +154,22 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_EXPLODE/0003.png</key>
+            <key>effects_PICKUP_SPEED.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1280,0},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_POWER_ATTACK/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -169,7 +184,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_SPIT/0001.png</key>
+            <key>effects_POWER_ATTACK/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -184,7 +199,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_SPIT/0002.png</key>
+            <key>effects_POWER_ATTACK/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -199,7 +214,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_SPIT/0003.png</key>
+            <key>effects_POWER_ATTACK/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -214,7 +229,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_TARGET/0001.png</key>
+            <key>effects_POWER_ATTACK/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -229,7 +244,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_TARGET/0002.png</key>
+            <key>effects_POWER_ATTACK/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -244,7 +259,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_TARGET/0003.png</key>
+            <key>effects_POWER_ATTACK/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -259,7 +274,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_TARGET/0004.png</key>
+            <key>effects_POWER_ATTACK/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -274,7 +289,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_TARGET/0005.png</key>
+            <key>effects_POWER_SPEED/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -289,7 +304,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_TARGET/0006.png</key>
+            <key>effects_POWER_SPEED/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -301,6 +316,336 @@
                 <string>{128,128}</string>
                 <key>textureRect</key>
                 <string>{{1152,128},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_POWER_SPEED/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1280,128},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_POWER_SPEED/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{0,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_POWER_SPEED/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{128,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_POWER_SPEED/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{256,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_POWER_SPEED/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{384,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_POWER_SPEED/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{512,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{640,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{768,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{896,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1024,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1152,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1280,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{0,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPAWN/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{128,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPIT_FLY/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{256,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPIT_FLY/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{384,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPIT_FLY/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{512,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPIT_HIT/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{640,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPIT_HIT/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{768,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_SPIT_HIT/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{896,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_TARGET/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1024,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>effects_TARGET/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1152,384},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -316,9 +661,9 @@
             <key>realTextureFileName</key>
             <string>effects_sprites.png</string>
             <key>size</key>
-            <string>{1280,256}</string>
+            <string>{1408,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:b8a2b1c587787ca750d99cfe05a1c00a:2576b1907aee2c31e4d605ed236e5981:f8ef092e859e727802980f14a56443ad$</string>
+            <string>$TexturePacker:SmartUpdate:991aab0e01ed7454dba6d32788d63ad3:8aa2e8bf1f78a3cb54d6eef18a9c5aa5:f8ef092e859e727802980f14a56443ad$</string>
             <key>textureFileName</key>
             <string>effects_sprites.png</string>
         </dict>

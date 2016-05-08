@@ -36,6 +36,6 @@ Attachment* AttachmentFactory::createExplodeAtt(Entity* entity) {
 	attachment->queueable = true;
 	attachment->interruptable = false;
 	attachment->loop = 1;
-	attachment->setAnim("EXPLODE");
+	attachment->setAnim("SPIT_HIT");
 	return attachment;
 }
