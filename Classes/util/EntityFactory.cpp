@@ -2,7 +2,8 @@
 #include "world/World.h"
 #include "ObjectPool/ObjectPool.h"
 #include "cocos2d.h"
-#include "entity\zombie\ZombieStatCatalog.h"
+#include "entity/zombie/ZombieStatCatalog.h"
+#include "util/AttachmentFactory.h"
 USING_NS_CC;
 
 
@@ -187,6 +188,8 @@ Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 	initEntity(zombie, luaTable);
 	zombie->player = NULL;
 	world->zombieList.push_back(zombie);
+	//play spawn effect
+	AttachmentFactory::createSpawnAtt(zombie);
 	return zombie;
 }
 
@@ -236,6 +239,7 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 	}
 	//add player to the world
 	world->playerList.push_back(player);
+	AttachmentFactory::createSpawnAtt(player);
 	return player;
 }
 Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {

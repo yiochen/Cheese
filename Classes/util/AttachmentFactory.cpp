@@ -35,7 +35,15 @@ Attachment* AttachmentFactory::createExplodeAtt(Entity* entity) {
 	attachment->concurrent = true;
 	attachment->queueable = true;
 	attachment->interruptable = false;
-	attachment->loop = 1;
 	attachment->setAnim("SPIT_HIT");
+	return attachment;
+}
+
+Attachment* AttachmentFactory::createSpawnAtt(Entity* entity) {
+	auto attachment = createAttachment(entity);
+	attachment->concurrent = false;
+	attachment->queueable = false;
+	attachment->interruptable = false;
+	attachment->setAnim("SPAWN");
 	return attachment;
 }
