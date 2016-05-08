@@ -60,15 +60,22 @@ void HealRunner::updateEntity(Zombie* zombie, float delta) {
 			Zombie* targetZom = (Zombie*)(*zombieIt);
 			if (targetZom) {
 				KineticComp* targetKin = (KineticComp*)targetZom->components[COMP_CA::KINETIC_COMP];
-				CombatComp* targetComp = (CombatComp*)targetZom->components[COMP_CA::COMBAT_COMP];
+				CombatComp* targetComb = (CombatComp*)targetZom->components[COMP_CA::COMBAT_COMP];
+				Player* targetPlayer = targetZom->player;
+				HordeStatusComp* targetHorde = nullptr;
+				if (targetPlayer) {
+					targetHorde = (HordeStatusComp*)targetPlayer->components[COMP_CA::HORDE_STATUS_COMP];
+				}
 				if (targetZom->alliance == zombie->alliance && //same alliance
-					domain->contains(kin->pos, targetKin->pos) //the zombie is within the range
-					//TODO if the zombie doesn't need heal, dont heal it
+					domain->contains(kin->pos, targetKin->pos)&& //the zombie is within the range
+					targetHorde && targetHorde->getMaxHP(targetZom->catagory)>targetComb->hp
 					) {
 					//heal the zombie
 					AttachmentFactory::createHealAtt(targetZom);
-					targetComp->hp += combat->damage;
-					//TODO::check max hp from hordestatus
+					targetComb->hp += combat->damage;
+					if (targetHorde->getMaxHP(targetZom->catagory) > targetComb->hp) {
+						targetComb->hp = targetHorde->getMaxHP(targetZom->catagory);
+					}
 					patientCount++;
 				}
 			}
