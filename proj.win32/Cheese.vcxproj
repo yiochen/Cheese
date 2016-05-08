@@ -150,6 +150,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\box\BoxHelper.cpp" />
     <ClCompile Include="..\Classes\component\basic\ChasingComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\FollowingComp.cpp" />
+    <ClCompile Include="..\Classes\component\basic\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\MeleeAttackComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\RangeAttackComp.cpp" />
@@ -161,7 +162,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\AnimComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\CombatComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\DomainComp.cpp" />
-    <ClCompile Include="..\Classes\component\pooled\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\TrajectComp.cpp" />
@@ -177,6 +177,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\graphics\TextureManager.cpp" />
     <ClCompile Include="..\Classes\runner\ActionFlagRunner.cpp" />
     <ClCompile Include="..\Classes\runner\AnimRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\AttachmentAnimRunner.cpp" />
     <ClCompile Include="..\Classes\runner\EntityRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp" />
@@ -195,6 +196,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\scene\LoadScene.cpp" />
     <ClCompile Include="..\Classes\scene\MenuScene.cpp" />
     <ClCompile Include="..\Classes\util\AnimNameHelper.cpp" />
+    <ClCompile Include="..\Classes\util\AttachmentFactory.cpp" />
     <ClCompile Include="..\Classes\util\CheatSystem.cpp" />
     <ClCompile Include="..\Classes\util\EntityFactory.cpp" />
     <ClCompile Include="..\Classes\util\ZombieSpawningPool.cpp" />
@@ -208,6 +210,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\common_include.h" />
     <ClInclude Include="..\Classes\component\basic\ChasingComp.h" />
     <ClInclude Include="..\Classes\component\basic\FollowingComp.h" />
+    <ClInclude Include="..\Classes\component\basic\HealComp.h" />
     <ClInclude Include="..\Classes\component\basic\KeyboardComp.h" />
     <ClInclude Include="..\Classes\component\basic\MeleeAttackComp.h" />
     <ClInclude Include="..\Classes\component\basic\RangeAttackComp.h" />
@@ -221,7 +224,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\AnimComp.h" />
     <ClInclude Include="..\Classes\component\pooled\CombatComp.h" />
     <ClInclude Include="..\Classes\component\pooled\DomainComp.h" />
-    <ClInclude Include="..\Classes\component\pooled\HealComp.h" />
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
     <ClInclude Include="..\Classes\component\pooled\TrajectComp.h" />
@@ -240,6 +242,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\graphics\TextureManager.h" />
     <ClInclude Include="..\Classes\runner\ActionFlagRunner.h" />
     <ClInclude Include="..\Classes\runner\AnimRunner.h" />
+    <ClInclude Include="..\Classes\runner\AttachmentAnimRunner.h" />
     <ClInclude Include="..\Classes\runner\EntityRunner.h" />
     <ClInclude Include="..\Classes\runner\KeyboardRunner.h" />
     <ClInclude Include="..\Classes\runner\KineticRunner.h" />
@@ -258,6 +261,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\scene\LoadScene.h" />
     <ClInclude Include="..\Classes\scene\MenuScene.h" />
     <ClInclude Include="..\Classes\util\AnimNameHelper.h" />
+    <ClInclude Include="..\Classes\util\AttachmentFactory.h" />
     <ClInclude Include="..\Classes\util\AudioDir.h" />
     <ClInclude Include="..\Classes\util\CheatSystem.h" />
     <ClInclude Include="..\Classes\util\EntityFactory.h" />

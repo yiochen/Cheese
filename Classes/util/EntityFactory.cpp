@@ -89,11 +89,8 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 	}
 	if (luabool("HealComp")) {
 		CCLOG("creating heal comp");
-		auto heal = newcomp(HealComp, COMP_CA::HEAL_COMP);
-		heal->init();
-		heal->heal = luaint("heal");
+		entity->components[COMP_CA::HEAL_COMP] = world->commonComps[COMP_CA::HEAL_COMP];
 		//heal->healSpeed = luafloat("attackSpeed");
-		addcomp(COMP_CA::HEAL_COMP, heal);
 	}
 	if (luabool("HordeStatusComp")) {
 		CCLOG("creating hordestatus comp");

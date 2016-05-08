@@ -5,7 +5,7 @@
 #include "component/PooledComponent.h"
 #include "entity/attachment/Attachment.h"
 #include "cocos2d.h"
-
+#include "attachment/Attachment.h"
 USING_NS_CC;
 /*
 *	Entity is an abstract class
@@ -17,6 +17,7 @@ public:
 	int alliance;
 	std::unordered_map<COMP_CA, Comp*> components;
 	std::list<Attachment*> attachments;
+	void addAttachment(Attachment* attachment);
 	//std::unordered_map<COMP_CA, PooledComp*> pooledComponents;
 	virtual void init();//the default entity init function doesn't do anything
     Entity();

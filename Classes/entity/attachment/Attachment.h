@@ -16,9 +16,10 @@ public:
 	bool interruptable;
 	/*If it can be queued. If true, it will be added to queue if the animation queue has something already*/
 	bool queueable;
-	/*If the attachment should be removed when it finished playing*/
-	bool autoremove;
+	/*if the attachment can be concurrently played with other attachments. if true, it cannot be queueable*/
+	bool concurrent;
     Attachment();
+	
 	std::string name;
 	int loop;
 	bool finished;

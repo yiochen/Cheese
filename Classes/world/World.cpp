@@ -5,6 +5,7 @@
 #include "world_include.h"
 #include "common_include.h"
 #include "util/EntityFactory.h"
+#include "util/AttachmentFactory.h"
 USING_NS_CC;
 
 
@@ -19,6 +20,7 @@ World::World() {
 	itemPool = NULL;
 	textureManager = NULL;
 	spawningPool = NULL;
+	attachmentPool = NULL;
 	for (int i = GameKey::KEY_START; i <= GameKey::KEY_END; i++) {
 		keyStatus.push_back(false);
 	}
@@ -73,6 +75,7 @@ World* World::initPools() {
 	if (NULL==playerPool) playerPool = new ObjectPool<Player>();
 	if (NULL==zombiePool) zombiePool = new ObjectPool<Zombie>();
 	if (NULL==itemPool) itemPool = new ObjectPool<Item>();
+	if (NULL == attachmentPool) attachmentPool = new ObjectPool<Attachment>();
 	//init all component pools
 	//register PooledComp to compPools. Otherwise, they cannot be retrieved. 
 	this->compPools[COMP_CA::KINETIC_COMP] = new ObjectPool<KineticComp>();
@@ -80,7 +83,6 @@ World* World::initPools() {
 	this->compPools[COMP_CA::DOMAIN_COMP] = new ObjectPool<DomainComp>();
 	this->compPools[COMP_CA::HORDE_STATUS_COMP] = new ObjectPool<HordeStatusComp>();
 	this->compPools[COMP_CA::COMBAT_COMP] = new ObjectPool<CombatComp>();
-	this->compPools[COMP_CA::HEAL_COMP] = new ObjectPool<HealComp>();
 	this->compPools[COMP_CA::ACTION_FLAG_COMP] = new ObjectPool<ActionFlagComp>();
 	this->compPools[COMP_CA::WANDERING_COMP] = new ObjectPool<WanderingComp>();
 	this->compPools[COMP_CA::TRAJECT_COMP] = new ObjectPool<TrajectComp>();
@@ -95,23 +97,18 @@ World* World::initCommonComps() {
 	this->commonComps[COMP_CA::MELEE_ATTACK_COMP] = new MeleeAttackComp();
 	this->commonComps[COMP_CA::RECRUIT_COMP] = new RecruitComp();
 	this->commonComps[COMP_CA::RANGE_ATTACK_COMP] = new RangeAttackComp();
+	this->commonComps[COMP_CA::HEAL_COMP] = new HealComp();
 	return this;
 }
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
 World* World::initPlayers() {
 	
 	this->swiss = EntityFactory::createPlayer(true);
-	/*CCLOG("creating attachment");
-	Attachment* attachment = new Attachment();
-	CCLOG("initializing attachment");
-	attachment->initAttachment();
-	CCLOG("adding attachment to sprite");
-	swiss->sprite->addChild(attachment);
-	CCLOG("setting the name of the attachment");
-	attachment->setAnim("HEAL");
-	CCLOG("Other setting");
-	attachment->loop = 10;
-	attachment->play();*/
+	//create attachment example below
+	//AttachmentFactory::createHealAtt(swiss);
+	//AttachmentFactory::createExplodeAtt(swiss);
+	//AttachmentFactory::createExplodeAtt(swiss);
+	//AttachmentFactory::createTargetAtt(swiss);
 	auto player2 = EntityFactory::createPlayer(false);
 
 	return this;
@@ -134,6 +131,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new MeleeAttackRunner());
 	this->runnerList.push_back(new RangeAttackRunner());
 	this->runnerList.push_back(new StatRunner());
+	this->runnerList.push_back(new AttachmentAnimRunner());
 	this->runnerList.push_back(new AnimRunner());
 	
 	return this;
@@ -143,3 +141,4 @@ void World::destroy() {
 	//if an object is from a pool, use pool.Delete(object);
 	this->getActionNode()->removeAllChildren();
 }
+

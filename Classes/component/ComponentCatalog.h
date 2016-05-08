@@ -10,7 +10,7 @@ enum COMP_CA {
 	MELEE_ATTACK_COMP,
 	RECRUIT_COMP,
 	RANGE_ATTACK_COMP,
-
+	HEAL_COMP,
 	//pooled component
 	//to create, use "objectPool.New()" and then initialize the component, to remove use "pool.Delete(test)", this will call the destructor, but not deleting the object
 	KINETIC_COMP,
@@ -18,7 +18,6 @@ enum COMP_CA {
 	DOMAIN_COMP,
 	HORDE_STATUS_COMP,
 	COMBAT_COMP,
-	HEAL_COMP,
 	ACTION_FLAG_COMP,
 	ZOMBIE_SENSOR_COMP,
 	WANDERING_COMP,
