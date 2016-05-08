@@ -15,6 +15,7 @@ public:
 	/*If an entity is marked, that means it is ready to be deleted. It will be deleted in the last runner. */
 	bool marked;
 	int alliance;
+	Color3B color;
 	std::unordered_map<COMP_CA, Comp*> components;
 	std::list<Attachment*> attachments;
 	void addAttachment(Attachment* attachment);
@@ -24,5 +25,10 @@ public:
 	virtual ~Entity();
 	virtual void cleanup();
 	Sprite* sprite;
-
+	//tint the sprite's color
+	void tint(Color3B color);
+	//if set the sprite's color to this->color
+	void tint();
+	//remove tint (tint to white)
+	void untint();
 };

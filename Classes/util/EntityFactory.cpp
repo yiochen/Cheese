@@ -240,6 +240,7 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 	//add player to the world
 	world->playerList.push_back(player);
 	AttachmentFactory::createSpawnAtt(player);
+	player->tint(Color3B::MAGENTA);//test, tint all the player to magenta, TODO::remove it. read from lua.
 	return player;
 }
 Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {

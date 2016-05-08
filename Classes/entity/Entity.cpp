@@ -10,6 +10,7 @@ Entity::Entity() {
 void Entity::init() {
 	marked = false;
 	sprite = NULL;
+	color = Color3B::WHITE; //initially the tint color is white, which will not affect the sprite color;
 }
 Entity::~Entity() {
 	//TODO
@@ -57,5 +58,23 @@ void Entity::addAttachment(Attachment* attachment) {
 	}
 	else {
 		attachments.push_back(attachment);
+	}
+}
+
+void Entity::tint(Color3B color) {
+	this->color = color;
+	if (this->sprite) {
+		this->sprite->setColor(color);
+	}
+}
+void Entity::tint() {
+	if (this->sprite) {
+		this->sprite->setColor(color);
+	}
+}
+void Entity::untint() {
+	this->color = Color3B::WHITE;
+	if (this->sprite) {
+		this->sprite->setColor(Color3B::WHITE);
 	}
 }
