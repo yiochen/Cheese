@@ -83,7 +83,6 @@ World* World::initPools() {
 	this->compPools[COMP_CA::DOMAIN_COMP] = new ObjectPool<DomainComp>();
 	this->compPools[COMP_CA::HORDE_STATUS_COMP] = new ObjectPool<HordeStatusComp>();
 	this->compPools[COMP_CA::COMBAT_COMP] = new ObjectPool<CombatComp>();
-	this->compPools[COMP_CA::HEAL_COMP] = new ObjectPool<HealComp>();
 	this->compPools[COMP_CA::ACTION_FLAG_COMP] = new ObjectPool<ActionFlagComp>();
 	this->compPools[COMP_CA::WANDERING_COMP] = new ObjectPool<WanderingComp>();
 	this->compPools[COMP_CA::TRAJECT_COMP] = new ObjectPool<TrajectComp>();
@@ -98,6 +97,7 @@ World* World::initCommonComps() {
 	this->commonComps[COMP_CA::MELEE_ATTACK_COMP] = new MeleeAttackComp();
 	this->commonComps[COMP_CA::RECRUIT_COMP] = new RecruitComp();
 	this->commonComps[COMP_CA::RANGE_ATTACK_COMP] = new RangeAttackComp();
+	this->commonComps[COMP_CA::HEAL_COMP] = new HealComp();
 	return this;
 }
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/

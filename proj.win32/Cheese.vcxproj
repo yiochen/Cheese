@@ -150,6 +150,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\box\BoxHelper.cpp" />
     <ClCompile Include="..\Classes\component\basic\ChasingComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\FollowingComp.cpp" />
+    <ClCompile Include="..\Classes\component\basic\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\MeleeAttackComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\RangeAttackComp.cpp" />
@@ -161,7 +162,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\AnimComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\CombatComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\DomainComp.cpp" />
-    <ClCompile Include="..\Classes\component\pooled\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\TrajectComp.cpp" />
@@ -210,6 +210,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\common_include.h" />
     <ClInclude Include="..\Classes\component\basic\ChasingComp.h" />
     <ClInclude Include="..\Classes\component\basic\FollowingComp.h" />
+    <ClInclude Include="..\Classes\component\basic\HealComp.h" />
     <ClInclude Include="..\Classes\component\basic\KeyboardComp.h" />
     <ClInclude Include="..\Classes\component\basic\MeleeAttackComp.h" />
     <ClInclude Include="..\Classes\component\basic\RangeAttackComp.h" />
@@ -223,7 +224,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\AnimComp.h" />
     <ClInclude Include="..\Classes\component\pooled\CombatComp.h" />
     <ClInclude Include="..\Classes\component\pooled\DomainComp.h" />
-    <ClInclude Include="..\Classes\component\pooled\HealComp.h" />
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
     <ClInclude Include="..\Classes\component\pooled\TrajectComp.h" />

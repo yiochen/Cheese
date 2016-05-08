@@ -159,9 +159,6 @@
     <ClCompile Include="..\Classes\component\pooled\CombatComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\component\pooled\HealComp.cpp">
-      <Filter>src\component\pooled</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\component\pooled\ActionFlagComp.cpp">
       <Filter>src\component\pooled</Filter>
     </ClCompile>
@@ -227,6 +224,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\util\AttachmentFactory.cpp">
       <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\HealComp.cpp">
+      <Filter>src\component\basic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -356,9 +356,6 @@
     <ClInclude Include="..\Classes\component\pooled\CombatComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\component\pooled\HealComp.h">
-      <Filter>src\component\pooled</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\component\pooled\ActionFlagComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
@@ -424,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\AttachmentFactory.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\HealComp.h">
+      <Filter>src\component\basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
