@@ -2,6 +2,7 @@
 #include "world/World.h"
 #include "ObjectPool/ObjectPool.h"
 #include "cocos2d.h"
+#include "entity\zombie\ZombieStatCatalog.h"
 USING_NS_CC;
 
 
@@ -101,6 +102,22 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		hordeStatus->zombieCounts[ZOMBIE_CA::STINKIE] = luaint("StinkieNum");
 		hordeStatus->zombieCounts[ZOMBIE_CA::CHUCKER] = luaint("ChuckerNum");
 		hordeStatus->zombieCounts[ZOMBIE_CA::HOLY_BONE] = luaint("HolyBondNum");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP] = float(luaint("stinkieHP"));
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK] = float(luaint("stinkieAttack"));
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED] = luafloat("stinkieAttackSpeed");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_RANGE] = float(luaint("stinkieRange"));
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP] = luaint("chuckerHP");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACK] = luaint("chuckerAttack");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED] = luafloat("chuckerAttackSpeed");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_RANGE] = luaint("chuckerRange");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP] = luaint("holyBoneHP");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL] = luaint("holyBoneHeal");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED] = luafloat("holyBoneAttackSpeed");
+		hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_RANGE] = luaint("holyBoneRange");
+		CCLOG("holy bone STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_RANGE]);
+		CCLOG("stinkie STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_RANGE]);
+		CCLOG("chucker STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACK], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_RANGE]);
+
 		int total = 0;
 		for (int i = ZOMBIE_CA::ZOMBIE_START; i < ZOMBIE_CA::ZOMBIE_END; i++) {
 			total += hordeStatus->zombieCounts[(ZOMBIE_CA)i];
