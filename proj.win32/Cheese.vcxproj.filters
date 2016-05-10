@@ -243,6 +243,9 @@
     <ClCompile Include="..\Classes\runner\PickUpRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\ItemHelper.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -460,6 +463,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\runner\PickUpRunner.h">
       <Filter>src\runner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\ItemHelper.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

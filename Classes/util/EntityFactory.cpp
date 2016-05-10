@@ -347,9 +347,9 @@ Item* EntityFactory::createPickUp(ITEM_CA type, Vec2 location) {
 		animComp->newAnimState = I_PICKUP_SPEED;
 		animComp->defaultAction = I_PICKUP_SPEED;
 		break;
-	case ITEM_CA::ITEM_INVIN://TODO::due to the lack of sprite set it to pick up speed
-		animComp->newAnimState = I_PICKUP_SPEED;
-		animComp->defaultAction = I_PICKUP_SPEED;
+	case ITEM_CA::ITEM_INVIN:
+		animComp->newAnimState = I_PICKUP_SHIELD;
+		animComp->defaultAction = I_PICKUP_SHIELD;
 		break;
 	case ITEM_CA::ITEM_HEALTH:
 		animComp->newAnimState = I_PICKUP_HEALTH;

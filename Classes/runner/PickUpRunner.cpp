@@ -7,6 +7,7 @@
 #include "component/pooled/KineticComp.h"
 #include "component/pooled/CombatComp.h"
 #include "component/pooled/DomainComp.h"
+#include "util/ItemHelper.h"
 
 PickUpRunner::PickUpRunner() {
     
@@ -44,13 +45,7 @@ void PickUpRunner::updateEntity(Player* player, float delta) {
 					if (itemKin && itemDom && itemPow) {
 						if (itemDom->contains(itemKin->pos, kin->pos)//player touches the item
 							) {
-							if (itemPow->instant) {
-								//apply the instant power up
-							}
-							else {
-								//replace player's powerup
-
-							}
+							item_helper::getItem(player, itemPow);
 							//item already picked up, remove it from the playlist
 							//it will be removed from the itemlist in AnimRunner because it's marked
 							item->marked = true;

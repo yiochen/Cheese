@@ -9,5 +9,6 @@ namespace AttachmentFactory {
 	Attachment* createSpawnAtt(Entity* entity);
 	Attachment* createAttackBoostAtt(Entity* entity);
 	Attachment* createSpeedBoostAtt(Entity* entity);
+	Attachment* createInvincibilityAtt(Entity* entity);
 	Attachment* createBloodAtt(Entity* entity);
 }

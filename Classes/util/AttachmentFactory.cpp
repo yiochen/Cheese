@@ -65,6 +65,16 @@ Attachment* AttachmentFactory::createSpeedBoostAtt(Entity* entity) {
 	attachment->loop = 10;//TODO:: this is set to 10 right now. It should be loaded from lua file
 	return attachment;
 }
+Attachment* AttachmentFactory::createInvincibilityAtt(Entity* entity) {
+	auto attachment = createAttachment(entity);
+	attachment->concurrent = true;
+	attachment->queueable = true;
+	attachment->interruptable = true;
+	attachment->setAnim(A_POWER_SHIELD);
+	attachment->loop = 10;//TODO:: this is set to 10 right now. It should be loaded from lua file
+	return attachment;
+
+}
 Attachment* AttachmentFactory::createBloodAtt(Entity* entity) {
 	auto attachment = createAttachment(entity);
 	attachment->concurrent = true;

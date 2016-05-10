@@ -61,7 +61,19 @@ void Entity::addAttachment(Attachment* attachment) {
 		attachment->setUserData(this);
 	}
 }
-
+void Entity::removeAttachment(std::string name) {
+	auto attIt = this->attachments.begin();
+	CCLOG("removing %s in entity", name.c_str());
+	while (attIt != this->attachments.end()) {
+		Attachment* att = (Attachment*)(*attIt);
+		CCLOG("att is %s", att->name.c_str());
+		if (att && att->name == name) {
+			CCLOG("Removing %s", name.c_str());
+			att->finish();
+		}
+		attIt++;
+	}
+}
 void Entity::tint(Color3B color) {
 	this->color = color;
 	if (this->sprite) {

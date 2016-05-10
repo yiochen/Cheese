@@ -204,6 +204,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\util\CheatSystem.cpp" />
     <ClCompile Include="..\Classes\util\EntityFactory.cpp" />
     <ClCompile Include="..\Classes\util\InformationPanel.cpp" />
+    <ClCompile Include="..\Classes\util\ItemHelper.cpp" />
     <ClCompile Include="..\Classes\util\ZombieSpawningPool.cpp" />
     <ClCompile Include="..\Classes\world\Config.cpp" />
     <ClCompile Include="..\Classes\world\World.cpp" />
@@ -277,6 +278,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\util\EntityFactory.h" />
     <ClInclude Include="..\Classes\util\GameKey.h" />
     <ClInclude Include="..\Classes\util\InformationPanel.h" />
+    <ClInclude Include="..\Classes\util\ItemHelper.h" />
     <ClInclude Include="..\Classes\util\ZombieSpawningPool.h" />
     <ClInclude Include="..\Classes\world\Config.h" />
     <ClInclude Include="..\Classes\world\World.h" />

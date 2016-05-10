@@ -19,6 +19,8 @@ public:
 	std::unordered_map<COMP_CA, Comp*> components;
 	std::list<Attachment*> attachments;
 	void addAttachment(Attachment* attachment);
+	//remove all the attachment of this name
+	void removeAttachment(std::string name);
 	//std::unordered_map<COMP_CA, PooledComp*> pooledComponents;
 	virtual void init();//the default entity init function doesn't do anything
     Entity();
