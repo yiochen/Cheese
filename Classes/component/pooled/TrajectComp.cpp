@@ -27,7 +27,7 @@ void TrajectComp::update(Entity* entity, float delta) {
 	KineticComp* kin = (KineticComp*)entity->components[COMP_CA::KINETIC_COMP];
 	
 
-	if (Vec2(this->target - this->curPos).dot(Vec2(this->target - this->origin)) <=0.0f) {
+	if (!arrived && Vec2(this->target - this->curPos).dot(Vec2(this->target - this->origin)) <=0.0f) {
 		/*CCLOG("target is %f, %f, curpos is %f, %f, origin is %f,%f and the cross is %f, fu", target.x, target.y, curPos.x, curPos.y, origin.x, origin.y, cross(curDis,oriDis));*/
 		//Vec2(this->target - this->curPos).cross(Vec2(this->target - this->origin))
 		this->arrived = true;
