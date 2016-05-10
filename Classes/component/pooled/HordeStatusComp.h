@@ -25,6 +25,7 @@ public:
 	void zeroPos();
 	void init() override;
 	void updateHorde();
+	void updateStray(Entity* e);
 
 	//temporary function for healer to use
 	int getMaxHP(ZOMBIE_CA zombieType);

@@ -27,9 +27,10 @@ World::World() {
 }
 
 //init world init game for a certain level
-World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
+World* World::initWorld(Node* backgroundLayer, Node* actionLayer, Node* HUDnode) {
 	this->backgroundNode = backgroundLayer;
 	this->actionNode = actionLayer;
+	this->hudNode = HUDnode;
 	swiss = NULL;
 	CCLOG("Created the world");
 	//initialize the Pools
@@ -41,11 +42,10 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer) {
 	//initialize all the entity runners
 	
 	initRunners();
+	infoPanel = new InformationPanel();
 
-	//TODO read this spawn tiem from lua file
 
-	spawningPool = new ZombieSpawningPool(15.0);
-	//spawningPool = new ZombieSpawningPool(15.0);
+	spawningPool = new ZombieSpawningPool();
 	if (spawningPool) spawningPool->init();
 	return this;
 }
@@ -86,6 +86,7 @@ World* World::initPools() {
 	this->compPools[COMP_CA::ACTION_FLAG_COMP] = new ObjectPool<ActionFlagComp>();
 	this->compPools[COMP_CA::WANDERING_COMP] = new ObjectPool<WanderingComp>();
 	this->compPools[COMP_CA::TRAJECT_COMP] = new ObjectPool<TrajectComp>();
+	this->compPools[COMP_CA::POINT_COMP] = new ObjectPool<PointComp>();
 	return this;
 }
 /*Create and initialize all basic components, they can be linked to any entities so we don't have to create multiple of them*/
@@ -103,13 +104,13 @@ World* World::initCommonComps() {
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
 World* World::initPlayers() {
 	
-	this->swiss = EntityFactory::createPlayer(true);
+	this->swiss = EntityFactory::createPlayer(true, false,0);
 	//create attachment example below
 	//AttachmentFactory::createHealAtt(swiss);
 	//AttachmentFactory::createExplodeAtt(swiss);
 	//AttachmentFactory::createExplodeAtt(swiss);
 	//AttachmentFactory::createTargetAtt(swiss);
-	auto player2 = EntityFactory::createPlayer(false);
+	auto player2 = EntityFactory::createPlayer(false,false,0);
 
 	return this;
 }

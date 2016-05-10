@@ -1,7 +1,15 @@
 --dynamic zombie creating based on how much killed?
 --time is in seconds elapsed?
 --difficulty 1/2/3   easy/med/hard
-gameTable = {difficulty = 1, time = 95}
+time = 0
+straySpawn = 3
+bossSpawn = 10
+debugNoWander = true
+debugSpawn = true
+debugStinkieNum = 2
+debugChuckerNum = 1
+debugHolyBoneNum = 0
+gameTable = {difficulty = 1}
 --time is to be updated whenever you create a scaling zombie, in seconds
 gameTable.worldWidth = 700
 gameTable.worldHeight = 700
@@ -10,18 +18,18 @@ gameTable.maxPlayerSpeed = 200.0
 --stats i need to know to create a zombie according to players current upgrade, to be updated before zombie creation
 gameTable.chuckerHP = 7
 gameTable.chuckerAttack = 1
-gameTable.chuckerAttackSpeed = 1.5
-gameTable.chuckerRange = 100
+gameTable.chuckerAttackSpeed = 5.0
+gameTable.chuckerRange = 400
 
 gameTable.stinkieHP = 10
-gameTable.stinkieAttack = 11
-gameTable.stinkieAttackSpeed = 2.0
-gameTable.stinkieRange = 150
+gameTable.stinkieAttack = 2
+gameTable.stinkieAttackSpeed = 1.5
+gameTable.stinkieRange = 100
 
 gameTable.holyBoneHP = 5
 gameTable.holyBoneAttack = 0
-gameTable.holyBoneAttackSpeed = 3.0
-gameTable.holyBoneRange = 100
+gameTable.holyBoneAttackSpeed = 7.0
+gameTable.holyBoneRange = 500
 gameTable.holyBoneHeal = 1
 
 
@@ -29,18 +37,18 @@ gameTable.holyBoneHeal = 1
 --stats for basic zombie attributes
 gameTable.basicChuckerHP = 7
 gameTable.basicChuckerAttack = 1
-gameTable.basicChuckerAttackSpeed = 1.5
-gameTable.basicChuckerRange = 100
+gameTable.basicChuckerAttackSpeed = 7.0
+gameTable.basicChuckerRange = 500
 
 gameTable.basicStinkieHP = 10
-gameTable.basicStinkieAttack = 11
-gameTable.basicStinkieAttackSpeed = 2.0
-gameTable.basicStinkieRange = 50
+gameTable.basicStinkieAttack = 2
+gameTable.basicStinkieAttackSpeed = 1.5
+gameTable.basicStinkieRange = 100
 
 gameTable.basicHolyBoneHP = 5
 gameTable.basicHolyBoneAttack = 0
-gameTable.basicHolyBoneAttackSpeed = 3.0
-gameTable.basicHolyBoneRange = 100
+gameTable.basicHolyBoneAttackSpeed = 7.0
+gameTable.basicHolyBoneRange = 500
 gameTable.basicHolyBoneHeal = 1
 
 
@@ -71,6 +79,7 @@ function getTable()
   generalTable.ZombieSensorComp = false
   generalTable.WanderingComp = nil
   generalTable.WanderingCompInterval = 15
+  generalTable.PointComp = false
   
   -- combat statistics
   generalTable.hp = nil
@@ -138,7 +147,12 @@ function createZombie(BELONG )
   if ( not BELONG) then
   table.x = math.random(0,gameTable.worldWidth)
   table.y = math.random(0,gameTable.worldHeight)
-  table.WanderingComp = true
+  
+    if(debugNoWander) then
+      table.WanderingComp = false
+    else 
+      table.Wanderingcomp = true
+    end
   end
   
   return table
@@ -166,7 +180,7 @@ function createBasicStinkie(BELONG)
 end
 
 function createScalingStinkie(BELONG)
-  return createStinkie(10+(gameTable.time / 30)*gameTable.difficulty,  2+(gameTable.time / 60)*gameTable.difficulty, 2.0-(.001*gameTable.time*gameTable.difficulty),10,2,BELONG)
+  return createStinkie(10+(time / 30)*gameTable.difficulty,  2+(time / 60)*gameTable.difficulty, 2.0-(.001*time*gameTable.difficulty),10,2,BELONG)
 end
 
 function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE,BELONG)
@@ -178,6 +192,7 @@ function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE,BELONG)
   table.DomainCompRadius=RANGE
   table.AnimCompName = "chucker"
   table.DomainCompRadius = RANGE
+  table.RangeAttackComp = true
   
   --others
   table.ZombieCatagory = 3
@@ -190,7 +205,7 @@ function createBasicChucker(BELONG)
 end
 
 function createScalingChucker(BELONG )
-  return createChucker(7+(gameTable.time / 30)*gameTable.difficulty, 1+(gameTable.time / 60)*gameTable.difficulty, 1.5-(.001*gameTable.time*gameTable.difficulty), 100,2,BELONG)
+  return createChucker(7+(time / 30)*gameTable.difficulty, 1+(time / 60)*gameTable.difficulty, 1.5-(.001*time*gameTable.difficulty), 100,2,BELONG)
 end
 
 
@@ -217,12 +232,11 @@ function createBasicHolyBone(BELONG)
 end
 
 function createScalingHolyBone(BELONG)
-  return createHolyBone(5+(gameTable.time / 30)*gameTable.difficulty,0,3-(.001*gameTable.time*gameTable.difficulty),100,1 +(gameTable.time / 120)*gameTable.difficulty,2,BELONG)
+  return createHolyBone(5+(time / 30)*gameTable.difficulty,0,3-(.001*time*gameTable.difficulty),100,1 +(time / 120)*gameTable.difficulty,2,BELONG)
 end
 
 
-
-function createPlayer(isHuman)
+function createPlayer(isHuman, isBoss)
   player = getTable()
   player.isPlayer = true
   
@@ -236,7 +250,8 @@ function createPlayer(isHuman)
   
   if (isHuman) then 
     player.KeyboardComp = true
-    player.RecruitComp = true;
+    player.RecruitComp = true
+    player.PointComp = true
     player.x = gameTable.worldWidth / 2
     player.y = gameTable.worldHeight / 2
     player.AnimCompName = "swiss"
@@ -263,33 +278,56 @@ function createPlayer(isHuman)
   else 
     player.x = math.random(0,gameTable.worldWidth)
     player.y = math.random(0,gameTable.worldHeight)
-    --to be changed to actual name for animation of other horde players
---    player.AnimCompName = "otherSwiss"
-    player.AnimCompName = "swiss"
+
     player.RecruitComp = true
-    player.WanderingComp = true
+    if(debugNoWander) then
+      player.WanderingComp = false
+    else 
+      player.Wanderingcomp = true
+    end
     player.ActionFlagComp = true
     player.alliance = 2
-    player.StinkieNum = 1+gameTable.difficulty*(gameTable.time/30)*1
-    player.ChuckerNum = gameTable.difficulty*(gameTable.time/55)*1
-    player.HolyBoneNum = gameTable.difficulty*(gameTable.time/80)*1
+    
+    if(isBoss) then
+    player.StinkieNum = 1+gameTable.difficulty*(time/25)*1
+    player.ChuckerNum = 1+gameTable.difficulty*(time/50)*1
+    player.HolyBoneNum = 1+gameTable.difficulty*(time/75)*1
+        --to be changed to actual name for animation of other horde players
+--    player.AnimCompName = "bossSwiss"
+    player.AnimCompName = "swiss"
+    else
+    player.StinkieNum = 2+gameTable.difficulty*(time/30)*1
+    player.ChuckerNum = 0+gameTable.difficulty*(time/55)*1
+    player.HolyBoneNum = 0+gameTable.difficulty*(time/80)*1
+    
+      if(debugSpawn) then
+      player.ChuckerNum =  debugChuckerNum
+      player.HolyBonenum = debugHolyBoneNum
+      player.StinkieNum = debugStinkieNum
+      else
+      end
+  
+        --to be changed to actual name for animation of other horde players
+--    player.AnimCompName = "employeeSwiss"
+    player.AnimCompName = "swiss"
+    end
     
         --setting horde statistics
-    player.stinkieHP=10+(gameTable.time / 30)*gameTable.difficulty
-    player.stinkieAttack = 2+(gameTable.time / 60)*gameTable.difficulty
-    player.stinkieAttackSpeed = 2.0 -(.001*gameTable.time*gameTable.difficulty)
-    player.stinkieRange = 10
+    player.stinkieHP=gameTable.basicStinkieHP+(time / 30)*gameTable.difficulty
+    player.stinkieAttack = gameTable.basicStinkieAttack+(time / 60)*gameTable.difficulty
+    player.stinkieAttackSpeed = gameTable.basicStinkieAttackSpeed -(.001*time*gameTable.difficulty)
+    player.stinkieRange = gameTable.basicStinkieRange
     
-    player.chuckerHP = 7+(gameTable.time / 30)*gameTable.difficulty
-    player.chuckerAttack = 1+(gameTable.time / 60)*gameTable.difficulty
-    player.chuckerAttackSpeed = 1.5-(    .001*gameTable.time*gameTable.difficulty)
-    player.chuckerRange = 100
+    player.chuckerHP = gameTable.basicChuckerHP+(time / 30)*gameTable.difficulty
+    player.chuckerAttack = gameTable.basicChuckerAttack+(time / 60)*gameTable.difficulty
+    player.chuckerAttackSpeed = gameTable.basicChuckerAttackSpeed-(    .001*time*gameTable.difficulty)
+    player.chuckerRange = gameTable.basicChuckerRange
     
-    player.holyBoneHP = 5+(gameTable.time / 30)*gameTable.difficulty
-    player.holyBoneAttack = 0
-    player.holyBoneAttackSpeed = 3-(.001*gameTable.time*gameTable.difficulty)
-    player.holyBoneRange = 100
-    player.holyBoneHeal = 1 +(gameTable.time / 120)*gameTable.difficulty
+    player.holyBoneHP = gameTable.basicHolyBoneHP+(time / 30)*gameTable.difficulty
+    player.holyBoneAttack = gameTable.basicHolyBoneAttack
+    player.holyBoneAttackSpeed = gameTable.basicHolyBoneAttackSpeed-(.001*time*gameTable.difficulty)
+    player.holyBoneRange = gameTable.basicHolyBoneRange
+    player.holyBoneHeal = gameTable.basicHolyBoneHeal +(time / 120)*gameTable.difficulty
     
     
     
@@ -299,30 +337,23 @@ function createPlayer(isHuman)
       return createStinkie(player.stinkieHP,player.stinkieAttack, player.stinkieAttackSpeed,player.stinkieRange,  player.alliance,true) 
     end
     player.ChuckerFunc = function()
-      return createChucker(player.stinkieHP,player.stinkieAttack, player.stinkieAttackSpeed,player.stinkieRange,player.alliance,true) 
+      return createChucker(player.chuckerHP,player.chuckerAttack, player.chuckerAttackSpeed,player.chuckerRange,player.alliance,true) 
     end
     player.HolyBoneFunc = function()
-      return createHolyBone(player.stinkieHP,player.stinkieAttack, player.stinkieAttackSpeed,player.stinkieRange,player.holyBoneHeal, player.alliance,true) 
+      return createHolyBone(player.holyBoneHP,player.holyBoneAttack, player.holyBoneAttackSpeed,player.holyBoneRange,player.holyBoneHeal, player.alliance,true) 
     end
   
   return player
 end
-player = createPlayer(true)
+player = createPlayer(false)
+basicStinkie = createBasicStinkie()
 basicChucker = createBasicChucker()
 scalingChucker = player.ChuckerFunc()
-print(basicChucker.hp,scalingChucker.hp)
-print(basicChucker.attack,scalingChucker.attack)
-print(basicChucker.attackSpeed,scalingChucker.attackSpeed)
-print(basicChucker.heal,scalingChucker.heal)
-print(basicChucker.DomainComp,scalingChucker.DomainCompRadius)
-print(player.AnimCompName)
+print(basicChucker.DomainCompRadius)
+print(basicStinkie.DomainCompRadius)
 print(player.StinkieNum)
-testStinkie=player.StinkieFunc()
-print(testStinkie.AnimCompName)
-print(testStinkie.x, testStinkie.y)
-print(player.DomainCompRadius)
-print(testStinkie.DomainCompRadius)
-print(testStinkie.range)
+print(player.ChuckerNum)
+print(player.HolyBoneNum)
 
 
 

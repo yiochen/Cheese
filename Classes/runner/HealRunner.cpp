@@ -52,7 +52,7 @@ void HealRunner::updateEntity(Zombie* zombie, float delta) {
 	if (heal && domain && actionFlag && anim && domain && combat && hordeStatus //have all the components
 		&& actionFlag->isReady //the zombie can heal
 		) {
-		CCLOG("healer start looking for patients");
+		//CCLOG("healer start looking for patients");
 		//look for any zombie touching the domain;
 		auto zombieIt = world->zombieList.begin();
 		int patientCount = 0;

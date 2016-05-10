@@ -15,6 +15,7 @@
 #include "util/GameKey.h"
 #include <unordered_map>
 #include "entity/attachment/Attachment.h"
+#include "util/InformationPanel.h"
 USING_NS_CC;
 //World is a singleton class
 #define GET_WORLD World::instance()
@@ -23,6 +24,7 @@ private:
 	static World * s_instance;
 	Node* backgroundNode;
 	Node* actionNode;
+	Node* hudNode;
 	ObjectPool<Player> *playerPool;
 	ObjectPool<Zombie> *zombiePool;
 	ObjectPool<Item> *itemPool;
@@ -31,7 +33,6 @@ private:
 	
 	Sprite* testSprite;
 	TextureManager* textureManager;
-	ZombieSpawningPool* spawningPool;
 	World();
 	World* initPools();
 	World* initPlayers();
@@ -45,6 +46,13 @@ public:
 		}
 		return s_instance;
 	}
+
+	//HUD STUFF, should be in game scene?
+	InformationPanel* infoPanel;
+
+
+	ZombieSpawningPool* spawningPool;
+
 	std::list<Player*> playerList;
 	std::list<Zombie*> zombieList;
 	std::list<Item*> itemList;
@@ -58,10 +66,11 @@ public:
     /**
 	*	get called at the start of each level to initialize the world
 	*/
-	World* initWorld(Node* backgroundLayer, Node* actionLayer);
+	World* initWorld(Node* backgroundLayer, Node* actionLayer, Node* hudNode);
 	World* initSpriteCache();
 	Node* getBackgroundNode() { return backgroundNode; }
 	Node* getActionNode() { return actionNode; }
+	Node* getHUDNode() { return hudNode; }
 	TextureManager* getTextureManager() { return textureManager; }
 	ObjectPool<Player> *getPlayerPool(){ return playerPool; }
 	ObjectPool<Zombie> *getZombiePool(){ return zombiePool; }

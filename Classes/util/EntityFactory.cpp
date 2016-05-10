@@ -9,7 +9,7 @@ USING_NS_CC;
 
 void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 	auto world = World::instance();
-	CCLOG("init entities");
+//	CCLOG("init entities");
 	//loading all the data
 	//basic components
 #define luabool(st) luaTable.Get<bool>(st)
@@ -23,33 +23,37 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 	entity->alliance = luaint("alliance");
 	if (luabool("ChasingComp")) {
 		//create chasing comp
-		CCLOG("creating chasing comp");
+//		CCLOG("creating chasing comp");
 		entity->components[COMP_CA::CHASING_COMP] = world->commonComps[COMP_CA::CHASING_COMP];
 	}
 	if (luabool("SeperationComp")) {
-		CCLOG("creating seperation comp");
+//		CCLOG("creating seperation comp");
 		entity->components[COMP_CA::SEPERATION_COMP] = world->commonComps[COMP_CA::SEPERATION_COMP];
 	}
 	if (luabool("FollowingComp")) {
-		CCLOG("creating followingComp");
+//		CCLOG("creating followingComp");
 		entity->components[COMP_CA::FOLLOWING_COMP] = world->commonComps[COMP_CA::FOLLOWING_COMP];
 	}
 	if (luabool("MeleeAttackComp")) {
-		CCLOG("creating meleeAttackComp");
+//		CCLOG("creating meleeAttackComp");
 		entity->components[COMP_CA::MELEE_ATTACK_COMP] = world->commonComps[COMP_CA::MELEE_ATTACK_COMP];
 	}
+	if (luabool("RangeAttackComp")) {
+		//		CCLOG("creating rangeAttackComp");
+		entity->components[COMP_CA::RANGE_ATTACK_COMP] = world->commonComps[COMP_CA::RANGE_ATTACK_COMP];
+	}
 	if (luabool("KeyboardComp")) {
-		CCLOG("creating keyboardComp");
+//		CCLOG("creating keyboardComp");
 		entity->components[COMP_CA::KEYBOARD_COMP] = world->commonComps[COMP_CA::KEYBOARD_COMP];
 	}
 	if (luabool("RecruitComp")) {
-		CCLOG("creating recruitComp");
+//		CCLOG("creating recruitComp");
 		entity->components[COMP_CA::RECRUIT_COMP] = world->commonComps[COMP_CA::RECRUIT_COMP];
 	}
 
 	//pooled component
 	if (luabool("ActionFlagComp")) {
-		CCLOG("creating actionflagComp");
+//		CCLOG("creating actionflagComp");
 		auto actionFlag = newcomp(ActionFlagComp, COMP_CA::ACTION_FLAG_COMP);
 		actionFlag->init();
 		actionFlag->interval = luafloat("attackSpeed");
@@ -57,10 +61,11 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 			actionFlag->interval = luafloat("WanderingCompInterval");
 		}
 		addcomp(COMP_CA::ACTION_FLAG_COMP, actionFlag);
+		CCLOG("attack speed is %lf", actionFlag->interval);
 
 	}
 	if (luabool("AnimComp")) {
-		CCLOG("creating anim comp");
+//		CCLOG("creating anim comp");
 		auto anim = newcomp(AnimComp, COMP_CA::ANIM_COMP);
 		anim->init();
 		anim->name=luastring("AnimCompName");
@@ -69,7 +74,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		addcomp(COMP_CA::ANIM_COMP, anim);
 	}
 	//if (luabool("CombatComp")) {
-		CCLOG("creating combat comp");
+//		CCLOG("creating combat comp");
 		auto  combat = newcomp(CombatComp, COMP_CA::COMBAT_COMP);
 		combat->init();
 		combat->hp = luaint("hp");
@@ -77,21 +82,28 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		//combat->attackSpeed = luafloat("attackSpeed");
 		
 		combat->alliance = entity->alliance;//TODO: set alliance in lua file
-		CCLOG("alliance is %d", combat->alliance);
+//		CCLOG("alliance is %d", combat->alliance);
 		addcomp(COMP_CA::COMBAT_COMP, combat);
 	//}
 	if (luabool("DomainComp")) {
-		CCLOG("creating domain comp");
+//		CCLOG("creating domain comp");
 		auto domain = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
 		domain->init();
-		domain->radius = luafloat("DomainCompRadius");
+		domain->radius = (float)luaint("DomainCompRadius");
+		CCLOG("Radius read is %d ", luaint("DomainCompRadius"));
 		
 		addcomp(COMP_CA::DOMAIN_COMP, domain);
 	}
 	if (luabool("HealComp")) {
-		CCLOG("creating heal comp");
+//		CCLOG("creating heal comp");
 		entity->components[COMP_CA::HEAL_COMP] = world->commonComps[COMP_CA::HEAL_COMP];
 		//heal->healSpeed = luafloat("attackSpeed");
+	}
+	if (luabool("PointComp")) {
+		//		CCLOG("creating point comp");
+
+		auto pointComp = newcomp(PointComp, COMP_CA::POINT_COMP);
+		addcomp(COMP_CA::POINT_COMP, pointComp);
 	}
 	if (luabool("HordeStatusComp")) {
 		CCLOG("creating hordestatus comp");
@@ -112,9 +124,9 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL] = luaint("holyBoneHeal");
 		hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED] = luafloat("holyBoneAttackSpeed");
 		hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_RANGE] = luaint("holyBoneRange");
-		CCLOG("holy bone STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_RANGE]);
-		CCLOG("stinkie STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_RANGE]);
-		CCLOG("chucker STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACK], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_RANGE]);
+//		CCLOG("holy bone STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_RANGE]);
+//		CCLOG("stinkie STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::STINKIE_RANGE]);
+//		CCLOG("chucker STAT IS %lf %lf, %lf, %lf", hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACK], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED], hordeStatus->zombieStat[ZOMBIE_STAT_CA::CHUCKER_RANGE]);
 
 		int total = 0;
 		for (int i = ZOMBIE_CA::ZOMBIE_START; i < ZOMBIE_CA::ZOMBIE_END; i++) {
@@ -125,7 +137,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		
 	}
 	if (luabool("KineticComp")) {
-		CCLOG("creating kinetic comp");
+//		CCLOG("creating kinetic comp");
 		auto kinetic = newcomp(KineticComp, COMP_CA::KINETIC_COMP);
 		kinetic->init();
 		kinetic->maxSpeed = luafloat("KineticCompMaxSpeed");
@@ -139,23 +151,22 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 			x = luafloat("x");
 			y = luafloat("y");
 		}
-		CCLOG("the initial x and y is %f,%f", x, y);
+//		CCLOG("the initial x and y is %f,%f", x, y);
 		kinetic->pos.set(x, y);//TODO: zombie's position seems not working
 		addcomp(COMP_CA::KINETIC_COMP, kinetic);
 	}
 	if (luabool("ZombieSensorComp")) {
-		CCLOG("creating zombie sensor comp");
+//		CCLOG("creating zombie sensor comp");
 		
 		
 	}
 	if (luabool("WanderingComp")) {
-		CCLOG("creating wanderingComp");
+//		CCLOG("creating wanderingComp");
 		auto wanderingComp = newcomp(WanderingComp, COMP_CA::WANDERING_COMP);
 		wanderingComp->init();
 		addcomp(COMP_CA::WANDERING_COMP, wanderingComp);
-
 	}
-	CCLOG("finish entity initialization");
+//	CCLOG("finish entity initialization");
 }
 
 Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc) {
@@ -186,6 +197,7 @@ Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 	}
 	auto luaTable = luaFunc.Invoke(false);
 	initEntity(zombie, luaTable);
+	zombie->catagory = (ZOMBIE_CA)luaint("ZombieCatagory");
 	zombie->player = NULL;
 	world->zombieList.push_back(zombie);
 	//play spawn effect
@@ -193,20 +205,24 @@ Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 	return zombie;
 }
 
-Player* EntityFactory::createPlayer(bool isHuman) {
+Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	World* world = World::instance();
 	Player* player = world->getPlayerPool()->New();
 	player->init();
 	//load lua file, 
 	auto lua = LuaDevice::instance();
-	auto luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createPlayer");
-	auto luaTable =luaFunc.Invoke(isHuman);
+	LuaTable global = lua->global();
+	CCLOG("the game time before is %d", global.Get<int>("time"));
+	global.Set("time", (int)gameTime);
+	CCLOG("the game time is %d", global.Get<int>("time"));
+	auto luaFunc = lua->global().Get<LuaFunction<LuaTable(bool,bool)>>("createPlayer");
+	auto luaTable =luaFunc.Invoke(isHuman,isBoss);
 	initEntity(player,luaTable);
 	//create zombies for the player
-	auto stinkieNum = luaint("StinkieNum");
-	auto chuckerNum = luaint("ChuckerNum");
-	auto holyNum = luaint("HolyBoneNum");
-
+	auto stinkieNum = (int)luafloat("StinkieNum");
+	auto chuckerNum = (int)luafloat("ChuckerNum");
+	auto holyNum = (int)luafloat("HolyBoneNum");
+	CCLOG("for this player zombies num %d/%d/%d",stinkieNum, chuckerNum, holyNum);
 	auto stinkieFunc = luazombfunc("StinkieFunc");
 	auto chuckerFunc = luazombfunc("ChuckerFunc");
 	auto holyFunc = luazombfunc("HolyBoneFunc");
@@ -218,6 +234,7 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 	//chuckerNum = 0;
 	for (int i = 0; i < chuckerNum; i++) {
 		auto zombie=createZombie(player, chuckerFunc);
+		/*
 		//manually add a range attack comp, TODO: this is for testing only, should be handled by lua
 		auto rangeComp = world->commonComps[COMP_CA::RANGE_ATTACK_COMP];
 		zombie->components[COMP_CA::RANGE_ATTACK_COMP] = rangeComp;
@@ -227,6 +244,7 @@ Player* EntityFactory::createPlayer(bool isHuman) {
 			zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
 		}
 		domainComp->radius = 700.0f;//set a super large radius
+		*/
 	}
 	for (int i = 0; i < holyNum; i++) {
 		auto zombie=createZombie(player, holyFunc);

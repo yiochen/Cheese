@@ -7,17 +7,22 @@ It will spawn a random zombie when the time runs out*/
 class ZombieSpawningPool  {
 
 public:
-	bool isReady;
-	bool isWaiting;
-	float interval;
+	bool isReadyStray, isReadyBoss;
+	bool isWaitingStray, isWaitingBoss;
 
-	float time;
+	//stray zombie interval
+	float strayInterval;
+	float bossInterval;
+	
+
+	float strayTime, bossTime, totalTime;
 	ZombieSpawningPool();
-	ZombieSpawningPool(float);
 	void init();
-	void schedule();
+	void scheduleStray();
+	void scheduleBoss();
 	void update(float delta);
 	void spawnStrayZombie();
+	void spawnMiniBossZombie();
+	
 private:
-	void acting();
 };

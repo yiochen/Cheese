@@ -87,5 +87,5 @@ void TrajectComp::launch(Entity* launcher, Vec2 target) {
 	this->curPos.set(kin->pos);
 	
 	this->arrived = false;
-	CCLOG("launched");
+	CCLOG("launched with damage %d", comb->damage);
 }

@@ -3,6 +3,8 @@
 #include "component/basic/RecruitComp.h"
 #include "component/pooled/DomainComp.h"
 #include "component/pooled/KineticComp.h"
+#include "component\pooled\HordeStatusComp.h"
+#include "component\pooled\PointComp.h"
 RecruitRunner::RecruitRunner() {
     
 }
@@ -39,6 +41,17 @@ void RecruitRunner::updateEntity(Zombie* zombie, float delta) {
 						//recruit
 						recruit->recruit(player, zombie);
 						CCLOG("player successfully recruite a zombie!!");
+						HordeStatusComp* horde = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
+						horde->updateStray(zombie);
+
+						PointComp* pointComp = (PointComp*)player->components[COMP_CA::POINT_COMP];
+						CCLOG("CHECKING FOR POINT COMP");
+						//if has point comp, then player gets a point
+						if (pointComp) {
+							CCLOG("HAS POINT COMP");
+							pointComp->add(player, 1);
+							world->infoPanel->setPointsStr(pointComp->point);
+						}
 						return;
 					}
 				}

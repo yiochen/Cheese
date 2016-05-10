@@ -21,6 +21,40 @@ void HordeStatusComp::zeroPos() {
 	this->sumPos.setZero();
 }
 
+//incorporate stats from horde into a stray zombie, call when recruits a stray zombie
+void HordeStatusComp::updateStray(Entity* e) {
+	CombatComp* combatComp = (CombatComp*)(e->components[COMP_CA::COMBAT_COMP]);
+	ActionFlagComp* actionFlagComp = (ActionFlagComp*)(e->components[COMP_CA::ACTION_FLAG_COMP]);
+	DomainComp* domainComp = (DomainComp*)(e->components[COMP_CA::DOMAIN_COMP]);
+	if (((Zombie*)e)->player && actionFlagComp && domainComp && combatComp) {
+
+		HordeStatusComp* hordeStatusComp = (HordeStatusComp*)(((Zombie*)e)->player->components[COMP_CA::HORDE_STATUS_COMP]);
+		if (((Zombie*)e)->catagory == ZOMBIE_CA::STINKIE) {
+			actionFlagComp->interval = hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED];
+			combatComp->damage = (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK];
+			
+			CCLOG("The hp of hordestatus is now %d (WHEN RECRUIT) ", (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP]);
+			combatComp->setHP((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP]);
+			CCLOG("The hp of this zombie is now %d ", combatComp->hp);
+		}
+		if (((Zombie*)e)->catagory == ZOMBIE_CA::CHUCKER) {
+			actionFlagComp->interval = hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED];
+			combatComp->damage = (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACK];
+			combatComp->hp = (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP];
+			domainComp->radius = (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_RANGE];
+		}
+		if (((Zombie*)e)->catagory == ZOMBIE_CA::HOLY_BONE) {
+			actionFlagComp->interval = hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED];
+			combatComp->damage = (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL];
+			combatComp->hp = (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP];
+			domainComp->radius = (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_RANGE];
+
+		}
+		else{
+			CCLOG("the category # of this zombie is %d", ((Zombie*)e)->catagory);
+		}
+	}
+}
 void HordeStatusComp::updateHorde() {
 	World* world = World::instance();
 	auto zombieIt = world->zombieList.begin();

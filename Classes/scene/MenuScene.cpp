@@ -51,6 +51,10 @@ bool MenuScene::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
 	auto audio = SimpleAudioEngine::getInstance();
 	audio->playBackgroundMusic(S_MENU,true);
+
+
+	
+
     return true;
 }
 

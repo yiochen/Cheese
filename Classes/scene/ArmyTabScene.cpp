@@ -53,14 +53,14 @@ bool ArmyTabScene::init()
 	HordeStatusComp* hordeStatusComp = (HordeStatusComp*)world->swiss->components[COMP_CA::HORDE_STATUS_COMP];
 	(rootNode->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentHealth"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP]));
 	(rootNode->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttack"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK]));
-	(rootNode->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED]));
+	(rootNode->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString((std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED])).substr(0,3));
 
 	(rootNode->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentHealth"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP]));
 	(rootNode->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttack"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACK]));
-	(rootNode->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED]));
+	(rootNode->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString((std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED])).substr(0, 3));
 	(rootNode->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentRange"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_RANGE]));
 
-	(rootNode->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED]));
+	(rootNode->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString((std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED])).substr(0, 3));
 	(rootNode->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttack"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL]));
 	(rootNode->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentHealth"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP]));
 
@@ -158,7 +158,19 @@ void ArmyTabScene::StatBtnTouchEvent( ZOMBIE_STAT_CA a,cocos2d::Node* root) {
 				hordeStatusComp->zombieStat[a] += 2;
 			}
 			if (a == ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED || a == ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED || a == ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED) {
-				hordeStatusComp->zombieStat[a] -= .1;
+				if (a == ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED] >= .5) {
+					hordeStatusComp->zombieStat[a] -= .1;
+				}
+				else if (a == ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED] >= .5) {
+					hordeStatusComp->zombieStat[a] -= .1;
+				}
+				else if (a == ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED] >= .5) {
+					hordeStatusComp->zombieStat[a] -= .1;
+				}
+				else {
+					hordeStatusComp->pointsRemaining += 1;
+				}
+
 			}
 			if (a == ZOMBIE_STAT_CA::CHUCKER_RANGE || a == ZOMBIE_STAT_CA::STINKIE_RANGE || a == ZOMBIE_STAT_CA::HOLY_BONE_RANGE) {
 				hordeStatusComp->zombieStat[a] += 30;
@@ -170,14 +182,14 @@ void ArmyTabScene::StatBtnTouchEvent( ZOMBIE_STAT_CA a,cocos2d::Node* root) {
 			hordeStatusComp->pointsRemaining -= 1;
 			(root->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentHealth"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP]));
 			(root->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttack"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK]));
-			(root->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString(std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED]));
+			(root->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString((std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED])).substr(0, 3));
 
 			(root->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentHealth"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_HP]));
 			(root->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttack"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACK]));
-			(root->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString(std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED]));
+			(root->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString((std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED])).substr(0, 3));
 			(root->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentRange"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_RANGE]));
 
-			(root->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString(std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED]));
+			(root->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString((std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED])).substr(0, 3));
 			(root->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttack"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HEAL]));
 			(root->getChildByName("StatHolyBones")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentHealth"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_HP]));
 
@@ -185,6 +197,7 @@ void ArmyTabScene::StatBtnTouchEvent( ZOMBIE_STAT_CA a,cocos2d::Node* root) {
 			(root->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("pointsRemaining"))->setString(std::to_string((int)hordeStatusComp->pointsRemaining));
 			(root->getChildByName("StatChuckers")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("pointsRemaining"))->setString(std::to_string((int)hordeStatusComp->pointsRemaining));
 			hordeStatusComp->updateHorde();
+			CCLOG("The hp of hordestatus is now %d ", (int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP]);
 		}
 
 }

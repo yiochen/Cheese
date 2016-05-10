@@ -39,10 +39,12 @@ bool GameScene::init()
 	helpBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::helpBtnTouchEvent, this));
 	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("ExitButton");
 	exitBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::exitBtnTouchEvent, this));
-	
+	cocos2d::ui::Text* informationPanel = (rootNode->getChildByName("HudLayer")->getChildByName<cocos2d::ui::Text*>("Information"));
+	informationPanel->setString("i cant manipulate this without gameScene isntance?");
 
 	Node* backgroundLayer=(Node*)rootNode->getChildByName("MapLayer");
 	Node* actionLayer = (Node*)rootNode->getChildByName("ActionLayer");
+	Node* hudLayer = (Node*)rootNode->getChildByName("HudLayer");
 	EventListenerKeyboard *keyListener = EventListenerKeyboard::create();
 	keyListener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
 	keyListener->onKeyReleased = CC_CALLBACK_2(GameScene::onKeyReleased, this);
@@ -58,7 +60,7 @@ bool GameScene::init()
 	config->WORLD_WIDTH = this->getContentSize().width;
 	CCLOG("the size of the world is %f,%f", config->WORLD_WIDTH, config->WORLD_HEIGHT);
 	World * world = World::instance();
-	world->initWorld(backgroundLayer,actionLayer);
+	world->initWorld(backgroundLayer,actionLayer, hudLayer);
 	//test lua
 	//TODO:to be deleted
 	
