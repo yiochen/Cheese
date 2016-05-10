@@ -13,6 +13,7 @@ void Zombie::init() {
 	this->sprite = Sprite::create();
 	//this->sprite->setColor(Color3B::MAGENTA);
 	this->sprite->setAnchorPoint(Vec2(0.5, 0));
+	this->sprite->setUserData(this);
 	//add the empty sprite to game 
 	World::instance()->getActionNode()->addChild(this->sprite);
 

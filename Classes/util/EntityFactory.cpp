@@ -218,6 +218,12 @@ Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	auto luaFunc = lua->global().Get<LuaFunction<LuaTable(bool,bool)>>("createPlayer");
 	auto luaTable =luaFunc.Invoke(isHuman,isBoss);
 	initEntity(player,luaTable);
+
+	//TODO:temporary:give player PowerUpComp so that he can pick up stuff, to be added to lua
+	auto power = newcomp(PowerUpComp, COMP_CA::POWER_UP_COMP);
+	power->init();
+	player->components[COMP_CA::POWER_UP_COMP] = power;
+
 	//create zombies for the player
 	auto stinkieNum = (int)luafloat("StinkieNum");
 	auto chuckerNum = (int)luafloat("ChuckerNum");
@@ -301,6 +307,65 @@ Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {
 	animComp->defaultAction = A_FLY;
 	addcomp(COMP_CA::ANIM_COMP, animComp);
 
+
+	world->itemList.push_back(entity);
+	return entity;
+}
+
+Item* EntityFactory::createPickUp(ITEM_CA type, Vec2 location) {
+	World* world = World::instance();
+	Item* entity = world->getItemPool()->New();
+	entity->init();
+	//TODO load data from lua file
+	//for now. manually create the components. 
+	//1. kinetic comp
+	auto kinComp = newcomp(KineticComp, COMP_CA::KINETIC_COMP);
+	kinComp->init();
+	kinComp->pos.set(location);
+	addcomp(COMP_CA::KINETIC_COMP, kinComp);
+	CCLOG("item created kinetic comp");
+	
+	//2. domain comp, use to check if character touches it
+	auto domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
+	domainComp->init();
+	domainComp->radius = 50.0f;//character within 50 can pick up
+	addcomp(COMP_CA::DOMAIN_COMP, domainComp);
+	//3. alliance, well neutral
+	entity->alliance = 0;
+	
+	//4. AnimComp
+	auto animComp = newcomp(AnimComp, COMP_CA::ANIM_COMP);
+	animComp->init();
+	animComp->name = EFFECT_STR;
+	//animComp->animState = A_FLY;
+	switch (type) {
+	case ITEM_CA::ITEM_ATTACK:
+		animComp->newAnimState = I_PICKUP_ATTACK;
+		animComp->defaultAction = I_PICKUP_ATTACK;
+		break;
+	case ITEM_CA::ITEM_SPEED:
+		animComp->newAnimState = I_PICKUP_SPEED;
+		animComp->defaultAction = I_PICKUP_SPEED;
+		break;
+	case ITEM_CA::ITEM_INVIN://TODO::due to the lack of sprite set it to pick up speed
+		animComp->newAnimState = I_PICKUP_SPEED;
+		animComp->defaultAction = I_PICKUP_SPEED;
+		break;
+	case ITEM_CA::ITEM_HEALTH:
+		animComp->newAnimState = I_PICKUP_HEALTH;
+		animComp->defaultAction = I_PICKUP_HEALTH;
+		break;
+	}
+	animComp->directional = 0;
+	addcomp(COMP_CA::ANIM_COMP, animComp);
+	//5. powerUpComp, the most important one
+	auto powerComp = newcomp(PowerUpComp, COMP_CA::POWER_UP_COMP);
+	powerComp->init();
+	powerComp->type = type;
+	if (type == ITEM_CA::ITEM_HEALTH || type == ITEM_CA::ITEM_NONE) {
+		powerComp->instant = true;
+	}
+	addcomp(COMP_CA::POWER_UP_COMP, powerComp);
 
 	world->itemList.push_back(entity);
 	return entity;

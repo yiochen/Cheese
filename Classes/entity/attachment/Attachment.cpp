@@ -88,5 +88,6 @@ void Attachment::finish() {
 	this->isStarted = true;
 	this->finished = true;
 	this->removeAllChildrenWithCleanup(true);
+	this->setUserData(NULL);
 	this->cleanup();
 }

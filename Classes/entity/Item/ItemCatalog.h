@@ -1,0 +1,9 @@
+#pragma once
+
+enum ITEM_CA {
+	ITEM_NONE,
+	ITEM_ATTACK,
+	ITEM_SPEED,
+	ITEM_HEALTH,
+	ITEM_INVIN
+};

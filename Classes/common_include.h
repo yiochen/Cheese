@@ -34,6 +34,6 @@
 #define A_TARGET "TARGET"
 
 //item
-#define I_PICKUP_ATTACK "effects_PICKUP_ATTACK.png"
-#define I_PICKUP_HEALTH "effects_PICKUP_HEALTH.png"
-#define I_PICKUP_SPEED "effects_PICKUP_SPEED.png"
+#define I_PICKUP_ATTACK "PICKUP_ATTACK"
+#define I_PICKUP_HEALTH "PICKUP_HEALTH"
+#define I_PICKUP_SPEED "PICKUP_SPEED"

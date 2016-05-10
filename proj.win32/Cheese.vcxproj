@@ -165,6 +165,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\HordeStatusComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\KineticComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\PointComp.cpp" />
+    <ClCompile Include="..\Classes\component\pooled\PowerUpComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\TrajectComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\WanderingComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\ZombieSensorComp.cpp" />
@@ -184,6 +185,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp" />
     <ClCompile Include="..\Classes\runner\MeleeAttackRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\PickUpRunner.cpp" />
     <ClCompile Include="..\Classes\runner\RangeAttackRunner.cpp" />
     <ClCompile Include="..\Classes\runner\RecruitRunner.cpp" />
     <ClCompile Include="..\Classes\runner\StatRunner.cpp" />
@@ -230,6 +232,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h" />
     <ClInclude Include="..\Classes\component\pooled\KineticComp.h" />
     <ClInclude Include="..\Classes\component\pooled\PointComp.h" />
+    <ClInclude Include="..\Classes\component\pooled\PowerUpComp.h" />
     <ClInclude Include="..\Classes\component\pooled\TrajectComp.h" />
     <ClInclude Include="..\Classes\component\pooled\WanderingComp.h" />
     <ClInclude Include="..\Classes\component\pooled\ZombieSensorComp.h" />
@@ -239,6 +242,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\entity\attachment\Attachment.h" />
     <ClInclude Include="..\Classes\entity\Entity.h" />
     <ClInclude Include="..\Classes\entity\Item\Item.h" />
+    <ClInclude Include="..\Classes\entity\Item\ItemCatalog.h" />
     <ClInclude Include="..\Classes\entity\Player\Player.h" />
     <ClInclude Include="..\Classes\entity\zombie\Zombie.h" />
     <ClInclude Include="..\Classes\entity\zombie\ZombieCatelog.h" />
@@ -252,6 +256,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\runner\KeyboardRunner.h" />
     <ClInclude Include="..\Classes\runner\KineticRunner.h" />
     <ClInclude Include="..\Classes\runner\MeleeAttackRunner.h" />
+    <ClInclude Include="..\Classes\runner\PickUpRunner.h" />
     <ClInclude Include="..\Classes\runner\RangeAttackRunner.h" />
     <ClInclude Include="..\Classes\runner\RecruitRunner.h" />
     <ClInclude Include="..\Classes\runner\StatRunner.h" />

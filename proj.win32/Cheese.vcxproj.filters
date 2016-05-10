@@ -237,6 +237,12 @@
     <ClCompile Include="..\Classes\util\InformationPanel.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\pooled\PowerUpComp.cpp">
+      <Filter>src\component\pooled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\PickUpRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -445,6 +451,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\InformationPanel.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\pooled\PowerUpComp.h">
+      <Filter>src\component\pooled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\Item\ItemCatalog.h">
+      <Filter>src\entity\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\PickUpRunner.h">
+      <Filter>src\runner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

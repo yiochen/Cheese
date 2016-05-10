@@ -20,6 +20,7 @@
 #include "component/pooled/PointComp.h"
 #include "component/pooled/TrajectComp.h"
 #include "component/basic/RangeAttackComp.h"
+#include "component/pooled/PowerUpComp.h"
 
 //runners
 #include "runner/KeyboardRunner.h"
@@ -36,5 +37,6 @@
 #include "runner/RangeAttackRunner.h"
 #include "runner/AttachmentAnimRunner.h"
 #include "runner/HealRunner.h"
+#include "runner/PickUpRunner.h"
 
 #include "entity/attachment/Attachment.h"

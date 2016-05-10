@@ -90,6 +90,7 @@ World* World::initPools() {
 	this->compPools[COMP_CA::WANDERING_COMP] = new ObjectPool<WanderingComp>();
 	this->compPools[COMP_CA::TRAJECT_COMP] = new ObjectPool<TrajectComp>();
 	this->compPools[COMP_CA::POINT_COMP] = new ObjectPool<PointComp>();
+	this->compPools[COMP_CA::POWER_UP_COMP] = new ObjectPool<PowerUpComp>();
 	return this;
 }
 /*Create and initialize all basic components, they can be linked to any entities so we don't have to create multiple of them*/
@@ -114,7 +115,9 @@ World* World::initPlayers() {
 	//AttachmentFactory::createExplodeAtt(swiss);
 	//AttachmentFactory::createTargetAtt(swiss);
 	auto player2 = EntityFactory::createPlayer(false,false,0);
-
+	//create Item as followed
+	auto item = EntityFactory::createPickUp(ITEM_CA::ITEM_ATTACK, Vec2(50, 50));
+	EntityFactory::createPickUp(ITEM_CA::ITEM_SPEED, Vec2(200, 50));
 	return this;
 }
 
@@ -130,6 +133,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new ZombieFollowRunner());
 	this->runnerList.push_back(new WandererRunner());
 	this->runnerList.push_back(new KineticRunner());
+	this->runnerList.push_back(new PickUpRunner());
 	this->runnerList.push_back(new TrajectRunner());
 	this->runnerList.push_back(new RecruitRunner());
 	this->runnerList.push_back(new MeleeAttackRunner());

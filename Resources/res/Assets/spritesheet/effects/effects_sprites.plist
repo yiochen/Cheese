@@ -184,7 +184,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_PICKUP_ATTACK.png</key>
+            <key>effects_PICKUP_ATTACK/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -199,7 +199,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_PICKUP_HEALTH.png</key>
+            <key>effects_PICKUP_HEALTH/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -214,7 +214,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>effects_PICKUP_SPEED.png</key>
+            <key>effects_PICKUP_SPEED/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>

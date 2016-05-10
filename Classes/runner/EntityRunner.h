@@ -6,5 +6,5 @@
 class EntityRunner {
 public:
     EntityRunner();
-	virtual void update(float delat) = 0;
+	virtual void update(float delta) = 0;
 };

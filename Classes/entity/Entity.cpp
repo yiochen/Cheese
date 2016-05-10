@@ -58,6 +58,7 @@ void Entity::addAttachment(Attachment* attachment) {
 	}
 	else {
 		attachments.push_back(attachment);
+		attachment->setUserData(this);
 	}
 }
 

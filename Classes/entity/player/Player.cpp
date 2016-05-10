@@ -14,6 +14,7 @@ void Player::init() {
 	//TODO, for now, it will just create the sprite here, but later, move it to a component
 	this->sprite = Sprite::create();
 	this->sprite->setAnchorPoint(Vec2(0.5, 0));
+	this->sprite->setUserData(this);
 	//add the empty sprite to game 
 	World::instance()->getActionNode()->addChild(this->sprite);
 	CCLOG("added player to world");
