@@ -116,9 +116,12 @@ World* World::initPlayers() {
 	//AttachmentFactory::createTargetAtt(swiss);
 	auto player2 = EntityFactory::createPlayer(false,false,0);
 	//create Item as followed
-	EntityFactory::createPickUp(ITEM_CA::ITEM_ATTACK, Vec2(50, 50));
-	EntityFactory::createPickUp(ITEM_CA::ITEM_SPEED, Vec2(200, 50));
-	EntityFactory::createPickUp(ITEM_CA::ITEM_INVIN, Vec2(300, 50));
+	if (Config::instance()->debug_mode) {
+		EntityFactory::createPickUp(ITEM_CA::ITEM_ATTACK, Vec2(50, 50));
+		EntityFactory::createPickUp(ITEM_CA::ITEM_SPEED, Vec2(200, 50));
+		EntityFactory::createPickUp(ITEM_CA::ITEM_INVIN, Vec2(300, 50));
+	}
+	
 	return this;
 }
 
