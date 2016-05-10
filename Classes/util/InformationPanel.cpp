@@ -10,7 +10,7 @@ USING_NS_CC;
 InformationPanel::InformationPanel() {
 	gameTimeStr = "Game Time: 0";
 	pointsStr = "Score: 0";
-	zombieRemainingStr = "Zombies Remaining: 0";
+	zombieRemainingStr = "Zombies Remaining: 5";
 	finalStr = gameTimeStr + pointsStr + zombieRemainingStr;
 
 };

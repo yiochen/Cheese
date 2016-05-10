@@ -33,4 +33,5 @@ public:
 	void tint();
 	//remove tint (tint to white)
 	void untint();
+	Color3B getColor();
 };

@@ -14,7 +14,7 @@ void HordeStatusComp::init() {
 	for (int i = ZOMBIE_CA::ZOMBIE_START; i < ZOMBIE_CA::ZOMBIE_END; i++) {
 		this->zombieCounts[(ZOMBIE_CA)i] = 0;
 	}
-	pointsRemaining = 40;
+	pointsRemaining = 0;
 }
 
 void HordeStatusComp::zeroPos() {
@@ -61,6 +61,8 @@ void HordeStatusComp::updateHorde() {
 	auto playerIt = world->playerList.begin();
 	while (zombieIt != world->zombieList.end()) {
 		//TODO:: no need to update the stats every frame. Make a function that can be called when army tab closes (or gameScene resumes)
+		// this is not called every frame, only called when an upgrade is allied or a zombie is recruited
+		
 		Zombie* z = ((Zombie*)*zombieIt);
 		CombatComp* combatComp = (CombatComp*)(z->components[COMP_CA::COMBAT_COMP]);
 		ActionFlagComp* actionFlagComp = (ActionFlagComp*)(z->components[COMP_CA::ACTION_FLAG_COMP]);

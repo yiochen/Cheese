@@ -246,6 +246,13 @@
     <ClCompile Include="..\Classes\util\ItemHelper.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\component\basic\EscapeComp.cpp">
+      <Filter>src\component\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\runner\EscapeRunner.cpp">
+      <Filter>src\runner</Filter>
+    </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -455,6 +462,7 @@
     <ClInclude Include="..\Classes\util\InformationPanel.h">
       <Filter>src\util</Filter>
     </ClInclude>
+
     <ClInclude Include="..\Classes\component\pooled\PowerUpComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
@@ -467,6 +475,14 @@
     <ClInclude Include="..\Classes\util\ItemHelper.h">
       <Filter>src\util</Filter>
     </ClInclude>
+
+    <ClInclude Include="..\Classes\component\basic\EscapeComp.h">
+      <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\runner\EscapeRunner.h">
+      <Filter>src\runner</Filter>
+    </ClInclude>
+
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

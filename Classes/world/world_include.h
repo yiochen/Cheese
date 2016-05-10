@@ -38,5 +38,6 @@
 #include "runner/AttachmentAnimRunner.h"
 #include "runner/HealRunner.h"
 #include "runner/PickUpRunner.h"
+#include "runner/EscapeRunner.h"
 
 #include "entity/attachment/Attachment.h"

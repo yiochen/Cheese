@@ -11,6 +11,8 @@ void PointComp::init() {
 
 void PointComp::add(Entity* e, int add) {
 	PointComp* pointComp = (PointComp*)e->components[COMP_CA::POINT_COMP];
-	pointComp->point += add;
+	if (pointComp) {
+		pointComp->point += add;
+	}
 
 }

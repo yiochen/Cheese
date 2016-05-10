@@ -82,7 +82,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		//combat->attackSpeed = luafloat("attackSpeed");
 		
 		combat->alliance = entity->alliance;//TODO: set alliance in lua file
-//		CCLOG("alliance is %d", combat->alliance);
+		CCLOG("damage is %d", combat->damage);
 		addcomp(COMP_CA::COMBAT_COMP, combat);
 	//}
 	if (luabool("DomainComp")) {
@@ -189,10 +189,10 @@ Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 	zombie->init();
 	auto lua = LuaDevice::instance();
 	auto luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicStinkie");
-	if (number == 2) {
+	if (number == ZOMBIE_CA::HOLY_BONE) {
 		luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicHolyBone");
 	}
-	else if (number == 3) {
+	else if (number == ZOMBIE_CA::CHUCKER) {
 		luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicChucker");
 	}
 	auto luaTable = luaFunc.Invoke(false);
@@ -209,6 +209,15 @@ Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	World* world = World::instance();
 	Player* player = world->getPlayerPool()->New();
 	player->init();
+	if (isHuman) {
+		player->tint(Color3B::GREEN);
+	}
+	else {
+		player->tint(Color3B::MAGENTA);
+	}
+	if (isBoss) {
+		player->tint(Color3B::RED);
+	}
 	//load lua file, 
 	auto lua = LuaDevice::instance();
 	LuaTable global = lua->global();
@@ -234,12 +243,13 @@ Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	auto holyFunc = luazombfunc("HolyBoneFunc");
 
 	for (int i = 0; i < stinkieNum; i++) {
-		createZombie(player, stinkieFunc);
+		createZombie(player, stinkieFunc)->tint(player->getColor());
 	}
 	//chuckerNum = 1;//create on chucker mannually
 	//chuckerNum = 0;
 	for (int i = 0; i < chuckerNum; i++) {
 		auto zombie=createZombie(player, chuckerFunc);
+		zombie->tint(player->getColor());
 		/*
 		//manually add a range attack comp, TODO: this is for testing only, should be handled by lua
 		auto rangeComp = world->commonComps[COMP_CA::RANGE_ATTACK_COMP];
@@ -254,6 +264,7 @@ Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	}
 	for (int i = 0; i < holyNum; i++) {
 		auto zombie=createZombie(player, holyFunc);
+		zombie->tint(player->getColor());
 		auto domainComp = (DomainComp*)zombie->components[COMP_CA::DOMAIN_COMP];
 		if (!domainComp) {
 			domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
@@ -264,7 +275,7 @@ Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	//add player to the world
 	world->playerList.push_back(player);
 	AttachmentFactory::createSpawnAtt(player);
-	player->tint(Color3B::MAGENTA);//test, tint all the player to magenta, TODO::remove it. read from lua.
+	//player->tint(Color3B::MAGENTA);//test, tint all the player to magenta, TODO::remove it. read from lua.
 	return player;
 }
 Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {

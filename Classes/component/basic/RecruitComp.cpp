@@ -18,6 +18,7 @@ void RecruitComp::brainwash(Player* self, Zombie* target) {
 		combatComp->alliance = target->alliance;
 	}
 	target->components[COMP_CA::WANDERING_COMP] = NULL;
+	target->tint(self->getColor());
 }
 
 void RecruitComp::recruit(Player* self, Zombie* target) {

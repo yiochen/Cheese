@@ -1,5 +1,5 @@
 config={}
-config.debug_mode=true
+config.debug_mode=false
 
 
 --testing sprite_config

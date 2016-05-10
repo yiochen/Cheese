@@ -149,6 +149,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\box\BoxHelper.cpp" />
     <ClCompile Include="..\Classes\component\basic\ChasingComp.cpp" />
+    <ClCompile Include="..\Classes\component\basic\EscapeComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\FollowingComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\HealComp.cpp" />
     <ClCompile Include="..\Classes\component\basic\KeyboardComp.cpp" />
@@ -181,6 +182,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\runner\AnimRunner.cpp" />
     <ClCompile Include="..\Classes\runner\AttachmentAnimRunner.cpp" />
     <ClCompile Include="..\Classes\runner\EntityRunner.cpp" />
+    <ClCompile Include="..\Classes\runner\EscapeRunner.cpp" />
     <ClCompile Include="..\Classes\runner\HealRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KeyboardRunner.cpp" />
     <ClCompile Include="..\Classes\runner\KineticRunner.cpp" />
@@ -215,6 +217,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\box\BoxHelper.h" />
     <ClInclude Include="..\Classes\common_include.h" />
     <ClInclude Include="..\Classes\component\basic\ChasingComp.h" />
+    <ClInclude Include="..\Classes\component\basic\EscapeComp.h" />
     <ClInclude Include="..\Classes\component\basic\FollowingComp.h" />
     <ClInclude Include="..\Classes\component\basic\HealComp.h" />
     <ClInclude Include="..\Classes\component\basic\KeyboardComp.h" />
@@ -253,6 +256,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\runner\AnimRunner.h" />
     <ClInclude Include="..\Classes\runner\AttachmentAnimRunner.h" />
     <ClInclude Include="..\Classes\runner\EntityRunner.h" />
+    <ClInclude Include="..\Classes\runner\EscapeRunner.h" />
     <ClInclude Include="..\Classes\runner\HealRunner.h" />
     <ClInclude Include="..\Classes\runner\KeyboardRunner.h" />
     <ClInclude Include="..\Classes\runner\KineticRunner.h" />

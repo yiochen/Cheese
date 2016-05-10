@@ -19,6 +19,13 @@ Entity::~Entity() {
 	//set all pointers to NULL
 	//remove all the components from the component list
 	sprite = NULL;
+	alliance = 0;
+	World* world = World::instance();
+	if (this == world->swiss) {
+		world->swiss = NULL;
+		World* world = World::instance();
+		world->destroyFlag = true;
+	}
 }
 
 void Entity::cleanup() {
@@ -35,6 +42,9 @@ void Entity::cleanup() {
 	DELETE_COMP(HordeStatusComp, COMP_CA::HORDE_STATUS_COMP);
 	DELETE_COMP(KineticComp, COMP_CA::KINETIC_COMP);
 	DELETE_COMP(ZombieSensorComp, COMP_CA::ZOMBIE_SENSOR_COMP);
+	DELETE_COMP(PointComp, COMP_CA::POINT_COMP);
+	DELETE_COMP(TrajectComp, COMP_CA::TRAJECT_COMP);
+	DELETE_COMP(WanderingComp, COMP_CA::WANDERING_COMP);
 	//clean up the component array
 	this->components.clear();
 }
@@ -89,5 +99,13 @@ void Entity::untint() {
 	this->color = Color3B::WHITE;
 	if (this->sprite) {
 		this->sprite->setColor(Color3B::WHITE);
+	}
+}
+Color3B Entity::getColor() {
+	if (this->sprite) {
+		return this->sprite->getColor();
+	}
+	else {
+		return Color3B::WHITE;
 	}
 }
