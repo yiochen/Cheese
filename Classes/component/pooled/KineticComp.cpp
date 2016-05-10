@@ -11,13 +11,14 @@ void KineticComp::init() {
 	this->acc.set(0.0f, 0.0f);
 }
 void KineticComp::step(Entity* entity, float delta) {
-	Vec2 increment(vel);
-	increment.scale(delta);
-	pos.add(increment);
-	//CCLOG("Swiss position %f", pos.length());
-	if (entity->sprite) entity->sprite->setPosition(pos);
-	//CCLOG("Swiss sprite position %f %f", dynamic_cast<Player*>(entity)->sprite->getPositionX(), dynamic_cast<Player*>(entity)->sprite->getPositionY());
+	if (entity) {
+		Vec2 increment(vel);
+		increment.scale(delta);
+		pos.add(increment);
+		//CCLOG("Swiss position %f", pos.length());
+		if (entity->sprite) entity->sprite->setPosition(pos);
 	
+	}
 }
 /*
 void KineticComp::stepZ(Entity* entity) {

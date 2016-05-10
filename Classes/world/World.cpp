@@ -50,6 +50,8 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer, Node* HUDnode)
 		spawningPool = new ZombieSpawningPool();
 		if (spawningPool) spawningPool->init();
 	}
+
+	destroyFlag = false;
 	
 	return this;
 }
@@ -149,14 +151,18 @@ void World::destroy() {
 	//if an object is from a pool, use pool.Delete(object);
 	infoPanel = NULL;
 
-	CCLOG("size of comp pool is %d %d", compPools.size(), commonComps.size()); // 10
+	CCLOG("size of comp pool is %d %d", compPools.size(), commonComps.size()); // 10 8
 	while (runnerList.size() != 0) {
 		this->runnerList.pop_back();
 	}
 	while (playerList.size() != 0) {
 		this->playerList.pop_back();
 	}
-	for (int i = compPools.size() - 1 + commonComps.size(); i >= commonComps.size() - 1; i--) {
+	while (zombieList.size() != 0) {
+		this->zombieList.pop_back();
+	}
+	// 17 >= 7
+	for (int i = compPools.size() - 1 + commonComps.size(); i > commonComps.size() - 1; i--) {
 		compPools.erase(COMP_CA(i));
 	}
 	for (int i = commonComps.size()-1; i >= 0; i--) {
