@@ -47,4 +47,6 @@ cocos2d::Vector<SpriteFrame*> TextureManager::getAnimation(const string name,con
 //used in transition of game level
 void TextureManager:: unload() {
 	CCLOG("uloading sprite cache");
+	//cocos2d::Director::getInstance()->purgeCachedData();
+
 }

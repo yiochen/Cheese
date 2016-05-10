@@ -25,6 +25,7 @@ World::World() {
 	for (int i = GameKey::KEY_START; i <= GameKey::KEY_END; i++) {
 		keyStatus.push_back(false);
 	}
+	destroyFlag = false;
 }
 
 //init world init game for a certain level
@@ -71,6 +72,7 @@ void World::update(float delta) {
 	if (spawningPool) {
 		spawningPool->update(delta);
 	}
+	if (destroyFlag) destroy();
 	
 }
 
@@ -113,7 +115,7 @@ World* World::initPlayers() {
 	//AttachmentFactory::createExplodeAtt(swiss);
 	//AttachmentFactory::createExplodeAtt(swiss);
 	//AttachmentFactory::createTargetAtt(swiss);
-	auto player2 = EntityFactory::createPlayer(false,false,0);
+	//auto player2 = EntityFactory::createPlayer(false,false,0);
 
 	return this;
 }
@@ -137,6 +139,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new HealRunner());
 	this->runnerList.push_back(new StatRunner());
 	this->runnerList.push_back(new AttachmentAnimRunner());
+	this->runnerList.push_back(new EscapeRunner());
 	this->runnerList.push_back(new AnimRunner());
 	
 	return this;
@@ -144,6 +147,29 @@ World* World::initRunners() {
 void World::destroy() {
 	//delete all object
 	//if an object is from a pool, use pool.Delete(object);
-	this->getActionNode()->removeAllChildren();
+	infoPanel = NULL;
+
+	CCLOG("size of comp pool is %d %d", compPools.size(), commonComps.size()); // 10
+	while (runnerList.size() != 0) {
+		this->runnerList.pop_back();
+	}
+	while (playerList.size() != 0) {
+		this->playerList.pop_back();
+	}
+	for (int i = compPools.size() - 1 + commonComps.size(); i >= commonComps.size() - 1; i--) {
+		compPools.erase(COMP_CA(i));
+	}
+	for (int i = commonComps.size()-1; i >= 0; i--) {
+		commonComps.erase(COMP_CA(i));
+	}
+	
+
+
+	this->backgroundNode = NULL;
+	this->actionNode = NULL;
+	this->hudNode = NULL;
+	//also need to unload sprite cache
+	Director::getInstance()->popScene();
+	//this->getActionNode()->removeAllChildren();
 }
 

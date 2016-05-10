@@ -2,19 +2,21 @@
 --time is in seconds elapsed?
 --difficulty 1/2/3   easy/med/hard
 time = 0
-straySpawn = 3
-bossSpawn = 10
-debugNoWander = true
-debugSpawn = true
-debugStinkieNum = 2
+straySpawn = 5
+bossSpawn = 30
+debugNoWander = false
+debugSpawn = false
+debugStinkieNum = 0
 debugChuckerNum = 1
 debugHolyBoneNum = 0
+-- how many zombies to defeat before boss spawn
+bossCounter = 5
 gameTable = {difficulty = 1}
 --time is to be updated whenever you create a scaling zombie, in seconds
 gameTable.worldWidth = 700
 gameTable.worldHeight = 700
 gameTable.maxSpeed = 100.0
-gameTable.maxPlayerSpeed = 200.0
+gameTable.maxPlayerSpeed = 100.0
 --stats i need to know to create a zombie according to players current upgrade, to be updated before zombie creation
 gameTable.chuckerHP = 7
 gameTable.chuckerAttack = 1
@@ -37,7 +39,7 @@ gameTable.holyBoneHeal = 1
 --stats for basic zombie attributes
 gameTable.basicChuckerHP = 7
 gameTable.basicChuckerAttack = 1
-gameTable.basicChuckerAttackSpeed = 7.0
+gameTable.basicChuckerAttackSpeed = 5.0
 gameTable.basicChuckerRange = 500
 
 gameTable.basicStinkieHP = 10
@@ -77,7 +79,7 @@ function getTable()
   generalTable.KineticComp = false
   generalTable.KineticCompMaxSpeed = nil
   generalTable.ZombieSensorComp = false
-  generalTable.WanderingComp = nil
+  generalTable.WanderingComp = false
   generalTable.WanderingCompInterval = 15
   generalTable.PointComp = false
   
@@ -151,7 +153,7 @@ function createZombie(BELONG )
     if(debugNoWander) then
       table.WanderingComp = false
     else 
-      table.Wanderingcomp = true
+      table.WanderingComp = true
     end
   end
   
@@ -195,7 +197,7 @@ function createChucker(HP, ATTACK, ATTACKSPEED, RANGE,ALLIANCE,BELONG)
   table.RangeAttackComp = true
   
   --others
-  table.ZombieCatagory = 3
+  table.ZombieCatagory = 2
   table.alliance = ALLIANCE
   return table
 end
@@ -222,7 +224,7 @@ function createHolyBone(HP, ATTACK, ATTACKSPEED, RANGE, HEAL,ALLIANCE,BELONG)
   --others
   table.AnimCompName = "healer"
   table.HealComp = true
-  table.ZombieCatagory = 2
+  table.ZombieCatagory = 3
   table.alliance = ALLIANCE
   return table
 end
@@ -283,22 +285,29 @@ function createPlayer(isHuman, isBoss)
     if(debugNoWander) then
       player.WanderingComp = false
     else 
-      player.Wanderingcomp = true
+      player.WanderingComp = true
     end
     player.ActionFlagComp = true
     player.alliance = 2
     
     if(isBoss) then
-    player.StinkieNum = 1+gameTable.difficulty*(time/25)*1
-    player.ChuckerNum = 1+gameTable.difficulty*(time/50)*1
-    player.HolyBoneNum = 1+gameTable.difficulty*(time/75)*1
+    player.StinkieNum = 1+gameTable.difficulty*(time/20)*1
+    player.ChuckerNum = 1+gameTable.difficulty*(time/45)*1
+    player.HolyBoneNum = 1+gameTable.difficulty*(time/70)*1
         --to be changed to actual name for animation of other horde players
 --    player.AnimCompName = "bossSwiss"
     player.AnimCompName = "swiss"
     else
-    player.StinkieNum = 2+gameTable.difficulty*(time/30)*1
-    player.ChuckerNum = 0+gameTable.difficulty*(time/55)*1
-    player.HolyBoneNum = 0+gameTable.difficulty*(time/80)*1
+    player.StinkieNum = 1+gameTable.difficulty*(time/30)*1
+    player.ChuckerNum = 0+gameTable.difficulty*((time-60)/55)*1
+    player.HolyBoneNum = 0+gameTable.difficulty*((time-120)/80)*1
+    if(player.ChuckerNum<0) then
+      player.ChuckerNum=0
+    end
+    if(player.HolyBoneNum<0) then
+      player.HolyBoneNum=0
+    end
+    
     
       if(debugSpawn) then
       player.ChuckerNum =  debugChuckerNum
@@ -349,9 +358,9 @@ player = createPlayer(false)
 basicStinkie = createBasicStinkie()
 basicChucker = createBasicChucker()
 scalingChucker = player.ChuckerFunc()
-print(basicChucker.DomainCompRadius)
+print(basicChucker.WanderingComp)
 print(basicStinkie.DomainCompRadius)
-print(player.StinkieNum)
+print(player.WanderingComp)
 print(player.ChuckerNum)
 print(player.HolyBoneNum)
 

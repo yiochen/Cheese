@@ -155,17 +155,17 @@ void ArmyTabScene::StatBtnTouchEvent( ZOMBIE_STAT_CA a,cocos2d::Node* root) {
 		HordeStatusComp* hordeStatusComp = (HordeStatusComp*)world->swiss->components[COMP_CA::HORDE_STATUS_COMP];
 		if (hordeStatusComp->pointsRemaining > 0) {
 			if (a == ZOMBIE_STAT_CA::CHUCKER_HP || a == ZOMBIE_STAT_CA::STINKIE_HP || a == ZOMBIE_STAT_CA::HOLY_BONE_HP) {
-				hordeStatusComp->zombieStat[a] += 2;
+				hordeStatusComp->zombieStat[a] += 3;
 			}
 			if (a == ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED || a == ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED || a == ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED) {
-				if (a == ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED] >= .5) {
-					hordeStatusComp->zombieStat[a] -= .1;
+				if (a == ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::CHUCKER_ATTACKSPEED] >= .4) {
+					hordeStatusComp->zombieStat[a] -= .2;
 				}
-				else if (a == ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED] >= .5) {
-					hordeStatusComp->zombieStat[a] -= .1;
+				else if (a == ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED] >= .4) {
+					hordeStatusComp->zombieStat[a] -= .2;
 				}
-				else if (a == ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED] >= .5) {
-					hordeStatusComp->zombieStat[a] -= .1;
+				else if (a == ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED && hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::HOLY_BONE_ATTACK_SPEED] >= .4) {
+					hordeStatusComp->zombieStat[a] -= .2;
 				}
 				else {
 					hordeStatusComp->pointsRemaining += 1;
@@ -173,7 +173,7 @@ void ArmyTabScene::StatBtnTouchEvent( ZOMBIE_STAT_CA a,cocos2d::Node* root) {
 
 			}
 			if (a == ZOMBIE_STAT_CA::CHUCKER_RANGE || a == ZOMBIE_STAT_CA::STINKIE_RANGE || a == ZOMBIE_STAT_CA::HOLY_BONE_RANGE) {
-				hordeStatusComp->zombieStat[a] += 30;
+				hordeStatusComp->zombieStat[a] += 50;
 			}
 			if (a == ZOMBIE_STAT_CA::CHUCKER_ATTACK || a == ZOMBIE_STAT_CA::STINKIE_ATTACK || a == ZOMBIE_STAT_CA::HOLY_BONE_HEAL) {
 				hordeStatusComp->zombieStat[a] += 1;

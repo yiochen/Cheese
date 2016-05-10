@@ -45,10 +45,9 @@ void RecruitRunner::updateEntity(Zombie* zombie, float delta) {
 						horde->updateStray(zombie);
 
 						PointComp* pointComp = (PointComp*)player->components[COMP_CA::POINT_COMP];
-						CCLOG("CHECKING FOR POINT COMP");
+				
 						//if has point comp, then player gets a point
 						if (pointComp) {
-							CCLOG("HAS POINT COMP");
 							pointComp->add(player, 1);
 							world->infoPanel->setPointsStr(pointComp->point);
 						}

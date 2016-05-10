@@ -12,6 +12,7 @@ ZombieSpawningPool::ZombieSpawningPool() {
 
 	strayInterval = global.Get<int>("straySpawn");
 	bossInterval = global.Get<int>("bossSpawn");
+	bigBossInterval = global.Get<int>("bossCounter");
 	isReadyStray = false;
 	isWaitingStray = false;
 	isReadyBoss = false;
@@ -26,6 +27,7 @@ void ZombieSpawningPool::init() {
 	strayTime = strayInterval;
 	totalTime = 0;
 	bossTime = bossInterval;
+	bigBossCounter = bigBossInterval;
 }
 
 void ZombieSpawningPool::scheduleStray() {
@@ -68,12 +70,29 @@ void ZombieSpawningPool::update(float delta) {
 
 }
 void ZombieSpawningPool::spawnStrayZombie() {
-	
-	EntityFactory::createStrayZombie((ZOMBIE_CA)RandomHelper::random_int(0, 1));
+	if (totalTime < 60) {
+		EntityFactory::createStrayZombie((ZOMBIE_CA)RandomHelper::random_int(0, 1));
+	}
+	else if (totalTime < 120) {
+		EntityFactory::createStrayZombie((ZOMBIE_CA)RandomHelper::random_int(0, 2));
+	}
+	else {
+		EntityFactory::createStrayZombie((ZOMBIE_CA)RandomHelper::random_int(0, 3));
+	}
 	scheduleStray();
 }
 void ZombieSpawningPool::spawnMiniBossZombie() {
+	World* world = World::instance();
+	if (bigBossCounter == 0) {
+		EntityFactory::createPlayer(false, true, totalTime);
+		bigBossCounter = bigBossInterval;
 
-	EntityFactory::createPlayer(false,false, totalTime);
+	}
+	else if (bigBossCounter > 0) {
+		EntityFactory::createPlayer(false, false, totalTime);
+		bigBossCounter--;
+
+	}
 	scheduleBoss();
+	world->infoPanel->setZombieRemainingStr(bigBossCounter);
 }

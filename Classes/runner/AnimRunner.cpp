@@ -7,6 +7,7 @@
 #include "component/ComponentCatalog.h"
 #include "entity/Entity.h"
 #include "component/pooled/CombatComp.h"
+#include "component/pooled/PointComp.h"
 
 AnimRunner::AnimRunner() {
     
@@ -52,6 +53,11 @@ void AnimRunner::update(float delta) {
 				hordeStatus->zombieCounts[entity->catagory]--;
 			}
 			CCLOG("deleting zombie");
+			if (entity->player != world->swiss) {
+				PointComp* point = static_cast<PointComp*>(entity->player->components[COMP_CA::POINT_COMP]);
+				point->add(entity->player,2);
+			}
+
 			zombieIt = world->zombieList.erase(zombieIt);
 			world->getZombiePool()->Delete((Zombie*)entity);
 			

@@ -82,7 +82,7 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		//combat->attackSpeed = luafloat("attackSpeed");
 		
 		combat->alliance = entity->alliance;//TODO: set alliance in lua file
-//		CCLOG("alliance is %d", combat->alliance);
+		CCLOG("damage is %d", combat->damage);
 		addcomp(COMP_CA::COMBAT_COMP, combat);
 	//}
 	if (luabool("DomainComp")) {
@@ -189,10 +189,10 @@ Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 	zombie->init();
 	auto lua = LuaDevice::instance();
 	auto luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicStinkie");
-	if (number == 2) {
+	if (number == ZOMBIE_CA::HOLY_BONE) {
 		luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicHolyBone");
 	}
-	else if (number == 3) {
+	else if (number == ZOMBIE_CA::CHUCKER) {
 		luaFunc = lua->global().Get<LuaFunction<LuaTable(bool)>>("createBasicChucker");
 	}
 	auto luaTable = luaFunc.Invoke(false);

@@ -13,6 +13,7 @@ public:
 	//stray zombie interval
 	float strayInterval;
 	float bossInterval;
+	int bigBossCounter, bigBossInterval;
 	
 
 	float strayTime, bossTime, totalTime;
