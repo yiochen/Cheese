@@ -8,6 +8,7 @@
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
 #include "util/AudioDir.h"
+#include "util/AttachmentFactory.h"
 using namespace CocosDenshion;
 USING_NS_CC;
 StatRunner::StatRunner() {
@@ -25,9 +26,10 @@ void StatRunner::update(float delta) {
 void StatRunner::updateEntity(Entity* entity, float delta) {
 	CombatComp* combatComp = (CombatComp*)entity->components[COMP_CA::COMBAT_COMP];
 	if (combatComp) {
+		
 		combatComp->hp -= combatComp->pendingDmg;
 		//CCLOG("zombie took %d damage, now hp is %d", combatComp->pendingDmg, combatComp->hp);
-		combatComp->pendingDmg = 0;
+		
 		if (!combatComp->isDying && combatComp->hp <= 0) {
 			//the entity is dying.
 			combatComp->isDying = true;
@@ -41,5 +43,10 @@ void StatRunner::updateEntity(Entity* entity, float delta) {
 			}
 			combatComp->isDead = false;
 		}
+		else if (combatComp->pendingDmg > 0) {
+			//if not dying, but receive damage, play the blood animation
+			AttachmentFactory::createBloodAtt(entity);
+		}
+		combatComp->pendingDmg = 0;
 	}
 }

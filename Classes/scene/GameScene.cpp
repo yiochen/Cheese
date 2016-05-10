@@ -40,7 +40,7 @@ bool GameScene::init()
 	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("HudLayer")->getChildByName("ExitButton");
 	exitBtn->addTouchEventListener(CC_CALLBACK_2(GameScene::exitBtnTouchEvent, this));
 	cocos2d::ui::Text* informationPanel = (rootNode->getChildByName("HudLayer")->getChildByName<cocos2d::ui::Text*>("Information"));
-	informationPanel->setString("i cant manipulate this without gameScene isntance?");
+	informationPanel->setString("i cant manipulate this without gameScene isntance?");//you should be able to. World is technically a local field of game scene. It can manipulate anything in game scene as long as you pass a reference to it.
 
 	Node* backgroundLayer=(Node*)rootNode->getChildByName("MapLayer");
 	Node* actionLayer = (Node*)rootNode->getChildByName("ActionLayer");

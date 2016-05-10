@@ -6,6 +6,7 @@
 #include "common_include.h"
 #include "util/EntityFactory.h"
 #include "util/AttachmentFactory.h"
+#include "world/Config.h"
 USING_NS_CC;
 
 
@@ -44,9 +45,11 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer, Node* HUDnode)
 	initRunners();
 	infoPanel = new InformationPanel();
 
-
-	spawningPool = new ZombieSpawningPool();
-	if (spawningPool) spawningPool->init();
+	if (!Config::instance()->debug_mode) {//if debug mode is turned off
+		spawningPool = new ZombieSpawningPool();
+		if (spawningPool) spawningPool->init();
+	}
+	
 	return this;
 }
 World* World::initSpriteCache() {

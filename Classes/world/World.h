@@ -47,7 +47,7 @@ public:
 		return s_instance;
 	}
 
-	//HUD STUFF, should be in game scene?
+	//HUD STUFF, should be in game scene? Could be here
 	InformationPanel* infoPanel;
 
 

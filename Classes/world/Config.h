@@ -18,4 +18,6 @@ public:
 	void init();
 	float WORLD_HEIGHT;
 	float WORLD_WIDTH;
+	//debug_mode is set by lua file (config.lua). When debug_mode is true, some functionality is turned off, for example, zombie spawning.
+	bool debug_mode;
 };

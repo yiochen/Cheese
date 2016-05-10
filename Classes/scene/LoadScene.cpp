@@ -39,6 +39,7 @@ void LoadScene::preload(float dt) {
 	CCLOG("loading all the lua file");
 	lua->loadAll();
 	Config* config = Config::instance();
+	config->init();
 
 	//load music
 	auto audio = SimpleAudioEngine::getInstance();

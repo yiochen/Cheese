@@ -7,4 +7,7 @@ namespace AttachmentFactory {
 	Attachment* createTargetAtt(Entity* entity);
 	Attachment* createExplodeAtt(Entity* entity);
 	Attachment* createSpawnAtt(Entity* entity);
+	Attachment* createAttackBoostAtt(Entity* entity);
+	Attachment* createSpeedBoostAtt(Entity* entity);
+	Attachment* createBloodAtt(Entity* entity);
 }

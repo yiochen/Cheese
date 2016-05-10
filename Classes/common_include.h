@@ -9,6 +9,7 @@
 
 #define EFFECT_STR "effects"
 
+//A for action
 #define A_WALK_FORTH  "WALK_FORTH"
 #define A_WALK_BACK  "WALK_BACK"
 #define A_WALK_RIGHT  "WALK_RIGHT"
@@ -21,3 +22,18 @@
 #define A_LEFT "LEFT"
 
 #define A_FLY "FLY_LEFT"
+
+//effects
+#define A_BLOOD "BLOOD"
+#define A_HEAL "HEAL"
+#define A_POWER_ATTACK "POWER_ATTACK"
+#define A_POWER_SPEED "POWER_SPEED"
+#define A_SPAWN "SPAWN"
+#define A_SPIT_FLY "SPIT_FLY"
+#define A_SPIT_HIT "SPIT_HIT"
+#define A_TARGET "TARGET"
+
+//item
+#define I_PICKUP_ATTACK "effects_PICKUP_ATTACK.png"
+#define I_PICKUP_HEALTH "effects_PICKUP_HEALTH.png"
+#define I_PICKUP_SPEED "effects_PICKUP_SPEED.png"

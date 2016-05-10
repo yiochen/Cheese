@@ -61,7 +61,7 @@ bool Attachment::play() {
 	CCLOG("getting animation for attachment");
 	auto frames = textureManager->getAnimation(EFFECT_STR, name);
 	if (frames.size() > 0) {
-		CCLOG("got %d frams of HEAL", frames.size());
+		CCLOG("got %d frams of %s", frames.size(), name.c_str());
 		auto animation = Animation::createWithSpriteFrames(frames, ANIM_RATE);
 		auto callback = CallFuncN::create([&](Node* sender) {
 			this->finished = true;
