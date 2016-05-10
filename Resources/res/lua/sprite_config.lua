@@ -2,8 +2,8 @@
 -- This is a module. import to other lua file using require "sprite_config"
 sprite_config={}
 sprite_config["path"]="Assets/spritesheet/"
-sprite_config["types"]={"basic_zombie","swiss","chucker","healer", "spit","effects"}
-sprite_config["total"]=6 --total number of sprite types.
+sprite_config["types"]={"basic_zombie","swiss","chucker","healer", "spit","effects","enemy"}
+sprite_config["total"]=7 --total number of sprite types.
 sprite_config["plist_ending"]="_sprites.plist"
 sprite_config["png_ending"]="_sprites.png"
 sprite_config["next_file"]=function(index)

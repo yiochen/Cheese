@@ -278,6 +278,7 @@ function createPlayer(isHuman, isBoss)
     
 
   else 
+  
     player.x = math.random(0,gameTable.worldWidth)
     player.y = math.random(0,gameTable.worldHeight)
 
@@ -296,7 +297,7 @@ function createPlayer(isHuman, isBoss)
     player.HolyBoneNum = 1+gameTable.difficulty*(time/70)*1
         --to be changed to actual name for animation of other horde players
 --    player.AnimCompName = "bossSwiss"
-    player.AnimCompName = "swiss"
+    player.AnimCompName = "enemy"
     else
     player.StinkieNum = 1+gameTable.difficulty*(time/30)*1
     player.ChuckerNum = 0+gameTable.difficulty*((time-60)/55)*1
@@ -318,7 +319,7 @@ function createPlayer(isHuman, isBoss)
   
         --to be changed to actual name for animation of other horde players
 --    player.AnimCompName = "employeeSwiss"
-    player.AnimCompName = "swiss"
+    player.AnimCompName = "enemy"
     end
     
         --setting horde statistics

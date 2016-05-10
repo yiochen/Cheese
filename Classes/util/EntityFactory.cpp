@@ -210,13 +210,14 @@ Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	Player* player = world->getPlayerPool()->New();
 	player->init();
 	if (isHuman) {
-		player->tint(Color3B::GREEN);
+		
+		player->tint(Color3B(100, 255, 131));//light blue
 	}
 	else {
-		player->tint(Color3B::MAGENTA);
+		player->tint(Color3B(253, 100, 255));
 	}
 	if (isBoss) {
-		player->tint(Color3B::RED);
+		player->tint(Color3B(255, 100, 100));
 	}
 	//load lua file, 
 	auto lua = LuaDevice::instance();
