@@ -54,6 +54,7 @@ void AnimRunner::update(float delta) {
 			}
 			CCLOG("deleting zombie");
 			if (entity->player != world->swiss) {
+				world->score += 2;
 				PointComp* point = static_cast<PointComp*>(entity->player->components[COMP_CA::POINT_COMP]);
 				point->add(entity->player,2);
 			}

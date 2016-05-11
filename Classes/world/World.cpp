@@ -35,6 +35,7 @@ World* World::initWorld(Node* backgroundLayer, Node* actionLayer, Node* HUDnode)
 	this->actionNode = actionLayer;
 	this->hudNode = HUDnode;
 	swiss = NULL;
+	score = 0;
 	CCLOG("Created the world");
 	//initialize the Pools
 	initSpriteCache();

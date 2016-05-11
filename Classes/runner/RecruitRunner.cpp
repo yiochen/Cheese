@@ -44,6 +44,7 @@ void RecruitRunner::updateEntity(Zombie* zombie, float delta) {
 						HordeStatusComp* horde = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
 						horde->updateStray(zombie);
 
+						world->score++;
 						PointComp* pointComp = (PointComp*)player->components[COMP_CA::POINT_COMP];
 				
 						//if has point comp, then player gets a point

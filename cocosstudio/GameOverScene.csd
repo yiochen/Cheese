@@ -17,6 +17,17 @@
             <FileData Type="Normal" Path="Assets/Images/GameOver.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="score_text" ActionTag="-80440876" Tag="15" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="432.0000" RightMargin="432.0000" TopMargin="621.1547" BottomMargin="123.8453" FontSize="20" LabelText="You Got 00 Points" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="160.0000" Y="23.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="512.0000" Y="135.3453" />
+            <Scale ScaleX="3.0000" ScaleY="3.0000" />
+            <CColor A="255" R="17" G="213" B="30" />
+            <PrePosition X="0.5000" Y="0.1762" />
+            <PreSize X="0.1563" Y="0.0299" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

@@ -49,7 +49,7 @@ public:
 	//HUD STUFF, should be in game scene? Could be here
 	InformationPanel* infoPanel;
 	bool destroyFlag;
-
+	int score;
 	ZombieSpawningPool* spawningPool;
 
 	std::list<Player*> playerList;
