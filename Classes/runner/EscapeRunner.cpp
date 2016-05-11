@@ -5,7 +5,6 @@ EscapeRunner::EscapeRunner() {
 
 }
 void EscapeRunner::update(float delta) {
-	//iterate over all the zombies, if it's has no player, and overlap with a player with recruit comp, recruit it.
 	World* world = World::instance();
 	auto playerIt = world->playerList.begin();
 	while (playerIt != world->playerList.end()) {
@@ -20,7 +19,7 @@ void EscapeRunner::updateEntity(Player* player, float delta) {
 		
 		HordeStatusComp* horde = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
 		HordeStatusComp* swissHorde = (HordeStatusComp*)world->swiss->components[COMP_CA::HORDE_STATUS_COMP];
-		if (horde&& horde->total == 0) {
+		if (horde&& horde->total <= 0) {
 			//remove from parent
 			swissHorde->pointsRemaining++;
 			player->sprite->removeFromParentAndCleanup(true);

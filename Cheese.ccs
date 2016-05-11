@@ -4,6 +4,9 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="Assets">
+          <Folder Name="fonts">
+            <Fnt Name="regular.fnt" />
+          </Folder>
           <Folder Name="Images">
             <Image Name="army_ATTACK.png" />
             <Image Name="army_ATTACKSPEED.png" />
@@ -21,6 +24,7 @@
             <Image Name="EXAMPLE.png" />
             <Image Name="Exit.png" />
             <Image Name="Exit_pressed.png" />
+            <Image Name="GameOver.png" />
             <Image Name="healerImage.png" />
             <Image Name="Help.png" />
             <Image Name="Logo.png" />
@@ -154,10 +158,10 @@
           </Folder>
         </Folder>
         <Project Name="ArmyTab.csd" Type="Scene" />
+        <Project Name="GameOverScene.csd" Type="Scene" />
         <Project Name="GameScene.csd" Type="Scene" />
         <Project Name="HelpScene.csd" Type="Scene" />
         <Project Name="HudLayer.csd" Type="Layer" />
-        <Image Name="IMG_2012.JPG" />
         <Project Name="IntroScene.csd" Type="Scene" />
         <Project Name="LoadScene.csd" Type="Scene" />
         <Project Name="MapLayer.csd" Type="Node" />

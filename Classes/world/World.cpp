@@ -75,10 +75,7 @@ void World::update(float delta) {
 	if (spawningPool) {
 		spawningPool->update(delta);
 	}
-	if (destroyFlag) {
-		destroy();
-		Director::getInstance()->popScene();
-	}
+	
 	
 }
 

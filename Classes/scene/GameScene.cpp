@@ -5,6 +5,7 @@
 #include "Debug.h"
 #include "scene/ArmyTabScene.h"
 #include "scene/HelpScene.h"
+#include "scene/GameOverScene.h"
 
 #include "device/LuaDevice.h"
 #include "world/Config.h"
@@ -155,5 +156,14 @@ void GameScene::update(float delta) {
 	World* world = World::instance();
 	if (world) {
 		world->update(delta);
+		if (world->destroyFlag) {
+			world->destroy();
+			world->destroyFlag = false;
+			auto gameOverScene = GameOverScene::createScene();
+			
+			Director::getInstance()->replaceScene(gameOverScene);
+			
+		}
 	}
+
 }

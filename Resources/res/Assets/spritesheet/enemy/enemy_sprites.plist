@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>enemy_WALK_BACK/0001.png</key>
+            <key>enemy_PANIC_BACK/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -19,7 +19,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_BACK/0002.png</key>
+            <key>enemy_PANIC_BACK/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -34,7 +34,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_BACK/0003.png</key>
+            <key>enemy_PANIC_BACK/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -49,7 +49,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_BACK/0004.png</key>
+            <key>enemy_PANIC_BACK/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -64,7 +64,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_BACK/0005.png</key>
+            <key>enemy_PANIC_BACK/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -79,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_BACK/0006.png</key>
+            <key>enemy_PANIC_BACK/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,7 +94,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_BACK/0007.png</key>
+            <key>enemy_PANIC_BACK/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -109,7 +109,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_BACK/0008.png</key>
+            <key>enemy_PANIC_BACK/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +124,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0001.png</key>
+            <key>enemy_PANIC_FORTH/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0002.png</key>
+            <key>enemy_PANIC_FORTH/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,7 +154,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0003.png</key>
+            <key>enemy_PANIC_FORTH/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -169,7 +169,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0004.png</key>
+            <key>enemy_PANIC_FORTH/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -184,7 +184,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0005.png</key>
+            <key>enemy_PANIC_FORTH/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -199,7 +199,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0006.png</key>
+            <key>enemy_PANIC_FORTH/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -214,7 +214,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0007.png</key>
+            <key>enemy_PANIC_FORTH/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -229,7 +229,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_FORTH/0008.png</key>
+            <key>enemy_PANIC_FORTH/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -244,7 +244,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0001.png</key>
+            <key>enemy_PANIC_LEFT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -259,7 +259,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0002.png</key>
+            <key>enemy_PANIC_LEFT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -274,7 +274,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0003.png</key>
+            <key>enemy_PANIC_LEFT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -289,7 +289,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0004.png</key>
+            <key>enemy_PANIC_LEFT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -304,7 +304,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0005.png</key>
+            <key>enemy_PANIC_LEFT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -319,7 +319,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0006.png</key>
+            <key>enemy_PANIC_LEFT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -334,7 +334,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0007.png</key>
+            <key>enemy_PANIC_LEFT/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -349,7 +349,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_LEFT/0008.png</key>
+            <key>enemy_PANIC_LEFT/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -364,7 +364,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0001.png</key>
+            <key>enemy_PANIC_RIGHT/0001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -379,7 +379,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0002.png</key>
+            <key>enemy_PANIC_RIGHT/0002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -394,7 +394,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0003.png</key>
+            <key>enemy_PANIC_RIGHT/0003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -409,7 +409,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0004.png</key>
+            <key>enemy_PANIC_RIGHT/0004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -424,7 +424,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0005.png</key>
+            <key>enemy_PANIC_RIGHT/0005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -439,7 +439,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0006.png</key>
+            <key>enemy_PANIC_RIGHT/0006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -454,7 +454,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0007.png</key>
+            <key>enemy_PANIC_RIGHT/0007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -469,7 +469,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>enemy_WALK_RIGHT/0008.png</key>
+            <key>enemy_PANIC_RIGHT/0008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -481,6 +481,486 @@
                 <string>{128,128}</string>
                 <key>textureRect</key>
                 <string>{{1920,128},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{0,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{128,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{256,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{384,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{512,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{640,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{768,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_BACK/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{896,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1024,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1152,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1280,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1408,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1536,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1664,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1792,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_FORTH/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1920,256},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{0,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{128,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{256,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{384,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{512,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{640,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{768,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_LEFT/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{896,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0001.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1024,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0002.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1152,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0003.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1280,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0004.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1408,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0005.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1536,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0006.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1664,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0007.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1792,384},{128,128}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>enemy_WALK_RIGHT/0008.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{128,128}</string>
+                <key>spriteSourceSize</key>
+                <string>{128,128}</string>
+                <key>textureRect</key>
+                <string>{{1920,384},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -496,9 +976,9 @@
             <key>realTextureFileName</key>
             <string>enemy_sprites.png</string>
             <key>size</key>
-            <string>{2048,256}</string>
+            <string>{2048,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f8493a11962b83609b34d654a51b10eb:3865736ee1fd0cdd16d6ff3714a72732:37b0cf6b32753fd19df42db53a16d86e$</string>
+            <string>$TexturePacker:SmartUpdate:d26ca389565f5a69d3f96f5828f84607:e12fee2423d91e5b42809ee65646b69a:37b0cf6b32753fd19df42db53a16d86e$</string>
             <key>textureFileName</key>
             <string>enemy_sprites.png</string>
         </dict>

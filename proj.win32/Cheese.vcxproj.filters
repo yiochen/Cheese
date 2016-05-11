@@ -252,6 +252,9 @@
     <ClCompile Include="..\Classes\world\WorldHelper.cpp">
       <Filter>src\world</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\GameOverScene.cpp">
+      <Filter>src\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -478,6 +481,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\world\WorldHelper.h">
       <Filter>src\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\GameOverScene.h">
+      <Filter>src\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
