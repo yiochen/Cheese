@@ -1,6 +1,7 @@
 --dynamic zombie creating based on how much killed?
 --time is in seconds elapsed?
 --difficulty 1/2/3   easy/med/hard
+math.randomseed(os.time())
 time = 0
 straySpawn = 5
 bossSpawn = 30

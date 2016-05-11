@@ -36,6 +36,8 @@ bool MenuScene::init()
     auto rootNode = CSLoader::createNode("MenuScene.csb");
 	cocos2d::ui::Button* startBtn =(cocos2d::ui::Button*) rootNode->getChildByName("btn_start");
 	startBtn->addTouchEventListener(CC_CALLBACK_2(MenuScene::startBtnTouchEvent, this));
+	cocos2d::ui::Button* exitBtn = (cocos2d::ui::Button*) rootNode->getChildByName("btn_exit_game");
+	exitBtn->addTouchEventListener(CC_CALLBACK_2(MenuScene::exitBtnTouchEvent, this));
     addChild(rootNode);
 
 	auto listener = EventListenerKeyboard::create();
@@ -66,7 +68,11 @@ void MenuScene::startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventT
 		
 	}
 }
-
+void MenuScene::exitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type) {
+		if (type == cocos2d::ui::Widget::TouchEventType::ENDED) {
+			Director::getInstance()->end();
+		}
+}
 void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 	switch (keyCode) {
 		case EventKeyboard::KeyCode::KEY_ESCAPE: {

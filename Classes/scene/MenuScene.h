@@ -23,6 +23,7 @@ public:
 private:
 	BoxHelper boxHelper;
 	void startBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void exitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event);
 	std::list<b2Body*> bodyList;
 	void createCheese(float mouseX, float mouseY);
