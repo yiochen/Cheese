@@ -15,7 +15,7 @@
 #include "component/pooled/WanderingComp.h"
 #include "component/pooled/ActionFlagComp.h"
 #include "component/basic/MeleeAttackComp.h"
-#include "component/pooled/ZombieSensorComp.h"
+
 #include "component/basic/RecruitComp.h"
 #include "component/pooled/PointComp.h"
 #include "component/pooled/TrajectComp.h"

@@ -21,6 +21,7 @@ public:
 	void addAttachment(Attachment* attachment);
 	//remove all the attachment of this name
 	void removeAttachment(std::string name);
+	void removeAllAttachment();
 	//std::unordered_map<COMP_CA, PooledComp*> pooledComponents;
 	virtual void init();//the default entity init function doesn't do anything
     Entity();

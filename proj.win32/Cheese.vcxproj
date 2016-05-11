@@ -169,7 +169,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\component\pooled\PowerUpComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\TrajectComp.cpp" />
     <ClCompile Include="..\Classes\component\pooled\WanderingComp.cpp" />
-    <ClCompile Include="..\Classes\component\pooled\ZombieSensorComp.cpp" />
     <ClCompile Include="..\Classes\device\LuaDevice.cpp" />
     <ClCompile Include="..\Classes\device\TextReader.cpp" />
     <ClCompile Include="..\Classes\entity\attachment\Attachment.cpp" />
@@ -210,6 +209,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\util\ZombieSpawningPool.cpp" />
     <ClCompile Include="..\Classes\world\Config.cpp" />
     <ClCompile Include="..\Classes\world\World.cpp" />
+    <ClCompile Include="..\Classes\world\WorldHelper.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -239,7 +239,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\pooled\PowerUpComp.h" />
     <ClInclude Include="..\Classes\component\pooled\TrajectComp.h" />
     <ClInclude Include="..\Classes\component\pooled\WanderingComp.h" />
-    <ClInclude Include="..\Classes\component\pooled\ZombieSensorComp.h" />
     <ClInclude Include="..\Classes\Debug.h" />
     <ClInclude Include="..\Classes\device\LuaDevice.h" />
     <ClInclude Include="..\Classes\device\TextReader.h" />
@@ -286,6 +285,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\util\ZombieSpawningPool.h" />
     <ClInclude Include="..\Classes\world\Config.h" />
     <ClInclude Include="..\Classes\world\World.h" />
+    <ClInclude Include="..\Classes\world\WorldHelper.h" />
     <ClInclude Include="..\Classes\world\world_include.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

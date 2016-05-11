@@ -23,7 +23,6 @@ Entity::~Entity() {
 	World* world = World::instance();
 	if (this == world->swiss) {
 		world->swiss = NULL;
-		World* world = World::instance();
 		world->destroyFlag = true;
 	}
 }
@@ -41,12 +40,12 @@ void Entity::cleanup() {
 	DELETE_COMP(DomainComp, COMP_CA::DOMAIN_COMP);
 	DELETE_COMP(HordeStatusComp, COMP_CA::HORDE_STATUS_COMP);
 	DELETE_COMP(KineticComp, COMP_CA::KINETIC_COMP);
-	DELETE_COMP(ZombieSensorComp, COMP_CA::ZOMBIE_SENSOR_COMP);
 	DELETE_COMP(PointComp, COMP_CA::POINT_COMP);
 	DELETE_COMP(TrajectComp, COMP_CA::TRAJECT_COMP);
 	DELETE_COMP(WanderingComp, COMP_CA::WANDERING_COMP);
 	//clean up the component array
 	this->components.clear();
+	this->removeAllAttachment();
 }
 
 void Entity::addAttachment(Attachment* attachment) {
@@ -82,6 +81,17 @@ void Entity::removeAttachment(std::string name) {
 			att->finish();
 		}
 		attIt++;
+	}
+}
+
+void Entity::removeAllAttachment() {
+	auto attIt = this->attachments.begin();
+	while (attIt != this->attachments.end()) {
+		Attachment* att = (Attachment*)(*attIt);
+		if (att) {
+			att->finish();
+		}
+		attIt=this->attachments.erase(attIt);
 	}
 }
 void Entity::tint(Color3B color) {

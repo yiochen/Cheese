@@ -9,13 +9,12 @@ using namespace std;
 class TextureManager {
 private:
 	SpriteFrameCache* spriteCache;
-	unordered_map<string, int> frameData;
 public:
     TextureManager();
 	void init();
 	void load();
 	void unload();
-
+	~TextureManager() { unload(); }
 	//int getFrameAmount(string name, string action);
 	//set the sprite to 
 	cocos2d::Vector<SpriteFrame*> getAnimation(const string name, const string action);

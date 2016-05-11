@@ -48,5 +48,6 @@ cocos2d::Vector<SpriteFrame*> TextureManager::getAnimation(const string name,con
 void TextureManager:: unload() {
 	CCLOG("uloading sprite cache");
 	//cocos2d::Director::getInstance()->purgeCachedData();
-
+	//Dont delete the spritecache
+	this->spriteCache = nullptr;
 }

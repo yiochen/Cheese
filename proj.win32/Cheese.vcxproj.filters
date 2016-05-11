@@ -171,9 +171,6 @@
     <ClCompile Include="..\Classes\runner\MeleeAttackRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\component\pooled\ZombieSensorComp.cpp">
-      <Filter>src\component\pooled</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\util\AnimNameHelper.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
@@ -252,7 +249,9 @@
     <ClCompile Include="..\Classes\runner\EscapeRunner.cpp">
       <Filter>src\runner</Filter>
     </ClCompile>
-
+    <ClCompile Include="..\Classes\world\WorldHelper.cpp">
+      <Filter>src\world</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -393,9 +392,6 @@
     <ClInclude Include="..\Classes\runner\MeleeAttackRunner.h">
       <Filter>src\runner</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\component\pooled\ZombieSensorComp.h">
-      <Filter>src\component\pooled</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\util\AnimNameHelper.h">
       <Filter>src\util</Filter>
     </ClInclude>
@@ -462,7 +458,6 @@
     <ClInclude Include="..\Classes\util\InformationPanel.h">
       <Filter>src\util</Filter>
     </ClInclude>
-
     <ClInclude Include="..\Classes\component\pooled\PowerUpComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
@@ -475,14 +470,15 @@
     <ClInclude Include="..\Classes\util\ItemHelper.h">
       <Filter>src\util</Filter>
     </ClInclude>
-
     <ClInclude Include="..\Classes\component\basic\EscapeComp.h">
       <Filter>src\component\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\runner\EscapeRunner.h">
       <Filter>src\runner</Filter>
     </ClInclude>
-
+    <ClInclude Include="..\Classes\world\WorldHelper.h">
+      <Filter>src\world</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

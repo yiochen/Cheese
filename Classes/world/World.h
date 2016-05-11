@@ -30,8 +30,7 @@ private:
 	ObjectPool<Item> *itemPool;
 
 	ObjectPool<Attachment> *attachmentPool;
-	
-	Sprite* testSprite;
+
 	TextureManager* textureManager;
 	World();
 	World* initPools();
@@ -46,7 +45,7 @@ public:
 		}
 		return s_instance;
 	}
-
+	~World();
 	//HUD STUFF, should be in game scene? Could be here
 	InformationPanel* infoPanel;
 	bool destroyFlag;
@@ -62,7 +61,6 @@ public:
 	//compPools contains all the component pool for managing PooledComponets.
 	std::unordered_map<COMP_CA, void *> compPools;
 	Player* swiss;
-	Player* strayZombie;
     /**
 	*	get called at the start of each level to initialize the world
 	*/
@@ -77,7 +75,7 @@ public:
 	ObjectPool<Item> *getItemPool(){ return itemPool; }
 	ObjectPool<Attachment> *getAttPool() { return attachmentPool; }
 	template <typename T> 
-	ObjectPool<T> *getCompPool(COMP_CA typeEnum) {return (ObjectPool<T>*)this->compPools[typeEnum];}
+	ObjectPool<T> *getCompPool(COMP_CA typeEnum) {return static_cast<ObjectPool<T>*>(this->compPools[typeEnum]);}
 	void update(float delta);
 	void destroy();
 };

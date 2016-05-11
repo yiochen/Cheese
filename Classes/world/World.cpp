@@ -7,6 +7,7 @@
 #include "util/EntityFactory.h"
 #include "util/AttachmentFactory.h"
 #include "world/Config.h"
+#include "world/WorldHelper.h"
 USING_NS_CC;
 
 
@@ -74,7 +75,10 @@ void World::update(float delta) {
 	if (spawningPool) {
 		spawningPool->update(delta);
 	}
-	if (destroyFlag) destroy();
+	if (destroyFlag) {
+		destroy();
+		Director::getInstance()->popScene();
+	}
 	
 }
 
@@ -161,32 +165,83 @@ void World::destroy() {
 	//delete all object
 	//if an object is from a pool, use pool.Delete(object);
 	infoPanel = NULL;
+	//pop_back will call the destructor of the object in the list, which is pointer, and the destructor of pointer does nothing. We need to call the destructor by ourself
+	auto runnerIt = runnerList.begin();
+	while (runnerIt != runnerList.end()) {
+		delete (EntityRunner*)(*runnerIt);
+		runnerIt = runnerList.erase(runnerIt);
+		//call the destructor of the EntityRunner
+	}
 
-	CCLOG("size of comp pool is %d %d", compPools.size(), commonComps.size()); // 10 8
-	while (runnerList.size() != 0) {
-		this->runnerList.pop_back();
+	//player, zombie and item are from ObjectPool, return them to the pool and destroy the pool
+	/*playerPool = new ObjectPool<Player>();
+	zombiePool = new ObjectPool<Zombie>();
+	itemPool = new ObjectPool<Item>();
+	attachmentPool = new ObjectPool<Attachment>();*/
+	auto playerIt = playerList.begin();
+	while (playerIt != playerList.end()) {
+		playerPool->Delete(*playerIt);
+		playerIt = playerList.erase(playerIt);
 	}
-	while (playerList.size() != 0) {
-		this->playerList.pop_back();
-	}
-	while (zombieList.size() != 0) {
-		this->zombieList.pop_back();
-	}
-	// 17 >= 7
-	for (int i = compPools.size() - 1 + commonComps.size(); i > commonComps.size() - 1; i--) {
-		compPools.erase(COMP_CA(i));
-	}
-	for (int i = commonComps.size()-1; i >= 0; i--) {
-		commonComps.erase(COMP_CA(i));
-	}
-	
+	/*while (playerList.size() > 0) {
+	Player* player = this->playerList.back();
+	playerPool->Delete(player);
+	this->playerList.pop_back();
+	}*/
+	//delete the PlayerPool tool
+	delete this->playerPool;
+	this->playerList.clear();
+	this->swiss = nullptr;
 
+	auto zombieIt = zombieList.begin();
+	while (zombieIt != zombieList.end()) {
+		zombiePool->Delete(*zombieIt);
+		zombieIt = zombieList.erase(zombieIt);
+	}
+	delete this->zombiePool;
+	this->zombieList.clear();
+	//itemList
+	auto itemIt = itemList.begin();
+	while (itemIt != itemList.end()) {
+		itemPool->Delete(*itemIt);
+		itemIt = itemList.erase(itemIt);
+	}
+	delete this->itemPool;
+	this->itemList.clear();
+	//remove attachment pool
+	delete this->attachmentPool;
 
+	//deleting comp pool
+	world_helper::destroyCompPools(this);
+	//deleting common comp
+
+	auto commonIt = this->commonComps.begin();
+	while (commonIt != this->commonComps.end()) {
+		Comp* comp = commonIt->second;
+		if (comp) {
+			delete comp;
+		}
+		commonIt=this->commonComps.erase(commonIt);
+	}
+	this->commonComps.clear();
 	this->backgroundNode = NULL;
-	this->actionNode = NULL;
+	
 	this->hudNode = NULL;
 	//also need to unload sprite cache
-	Director::getInstance()->popScene();
 	//this->getActionNode()->removeAllChildren();
+	delete spawningPool;
+	delete textureManager;
+	
+	playerPool = NULL;
+	zombiePool = NULL;
+	itemPool = NULL;
+	textureManager = NULL;
+	spawningPool = NULL;
+	attachmentPool = NULL;
+}
+
+World::~World() {
+	CCLOG("Cleaning up world");
+	this->destroy();
 }
 

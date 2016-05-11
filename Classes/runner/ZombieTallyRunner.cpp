@@ -3,7 +3,7 @@
 
 #include "component/pooled/HordeStatusComp.h"
 #include "component/pooled/KineticComp.h"
-#include "component/pooled/ZombieSensorComp.h"
+
 
 ZombieTallyRunner::ZombieTallyRunner() {
     
