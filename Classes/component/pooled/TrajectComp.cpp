@@ -36,7 +36,7 @@ void TrajectComp::update(Entity* entity, float delta) {
 		DomainComp* domain = (DomainComp*)entity->components[COMP_CA::DOMAIN_COMP];
 
 		if (anim) {
-			anim->forcePlay(entity, "EXPLODE",1, true);
+			anim->forcePlay(entity, A_SPIT_HIT,1, true);
 		}
 		//below is not good code, because it will make trajet component only suitable for bullets.
 		//but for simplicity, I will do that TODO:: change it

@@ -312,11 +312,11 @@ Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {
 //5. AnimComp
 	auto animComp = newcomp(AnimComp, COMP_CA::ANIM_COMP);
 	animComp->init();
-	animComp->name = "spit";
+	animComp->name = EFFECT_STR;
 	//animComp->animState = A_FLY;
-	animComp->newAnimState = A_FLY;
+	animComp->newAnimState = A_SPIT_FLY;
 	animComp->directional = 0;
-	animComp->defaultAction = A_FLY;
+	animComp->defaultAction = A_SPIT_FLY;
 	addcomp(COMP_CA::ANIM_COMP, animComp);
 
 
