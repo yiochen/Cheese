@@ -60,6 +60,11 @@ void TrajectComp::update(Entity* entity, float delta) {
 		dis.normalize();
 		dis.scale(this->speed*delta);
 		this->curPos.add(dis);
+		if (entity->sprite) {
+			
+			entity->sprite->setRotation(-dis.getAngle()*180/PI);//setRotation is in degree. While getAngle is in radian. Why the inconsistency
+		}
+		
 		kin->pos.set(this->curPos);
 		kin->vel.setZero();
 	}
