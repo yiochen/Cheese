@@ -16,6 +16,7 @@ public:
 	//TODO: it's better to have use a struct that contains same fields for all the zombies, then make a map of the structs.
 	//because right now we have to check ZOMBIE type and then manually use if or switch to check field. If multiple places use zombieStat, then we have to change multiple place when something changes
 	std::unordered_map<ZOMBIE_STAT_CA, float> zombieStat;
+	std::unordered_map<ZOMBIE_CA, ZStat> zombieStats;
 	//use something like this--- std::unordered_map<ZOMBIE_CA, Zstat> zombieStat;
 	//and call like this--- zombieStat[ZOMBIE_CA::CHUCKER].hp=5;
 	int pointsRemaining;
