@@ -32,12 +32,7 @@ bool LoadScene::init() {
 void LoadScene::preload(float dt) {
 	//do all the loading
 	//load 
-	CCLOG("start creating lua device");
-	LuaDevice* lua = LuaDevice::instance();
-	CCLOG("initializing lua device");
-	lua->init();
-	CCLOG("loading all the lua file");
-	lua->loadAll();
+
 	Config* config = Config::instance();
 	config->init();
 

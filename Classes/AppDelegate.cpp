@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "scene/IntroScene.h"
+#include "world/Config.h"
 
 USING_NS_CC;
 
@@ -26,12 +27,22 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
+	//auto config = Config::instance();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("Cheese", Rect(0, 0, WORLD_WIDTH, WORLD_HEIGHT));
+	//there is some problem reading lua file. Seems like Sh
+	/*	if (config->fullscreen) {
+			
+			glview = GLViewImpl::createWithFullScreen("Cheese");
+		}
+		else {*/
+			
+			glview = GLViewImpl::createWithRect("Cheese", Rect(0, 0, 1024, 768));
+		/*}*/
+        
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize(WORLD_WIDTH, WORLD_HEIGHT, ResolutionPolicy::SHOW_ALL);
+    director->getOpenGLView()->setDesignResolutionSize(1024, 768, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);

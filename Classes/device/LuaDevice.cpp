@@ -13,6 +13,7 @@ LuaDevice::LuaDevice() {
 void LuaDevice::init() {
 	if (!initialized) {
 		lua = new Lua();
+		CCLOG("loading all lua libs");
 		lua->LoadStandardLibraries();
 		this->initialized = true;
 	}
@@ -20,6 +21,7 @@ void LuaDevice::init() {
 bool LuaDevice::load(std::string path) {
 	string script;
 	bool success;
+	CCLOG("start loading lua file");
 	script = device::read(path, success);
 	CCLOG("back to the load function");
 	//run the script

@@ -16,6 +16,10 @@ public:
 		if (!s_instance) {
 			s_instance = new LuaDevice();
 		}
+		if (s_instance && !s_instance->initialized) {
+			s_instance->init();
+			s_instance->loadAll();
+		}
 		return s_instance;
 	}
 	void init();

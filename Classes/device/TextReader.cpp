@@ -8,8 +8,9 @@
 USING_NS_CC;
 string device::read(string path, bool& success) {
 	string script;
-	string absPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(path);
-	CCLOG("the abs path is %s", absPath);
+	CCLOG("the path is %s", path.c_str());
+	string absPath = CCFileUtils::getInstance()->fullPathForFilename(path);
+	CCLOG("the abs path is %s", absPath.c_str());
 	ifstream file(absPath);
 	CCLOG("created the file object");
 	bool failed=file.fail();
