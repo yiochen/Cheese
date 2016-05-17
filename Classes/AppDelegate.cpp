@@ -27,22 +27,23 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
-	//auto config = Config::instance();
+	FileUtils::getInstance()->addSearchPath("res");
+	auto config = Config::instance();
     if(!glview) {
 	//there is some problem reading lua file. Seems like Sh
-	/*	if (config->fullscreen) {
+		if (config->fullscreen) {
 			
 			glview = GLViewImpl::createWithFullScreen("Cheese");
 		}
-		else {*/
+		else {
 			
-			glview = GLViewImpl::createWithRect("Cheese", Rect(0, 0, 1024, 768));
-		/*}*/
+			glview = GLViewImpl::createWithRect("Cheese", Rect(0, 0, config->screen_width, config->screen_height));
+		}
         
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize(1024, 768, ResolutionPolicy::SHOW_ALL);
+    director->getOpenGLView()->setDesignResolutionSize(config->WORLD_WIDTH, config->WORLD_HEIGHT, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);
@@ -50,7 +51,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
-    FileUtils::getInstance()->addSearchPath("res");
+    
 
     // create a scene. it's an autorelease object
     auto scene = IntroScene::createScene();
