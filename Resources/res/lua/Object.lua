@@ -50,12 +50,13 @@ function createType(typename, base)
     end--__call function
     
   meta.__tostring=function(p)
-    print(p.__typename.." {")
+    local st=p.__typename.." {\n"
     for key, value in pairs(p)
     do
-      print("  ",key,value)
+      st=st.."  "..key.." = "..tostring(value).."\n"
     end
-    print("}")
+    st=st.."}"
+    return st
   end--tostring
   setmetatable(Cls, meta)
   return Cls
@@ -64,25 +65,59 @@ end--createType
 
 Object=createType("Object", nil)--no base class
 
-function Object:is(cls)
-  local meta=getmetatable(self)
-  while (meta and cls)
-  do
-    if (meta.__typename and cls.__typename and meta.__typename==cls.__typename)
-    then
-      
-      return true
-    end--if
-    if (meta.base)
-    then
-      meta=getmetatable(meta.base)
-    else
-      meta=nil
+--add some useful functions to meta
+do
+  local objMeta=getmetatable(Object)
+  function objMeta:is(cls)
+    local meta=getmetatable(self)
+    while (meta and cls)
+    do
+      if (meta.__typename and cls.__typename and meta.__typename==cls.__typename)
+      then
+        
+        return true
+      end--if
+      if (meta.base)
+      then
+        meta=getmetatable(meta.base)
+      else
+        meta=nil
+      end
+    end
+    return false
+  end
+
+  --batch add members to a class
+  function objMeta:addMembers(tbl)
+    for key, value in pairs(tbl)
+    do
+      self[key]=value
     end
   end
-  return false
-end
 
+  --make a shallow copy 
+  function objMeta:clone()
+    local copy=self()
+    for key, value in pairs(self)
+    do
+      copy[key]=value
+    end
+    return copy
+  end
+
+end--local meta do
+
+
+
+--function Object:new(posX, posY)
+--  self.posX=posX
+--  self.posY=posY
+--end
+
+--SubObject=createType("SubObject", Object)
+--object=Object(12,30)
+
+--print(object)
 --TestCls=createType("TestCls",nil)
 --TestObject=createType("TestObject", Object)
 
