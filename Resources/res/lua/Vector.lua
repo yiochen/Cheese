@@ -1,6 +1,25 @@
 --Vector type
 require "Object"
 
+function regulizeDeg(x)
+  while (x>360)
+  do
+    x=x-360
+  end
+  while (x<0)
+  do
+    x=x+360
+  end
+  return x;
+end
+
+function rad2deg(x)
+  return regulizeDeg(x/math.pi*180.0)
+end
+function deg2rad(x)
+  return regulizeDeg(x)*math.pi/180.0
+end
+
 Vector=createType("Vector",Object)
 
 Vector:addMembers({
@@ -87,10 +106,11 @@ function Vector:angle()
     
 end
 
-v=Vector(10,19)
-v2=v:clone()
-v2=v2:scale(10):norm()+Vector(10,20)
+--v=Vector(10,19)
+--print(v:angle())
+--v2=v:clone()
+--v2=v2:scale(10):norm()+Vector(10,20)
 
 
-print(v)
-print(v2)
+--print(v)
+--print(v2)
