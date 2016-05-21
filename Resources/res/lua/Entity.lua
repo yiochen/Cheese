@@ -7,7 +7,7 @@ Entity=createType("Entity",Object)
 
 Entity:addMembers({
     alliance=0,
-    
+    color=0xffffff,
     --add all the components
     --basic
     ChasingComp=false,
