@@ -30,7 +30,7 @@ Entity:addMembers({
     PointComp=false,
     PowerUpComp=false,
     TrajectComp=false,
-    WonderingComp=false,
+    WanderingComp=false,
   })
 
 function Entity:addComp(...)
@@ -75,6 +75,8 @@ end
 function Entity:addKinetic(pos, vel, maxSpeed)
   assert(pos.__typename=="Vector" and vel.__typename=="Vector" and type(maxSpeed)=="number")
   self:addComp("KineticComp")
+  self.kinetic_pos=pos
+  self.kinetic_vel=vel
   self.kinetic_posX=pos.x
   self.kinetic_posY=pos.y
   self.kinetic_velX=vel.x
@@ -82,32 +84,32 @@ function Entity:addKinetic(pos, vel, maxSpeed)
   self.kinetic_maxSpeed=maxSpeed
 end
 
-function Entity:addPointComp()
+function Entity:addPoint()
   self:addComp("PointComp")
 end
 
-function Entity:addPowerUpComp(powerUpType, instant)
+function Entity:addPowerUp(powerUpType, instant)
   assert(type(intant)=="boolean")
   self:addComp("PowerUpComp")
   self.powerUp_type=powerUpType
   self.powerUp_instant=instant
 end
 
-function Entity:addTrajectComp(speed)
+function Entity:addTraject(speed)
   assert(type(speed)=="number")
   self:addComp("TrajectComp")
   self.traject_speed=speed
 end
 
-function Entity:addWanderingComp()
+function Entity:addWandering()
   self:addComp("WanderingComp")
 end
   
   
 
 --testing
-entity=Entity()
+--entity=Entity()
 
-entity:addComp("ChasingComp","SeperationComp")
-print(entity)
+--entity:addComp("ChasingComp","SeperationComp")
+--print(entity)
 

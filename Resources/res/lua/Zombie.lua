@@ -1,7 +1,8 @@
 --Zombie
-
+--Zombie(player, category)
 require "Object"
 require "Entity"
+require "Vector"
 
 ZOMBIE_CA={
   STINKIE=1,
@@ -52,6 +53,14 @@ function Zombie:new(player, category)
   then
     self.alliance=player.alliance
     self.color=player.color
+    assert(type(player.domain_radius)=="number")
+    local r=math.random(player.domain_radius)
+    local angle=math.random(360)
+    local v=Vector(0,r):rotate(angle)
+    
+    self:addKinetic(player.kinetic_pos+v,Vector(0,0),100)
+  else
+    self:addKinetic(Vector(300,300),Vector(0,0),100)
   end
   self:addComp(
     "ChasingComp",
@@ -71,6 +80,10 @@ function Zombie:new(player, category)
     end
   end
   
+  if (nil==player)
+  then
+    self:addWandering()
+  end
 end
 
 function Zombie:createStinkie()
@@ -78,6 +91,7 @@ function Zombie:createStinkie()
   self:addCombat(0,0)--combat stat will be modified when the zombie is recruited
   self:addAnim("basic_zombie", "WALK_FORTH", "WALK")
   self:addComp("MeleeAttackComp")
+  
 end
 
 function Zombie:createChucker()
@@ -93,8 +107,5 @@ function Zombie:createHolyBone()
   self:addAnim("healer", "WALK_FORTH", "WALK")
   self:addComp("HealComp")
 end
-
-
-
 
 
