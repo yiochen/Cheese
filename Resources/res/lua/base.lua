@@ -1,8 +1,11 @@
 --base
---This is the base lua script for testing
---it will load all the lua scripts and run test 
---in C++, this script will not be called. instead, all the scripts will be concate and read all at once. 
+--this file requires all the lua files.
+--this is used as a entry point. run process.py to generate a concat version of lua script containing all the scripts.
+require "config"
+require "sprite_config"
+require "Object"
 require "Entity"
+require "Game"
 require "Vector"
 require "Zombie"
 require "Player"
