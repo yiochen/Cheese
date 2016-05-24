@@ -485,6 +485,9 @@
     <ClInclude Include="..\Classes\scene\GameOverScene.h">
       <Filter>src\scene</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\entity\player\PlayerCatalog.h">
+      <Filter>src\entity\player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

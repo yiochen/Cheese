@@ -3,7 +3,6 @@
 enum PLAYER_CA {
 	PLAYER_START,
 	SWISS,
-	NPC,
-	BOSS,
+	BILL,
 	PLAYER_END
 };
