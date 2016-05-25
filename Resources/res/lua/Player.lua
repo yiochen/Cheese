@@ -2,6 +2,7 @@
 --Player(isHuman, category)
 require "Object"
 require "Entity"
+require "Item"
 
 Player=createType("Player", Entity)
 
@@ -32,6 +33,7 @@ function Player:new(isHuman, category)
   self:addDomain(50)
   self:addHordeStatus()
   self:addCombat(0,0)
+  self:addPowerUp(ITEM_CA.ITEM_NONE,true)
   if (category==PLAYER_CA.SWISS)
   then
     self:addAnim("swiss","WALK_FORTH", "WALK")

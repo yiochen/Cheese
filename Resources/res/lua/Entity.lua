@@ -89,7 +89,7 @@ function Entity:addPoint()
 end
 
 function Entity:addPowerUp(powerUpType, instant)
-  assert(type(intant)=="boolean")
+  assert(type(instant)=="boolean")
   self:addComp("PowerUpComp")
   self.powerUp_type=powerUpType
   self.powerUp_instant=instant

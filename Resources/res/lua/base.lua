@@ -9,9 +9,6 @@ require "Game"
 require "Vector"
 require "Zombie"
 require "Player"
+require "Item"
 
-player=Player(true,PLAYER_CA.SWISS)
-zombie=Zombie(player, ZOMBIE_CA.CHUCKER)
-
-print(player)
-print(zombie)
+print(newPlayer(true,PLAYER_CA.SWISS))
