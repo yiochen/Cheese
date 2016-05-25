@@ -43,3 +43,7 @@ function Player:new(isHuman, category)
   
   self:addPoint()
 end
+
+function newPlayer(isHuman, category)
+  return Player(isHuman, category)
+end

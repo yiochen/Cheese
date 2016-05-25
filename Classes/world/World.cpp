@@ -154,7 +154,7 @@ World* World::initRunners() {
 	this->runnerList.push_back(new HealRunner());
 	this->runnerList.push_back(new StatRunner());
 	this->runnerList.push_back(new AttachmentAnimRunner());
-	this->runnerList.push_back(new EscapeRunner());
+	//this->runnerList.push_back(new EscapeRunner());
 	this->runnerList.push_back(new AnimRunner());
 	
 	return this;

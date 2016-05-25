@@ -1,5 +1,5 @@
 config={}
-config.debug_mode=false
+config.debug_mode=true
 config.fullscreen=false
 config.screen_height=768
 config.screen_width=1024

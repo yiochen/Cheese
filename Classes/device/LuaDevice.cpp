@@ -44,7 +44,10 @@ bool LuaDevice::load(std::string path) {
 
 void LuaDevice::loadAll() {
 	//load all the lua file below
-	load("lua/config.lua");
-	load("lua/sprite_config.lua");
-	load("lua/zombie_config.lua");
+	//load("lua/config.lua");
+	//load("lua/sprite_config.lua");
+	//load("lua/zombie_config.lua");
+
+	load("lua/export.lua");
+
 }
