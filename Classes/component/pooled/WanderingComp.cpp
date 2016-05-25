@@ -1,6 +1,6 @@
 #include "world/Config.h"
 #include "component/pooled/WanderingComp.h"
-
+#include "component/pooled/KineticComp.h"
 WanderingComp::WanderingComp() {
 	
 }
@@ -14,10 +14,18 @@ void WanderingComp::init() {
 	target.set(RandomHelper::random_real<float>(0, config->WORLD_WIDTH), RandomHelper::random_real<float>(0, config->WORLD_HEIGHT));
 
 }
-void WanderingComp::newTarget(Entity* entity) {
+void WanderingComp::newTarget() {
 	Config* config = Config::instance();
-	WanderingComp* wand = static_cast<WanderingComp*>(entity->components[COMP_CA::WANDERING_COMP]);
-	wand->target.set(RandomHelper::random_real<float>(0, config->WORLD_WIDTH), RandomHelper::random_real<float>(0, config->WORLD_HEIGHT));
 	
-
+	this->target.set(RandomHelper::random_real<float>(0, config->WORLD_WIDTH), RandomHelper::random_real<float>(0, config->WORLD_HEIGHT));
+	
+}
+bool WanderingComp::arrived(Entity* entity) {
+	KineticComp* kin = (KineticComp*)entity->components[COMP_CA::KINETIC_COMP];
+	auto dir = this->target - kin->pos;
+	
+	if (dir.dot(kin->vel) < 0) {
+		return true;
+	}
+	return false;
 }

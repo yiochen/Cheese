@@ -1,5 +1,6 @@
 #pragma once
 #include "component/CompHeader.h"
+#include "entity/Entity.h"
 
 USING_NS_CC;
 
@@ -12,6 +13,7 @@ public:
 	void init();
 	WanderingComp();
 	~WanderingComp();
-	void newTarget(Entity* entity);
+	void newTarget();
+	bool arrived(Entity* entity);
 	bool isChasing;
 };

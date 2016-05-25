@@ -11,4 +11,4 @@ require "Zombie"
 require "Player"
 require "Item"
 
-print(newPlayer(true,PLAYER_CA.SWISS))
+print(newPlayer(false,PLAYER_CA.SWISS))

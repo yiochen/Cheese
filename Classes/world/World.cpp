@@ -114,7 +114,7 @@ World* World::initCommonComps() {
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
 World* World::initPlayers() {
 	
-	this->swiss = EntityFactory::createPlayer(true, false,0);
+	this->swiss = EntityFactory::createPlayer(false, false,0);
 	//create attachment example below
 	//AttachmentFactory::createHealAtt(swiss);
 	//AttachmentFactory::createExplodeAtt(swiss);
