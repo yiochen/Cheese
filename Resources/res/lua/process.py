@@ -25,4 +25,5 @@ concatFile("base")
 out=open("export.lua",'w')
 out.write(wholescript)
 out.close()
+print "successfully merged scripts"
 
