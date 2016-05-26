@@ -3,6 +3,7 @@
 require "Object"
 require "Entity"
 require "Item"
+require "Zombie"
 
 Player=createType("Player", Entity)
 
@@ -12,7 +13,9 @@ PLAYER_CA={
   }
 Player:addMembers({
     isHuman=false,
-    category=0
+    category=0,
+    zombieLevels={},
+    zombieAmounts={}
   })
 
 function Player:new(isHuman, category)
@@ -42,10 +45,40 @@ function Player:new(isHuman, category)
       self:addAnim("enemy","WALK_FORTH", "WALK")
     end
   end
-  
   self:addPoint()
+end
+function Player:getZombieAmount(category)
+  return self.zombieAmounts[category] or 0
+end
+function Player:getZombie(category)
+  return Zombie(self,category)
 end
 
 function newPlayer(isHuman, category)
   return Player(isHuman, category)
 end
+
+--various player type
+function newHuman()
+  local player=Player(true, PLAYER_CA.SWISS)
+  player.zombieLevels[ZOMBIE_CA.STINKIE]=0
+  player.zombieLevels[ZOMBIE_CA.CHUCKER]=0
+  player.zombieLevels[ZOMBIE_CA.HOLY_BONE]=0
+  player.zombieAmounts[ZOMBIE_CA.STINKIE]=1
+  return player
+end
+
+function newEnemy()
+  --TODO: this should base on the global game stage and difficulty
+  local player=Player(false,PLAYER_CA.BILL)
+  player.zombieLevels[ZOMBIE_CA.STINKIE]=0
+  player.zombieLevels[ZOMBIE_CA.CHUCKER]=0
+  player.zombieLevels[ZOMBIE_CA.HOLY_BONE]=0
+  player.zombieAmounts[ZOMBIE_CA.STINKIE]=2
+  return player
+end
+
+
+human=newEnemy()
+print(human:getZombieAmount(ZOMBIE_CA.STINKIE))
+print(human:getZombie(ZOMBIE_CA.STINKIE))
