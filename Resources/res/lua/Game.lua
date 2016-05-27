@@ -2,6 +2,8 @@
 --game environement related 
 require "Object"
 
+
+
 GAME_MODE={
   LEVEL=0,
   ENDLESS=1,
@@ -13,6 +15,8 @@ Game=createType("Game",Object)
 
 Game:addMembers({
     difficulty=1,
+    waveAmount=1, --  -1 means endless
+    currentWave=-1,
     time=0,
     mode=GAME_MODE.LEVEL,
     level=0,
@@ -34,5 +38,10 @@ function Game:setLevel(level)
   self.level=level
 end
 
+function Game:getNextWave()
+  self.currentWave=self.currentWave+1
+  return self:getWave(self.currentWave)
+end
 
+  
 
