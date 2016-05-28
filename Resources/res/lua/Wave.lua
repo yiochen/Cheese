@@ -23,3 +23,19 @@ Wave:addMembers({
     playerList={count=0},
     zombieList={count=0}
   })
+
+function Wave:push(entity)
+  if (entity.__typename == Player.__typename)
+  then
+    self.playerList[self.playerList.count]=entity
+    return self
+  end
+  if (entity.__typename == Zombie.__typename)
+  then
+    self.zombieList[self.zombieList.count]=entity
+    return self
+  end
+  assert(false) --the entity is not a player or zombie. cannot be pushed
+end
+
+  

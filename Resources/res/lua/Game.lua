@@ -1,7 +1,7 @@
 --game
 --game environement related 
 require "Object"
-
+require "config"
 
 
 GAME_MODE={
@@ -20,8 +20,8 @@ Game:addMembers({
     time=0,
     mode=GAME_MODE.LEVEL,
     level=0,
-    worldWidth=700,
-    worldHeight=700,
+    worldHeight=config.WORLD_HEIGHT,
+    worldWidth=config.WORLD_WIDTH,
   })
 
 function Game:setMode(mode)

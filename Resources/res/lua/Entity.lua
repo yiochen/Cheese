@@ -84,6 +84,13 @@ function Entity:addKinetic(pos, vel, maxSpeed)
   self.kinetic_maxSpeed=maxSpeed
 end
 
+function Entity:setPos(x, y)
+  assert(self.KineticComp)
+  self.kinetic_pos=Vector(x, y)
+  self.kinetic_posX=x
+  self.kinetic_posY=y
+end
+
 function Entity:addPoint()
   self:addComp("PointComp")
 end

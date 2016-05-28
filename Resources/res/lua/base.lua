@@ -10,5 +10,3 @@ require "Vector"
 require "Zombie"
 require "Player"
 require "Item"
-
-print(newPlayer(false,PLAYER_CA.SWISS))
