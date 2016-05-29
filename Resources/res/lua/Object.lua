@@ -30,7 +30,6 @@ function createType(typename, base)
   
   --new function for initialization
   function Cls:new(...)
-    print("creatign object")
   end
   
   --assign basic meta

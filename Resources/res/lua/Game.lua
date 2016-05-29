@@ -25,7 +25,7 @@ Game:addMembers({
   })
 
 function Game:setMode(mode)
-  asset(mode>=0 and mode<=3)
+  assert(mode>=0 and mode<=3)
   self.mode=mode
   if (self.mode==GAME_MODE.LEVEL)
   then

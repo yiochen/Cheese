@@ -54,6 +54,11 @@ function Player:getZombie(category)
   return Zombie(self,category)
 end
 
+getmetatable(Player).__tostring=function(p)
+  return "Player:{ aliance: "..p.alliance..", type: "..p.category..", pos:"..tostring(p.kinetic_pos).."}"
+end
+
+
 function newPlayer(isHuman, category)
   return Player(isHuman, category)
 end
@@ -79,6 +84,6 @@ function newEnemy()
 end
 
 
-human=newEnemy()
-print(human:getZombieAmount(ZOMBIE_CA.STINKIE))
-print(human:getZombie(ZOMBIE_CA.STINKIE))
+--human=newEnemy()
+--print(human:getZombieAmount(ZOMBIE_CA.STINKIE))
+--print(human:getZombie(ZOMBIE_CA.STINKIE))

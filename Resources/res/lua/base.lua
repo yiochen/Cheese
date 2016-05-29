@@ -10,3 +10,11 @@ require "Vector"
 require "Zombie"
 require "Player"
 require "Item"
+require "level"
+
+game=Game()
+game:setMode(GAME_MODE.ENDLESS)
+function getWave(waveIndex)
+  return game:getWave(waveIndex)
+end
+print(getWave(0))

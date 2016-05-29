@@ -28,14 +28,38 @@ function Wave:push(entity)
   if (entity.__typename == Player.__typename)
   then
     self.playerList[self.playerList.count]=entity
+    self.playerList.count=self.playerList.count+1
     return self
   end
   if (entity.__typename == Zombie.__typename)
   then
     self.zombieList[self.zombieList.count]=entity
+    self.zombieList.count=self.zombieList.count+1
     return self
   end
   assert(false) --the entity is not a player or zombie. cannot be pushed
 end
 
-  
+setmetatable(Wave.playerList,{
+    __tostring=function(p)
+      local result="\n"
+      for key, value in pairs(p)
+      do
+        result=result.."\t"..tostring(value).."\n"
+      end
+      return result
+    end
+    }
+  )
+
+setmetatable(Wave.zombieList,{
+    __tostring=function(p)
+      local result="\n"
+      for key, value in pairs(p)
+      do
+        result=result.."\t"..tostring(value).."\n"
+      end
+      return result
+    end
+    }
+  )  

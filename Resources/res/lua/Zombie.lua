@@ -86,6 +86,10 @@ function Zombie:new(player, category)
   end
 end
 
+getmetatable(Zombie).__tostring=function(p)
+  return "Zombie:{ aliance: "..p.alliance..", type: "..p.category..", pos:"..tostring(p.kinetic_pos)..", player: "..tostring(p.player).."}"
+end
+
 function Zombie:createStinkie()
   self:addDomain(100)
   self:addCombat(0,0)--combat stat will be modified when the zombie is recruited
