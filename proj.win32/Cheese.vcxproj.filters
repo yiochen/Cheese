@@ -255,6 +255,9 @@
     <ClCompile Include="..\Classes\scene\GameOverScene.cpp">
       <Filter>src\scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\WaveFactory.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -487,6 +490,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\entity\player\PlayerCatalog.h">
       <Filter>src\entity\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\WaveFactory.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

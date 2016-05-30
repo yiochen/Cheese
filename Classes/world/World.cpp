@@ -127,10 +127,6 @@ World* World::initPlayers() {
 		EntityFactory::createPickUp(ITEM_CA::ITEM_SPEED, Vec2(200, 50));
 		EntityFactory::createPickUp(ITEM_CA::ITEM_INVIN, Vec2(300, 50));
 	}
-	
-
-
-
 	return this;
 }
 

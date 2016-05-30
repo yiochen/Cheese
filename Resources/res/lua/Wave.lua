@@ -24,6 +24,33 @@ Wave:addMembers({
     zombieList={count=0}
   })
 
+function Wave:new()
+  self.playerList={count=0}
+  setmetatable(self.playerList,{
+    __tostring=function(p)
+      local result="\n"
+      for key, value in pairs(p)
+      do
+        result=result.."\t"..tostring(value).."\n"
+      end
+      return result
+    end
+    }
+  )
+  self.zombieList={count=0}
+  setmetatable(self.zombieList,{
+    __tostring=function(p)
+      local result="\n"
+      for key, value in pairs(p)
+      do
+        result=result.."\t"..tostring(value).."\n"
+      end
+      return result
+    end
+    }
+  )  
+end
+
 function Wave:push(entity)
   if (entity.__typename == Player.__typename)
   then
@@ -35,31 +62,14 @@ function Wave:push(entity)
   then
     self.zombieList[self.zombieList.count]=entity
     self.zombieList.count=self.zombieList.count+1
+    if (entity.player)
+    then
+      entity.player:push(entity)
+    end
     return self
   end
   assert(false) --the entity is not a player or zombie. cannot be pushed
 end
 
-setmetatable(Wave.playerList,{
-    __tostring=function(p)
-      local result="\n"
-      for key, value in pairs(p)
-      do
-        result=result.."\t"..tostring(value).."\n"
-      end
-      return result
-    end
-    }
-  )
 
-setmetatable(Wave.zombieList,{
-    __tostring=function(p)
-      local result="\n"
-      for key, value in pairs(p)
-      do
-        result=result.."\t"..tostring(value).."\n"
-      end
-      return result
-    end
-    }
-  )  
+

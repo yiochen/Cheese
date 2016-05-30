@@ -18,3 +18,4 @@ function getWave(waveIndex)
   return game:getWave(waveIndex)
 end
 print(getWave(0))
+print(getWave(0).playerList[0].zombieList.count)

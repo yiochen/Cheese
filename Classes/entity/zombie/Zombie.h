@@ -2,7 +2,7 @@
 #include "entity/Entity.h"
 #include "cocos2d.h"
 #include "entity/player/Player.h"
-#include "entity/zombie/ZombieCatelog.h"
+#include "entity/zombie/ZombieCatalog.h"
 
 //forward declaration
 class Player;

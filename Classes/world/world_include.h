@@ -41,3 +41,7 @@
 #include "runner/EscapeRunner.h"
 
 #include "entity/attachment/Attachment.h"
+
+#include "world/GameMode.h"
+#include "entity/player/PlayerCatalog.h"
+#include "entity/zombie/ZombieCatalog.h"

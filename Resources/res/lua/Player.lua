@@ -15,13 +15,14 @@ Player:addMembers({
     isHuman=false,
     category=0,
     zombieLevels={},
-    zombieAmounts={}
+    zombieList={count=0},
   })
 
 function Player:new(isHuman, category)
   self.isHuman=isHuman
   self.category=category
-  
+  self.zombieLevels={}
+  self.zombieList={count=0}
   if (isHuman)
   then
     self.alliance=1
@@ -54,6 +55,12 @@ function Player:getZombie(category)
   return Zombie(self,category)
 end
 
+function Player:push(zombie)
+  self.zombieList[self.zombieList.count]=zombie
+  self.zombieList.count=self.zombieList.count+1
+  return self
+end
+
 getmetatable(Player).__tostring=function(p)
   return "Player:{ aliance: "..p.alliance..", type: "..p.category..", pos:"..tostring(p.kinetic_pos).."}"
 end
@@ -69,7 +76,6 @@ function newHuman()
   player.zombieLevels[ZOMBIE_CA.STINKIE]=0
   player.zombieLevels[ZOMBIE_CA.CHUCKER]=0
   player.zombieLevels[ZOMBIE_CA.HOLY_BONE]=0
-  player.zombieAmounts[ZOMBIE_CA.STINKIE]=1
   return player
 end
 
@@ -79,9 +85,9 @@ function newEnemy()
   player.zombieLevels[ZOMBIE_CA.STINKIE]=0
   player.zombieLevels[ZOMBIE_CA.CHUCKER]=0
   player.zombieLevels[ZOMBIE_CA.HOLY_BONE]=0
-  player.zombieAmounts[ZOMBIE_CA.STINKIE]=2
   return player
 end
+
 
 
 --human=newEnemy()

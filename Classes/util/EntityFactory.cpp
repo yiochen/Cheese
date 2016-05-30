@@ -190,20 +190,40 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 //	CCLOG("finish entity initialization");
 }
 
-Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc) {
+Player* EntityFactory::playerFromLua(LuaTable& luaTable){
+	World* world = World::instance();
+	Player* player = world->getPlayerPool()->New();
+	player->init();
+	
+	initEntity(player, luaTable);
+
+	//add player to the world
+	world->playerList.push_back(player);
+	AttachmentFactory::createSpawnAtt(player);
+	//player->tint(Color3B::MAGENTA);//test, tint all the player to magenta, TODO::remove it. read from lua.
+	return player;
+}
+
+Zombie* EntityFactory::zombieFromLua(Player* player, LuaTable& luaTable) {
 	CCLOG("creating zombie---------------------------");
 	World* world = World::instance();
 	Zombie* zombie = world->getZombiePool()->New();
 	zombie->init();
-	
-	auto luaTable = luaFunc.Invoke();
-	zombie->catagory =(ZOMBIE_CA) luaint("ZombieCatagory");
+
+
+	zombie->catagory = (ZOMBIE_CA)luaint("ZombieCatagory");
 	zombie->player = player;
-	initEntity(zombie,luaTable);
+	initEntity(zombie, luaTable);
 	world->zombieList.push_back(zombie);
 	CCLOG("finish creating zombie---------------------");
+}
+
+Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc) {
+	auto luaTable = luaFunc.Invoke();
+	Zombie* zombie = zombieFromLua(player, luaTable);
 	return zombie;
 }
+
 Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 	World* world = World::instance();
 	Zombie* zombie = world->getZombiePool()->New();
@@ -227,9 +247,11 @@ Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 }
 
 Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
-	World* world = World::instance();
-	Player* player = world->getPlayerPool()->New();
-	player->init();
+	//load lua file, 
+	auto lua = LuaDevice::instance();
+	LuaTable global = lua->global();
+	auto luaTable = global.Get<LuaFunction<LuaTable(bool, int)>>("newPlayer").Invoke(isHuman, PLAYER_CA::SWISS);
+	Player* player = playerFromLua(luaTable);
 	if (isHuman) {
 		player->tint(Color3B(100, 255, 131));//light blue
 	}
@@ -239,66 +261,8 @@ Player* EntityFactory::createPlayer(bool isHuman,bool isBoss, float gameTime) {
 	if (isBoss) {
 		player->tint(Color3B(255, 100, 100));
 	}
-	//load lua file, 
-	auto lua = LuaDevice::instance();
-	LuaTable global = lua->global();
-	/*CCLOG("the game time before is %d", global.Get<int>("time"));
-	global.Set("time", (int)gameTime);
-	CCLOG("the game time is %d", global.Get<int>("time"));
-	auto luaFunc = lua->global().Get<LuaFunction<LuaTable(bool,bool)>>("createPlayer");
-	auto luaTable =luaFunc.Invoke(isHuman,isBoss);*/
+
 	
-	auto luaTable = global.Get<LuaFunction<LuaTable(bool, int)>>("newPlayer").Invoke(isHuman,PLAYER_CA::SWISS);
-	initEntity(player,luaTable);
-
-	//TODO:temporary:give player PowerUpComp so that he can pick up stuff, to be added to lua
-	/*auto power = newcomp(PowerUpComp, COMP_CA::POWER_UP_COMP);
-	power->init();
-	player->components[COMP_CA::POWER_UP_COMP] = power;
-*/
-	//create zombies for the player
-	//auto stinkieNum = (int)luafloat("StinkieNum");
-	//auto chuckerNum = (int)luafloat("ChuckerNum");
-	//auto holyNum = (int)luafloat("HolyBoneNum");
-	//CCLOG("for this player zombies num %d/%d/%d",stinkieNum, chuckerNum, holyNum);
-	//auto stinkieFunc = luazombfunc("StinkieFunc");
-	//auto chuckerFunc = luazombfunc("ChuckerFunc");
-	//auto holyFunc = luazombfunc("HolyBoneFunc");
-
-	//for (int i = 0; i < stinkieNum; i++) {
-	//	createZombie(player, stinkieFunc)->tint(player->getColor());
-	//}
-	////chuckerNum = 1;//create on chucker mannually
-	////chuckerNum = 0;
-	//for (int i = 0; i < chuckerNum; i++) {
-	//	auto zombie=createZombie(player, chuckerFunc);
-	//	zombie->tint(player->getColor());
-	//	/*
-	//	//manually add a range attack comp, TODO: this is for testing only, should be handled by lua
-	//	auto rangeComp = world->commonComps[COMP_CA::RANGE_ATTACK_COMP];
-	//	zombie->components[COMP_CA::RANGE_ATTACK_COMP] = rangeComp;
-	//	auto domainComp = (DomainComp*)zombie->components[COMP_CA::DOMAIN_COMP];
-	//	if (!domainComp) {
-	//		domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
-	//		zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
-	//	}
-	//	domainComp->radius = 700.0f;//set a super large radius
-	//	*/
-	//}
-	//for (int i = 0; i < holyNum; i++) {
-	//	auto zombie=createZombie(player, holyFunc);
-	//	zombie->tint(player->getColor());
-	//	auto domainComp = (DomainComp*)zombie->components[COMP_CA::DOMAIN_COMP];
-	//	if (!domainComp) {
-	//		domainComp = newcomp(DomainComp, COMP_CA::DOMAIN_COMP);
-	//		zombie->components[COMP_CA::DOMAIN_COMP] = domainComp;
-	//	}
-	//	domainComp->radius = 700.0f;//set a super large radius
-	//}
-	//add player to the world
-	world->playerList.push_back(player);
-	AttachmentFactory::createSpawnAtt(player);
-	//player->tint(Color3B::MAGENTA);//test, tint all the player to magenta, TODO::remove it. read from lua.
 	return player;
 }
 Item* EntityFactory::createBullet(Entity* user, Vec2 destination) {
