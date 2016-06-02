@@ -19,3 +19,4 @@ function getWave(waveIndex)
 end
 print(getWave(0))
 print(getWave(0).playerList[0].zombieList.count)
+print(getWave(1).zombieList[0].SeparationComp)

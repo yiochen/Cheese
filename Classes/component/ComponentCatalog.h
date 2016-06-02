@@ -5,7 +5,7 @@ enum COMP_CA {
 	//to create, use "new", to remove, use "delete"
 	KEYBOARD_COMP,
 	CHASING_COMP,
-	SEPERATION_COMP,
+	SEPARATION_COMP,
 	FOLLOWING_COMP,
 	MELEE_ATTACK_COMP,
 	RECRUIT_COMP,

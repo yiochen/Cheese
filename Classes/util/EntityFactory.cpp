@@ -5,6 +5,8 @@
 #include "entity/zombie/ZombieStatCatalog.h"
 #include "entity/player/PlayerCatalog.h"
 #include "util/AttachmentFactory.h"
+
+#include "util/ZombieStatHelper.h"
 USING_NS_CC;
 
 
@@ -27,9 +29,9 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 //		CCLOG("creating chasing comp");
 		entity->components[COMP_CA::CHASING_COMP] = world->commonComps[COMP_CA::CHASING_COMP];
 	}
-	if (luabool("SeperationComp")) {
-//		CCLOG("creating seperation comp");
-		entity->components[COMP_CA::SEPERATION_COMP] = world->commonComps[COMP_CA::SEPERATION_COMP];
+	if (luabool("SeparationComp")) {
+		CCLOG("creating separation comp");
+		entity->components[COMP_CA::SEPARATION_COMP] = world->commonComps[COMP_CA::SEPARATION_COMP];
 	}
 	if (luabool("FollowingComp")) {
 //		CCLOG("creating followingComp");
@@ -87,7 +89,9 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		combat->hp = luaint("combat_hp");
 		combat->damage = luaint("combat_attack");
 		//combat->attackSpeed = luafloat("attackSpeed");
-		
+		combat->isDead = false;
+		combat->isDying = false;
+		combat->pendingDmg = 0;
 		combat->alliance = entity->alliance;//TODO: set alliance in lua file
 		CCLOG("damage is %d", combat->damage);
 		addcomp(COMP_CA::COMBAT_COMP, combat);
@@ -111,6 +115,11 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		CCLOG("creating hordestatus comp");
 		auto hordeStatus = newcomp(HordeStatusComp, COMP_CA::HORDE_STATUS_COMP);
 		hordeStatus->init();
+		//set all the level to 0
+		for (int i = ZOMBIE_CA::ZOMBIE_START + 1; i < ZOMBIE_CA::ZOMBIE_END; i++) {
+			hordeStatus->zombieLvs[(ZOMBIE_CA)i] = 0;
+		}
+		
 		//hordeStatus->zombieCounts[ZOMBIE_CA::STINKIE] = luaint("StinkieNum");
 		//hordeStatus->zombieCounts[ZOMBIE_CA::CHUCKER] = luaint("ChuckerNum");
 		//hordeStatus->zombieCounts[ZOMBIE_CA::HOLY_BONE] = luaint("HolyBondNum");
@@ -150,17 +159,6 @@ void EntityFactory::initEntity(Entity* entity, LuaTable& luaTable) {
 		kinetic->pos.set(luafloat("kinetic_posX"), luafloat("kinetic_posY"));
 		kinetic->vel.set(luafloat("kinetic_velX"), luafloat("kinetic_velY"));
 
-		//if (luabool("belongToPlayer")) {
-		//	KineticComp* playKin = (KineticComp*)(dynamic_cast<Zombie*>(entity))->player->components[COMP_CA::KINETIC_COMP];
-		//	x = playKin->pos.x;
-		//	y = playKin->pos.y;
-		//}
-		//else {
-		//	x = luafloat("x");
-		//	y = luafloat("y");
-		//}
-//		CCLOG("the initial x and y is %f,%f", x, y);
-		//kinetic->pos.set(x, y);//TODO: zombie's position seems not working
 		addcomp(COMP_CA::KINETIC_COMP, kinetic);
 	}
 	if (luabool("PointComp")) {
@@ -196,7 +194,7 @@ Player* EntityFactory::playerFromLua(LuaTable& luaTable){
 	player->init();
 	
 	initEntity(player, luaTable);
-
+	zombie_stat_helper::getZombieStatsFromLua(player);
 	//add player to the world
 	world->playerList.push_back(player);
 	AttachmentFactory::createSpawnAtt(player);
@@ -209,11 +207,15 @@ Zombie* EntityFactory::zombieFromLua(Player* player, LuaTable& luaTable) {
 	World* world = World::instance();
 	Zombie* zombie = world->getZombiePool()->New();
 	zombie->init();
-
-
-	zombie->catagory = (ZOMBIE_CA)luaint("ZombieCatagory");
+	zombie->category = (ZOMBIE_CA)luaint("category");
 	zombie->player = player;
 	initEntity(zombie, luaTable);
+	zombie_stat_helper::applyStat(player, zombie);
+	auto hordeStatus = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
+	if (hordeStatus) {
+		hordeStatus->total++;
+		hordeStatus->zombieCounts[zombie->category]++;
+	}
 	world->zombieList.push_back(zombie);
 	CCLOG("finish creating zombie---------------------");
 	return zombie;
@@ -239,7 +241,7 @@ Zombie* EntityFactory::createStrayZombie(ZOMBIE_CA number) {
 	}
 	auto luaTable = luaFunc.Invoke(false);
 	initEntity(zombie, luaTable);
-	zombie->catagory = (ZOMBIE_CA)luaint("ZombieCatagory");
+	zombie->category = (ZOMBIE_CA)luaint("category");
 	zombie->player = NULL;
 	world->zombieList.push_back(zombie);
 	//play spawn effect

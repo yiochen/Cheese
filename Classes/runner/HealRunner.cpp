@@ -68,13 +68,13 @@ void HealRunner::updateEntity(Zombie* zombie, float delta) {
 				}
 				if (targetZom->alliance == zombie->alliance && //same alliance
 					domain->contains(kin->pos, targetKin->pos)&& //the zombie is within the range
-					targetHorde && targetHorde->getMaxHP(targetZom->catagory)>targetComb->hp
+					targetHorde && targetHorde->getMaxHP(targetZom->category)>targetComb->hp
 					) {
 					//heal the zombie
 					AttachmentFactory::createHealAtt(targetZom);
 					targetComb->hp += combat->damage;
-					if (targetHorde->getMaxHP(targetZom->catagory) > targetComb->hp) {
-						targetComb->hp = targetHorde->getMaxHP(targetZom->catagory);
+					if (targetHorde->getMaxHP(targetZom->category) > targetComb->hp) {
+						targetComb->hp = targetHorde->getMaxHP(targetZom->category);
 					}
 					patientCount++;
 				}

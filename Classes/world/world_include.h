@@ -10,7 +10,7 @@
 #include "component/pooled/HordeStatusComp.h"
 #include "component/pooled/CombatComp.h"
 #include "component/basic/HealComp.h"
-#include "component/basic/SeperationComp.h"
+#include "component/basic/SeparationComp.h"
 #include "component/basic/FollowingComp.h"
 #include "component/pooled/WanderingComp.h"
 #include "component/pooled/ActionFlagComp.h"

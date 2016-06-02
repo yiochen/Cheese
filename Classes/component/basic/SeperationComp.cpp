@@ -1,7 +1,7 @@
-#include "SeperationComp.h"
+#include "SeparationComp.h"
 #include "component/pooled/KineticComp.h"
 #include <cmath> 
-SeperationComp::SeperationComp() {
+SeparationComp::SeparationComp() {
     
 }
 void rotateTo(Vec2& vec, float angle) {
@@ -9,7 +9,7 @@ void rotateTo(Vec2& vec, float angle) {
 	vec.set(cos(angle), sin(angle));
 	vec.scale(length);
 }
-void SeperationComp::seperate(Entity* entity, Vec2 target, float delta) {
+void SeparationComp::separate(Entity* entity, Vec2 target, float delta) {
 	KineticComp* kinetic = (KineticComp*)entity->components[COMP_CA::KINETIC_COMP];
 	if (kinetic) {
 		Vec2 dis(kinetic->pos);

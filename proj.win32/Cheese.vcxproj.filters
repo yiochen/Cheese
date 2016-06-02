@@ -258,6 +258,9 @@
     <ClCompile Include="..\Classes\util\WaveFactory.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\ZombieStatHelper.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -361,9 +364,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\runner\ZombieTallyRunner.h">
       <Filter>src\runner</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\component\basic\SeperationComp.h">
-      <Filter>src\component\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\component\basic\FollowingComp.h">
       <Filter>src\component\basic</Filter>
@@ -496,6 +496,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\entity\zombie\ZombieCatalog.h">
       <Filter>src\entity\zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\ZombieStatHelper.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\component\basic\SeparationComp.h">
+      <Filter>src\component\basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

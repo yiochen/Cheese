@@ -3,7 +3,7 @@
 
 #include "component/pooled/KineticComp.h"
 #include "component/basic/ChasingComp.h"
-#include "component/basic/SeperationComp.h"
+#include "component/basic/SeparationComp.h"
 #include "component/basic/FollowingComp.h"
 #include "component/pooled/HordeStatusComp.h"
 
@@ -39,17 +39,18 @@ void ZombieFollowRunner::update(Zombie* zombie, float delta) {
 		if (chasingComp) {
 			chasingComp->chase(zombie, player, delta);
 		}
-		SeperationComp* seperationComp = (SeperationComp*)zombie->components[COMP_CA::SEPERATION_COMP];
+		SeparationComp* separationComp = (SeparationComp*)zombie->components[COMP_CA::SEPARATION_COMP];
 		HordeStatusComp* hordeStatus = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
-		if (seperationComp && hordeStatus) {
+		if (separationComp && hordeStatus) {
 			
-			//seperate from the average point
+			//separate from the average point
 			//if the target is really close to the entity's position. Just choose a random direction for speration. 
 			Vec2 center(hordeStatus->sumPos);
+			
 			if (hordeStatus->total > 1) {
-				//do seperation only when the population is greater than 1
+				//do separation only when the population is greater than 1
 				center.scale(1.0f / (float)(hordeStatus->total));
-				seperationComp->seperate(zombie, center, delta);
+				separationComp->separate(zombie, center, delta);
 			}
 			
 		}

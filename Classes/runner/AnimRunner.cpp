@@ -50,7 +50,7 @@ void AnimRunner::update(float delta) {
 			if (entity->player) {
 				HordeStatusComp* hordeStatus = static_cast<HordeStatusComp*>(entity->player->components[COMP_CA::HORDE_STATUS_COMP]);
 				hordeStatus->total--;
-				hordeStatus->zombieCounts[entity->catagory]--;
+				hordeStatus->zombieCounts[entity->category]--;
 			}
 			CCLOG("deleting zombie");
 			if (entity->player != world->swiss) {

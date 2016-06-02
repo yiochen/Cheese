@@ -11,7 +11,7 @@ USING_NS_CC;
 class Zombie:public Entity {
 public:
 	Player* player;
-	ZOMBIE_CA catagory;
+	ZOMBIE_CA category;
 	void init() override;
     Zombie();
 	~Zombie();

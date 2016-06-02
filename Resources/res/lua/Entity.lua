@@ -18,7 +18,7 @@ Entity:addMembers({
     MeleeAttackComp=false,
     RangeAttackComp=false,
     RecruitComp=false,
-    SeperationComp=false,
+    SeparationComp=false,
     
     --pooled
     ActionFlagComp=false,

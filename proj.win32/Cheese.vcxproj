@@ -209,6 +209,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\util\ItemHelper.cpp" />
     <ClCompile Include="..\Classes\util\WaveFactory.cpp" />
     <ClCompile Include="..\Classes\util\ZombieSpawningPool.cpp" />
+    <ClCompile Include="..\Classes\util\ZombieStatHelper.cpp" />
     <ClCompile Include="..\Classes\world\Config.cpp" />
     <ClCompile Include="..\Classes\world\World.cpp" />
     <ClCompile Include="..\Classes\world\WorldHelper.cpp" />
@@ -226,7 +227,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\component\basic\MeleeAttackComp.h" />
     <ClInclude Include="..\Classes\component\basic\RangeAttackComp.h" />
     <ClInclude Include="..\Classes\component\basic\RecruitComp.h" />
-    <ClInclude Include="..\Classes\component\basic\SeperationComp.h" />
+    <ClInclude Include="..\Classes\component\basic\SeparationComp.h" />
     <ClInclude Include="..\Classes\component\CompHeader.h" />
     <ClInclude Include="..\Classes\component\Component.h" />
     <ClInclude Include="..\Classes\component\ComponentCatalog.h" />
@@ -288,6 +289,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\util\ItemHelper.h" />
     <ClInclude Include="..\Classes\util\WaveFactory.h" />
     <ClInclude Include="..\Classes\util\ZombieSpawningPool.h" />
+    <ClInclude Include="..\Classes\util\ZombieStatHelper.h" />
     <ClInclude Include="..\Classes\world\Config.h" />
     <ClInclude Include="..\Classes\world\GameMode.h" />
     <ClInclude Include="..\Classes\world\World.h" />

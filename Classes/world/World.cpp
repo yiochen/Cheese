@@ -104,7 +104,7 @@ World* World::initPools() {
 World* World::initCommonComps() {
 	this->commonComps[COMP_CA::KEYBOARD_COMP] = new KeyboardComp();
 	this->commonComps[COMP_CA::CHASING_COMP] = new ChasingComp();
-	this->commonComps[COMP_CA::SEPERATION_COMP] = new SeperationComp();
+	this->commonComps[COMP_CA::SEPARATION_COMP] = new SeparationComp();
 	this->commonComps[COMP_CA::FOLLOWING_COMP] = new FollowingComp();
 	this->commonComps[COMP_CA::MELEE_ATTACK_COMP] = new MeleeAttackComp();
 	this->commonComps[COMP_CA::RECRUIT_COMP] = new RecruitComp();

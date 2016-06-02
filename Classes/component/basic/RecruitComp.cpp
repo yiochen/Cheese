@@ -9,7 +9,7 @@ void RecruitComp::brainwash(Player* self, Zombie* target) {
 	//update the hordestatus
 	auto hordeStatus = (HordeStatusComp*)self->components[COMP_CA::HORDE_STATUS_COMP];
 	if (hordeStatus) {
-		hordeStatus->zombieCounts[target->catagory]++;
+		hordeStatus->zombieCounts[target->category]++;
 		hordeStatus->total++;
 	}
 	target->alliance = self->alliance;

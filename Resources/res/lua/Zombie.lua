@@ -64,7 +64,7 @@ function Zombie:new(player, category)
   end
   self:addComp(
     "ChasingComp",
-    "SeperationComp",
+    "SeparationComp",
     "FollowingComp"
   )
   if (category==ZOMBIE_CA.STINKIE)
@@ -112,4 +112,5 @@ function Zombie:createHolyBone()
   self:addComp("HealComp")
 end
 
+print(zStatByLevel(1,0).hp)
 
