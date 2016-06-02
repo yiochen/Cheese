@@ -359,9 +359,6 @@
     <ClInclude Include="..\Classes\component\pooled\HordeStatusComp.h">
       <Filter>src\component\pooled</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\entity\zombie\ZombieCatelog.h">
-      <Filter>src\entity\zombie</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\runner\ZombieTallyRunner.h">
       <Filter>src\runner</Filter>
     </ClInclude>
@@ -493,6 +490,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\WaveFactory.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\world\GameMode.h">
+      <Filter>src\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entity\zombie\ZombieCatalog.h">
+      <Filter>src\entity\zombie</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

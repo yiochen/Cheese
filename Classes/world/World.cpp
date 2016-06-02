@@ -5,6 +5,7 @@
 #include "world_include.h"
 #include "common_include.h"
 #include "util/EntityFactory.h"
+#include "util/WaveFactory.h"
 #include "util/AttachmentFactory.h"
 #include "world/Config.h"
 #include "world/WorldHelper.h"
@@ -114,13 +115,13 @@ World* World::initCommonComps() {
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
 World* World::initPlayers() {
 	
-	this->swiss = EntityFactory::createPlayer(false, false,0);
+	//this->swiss = EntityFactory::createPlayer(false, false,0);
 	//create attachment example below
 	//AttachmentFactory::createHealAtt(swiss);
 	//AttachmentFactory::createExplodeAtt(swiss);
 	//AttachmentFactory::createExplodeAtt(swiss);
 	//AttachmentFactory::createTargetAtt(swiss);
-
+	WaveFactory::loadWave(GAME_MODE::ENDLESS, 2);
 	//create Item as followed
 	if (Config::instance()->debug_mode) {
 		EntityFactory::createPickUp(ITEM_CA::ITEM_ATTACK, Vec2(50, 50));

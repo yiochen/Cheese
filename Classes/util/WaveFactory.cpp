@@ -9,10 +9,10 @@ void WaveFactory::loadWave(GAME_MODE mode, int waveIndex) {
 	for (int i = 0; i < pTotal; i++) {
 		LuaTable playerTable = playerList.Get<LuaTable>(i);
 		Player* player = EntityFactory::playerFromLua(playerTable);
-		LuaTable zombieTable = playerTable.Get<LuaTable>("zombieList");
-		int zTotal = zombieTable.Get<int>("count");
+		LuaTable zombieList = playerTable.Get<LuaTable>("zombieList");
+		int zTotal = zombieList.Get<int>("count");
 		for (int j = 0; j < zTotal; j++) {
-			LuaTable zombieTable = playerList.Get<LuaTable>(j);
+			LuaTable zombieTable = zombieList.Get<LuaTable>(j);
 			EntityFactory::zombieFromLua(player,zombieTable);
 		}
 	}

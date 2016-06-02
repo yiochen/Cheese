@@ -216,6 +216,7 @@ Zombie* EntityFactory::zombieFromLua(Player* player, LuaTable& luaTable) {
 	initEntity(zombie, luaTable);
 	world->zombieList.push_back(zombie);
 	CCLOG("finish creating zombie---------------------");
+	return zombie;
 }
 
 Zombie* EntityFactory::createZombie(Player* player,LuaFunction<LuaTable()>& luaFunc) {
