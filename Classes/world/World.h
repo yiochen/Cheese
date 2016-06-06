@@ -62,9 +62,11 @@ public:
 	std::unordered_map<COMP_CA, void *> compPools;
 	Player* swiss;
     /**
-	*	get called at the start of each level to initialize the world
+	*	get called at the start of the game to initialize the world
 	*/
 	World* initWorld(Node* backgroundLayer, Node* actionLayer, Node* hudNode);
+	/**Get called at each level to initialize the game world*/
+	World* initWorldData();
 	World* initSpriteCache();
 	Node* getBackgroundNode() { return backgroundNode; }
 	Node* getActionNode() { return actionNode; }
@@ -78,4 +80,5 @@ public:
 	ObjectPool<T> *getCompPool(COMP_CA typeEnum) {return static_cast<ObjectPool<T>*>(this->compPools[typeEnum]);}
 	void update(float delta);
 	void destroy();
+	void destroyData();
 };

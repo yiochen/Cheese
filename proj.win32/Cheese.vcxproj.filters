@@ -261,6 +261,9 @@
     <ClCompile Include="..\Classes\util\ZombieStatHelper.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\world\GameController.cpp">
+      <Filter>src\world</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -502,6 +505,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\component\basic\SeparationComp.h">
       <Filter>src\component\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\world\GameController.h">
+      <Filter>src\world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

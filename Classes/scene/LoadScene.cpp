@@ -16,7 +16,7 @@ using namespace CocosDenshion;
 Scene* LoadScene::createScene() {
 	auto scene = Scene::create();
 	auto layer = LoadScene::create();
-	scene->addChild(layer);
+	scene->addChild(layer); 
 	return scene;
 }
 
@@ -26,6 +26,7 @@ bool LoadScene::init() {
 	}
 	auto rootNode = CSLoader::createNode("LoadScene.csb");
 	addChild(rootNode);
+	
 	this->scheduleOnce(schedule_selector(LoadScene::preload), 0.5f);
 }
 

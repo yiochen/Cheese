@@ -2,6 +2,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "world/World.h"
+#include "world/GameController.h"
 #include "Debug.h"
 #include "scene/ArmyTabScene.h"
 #include "scene/HelpScene.h"
@@ -60,8 +61,11 @@ bool GameScene::init()
 	config->WORLD_HEIGHT = this->getContentSize().height;
 	config->WORLD_WIDTH = this->getContentSize().width;
 	CCLOG("the size of the world is %f,%f", config->WORLD_WIDTH, config->WORLD_HEIGHT);
+	
 	World * world = World::instance();
+	GameController* gameController = GameController::instance();
 	world->initWorld(backgroundLayer,actionLayer, hudLayer);
+	gameController->startGame(GAME_MODE::ENDLESS, 0);
 	//test lua
 	//TODO:to be deleted
 	
@@ -93,6 +97,8 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event) {
 }
 void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 	auto world = World::instance();
+	cocos2d::Scene* helpTab = nullptr;
+	cocos2d::Scene* armyTab = nullptr;
 	switch (keyCode) {
 		case EventKeyboard::KeyCode::KEY_UP_ARROW:
 			world->keyStatus[GameKey::UP] = false;
@@ -106,25 +112,24 @@ void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 		case EventKeyboard::KeyCode::KEY_RIGHT_ARROW: 
 			world->keyStatus[GameKey::RIGHT] = false;
 			break;
-		case EventKeyboard::KeyCode::KEY_H: {
-			auto helpTab = HelpScene::createScene();
+		case EventKeyboard::KeyCode::KEY_H: 
+			helpTab = HelpScene::createScene();
 			Director::getInstance()->pushScene((Scene*)helpTab);
 			break;
-		}
-		case EventKeyboard::KeyCode::KEY_U: {
-			auto armyTab = ArmyTabScene::createScene();
+		case EventKeyboard::KeyCode::KEY_U:
+			armyTab = ArmyTabScene::createScene();
 			Director::getInstance()->pushScene((Scene*)armyTab);
 			break;
-		}
-		case EventKeyboard::KeyCode::KEY_C: {
+		case EventKeyboard::KeyCode::KEY_C:
 			//cheat key, kill a zombe from the zombie list 
 			cheat_system::killOneZombie();
 			break;
-		}
-		case EventKeyboard::KeyCode::KEY_L: {
+		case EventKeyboard::KeyCode::KEY_L:
 			cheat_system::launchBullet();
 			break;
-		}
+		case EventKeyboard::KeyCode::KEY_Q:
+			GameController::instance()->quitGame();
+			break;
 	}
 }
 
@@ -152,18 +157,25 @@ void GameScene::exitBtnTouchEvent(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 
 
 void GameScene::update(float delta) {
-	//TODO: for some reason, this is not called
-	World* world = World::instance();
-	if (world) {
-		world->update(delta);
-		if (world->destroyFlag) {
-			world->destroy();
-			world->destroyFlag = false;
+	GameController* gameController = GameController::instance();
+	if (gameController) {
+		if (gameController->quitFlag) {
+
 			auto gameOverScene = GameOverScene::createScene();
-			
 			Director::getInstance()->replaceScene(gameOverScene);
-			
 		}
+		else {
+			gameController->update(delta);
+
+		}
+		
+		
 	}
 
+}
+
+void GameScene::onExit() {
+	CCLOG("Exiting Game scene");
+	GameController::instance()->destroy();
+	
 }

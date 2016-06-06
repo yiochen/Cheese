@@ -29,33 +29,33 @@ World::World() {
 	}
 	destroyFlag = false;
 }
-
+World* World::initWorldData() {
+	swiss = NULL;
+	score = 0;
+	initPlayers();
+	if (!Config::instance()->debug_mode) {//if debug mode is turned off
+		spawningPool = new ZombieSpawningPool();
+		if (spawningPool) spawningPool->init();
+	}
+	destroyFlag = false;
+	return this;
+}
 //init world init game for a certain level
 World* World::initWorld(Node* backgroundLayer, Node* actionLayer, Node* HUDnode) {
 	this->backgroundNode = backgroundLayer;
 	this->actionNode = actionLayer;
 	this->hudNode = HUDnode;
-	swiss = NULL;
-	score = 0;
 	CCLOG("Created the world");
 	//initialize the Pools
 	initSpriteCache();
 	//initialize all the game objects/entities
 	initCommonComps();
 	initPools();
-	initPlayers();
 	//initialize all the entity runners
 	
 	initRunners();
 	infoPanel = new InformationPanel();
 
-	if (!Config::instance()->debug_mode) {//if debug mode is turned off
-		spawningPool = new ZombieSpawningPool();
-		if (spawningPool) spawningPool->init();
-	}
-
-	destroyFlag = false;
-	
 	return this;
 }
 World* World::initSpriteCache() {
@@ -156,6 +156,30 @@ World* World::initRunners() {
 	
 	return this;
 }
+void World::destroyData() {
+	auto playerIt = playerList.begin();
+	while (playerIt != playerList.end()) {
+		playerPool->Delete(*playerIt);
+		playerIt = playerList.erase(playerIt);
+	}
+
+	this->playerList.clear();
+	this->swiss = nullptr;
+
+	auto zombieIt = zombieList.begin();
+	while (zombieIt != zombieList.end()) {
+		zombiePool->Delete(*zombieIt);
+		zombieIt = zombieList.erase(zombieIt);
+	}
+	this->zombieList.clear();
+	//itemList
+	auto itemIt = itemList.begin();
+	while (itemIt != itemList.end()) {
+		itemPool->Delete(*itemIt);
+		itemIt = itemList.erase(itemIt);
+	}
+	this->itemList.clear();
+}
 void World::destroy() {
 	//delete all object
 	//if an object is from a pool, use pool.Delete(object);
@@ -167,42 +191,18 @@ void World::destroy() {
 		runnerIt = runnerList.erase(runnerIt);
 		//call the destructor of the EntityRunner
 	}
-
-	//player, zombie and item are from ObjectPool, return them to the pool and destroy the pool
-	/*playerPool = new ObjectPool<Player>();
-	zombiePool = new ObjectPool<Zombie>();
-	itemPool = new ObjectPool<Item>();
-	attachmentPool = new ObjectPool<Attachment>();*/
-	auto playerIt = playerList.begin();
-	while (playerIt != playerList.end()) {
-		playerPool->Delete(*playerIt);
-		playerIt = playerList.erase(playerIt);
-	}
-	/*while (playerList.size() > 0) {
-	Player* player = this->playerList.back();
-	playerPool->Delete(player);
-	this->playerList.pop_back();
-	}*/
+	destroyData();
+	
 	//delete the PlayerPool tool
 	delete this->playerPool;
 	this->playerList.clear();
 	this->swiss = nullptr;
 
-	auto zombieIt = zombieList.begin();
-	while (zombieIt != zombieList.end()) {
-		zombiePool->Delete(*zombieIt);
-		zombieIt = zombieList.erase(zombieIt);
-	}
+	
 	delete this->zombiePool;
-	this->zombieList.clear();
-	//itemList
-	auto itemIt = itemList.begin();
-	while (itemIt != itemList.end()) {
-		itemPool->Delete(*itemIt);
-		itemIt = itemList.erase(itemIt);
-	}
+	
 	delete this->itemPool;
-	this->itemList.clear();
+	
 	//remove attachment pool
 	delete this->attachmentPool;
 
@@ -233,6 +233,7 @@ void World::destroy() {
 	textureManager = NULL;
 	spawningPool = NULL;
 	attachmentPool = NULL;
+	World::s_instance = NULL;
 }
 
 World::~World() {
