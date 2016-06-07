@@ -50,7 +50,8 @@ bool ArmyTabScene::init()
 
 	//text labels
 	World* world = World::instance();
-	HordeStatusComp* hordeStatusComp = (HordeStatusComp*)world->swiss->components[COMP_CA::HORDE_STATUS_COMP];
+	Player* swiss = world->gamerList.front();
+	HordeStatusComp* hordeStatusComp = (HordeStatusComp*)swiss->components[COMP_CA::HORDE_STATUS_COMP];
 	(rootNode->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentHealth"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_HP]));
 	(rootNode->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttack"))->setString(std::to_string((int)hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACK]));
 	(rootNode->getChildByName("StatStinkies")->getChildByName("StatPanel")->getChildByName<cocos2d::ui::Text*>("currentAttackSpeed"))->setString((std::to_string(hordeStatusComp->zombieStat[ZOMBIE_STAT_CA::STINKIE_ATTACKSPEED])).substr(0,3));
@@ -152,7 +153,7 @@ void ArmyTabScene::HolyBoneAttackSpeed(Ref *sender, cocos2d::ui::Widget::TouchEv
 void ArmyTabScene::StatBtnTouchEvent( ZOMBIE_STAT_CA a,cocos2d::Node* root) {
 	// stats 1/2/3/4   helth/attack/attackspeed/range/       in healer zombie case, attack = heal, atksped = heal speed
 		World* world = World::instance();
-		HordeStatusComp* hordeStatusComp = (HordeStatusComp*)world->swiss->components[COMP_CA::HORDE_STATUS_COMP];
+		HordeStatusComp* hordeStatusComp = (HordeStatusComp*)world->gamerList.front()->components[COMP_CA::HORDE_STATUS_COMP];
 		if (hordeStatusComp->pointsRemaining > 0) {
 			if (a == ZOMBIE_STAT_CA::CHUCKER_HP || a == ZOMBIE_STAT_CA::STINKIE_HP || a == ZOMBIE_STAT_CA::HOLY_BONE_HP) {
 				hordeStatusComp->zombieStat[a] += 3;

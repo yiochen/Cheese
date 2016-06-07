@@ -53,11 +53,11 @@ void AnimRunner::update(float delta) {
 				hordeStatus->zombieCounts[entity->category]--;
 			}
 			CCLOG("deleting zombie");
-			if (entity->player != world->swiss) {
+			/*if (entity->player != world->swiss) {
 				world->score += 2;
 				PointComp* point = static_cast<PointComp*>(entity->player->components[COMP_CA::POINT_COMP]);
 				point->add(entity->player,2);
-			}
+			}*/
 
 			zombieIt = world->zombieList.erase(zombieIt);
 			world->getZombiePool()->Delete((Zombie*)entity);

@@ -13,7 +13,7 @@ public:
 	CREATE_FUNC(GameScene);
 
 	void update(float) override;
-	void onExit() override;
+	void cleanup() override;
 	
 private:
 	void onKeyPressed(EventKeyboard::KeyCode keyCode, Event *event);

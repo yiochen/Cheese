@@ -1,6 +1,6 @@
 #include "WaveFactory.h"
 #include "EntityFactory.h"
-void WaveFactory::loadWave(GAME_MODE mode, int waveIndex) {
+void WaveFactory::loadWave(GAME_MODE mode, int level, int waveIndex) {
 	World* world =World::instance();
 	LuaDevice* lua = LuaDevice::instance();
 	LuaTable waveTable=lua->global().Get<LuaFunction<LuaTable(int)>>("getWave").Invoke(waveIndex);

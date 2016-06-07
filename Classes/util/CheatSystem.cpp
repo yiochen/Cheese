@@ -25,7 +25,7 @@ void cheat_system::killOneZombie() {
 void cheat_system::launchBullet() {
 	CCLOG("creating bullet");
 	World* world = World::instance();
-	Player* player = world->swiss;
+	Player* player = world->gamerList.front();
 	if (player) {
 		//create a bullet
 		//create a bullet aiming at 10,10

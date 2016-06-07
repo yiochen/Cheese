@@ -15,7 +15,7 @@ void KineticComp::step(Entity* entity, float delta) {
 		Vec2 increment(vel);
 		increment.scale(delta);
 		pos.add(increment);
-		//CCLOG("Swiss position %f", pos.length());
+		
 		if (entity->sprite) entity->sprite->setPosition(pos);
 	
 	}

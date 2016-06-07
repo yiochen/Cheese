@@ -11,26 +11,33 @@ KeyboardRunner::KeyboardRunner() {
 
 void KeyboardRunner::update(float delta) {
 	
-	//I know that only Swiss will be affected by keyboard input directly, so I just get Swiss
-	auto keyStatus = World::instance()->keyStatus;
-	auto swiss=World::instance()->swiss;
-	if (!swiss) return;
-	KeyboardComp* keyboardComp =(KeyboardComp*)(swiss->components[COMP_CA::KEYBOARD_COMP]);
-	KineticComp* kineticComp = (KineticComp*)(swiss->components[COMP_CA::KINETIC_COMP]);
-	if (keyboardComp != NULL) {
-		auto keyIt = keyStatus.begin();
-		while (keyIt != keyStatus.end() && !(bool)(*keyIt)) {
-			keyIt++;
+	World* world = World::instance();
+
+	
+	auto keyStatus = world->keyStatus;
+
+	auto gamerIt = world->gamerList.begin();
+	while (gamerIt != world->gamerList.end()) {
+		Player* gamer = (Player*)(*gamerIt);
+		KeyboardComp* keyboardComp = (KeyboardComp*)(gamer->components[COMP_CA::KEYBOARD_COMP]);
+		KineticComp* kineticComp = (KineticComp*)(gamer->components[COMP_CA::KINETIC_COMP]);
+		if (keyboardComp != NULL) {
+			auto keyIt = keyStatus.begin();
+			while (keyIt != keyStatus.end() && !(bool)(*keyIt)) {
+				keyIt++;
+			}
+
+			if (keyIt != keyStatus.end() && (bool)(*keyIt)) keyboardComp->changeVel(gamer);
+			else if (!kineticComp->resting) {
+				keyboardComp->resetVel(gamer);
+				CCLOG("velocity is reset, Swiss is resting");
+			}
+
 		}
-		
-		if (keyIt != keyStatus.end() && (bool)(*keyIt)) keyboardComp->changeVel(swiss);
-		else if (!kineticComp->resting) {
-			keyboardComp->resetVel(swiss);
-			CCLOG("velocity is reset, Swiss is resting");
+		else {
+			CCLOG("keyboardComp doesn't exist, cannot control the player");
 		}
-			
+		gamerIt++;
 	}
-	else {
-		CCLOG("keyboardComp doesn't exist, cannot control the player");
-	}
+	
 }

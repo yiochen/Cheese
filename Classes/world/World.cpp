@@ -9,6 +9,8 @@
 #include "util/AttachmentFactory.h"
 #include "world/Config.h"
 #include "world/WorldHelper.h"
+#include "world/GameMode.h"
+
 USING_NS_CC;
 
 
@@ -29,10 +31,16 @@ World::World() {
 	}
 	destroyFlag = false;
 }
-World* World::initWorldData() {
-	swiss = NULL;
+World* World::initWorldData(GAME_MODE mode, int level) {
+	
 	score = 0;
-	initPlayers();
+	//initPlayers();
+	//create Item as followed
+	if (Config::instance()->debug_mode) {
+		EntityFactory::createPickUp(ITEM_CA::ITEM_ATTACK, Vec2(50, 50));
+		EntityFactory::createPickUp(ITEM_CA::ITEM_SPEED, Vec2(200, 50));
+		EntityFactory::createPickUp(ITEM_CA::ITEM_INVIN, Vec2(300, 50));
+	}
 	if (!Config::instance()->debug_mode) {//if debug mode is turned off
 		spawningPool = new ZombieSpawningPool();
 		if (spawningPool) spawningPool->init();
@@ -115,14 +123,6 @@ World* World::initCommonComps() {
 /*TODO This function is to be refactor into another file. The world class is getting too fat. It's better to have a helper class that specializes in creating all kinds of players and zombies*/
 World* World::initPlayers() {
 	
-	//this->swiss = EntityFactory::createPlayer(false, false,0);
-	//create attachment example below
-	//AttachmentFactory::createHealAtt(swiss);
-	//AttachmentFactory::createExplodeAtt(swiss);
-	//AttachmentFactory::createExplodeAtt(swiss);
-	//AttachmentFactory::createTargetAtt(swiss);
-	WaveFactory::loadWave(GAME_MODE::ENDLESS, 2);
-	//create Item as followed
 	if (Config::instance()->debug_mode) {
 		EntityFactory::createPickUp(ITEM_CA::ITEM_ATTACK, Vec2(50, 50));
 		EntityFactory::createPickUp(ITEM_CA::ITEM_SPEED, Vec2(200, 50));
@@ -164,7 +164,8 @@ void World::destroyData() {
 	}
 
 	this->playerList.clear();
-	this->swiss = nullptr;
+	
+	this->gamerList.clear();
 
 	auto zombieIt = zombieList.begin();
 	while (zombieIt != zombieList.end()) {
@@ -195,9 +196,6 @@ void World::destroy() {
 	
 	//delete the PlayerPool tool
 	delete this->playerPool;
-	this->playerList.clear();
-	this->swiss = nullptr;
-
 	
 	delete this->zombiePool;
 	

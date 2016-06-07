@@ -5,5 +5,5 @@
 #include "luacppinterface.h"
 
 namespace WaveFactory {
-	void loadWave(GAME_MODE mode, int waveIndex);
+	void loadWave(GAME_MODE mode, int level, int waveIndex);
 }

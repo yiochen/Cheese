@@ -16,6 +16,7 @@
 #include <unordered_map>
 #include "entity/attachment/Attachment.h"
 #include "util/InformationPanel.h"
+#include "world/GameMode.h"
 USING_NS_CC;
 //World is a singleton class
 #define GET_WORLD World::instance()
@@ -53,6 +54,7 @@ public:
 	ZombieSpawningPool* spawningPool;
 
 	std::list<Player*> playerList;
+	std::list<Player*> gamerList;//gamers are players controlled by game players;
 	std::list<Zombie*> zombieList;
 	std::list<Item*> itemList;
 	std::list<EntityRunner*> runnerList;
@@ -60,13 +62,13 @@ public:
 	std::vector<bool> keyStatus;
 	//compPools contains all the component pool for managing PooledComponets.
 	std::unordered_map<COMP_CA, void *> compPools;
-	Player* swiss;
+	
     /**
 	*	get called at the start of the game to initialize the world
 	*/
 	World* initWorld(Node* backgroundLayer, Node* actionLayer, Node* hudNode);
 	/**Get called at each level to initialize the game world*/
-	World* initWorldData();
+	World* initWorldData(GAME_MODE mode, int level);
 	World* initSpriteCache();
 	Node* getBackgroundNode() { return backgroundNode; }
 	Node* getActionNode() { return actionNode; }

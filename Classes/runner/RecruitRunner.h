@@ -2,7 +2,7 @@
 #include "EntityRunner.h"
 #include "entity/Entity.h"
 #include "entity/zombie/Zombie.h"
-/*This is for player(swiss) to recruit zombies)*/
+/*This is for player to recruit zombies)*/
 class RecruitRunner: public EntityRunner {
 public:
     RecruitRunner();

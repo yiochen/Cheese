@@ -21,10 +21,7 @@ Entity::~Entity() {
 	sprite = NULL;
 	alliance = 0;
 	World* world = World::instance();
-	if (this == world->swiss) {
-		world->swiss = NULL;
-		world->destroyFlag = true;
-	}
+	
 }
 
 void Entity::cleanup() {

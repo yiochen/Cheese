@@ -196,6 +196,9 @@ Player* EntityFactory::playerFromLua(LuaTable& luaTable){
 	initEntity(player, luaTable);
 	zombie_stat_helper::getZombieStatsFromLua(player);
 	//add player to the world
+	if (luaTable.Get<bool>("isHuman")) {
+		world->gamerList.push_back(player);
+	}
 	world->playerList.push_back(player);
 	AttachmentFactory::createSpawnAtt(player);
 	//player->tint(Color3B::MAGENTA);//test, tint all the player to magenta, TODO::remove it. read from lua.

@@ -20,16 +20,7 @@ void Player::init() {
 	World::instance()->getActionNode()->addChild(this->sprite);
 	CCLOG("added player to world");
 	alliance = 0;
-	/*
-	TextureManager* textureManager = World::instance()->getTextureManager();
-	auto frames = textureManager->getAnimation("swiss", "WALK_FORTH");
-	this->sprite = Sprite::createWithSpriteFrame(frames.front());
-	World::instance()->getActionNode()->addChild(sprite);
-	auto animation = Animation::createWithSpriteFrames(frames, 1.0f / 8);
-	this->sprite->setPosition(Point(0, 0));
-	this->sprite->runAction(RepeatForever::create(Animate::create(animation)));
-	*/
-	//add components
+	
 	
 }
 

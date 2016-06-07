@@ -4,12 +4,11 @@
 
 #include "world/World.h"
 #include "world/world_include.h"
-
+#include "world/GameMode.h"
 class GameController {
 private:
 	GameController();
 	static GameController* s_instance;
-	
 	float timer;
 public:
 	static GameController* instance() {
@@ -20,11 +19,16 @@ public:
 		return s_instance;
 	}
 	bool quitFlag;
+	GAME_MODE mode;
+	int level;
+	int wave;
 	void init();
 	float getTime() { return timer; }
 	void resetTimer() { timer = 0.9f; }
 	void incTimer(float diff) { timer += diff; }
 	void startGame(GAME_MODE mode, int level);
+	void nextWave();
+	
 	void quitGame();
 	void update(float dt);
 	void destroy();

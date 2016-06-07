@@ -15,13 +15,12 @@ void EscapeRunner::update(float delta) {
 }
 void EscapeRunner::updateEntity(Player* player, float delta) {
 	World* world = World::instance();
-	if (player && world->swiss) {
+	if (player) {
 		
 		HordeStatusComp* horde = (HordeStatusComp*)player->components[COMP_CA::HORDE_STATUS_COMP];
-		HordeStatusComp* swissHorde = (HordeStatusComp*)world->swiss->components[COMP_CA::HORDE_STATUS_COMP];
+		
 		if (horde&& horde->total <= 0) {
 			//remove from parent
-			swissHorde->pointsRemaining++;
 			player->sprite->removeFromParentAndCleanup(true);
 			player->sprite = NULL;
 			player->marked = true;

@@ -65,6 +65,7 @@ bool GameScene::init()
 	World * world = World::instance();
 	GameController* gameController = GameController::instance();
 	world->initWorld(backgroundLayer,actionLayer, hudLayer);
+	gameController->init();
 	gameController->startGame(GAME_MODE::ENDLESS, 0);
 	//test lua
 	//TODO:to be deleted
@@ -130,6 +131,9 @@ void GameScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event *event) {
 		case EventKeyboard::KeyCode::KEY_Q:
 			GameController::instance()->quitGame();
 			break;
+		case EventKeyboard::KeyCode::KEY_N:
+			GameController::instance()->nextWave();
+			break;
 	}
 }
 
@@ -174,7 +178,8 @@ void GameScene::update(float delta) {
 
 }
 
-void GameScene::onExit() {
+void GameScene::cleanup() {
+	//this will be called even when game scene is still on the stack. 
 	CCLOG("Exiting Game scene");
 	GameController::instance()->destroy();
 	
