@@ -10,6 +10,10 @@ private:
 	GameController();
 	static GameController* s_instance;
 	float timer;
+	bool isTimerRunning;
+	float endTime;
+	bool requestingWave;
+	float nextWaveTime;
 public:
 	static GameController* instance() {
 		if (s_instance == nullptr) {
@@ -27,7 +31,7 @@ public:
 	void resetTimer() { timer = 0.9f; }
 	void incTimer(float diff) { timer += diff; }
 	void startGame(GAME_MODE mode, int level);
-	void nextWave();
+	bool nextWave();
 	
 	void quitGame();
 	void update(float dt);

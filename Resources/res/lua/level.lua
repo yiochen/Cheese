@@ -73,7 +73,7 @@ function Game:getWave(waveIndex)
     if (waveIndex==0)
     then
       wave.category=WAVE_CA.PREP
-      wave.maxTime=60 --second
+      wave.maxTime=10 --second 60
       local player=newHuman()
       player:setPos(perX(0.5), perY(0.5))
       wave:push(player)
@@ -83,7 +83,7 @@ function Game:getWave(waveIndex)
     if (waveIndex>0 and waveIndex<=3)
     then
       wave.category=WAVE_CA.NORMAL
-      wave.maxTime=60 --second
+      wave.maxTime=10 --second 60
       for i=0,waveIndex,1
       do
         local enemy=newEnemy()
@@ -102,11 +102,11 @@ function Game:getWave(waveIndex)
     if (waveIndex>=4 and waveIndex<=5)
     then
       wave.category=WAVE_CA.NORMAL
-      wave.maxTime=120
+      wave.maxTime=10 --120
       for i=0, waveIndex-1, 1
       do
         local enemy=newEnemy()
-        enemy: setPos(perX(1/(waveIndex+1)*(i+1)), perY(0.5))
+        enemy:setPos(perX(1/(waveIndex+1)*(i+1)), perY(0.5))
         for j=0,1,1
         do 
           wave:push(Zombie(enemy, ZOMBIE_CA.CHUCKER))
@@ -121,11 +121,11 @@ function Game:getWave(waveIndex)
     if (waveIndex>=6 and waveIndex<=7)
     then
       wave.category=WAVE_CA.NORMAL
-      wave.maxTime=150
+      wave.maxTime=10 --150
       for i=0, waveIndex-2,1
       do
         local enemy=newEnemy()
-        enemy:setPost(alignHor2X(i,waveIndex-1),alginHor2Y(i, waveIndex-1))
+        enemy:setPos(alignHor2X(i,waveIndex-1),alignHor2Y(i, waveIndex-1))
         for j=0,1,1
         do
           wave:push(Zombie(enemy, ZOMBIE_CA.STINKIE))
@@ -180,7 +180,9 @@ function Game:getWave(waveIndex)
   end
 end
 
---game=Game()
---game:setMode(GAME_MODE.ENDLESS)
---wave=game:getWave(1)
---print(wave)
+game=Game()
+game:setMode(GAME_MODE.ENDLESS)
+wave=game:getWave(1)
+print(wave)
+wave=game:getWave(8)
+print(wave)

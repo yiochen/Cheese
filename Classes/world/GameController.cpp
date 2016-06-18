@@ -15,23 +15,39 @@ void GameController::init() {
 	mode = GAME_MODE::ENDLESS;
 	level = 0;
 	wave = 0;
+	isTimerRunning = false;
+	endTime = 0;
+	requestingWave = false;
 }
-
+/* Start a level */
 void GameController::startGame(GAME_MODE mode, int level) {
 	World* world = World::instance();
 	world->initWorldData(mode, level);
-	wave = 0;
-	WaveFactory::loadWave(mode, level, wave);
+	this->wave = -1;
+	this->timer = 0;
+	this->requestingWave = true;
 }
-void GameController::nextWave() {
-	wave += 1;
-	WaveFactory::loadWave(mode, level, wave);
+
+bool GameController::nextWave() {
+	this->wave++;
+	float waveMaxTime = WaveFactory::loadWave(this->mode, this->level, this->wave);
+	if (waveMaxTime == 0) {
+		CCLOG("cannot load wave or got to the end of wave, mode is %d, level %d, wave %d", int(this->mode), this->level, this->wave);
+		//cannot load wave
+		this->nextWaveTime = -1;
+		return false;
+	}
+	else {
+		this->nextWaveTime = this->timer + waveMaxTime;
+		return true;
+	}
 }
 void GameController::quitGame() {
 	quitFlag = true;
 }
 
 void GameController::update(float dt) {
+	timer += dt;
 	World* world = World::instance();
 	if (world) {
 		if (world->destroyFlag) {
@@ -40,6 +56,14 @@ void GameController::update(float dt) {
 			CCLOG("next level");
 		}
 		else {
+			if (this->nextWaveTime>0 && timer > this->nextWaveTime) {
+				this->requestingWave = true;
+			}
+			if (requestingWave) {
+				this->nextWave();
+				requestingWave = false;
+			}
+
 			world->update(dt);
 		}
 	}

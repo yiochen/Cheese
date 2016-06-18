@@ -19,7 +19,6 @@ Wave=createType("Wave", Object)
 Wave:addMembers({
     category=WAVE_CA.PREP,
     maxTime=60, --by default, player should finish the wave in maximum 60 seconds. If failed, the second wave will come
-    waveStatus=WAVE_CA.NORMAL,
     playerList={count=0},
     zombieList={count=0}
   })

@@ -3,7 +3,9 @@
 #include "world/World.h"
 #include "device/LuaDevice.h"
 #include "luacppinterface.h"
-
+enum WAVE_CA {
+	PREP,NORMAL,FINAL, NONE
+};
 namespace WaveFactory {
-	void loadWave(GAME_MODE mode, int level, int waveIndex);
+	float loadWave(GAME_MODE mode, int level, int waveIndex);
 }
